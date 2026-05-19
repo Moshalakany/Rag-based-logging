@@ -1,0 +1,51 @@
+# ===== OS / File Explorer =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===== IDE / Editor =====
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# ===== .NET / Visual Studio =====
+[Bb]in/
+[Oo]bj/
+TestResults/
+*.nupkg
+*.snupkg
+.nuget/packages/
+
+# ===== ASP.NET local config =====
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Node.js / Frontend =====
+node_modules/
+dist/
+build/
+coverage/
+.npm/
+.pnpm-store/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== Environment files =====
+.env
+.env.*
+!.env.example
+!.env.sample
+

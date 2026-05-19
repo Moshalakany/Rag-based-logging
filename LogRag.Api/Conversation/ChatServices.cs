@@ -128,34 +128,25 @@ public sealed class ChatService : IChatService
         var context = _contextBuilder.BuildContext(chunks);
         var answerBuilder = new StringBuilder();
         var llmFailed = false;
+        List<string> tokens = new List<string>();
         
-        var enumerator = _llmClient.StreamAnswerAsync(request.Question, context, history, cancellationToken).GetAsyncEnumerator(cancellationToken);
         try
         {
-            while (true)
+            await foreach (var token in _llmClient.StreamAnswerAsync(request.Question, context, history, cancellationToken))
             {
-                bool hasNext;
-                try
-                {
-                    hasNext = await enumerator.MoveNextAsync();
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "LLM generation failed for session {SessionId}.", sessionId);
-                    llmFailed = true;
-                    break;
-                }
-
-                if (!hasNext) break;
-
-                var token = enumerator.Current;
+                tokens.Add(token);
                 answerBuilder.Append(token);
-                yield return new ChatStreamEvent("token", token, null);
             }
         }
-        finally
+        catch (Exception ex)
         {
-            await enumerator.DisposeAsync();
+            _logger.LogError(ex, "LLM generation failed for session {SessionId}.", sessionId);
+            llmFailed = true;
+        }
+
+        foreach (var token in tokens)
+        {
+            yield return new ChatStreamEvent("token", token, null);
         }
 
         if (llmFailed)
