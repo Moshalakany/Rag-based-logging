@@ -1,0 +1,188 @@
+.2026-05-17 13: 36: 50.147 Application Started.
+2026-05-17 13: 36: 50.191 Application running on environment 
+2026-05-17 13: 36: 50.191 Application version 2.8.0
+2026-05-17 13: 36: 50.191 === Starting sof Configuration ===
+2026-05-17 13: 36: 50.204 Pool Settings [sof SourceOfFund.Data.ApplicationDbContext]: MinPool=8, MaxPool=10 : DbContextPool=3 : ConnectTimeout=1000s, CommandTimeout=3000s : Lifetime=1000s
+2026-05-17 13: 36: 50.205 Pool Settings [sof [external : tms] SourceOfFund.Data.TMSDbContext]: MinPool=16, MaxPool=48 : DbContextPool=20 : ConnectTimeout=1000s, CommandTimeout=3000s : Lifetime=1000s
+2026-05-17 13: 36: 50.205 Pool Settings [Hangfire]: MinPool=16, MaxPool=16 : DbContextPool=7 : ConnectTimeout=1000s, CommandTimeout=3000s : Lifetime=1000s
+2026-05-17 13: 36: 50.905 No store type was specified for the decimal property '"CreditLimit"' on entity type '"AccountBalanceType"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.907 No store type was specified for the decimal property '"CreditLimit"' on entity type '"AccountServiceAvailableBalance"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.907 No store type was specified for the decimal property '"CreditLimit"' on entity type '"AccountServiceBalance"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.907 No store type was specified for the decimal property '"AvaialableBalanceAfter"' on entity type '"BalanceLog"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.907 No store type was specified for the decimal property '"AvaialableBalanceBefore"' on entity type '"BalanceLog"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.907 No store type was specified for the decimal property '"BalanceAfter"' on entity type '"BalanceLog"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.907 No store type was specified for the decimal property '"BalanceBefore"' on entity type '"BalanceLog"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.907 No store type was specified for the decimal property '"Commission"' on entity type '"BalanceLog"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.908 No store type was specified for the decimal property '"Amount"' on entity type '"HoldBalanceHistory"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.908 No store type was specified for the decimal property '"AvailableBalanceBefore"' on entity type '"HoldBalanceHistory"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.908 No store type was specified for the decimal property '"ConfirmedAmount"' on entity type '"HoldBalanceHistory"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.908 No store type was specified for the decimal property '"CreditLimitBefore"' on entity type '"HoldBalanceHistory"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 50.908 No store type was specified for the decimal property '"Amount"' on entity type '"POSSettlement"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-17 13: 36: 51.453 Database run migration
+2026-05-17 13: 36: 51.469 Start installing Hangfire SQL objects...
+2026-05-17 13: 36: 51.751 An exception occurred while trying to perform the migration. Retrying...
+Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'Job' in the database.
+Installing Hangfire SQL objects...
+Database schema [HangFire] already exists
+Table [HangFire].[Schema] already exists
+Current Hangfire schema version: none
+Enabling HEAVY_MIGRATIONS, because we are installing objects from scratch
+Installing schema version 1
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) in /_/Dapper/SqlMapper.cs:line 2965
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 656
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 527
+   at Hangfire.SqlServer.SqlServerObjectsInstaller.Install(DbConnection connection, String schema, Boolean enableHeavyMigrations) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerObjectsInstaller.cs:line 48
+   at Hangfire.SqlServer.SqlServerStorage.<>c.<Initialize>b__51_0(SqlServerStorage storage, DbConnection connection) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 455
+   at Hangfire.SqlServer.SqlServerStorage.<>c.<UseConnection>b__41_0(SqlServerStorage storage, DbConnection connection, Action`2 ctx) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 257
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[TContext,TResult](DbConnection dedicatedConnection, Func`4 func, TContext context) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 279
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`2 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 255
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 452
+ClientConnectionId:99d4c449-8a64-4610-82be-22334cd558d8
+Error Number:2714,State:6,Class:16
+2026-05-17 13: 36: 51.793 An exception occurred while trying to perform the migration. Retrying...
+Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'Job' in the database.
+Installing Hangfire SQL objects...
+Database schema [HangFire] already exists
+Table [HangFire].[Schema] already exists
+Current Hangfire schema version: none
+Enabling HEAVY_MIGRATIONS, because we are installing objects from scratch
+Installing schema version 1
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) in /_/Dapper/SqlMapper.cs:line 2965
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 656
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 527
+   at Hangfire.SqlServer.SqlServerObjectsInstaller.Install(DbConnection connection, String schema, Boolean enableHeavyMigrations) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerObjectsInstaller.cs:line 48
+   at Hangfire.SqlServer.SqlServerStorage.<>c.<Initialize>b__51_0(SqlServerStorage storage, DbConnection connection) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 455
+   at Hangfire.SqlServer.SqlServerStorage.<>c.<UseConnection>b__41_0(SqlServerStorage storage, DbConnection connection, Action`2 ctx) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 257
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[TContext,TResult](DbConnection dedicatedConnection, Func`4 func, TContext context) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 279
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`2 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 255
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 452
+ClientConnectionId:99d4c449-8a64-4610-82be-22334cd558d8
+Error Number:2714,State:6,Class:16
+2026-05-17 13: 36: 51.813 An exception occurred while trying to perform the migration.
+Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'Job' in the database.
+Installing Hangfire SQL objects...
+Database schema [HangFire] already exists
+Table [HangFire].[Schema] already exists
+Current Hangfire schema version: none
+Enabling HEAVY_MIGRATIONS, because we are installing objects from scratch
+Installing schema version 1
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) in /_/Dapper/SqlMapper.cs:line 2965
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 656
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 527
+   at Hangfire.SqlServer.SqlServerObjectsInstaller.Install(DbConnection connection, String schema, Boolean enableHeavyMigrations) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerObjectsInstaller.cs:line 48
+   at Hangfire.SqlServer.SqlServerStorage.<>c.<Initialize>b__51_0(SqlServerStorage storage, DbConnection connection) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 455
+   at Hangfire.SqlServer.SqlServerStorage.<>c.<UseConnection>b__41_0(SqlServerStorage storage, DbConnection connection, Action`2 ctx) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 257
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[TContext,TResult](DbConnection dedicatedConnection, Func`4 func, TContext context) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 279
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`2 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 255
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 452
+ClientConnectionId:99d4c449-8a64-4610-82be-22334cd558d8
+Error Number:2714,State:6,Class:16
+2026-05-17 13: 36: 51.815 Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'Job' in the database.
+Installing Hangfire SQL objects...
+Database schema [HangFire] already exists
+Table [HangFire].[Schema] already exists
+Current Hangfire schema version: none
+Enabling HEAVY_MIGRATIONS, because we are installing objects from scratch
+Installing schema version 1
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) in /_/Dapper/SqlMapper.cs:line 2965
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 656
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 527
+   at Hangfire.SqlServer.SqlServerObjectsInstaller.Install(DbConnection connection, String schema, Boolean enableHeavyMigrations) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerObjectsInstaller.cs:line 48
+   at Hangfire.SqlServer.SqlServerStorage.<>c.<Initialize>b__51_0(SqlServerStorage storage, DbConnection connection) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 455
+   at Hangfire.SqlServer.SqlServerStorage.<>c.<UseConnection>b__41_0(SqlServerStorage storage, DbConnection connection, Action`2 ctx) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 257
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[TContext,TResult](DbConnection dedicatedConnection, Func`4 func, TContext context) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 279
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`2 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 255
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 452
+ClientConnectionId:99d4c449-8a64-4610-82be-22334cd558d8
+Error Number:2714,State:6,Class:16
+2026-05-17 13: 36: 52.385 Starting Hangfire Server using job storage: 'SQL Server: 10.90.7.160@SOFHangfire'
+2026-05-17 13: 36: 52.386 Using the following options for SQL Server job storage: Queue poll interval: 00:00:05.
+2026-05-17 13: 36: 52.386 Using the following options for Hangfire Server:
+    Worker count: 16
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-05-17 13: 36: 52.432 Server sof-test-f49b5c8bf-55nb9:1:5eff9a5c successfully announced in 24.9295 ms
+2026-05-17 13: 36: 52.440 Server sof-test-f49b5c8bf-55nb9:1:5eff9a5c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-05-17 13: 36: 52.503 Server sof-test-f49b5c8bf-55nb9:1:5eff9a5c all the dispatchers started
+2026-05-17 16: 43: 35.137 Create request with Correlation_ID: 4bbff487-cba6-4931-8b85-6e9640239f75
+2026-05-17 16: 43: 36.567 Received response with Correlation_ID: 4bbff487-cba6-4931-8b85-6e9640239f75
+2026-05-17 16: 59: 04.118 Create request with Correlation_ID: 4afcc345-709b-4ae6-b016-6d18184f8b69
+2026-05-17 16: 59: 04.187 Received response with Correlation_ID: 4afcc345-709b-4ae6-b016-6d18184f8b69
+
+2026-05-18 04: 00: 03.849 {"LogDate":"2026-05-18","LogTime":"04:00:03.831","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission]","ExtraData":null,"CorrelationId":""}
+2026-05-18 04: 00: 03.867 {"LogDate":"2026-05-18","LogTime":"04:00:03.866","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[DisableServices]","ExtraData":null,"CorrelationId":""}
+2026-05-18 04: 00: 04.272 [Start-Commission-DisableServices] - Disabled 284 services
+2026-05-18 04: 00: 04.272 {"LogDate":"2026-05-18","LogTime":"04:00:04.272","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[DisableLogin]","ExtraData":null,"CorrelationId":""}
+2026-05-18 04: 00: 04.273 [Start-Commission-DisableLogin] - Login username: 
+2026-05-18 04: 00: 04.273 {"LogDate":"2026-05-18","LogTime":"04:00:04.273","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Sleep one minute]","ExtraData":null,"CorrelationId":""}
+2026-05-18 04: 01: 04.295 {"LogDate":"2026-05-18","LogTime":"04:01:04.295","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - Start Set Request And ransactions in db","ExtraData":null,"CorrelationId":""}
+2026-05-18 04: 01: 04.295 {"LogDate":"2026-05-18","LogTime":"04:01:04.295","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - number of days to take -1","ExtraData":null,"CorrelationId":""}
+2026-05-18 04: 01: 04.736 {"LogDate":"2026-05-18","LogTime":"04:01:04.732","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - End and the returned transactions count: 0, request id: 0","ExtraData":[{"Key":"AccountId","Value":"26456"}],"CorrelationId":""}
+2026-05-18 04: 01: 04.737 {"LogDate":"2026-05-18","LogTime":"04:01:04.737","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - SetCommissionForSourceOfFundBulk Procedure returned empty recored","ExtraData":[{"Key":"AccountId","Value":"26456"}],"CorrelationId":null}
+2026-05-18 04: 01: 04.748 {"LogDate":"2026-05-18","LogTime":"04:01:04.748","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[ErrorAddCommission]","ExtraData":null,"CorrelationId":null}
+Backend.Infrastructure.Helpers.BackendException: SetCommissionForSourceOfFundBulk Procedure returned empty recored
+   at SourceOfFund.Services.Services.CommissionService.ManageCommissions(Int32 fromAccountId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/CommissionService.cs:line 84
+   at SourceOfFund.Services.Services.CommissionService.AddCommission() in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/CommissionService.cs:line 59
+2026-05-18 04: 01: 04.774 {"LogDate":"2026-05-18","LogTime":"04:01:04.774","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[EnableLogin]","ExtraData":null,"CorrelationId":""}
+2026-05-18 04: 01: 04.777 [Start-Commission-EnableLogin] - Login username: 
+2026-05-18 04: 01: 04.777 {"LogDate":"2026-05-18","LogTime":"04:01:04.777","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[EnableServices]","ExtraData":null,"CorrelationId":""}
+2026-05-18 04: 01: 04.793 [Start-Commission-EnableServices] - Enabled 284 services
+2026-05-18 04: 01: 04.793 {"LogDate":"2026-05-18","LogTime":"04:01:04.793","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[End-Commission]","ExtraData":null,"CorrelationId":""}
+2026-05-18 10: 18: 18.822 Create request with Correlation_ID: 2ad58d27-b480-40f9-9f6a-5742ef1e3a93
+2026-05-18 10: 18: 19.096 {"LogDate":"2026-05-18","LogTime":"10:18:19.095","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Hold","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Hold]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570674"},{"Key":"Amount","Value":"8.58"}],"CorrelationId":"2ad58d27-b480-40f9-9f6a-5742ef1e3a93"}
+2026-05-18 10: 18: 20.147 {"LogDate":"2026-05-18","LogTime":"10:18:20.146","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Hold","Source":"SOF","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"[Hold-Return]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570674"}],"CorrelationId":"2ad58d27-b480-40f9-9f6a-5742ef1e3a93"}
+2026-05-18 10: 18: 20.152 Received response with Correlation_ID: 2ad58d27-b480-40f9-9f6a-5742ef1e3a93
+2026-05-18 10: 29: 18.043 Create request with Correlation_ID: 44f4368a-c8a9-434c-9bd3-024e7ab50637
+2026-05-18 10: 29: 18.069 {"LogDate":"2026-05-18","LogTime":"10:29:18.069","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Hold","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Hold]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570676"},{"Key":"Amount","Value":"8.58"}],"CorrelationId":"44f4368a-c8a9-434c-9bd3-024e7ab50637"}
+2026-05-18 10: 29: 18.127 {"LogDate":"2026-05-18","LogTime":"10:29:18.127","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Hold","Source":"SOF","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"[Hold-Return]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570676"}],"CorrelationId":"44f4368a-c8a9-434c-9bd3-024e7ab50637"}
+2026-05-18 10: 29: 18.129 Received response with Correlation_ID: 44f4368a-c8a9-434c-9bd3-024e7ab50637
+2026-05-18 10: 42: 03.931 Create request with Correlation_ID: bf6ce88d-64e0-4bc0-9697-0986673fea92
+2026-05-18 10: 42: 03.991 Received response with Correlation_ID: bf6ce88d-64e0-4bc0-9697-0986673fea92
+2026-05-18 11: 07: 50.027 Create request with Correlation_ID: 37e5824f-dc4d-40ce-8693-0d5a677dc6fd
+2026-05-18 11: 07: 50.059 Received response with Correlation_ID: 37e5824f-dc4d-40ce-8693-0d5a677dc6fd
+2026-05-18 11: 08: 51.137 Create request with Correlation_ID: 19097063-bcbc-47f0-8d34-7efc184f0373
+2026-05-18 11: 08: 51.144 {"LogDate":"2026-05-18","LogTime":"11:08:51.144","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Hold","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Hold]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570684"},{"Key":"Amount","Value":"692.88"}],"CorrelationId":"19097063-bcbc-47f0-8d34-7efc184f0373"}
+2026-05-18 11: 08: 51.203 {"LogDate":"2026-05-18","LogTime":"11:08:51.203","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Hold","Source":"SOF","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"[Hold-Return]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570684"}],"CorrelationId":"19097063-bcbc-47f0-8d34-7efc184f0373"}
+2026-05-18 11: 08: 51.203 Received response with Correlation_ID: 19097063-bcbc-47f0-8d34-7efc184f0373
+2026-05-18 11: 08: 52.351 Create request with Correlation_ID: 8ac3f149-32d7-4f56-a69c-7ac1989e582e
+2026-05-18 11: 08: 52.387 {"LogDate":"2026-05-18","LogTime":"11:08:52.387","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Confirm","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Confirm]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570684"}],"CorrelationId":"8ac3f149-32d7-4f56-a69c-7ac1989e582e"}
+2026-05-18 11: 08: 52.513 {"LogDate":"2026-05-18","LogTime":"11:08:52.513","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Confirm","Source":"SOF","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"[Confirm-Return] StatusCode: 200","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570684"}],"CorrelationId":"8ac3f149-32d7-4f56-a69c-7ac1989e582e"}
+2026-05-18 11: 08: 52.523 Received response with Correlation_ID: 8ac3f149-32d7-4f56-a69c-7ac1989e582e
+2026-05-18 11: 09: 36.107 Create request with Correlation_ID: 19084108-8c10-4ab4-a471-b7ae555e9e89
+2026-05-18 11: 09: 36.109 {"LogDate":"2026-05-18","LogTime":"11:09:36.108","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Hold","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Hold]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570685"},{"Key":"Amount","Value":"8.58"}],"CorrelationId":"19084108-8c10-4ab4-a471-b7ae555e9e89"}
+2026-05-18 11: 09: 36.163 {"LogDate":"2026-05-18","LogTime":"11:09:36.163","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Hold","Source":"SOF","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"[Hold-Return]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570685"}],"CorrelationId":"19084108-8c10-4ab4-a471-b7ae555e9e89"}
+2026-05-18 11: 09: 36.164 Received response with Correlation_ID: 19084108-8c10-4ab4-a471-b7ae555e9e89
+2026-05-18 11: 09: 36.251 Create request with Correlation_ID: c5181c60-4695-4279-a3a4-5f3d348d44be
+2026-05-18 11: 09: 36.252 {"LogDate":"2026-05-18","LogTime":"11:09:36.252","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Confirm","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Confirm]","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570685"}],"CorrelationId":"c5181c60-4695-4279-a3a4-5f3d348d44be"}
+2026-05-18 11: 09: 36.284 {"LogDate":"2026-05-18","LogTime":"11:09:36.284","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.3.142","DenominationId":null,"Method":"Confirm","Source":"SOF","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"[Confirm-Return] StatusCode: 200","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"RequestId","Value":"570685"}],"CorrelationId":"c5181c60-4695-4279-a3a4-5f3d348d44be"}
+2026-05-18 11: 09: 36.284 Received response with Correlation_ID: c5181c60-4695-4279-a3a4-5f3d348d44be

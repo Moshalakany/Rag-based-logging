@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "yrBPVjMdyUc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ahmed.AbdelAti\\OneDrive - Al-Ahly Momkn for e-payments\\Desktop\\Rag based logging\\LogRag.Api\\LogRag.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ahmed.AbdelAti\\.nuget\\packages\\microsoft.extensions.ai.abstractions\\10.4.1\\microsoft.extensions.ai.abstractions.10.4.1.nupkg.sha512",
+    "C:\\Users\\Ahmed.AbdelAti\\.nuget\\packages\\ollamasharp\\5.4.25\\ollamasharp.5.4.25.nupkg.sha512",
+    "C:\\Users\\Ahmed.AbdelAti\\.nuget\\packages\\system.io.pipelines\\10.0.4\\system.io.pipelines.10.0.4.nupkg.sha512",
+    "C:\\Users\\Ahmed.AbdelAti\\.nuget\\packages\\system.text.encodings.web\\10.0.4\\system.text.encodings.web.10.0.4.nupkg.sha512",
+    "C:\\Users\\Ahmed.AbdelAti\\.nuget\\packages\\system.text.json\\10.0.4\\system.text.json.10.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
