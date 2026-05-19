@@ -91,7 +91,7 @@ public sealed class GenericLogParser : IGenericLogParser
     {
         _compiledRegexRules = parserOptions.Value.RegexRules
             .Where(rule => !string.IsNullOrWhiteSpace(rule.Pattern))
-            .Select(rule => (rule.Name, new Regex(rule.Pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant)))
+            .Select(rule => (rule.Name, new Regex(rule.Pattern, RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.Singleline)))
             .ToArray();
     }
 
