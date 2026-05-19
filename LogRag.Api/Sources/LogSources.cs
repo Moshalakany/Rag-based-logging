@@ -63,7 +63,7 @@ public sealed class OptionsLogSourceRegistry : ILogSourceRegistry
     }
 }
 
-internal interface ILogSourceCheckpointStore
+public interface ILogSourceCheckpointStore
 {
     long GetOffset(string sourceKey);
     void SaveOffset(string sourceKey, long offset);

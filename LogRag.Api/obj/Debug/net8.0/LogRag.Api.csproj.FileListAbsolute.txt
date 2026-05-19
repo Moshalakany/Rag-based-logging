@@ -33,3 +33,4 @@ C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag base
 C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\obj\Debug\net8.0\LogRag.Api.pdb
 C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\obj\Debug\net8.0\LogRag.Api.genruntimeconfig.cache
 C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\obj\Debug\net8.0\ref\LogRag.Api.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\obj\Debug\net8.0\LogRag.Api.sourcelink.json

@@ -3,16 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatRequest, Message, ChatStreamEvent, Citation } from './models/chat.model';
 import { RagApiService } from './services/ragapi.service';
+import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MarkdownModule],
   template: `
     <div class="container">
       <div class="header">
-        <h1>🔍 LogRAG</h1>
-        <p>AI-Powered Log Analyzer with Retrieval-Augmented Generation</p>
+        <h1> Intelligent Logs inspector</h1>
+        <p>Modern AI log analysis with retrieval-augmented intelligence</p>
       </div>
 
       <div class="content">
@@ -30,7 +31,12 @@ import { RagApiService } from './services/ragapi.service';
 
             <div class="chat-messages">
               <div *ngFor="let msg of messages" [class.user]="msg.role === 'user'" [class.assistant]="msg.role === 'assistant'" class="message">
-                <div>{{ msg.content }}</div>
+                <ng-container *ngIf="msg.role === 'assistant'; else userMessage">
+                  <markdown [data]="msg.content"></markdown>
+                </ng-container>
+                <ng-template #userMessage>
+                  <div>{{ msg.content }}</div>
+                </ng-template>
                 <div *ngIf="msg.citations && msg.citations.length > 0" class="citations">
                   <div class="citations-title">📎 Citations:</div>
                   <div *ngFor="let citation of msg.citations" class="citation-item">
@@ -41,7 +47,8 @@ import { RagApiService } from './services/ragapi.service';
               </div>
 
               <div *ngIf="isLoading" class="message loading">
-                ⏳ Analyzing logs...
+                <span class="spinner" aria-hidden="true"></span>
+                <span>Analyzing logs...</span>
               </div>
             </div>
 
@@ -66,6 +73,7 @@ import { RagApiService } from './services/ragapi.service';
           <div class="panel-body">
             <div class="ingest-section">
               <h3>Ingest Logs</h3>
+              <h4>ingest first to load and populate the vector database with your logs, then ask questions about them in the chat panel</h4>
               <button (click)="triggerIngest()" [disabled]="isIngesting">
                 {{ isIngesting ? '⏳ Ingesting...' : '📥 Ingest Now' }}
               </button>
@@ -82,46 +90,6 @@ import { RagApiService } from './services/ragapi.service';
               </div>
             </div>
 
-            <div class="filter-section">
-              <h3>Filters (Optional)</h3>
-              <div class="filter-item">
-                <label>Service Name</label>
-                <input
-                  [(ngModel)]="filter.service_name"
-                  placeholder="e.g., payments"
-                  type="text"
-                />
-              </div>
-              <div class="filter-item">
-                <label>Severity</label>
-                <select [(ngModel)]="filter.severity">
-                  <option value="">Any</option>
-                  <option value="DEBUG">DEBUG</option>
-                  <option value="INFO">INFO</option>
-                  <option value="WARNING">WARNING</option>
-                  <option value="ERROR">ERROR</option>
-                  <option value="CRITICAL">CRITICAL</option>
-                </select>
-              </div>
-              <div class="filter-item">
-                <label>Source Type</label>
-                <input
-                  [(ngModel)]="filter.source_type"
-                  placeholder="e.g., app, syslog"
-                  type="text"
-                />
-              </div>
-            </div>
-
-            <div class="tips-section">
-              <h3>ℹ️ Tips</h3>
-              <ul>
-                <li>Ask questions in natural language</li>
-                <li>Use filters to narrow down results</li>
-                <li>Ingest logs before asking questions</li>
-                <li>Session persists across questions</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -137,7 +105,7 @@ export class AppComponent implements OnInit {
   apiHealth: boolean = false;
   sessionId: string = '';
   lastIngestResult: any = null;
-  filter: any = {};
+  private streamingMessage: Message | null = null;
 
   constructor(private ragApiService: RagApiService) {
     this.sessionId = this.generateSessionId();
@@ -172,6 +140,14 @@ export class AppComponent implements OnInit {
       timestamp: new Date(),
     });
 
+    this.streamingMessage = {
+      role: 'assistant',
+      content: '',
+      timestamp: new Date(),
+      citations: [],
+    };
+    this.messages.push(this.streamingMessage);
+
     this.isLoading = true;
     let fullResponse = '';
     let citations: Citation[] = [];
@@ -180,13 +156,15 @@ export class AppComponent implements OnInit {
       session_id: this.sessionId,
       question,
       top_k: 8,
-      filter: Object.keys(this.filter).some((k) => this.filter[k]) ? this.filter : undefined,
     };
 
     this.ragApiService.streamChat(request).subscribe(
       (event: ChatStreamEvent) => {
         if (event.type === 'token' && event.content) {
           fullResponse += event.content;
+          if (this.streamingMessage) {
+            this.streamingMessage.content = fullResponse;
+          }
         } else if (event.type === 'final') {
           if (event.content) {
             fullResponse = event.content;
@@ -194,21 +172,26 @@ export class AppComponent implements OnInit {
           if (event.metadata?.citations) {
             citations = event.metadata.citations;
           }
+          if (this.streamingMessage) {
+            this.streamingMessage.content = fullResponse;
+            this.streamingMessage.citations = citations;
+          }
         }
       },
       () => {
         this.isLoading = false;
+        if (this.streamingMessage && !this.streamingMessage.content) {
+          this.messages = this.messages.filter((msg) => msg !== this.streamingMessage);
+        }
+        this.streamingMessage = null;
       },
       () => {
         this.isLoading = false;
-        if (fullResponse) {
-          this.messages.push({
-            role: 'assistant',
-            content: fullResponse,
-            timestamp: new Date(),
-            citations,
-          });
+        if (this.streamingMessage) {
+          this.streamingMessage.content = fullResponse;
+          this.streamingMessage.citations = citations;
         }
+        this.streamingMessage = null;
       }
     );
   }
