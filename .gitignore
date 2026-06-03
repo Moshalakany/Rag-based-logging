@@ -20,6 +20,8 @@ TestResults/
 *.nupkg
 *.snupkg
 .nuget/packages/
+*.dll
+*.pdb
 
 # ===== ASP.NET local config =====
 appsettings.Development.json
@@ -48,4 +50,7 @@ pnpm-debug.log*
 .env.*
 !.env.example
 !.env.sample
+*.pack
 
+.fake
+lograg-ui/.angular/cache/17.3.17/angular-webpack/497617e68e8de3f5069b35b09988857006345458/0.pack
