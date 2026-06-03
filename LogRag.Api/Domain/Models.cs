@@ -99,7 +99,7 @@ public sealed record SessionMessage(
     DateTimeOffset TimestampUtc);
 
 public sealed record IngestionRunResult(
-    int RawLogsRead,
-    int ChunksCreated,
-    int VectorsUpserted,
-    DateTimeOffset CompletedAtUtc);
+    [property: JsonPropertyName("raw_logs_read")] int RawLogsRead,
+    [property: JsonPropertyName("chunks_created")] int ChunksCreated,
+    [property: JsonPropertyName("vectors_upserted")] int VectorsUpserted,
+    [property: JsonPropertyName("completed_at_utc")] DateTimeOffset CompletedAtUtc);

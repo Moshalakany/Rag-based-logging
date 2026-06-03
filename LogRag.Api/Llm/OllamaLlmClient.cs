@@ -69,6 +69,7 @@ public sealed class OllamaLlmClient : ILlmClient
     private static string BuildPrompt(string question, string context, string history)
     {
         var builder = new StringBuilder();
+        builder.AppendLine("You are a helpful assistant for answering questions based on log data and your name is Momkn intelligent Logs inspector.");
         builder.AppendLine("Use the provided context only.");
         if (!string.IsNullOrWhiteSpace(history))
         {
@@ -84,6 +85,8 @@ public sealed class OllamaLlmClient : ILlmClient
         builder.AppendLine(question);
         builder.AppendLine();
         builder.AppendLine("Answer with concise natural language and cite timestamps from context.");
+        builder.AppendLine("Ask clarifying questions if the context is insufficient and don't cite sources.");
+        builder.AppendLine("Do not make up information that is not in the context.");
         return builder.ToString();
     }
 }

@@ -228,3 +228,910 @@ Backend.Infrastructure.Helpers.BackendException: خطأ مزود الخدمه
    at BillPayment.Services.Services.V2.Services.DynamicServiceV2.Inquiry(InquiryRequestDTO inquiryModel, Int32 id) in /var/charts/sources/alahlymomkn.backend/TMS.Services/Services/V2/Services/DynamicServiceV2.cs:line 936
    at BillPayment.API.Controllers.V2.ServicesController.Inquiry(InquiryRequestModel model, Int32 serviceId) in /var/charts/sources/alahlymomkn.backend/TMS.API/Controllers/V2/ServicesController.cs:line 61
 2026-05-18 16: 00: 41.540 Received response with Correlation_ID: 3c6f44af-ec89-4e19-bccc-c4e4c1588589
+
+2026-05-19 17: 05: 35.777 {"LogDate":"2026-05-19","LogTime":"17:05:35.777","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"AddReceiptBodyParams","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"BeforeSave","ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.791 {"LogDate":"2026-05-19","LogTime":"17:05:35.791","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018164,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.803 {"LogDate":"2026-05-19","LogTime":"17:05:35.803","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018164,"BillingAccount":"","MessageBody":{"Messgae":"[AfterSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.803 {"LogDate":"2026-05-19","LogTime":"17:05:35.803","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018164,"BillingAccount":"","MessageBody":{"Messgae":"[AfterAddProviderServiceRequestWithID]","ID":1018166},"ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.815 {"LogDate":"2026-05-19","LogTime":"17:05:35.815","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018164,"BillingAccount":"01500000533","MessageBody":"[Dynamic]- second - request added","ExtraData":[{"Key":"RequestId","Value":"570753"}],"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.816 /api/v2/Accounts/6/balances/1/requests/570753
+2026-05-19 17: 05: 35.816 Adding ApiKey: from = TMS - ApiKeyTime = 20260519140535
+2026-05-19 17: 05: 35.837 {"LogDate":"2026-05-19","LogTime":"17:05:35.837","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"SOFClientService","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":{"StatusCode":200,"Content":"{\"Message\":\"Success\",\"Code\":200}"},"ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.843 {"LogDate":"2026-05-19","LogTime":"17:05:35.843","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"SOF","BRN":1018164,"BillingAccount":"01500000533","MessageBody":{"HoldAmount":1305.0,"AccountID":6},"ExtraData":[{"Key":"RequestId","Value":"570753"}],"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.843 {"LogDate":"2026-05-19","LogTime":"17:05:35.843","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"Ocelot","Destination":"TMS","BRN":1018164,"BillingAccount":"01500000533","MessageBody":{"CustomerRequest":{"Brn":1018164,"HostTransactionID":"0","LocalDate":"0001-01-01T00:00:00","MomknPaymentId":null,"ChannelId":"353120638912427","ChannelIdentifier":null,"PMTMethod":1,"CompositeTransactionId":null,"Data":[{"key":"sofsource","value":"2","name":"sofsource"}],"BillingAccount":"01500000533","Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":2},"ExtraData":[{"Key":"RequestId","Value":"570753"}],"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.851 {"LogDate":"2026-05-19","LogTime":"17:05:35.850","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018164,"BillingAccount":"01500000533","MessageBody":{"ProviderResponseParams":[{"ServiceRequestID":0,"ProviderName":"customerName","Value":"داليا احمد فتحى ذكى","Brn":0},{"ServiceRequestID":0,"ProviderName":"ServiceFees","Value":"5","Brn":0}]},"ExtraData":[{"Key":"RequestId","Value":"570753"}],"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.851 {"LogDate":"2026-05-19","LogTime":"17:05:35.851","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"Switch","BRN":1018164,"BillingAccount":"01500000533","MessageBody":{"ProviderRequest":{"billingAccount":"01500000533","clientDate":"2026-05-19 17:05:35","requestId":1018166,"amount":1300.00,"count":1,"extraData":[{"key":"customerName","value":"داليا احمد فتحى ذكى"},{"key":"ServiceFees","value":"5"},{"key":"sofsource","value":"2"}],"invoices":[{"id":1,"amount":1300.00,"openAmount":null,"minAmount":null,"maxAmount":null,"mandatory":null,"extraData":[{"key":"providerDueAmount","value":"1300.0"},{"key":"dueDate","value":"2026-05-16"},{"key":"referenceNumber","value":"000000000385"}],"Alias":null}],"subRequestId":["570753-1"],"isRetry":0},"ExtraData":[{"Key":"RequestId","Value":"570753"}],"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 35.855 http://10.90.7.192:8087/momknswitch/api/v1.0/services/3539/payment
+2026-05-19 17: 05: 36.150 {"LogDate":"2026-05-19","LogTime":"17:05:36.150","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"Switch","Destination":"TMS","BRN":null,"BillingAccount":"01500000533","MessageBody":{"StatusCode":202,"Content":"{\"responseDate\":\"2026-05-19T17:05:34.736554086\",\"responseCode\":202,\"responseMessage\":\"PENDING\",\"details\":\"I/O error on POST request for \\\"/config.getPaymentUrl()\\\": Target host is not specified\",\"requestId\":\"1018166\"}"},"ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 36.157 {"LogDate":"2026-05-19","LogTime":"17:05:36.156","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"Switch","Destination":"TMS","BRN":1018164,"BillingAccount":"01500000533","MessageBody":{"ProviderResponse":{"StatusCode":-200,"ResponseCode":202,"Message":"PENDING","Body":{"TotalAmount":0.0,"ExtraData":[],"Invoices":[],"ResponseCode":202,"ResponseMessage":"PENDING","MessageAr":null,"ResponseDate":"2026-05-19T17:05:34.736554086"}},"ExtraData":[{"Key":"RequestId","Value":"570753"}],"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 36.175 {"LogDate":"2026-05-19","LogTime":"17:05:36.175","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018164,"BillingAccount":"01500000533","MessageBody":"[Dynamic]- status pending- Transaction Id 470431","ExtraData":[{"Key":"RequestId","Value":"570753"}],"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 36.241 {"LogDate":"2026-05-19","LogTime":"17:05:36.241","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"AddReceiptBodyParams","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"BeforeSave","ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 36.319 {"LogDate":"2026-05-19","LogTime":"17:05:36.319","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018164,"BillingAccount":"01500000533","MessageBody":"[Transaction] first transactionId- 470431","ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 36.328 /api/v2/Requests/570753/Transactions/470431/AddTransaction
+2026-05-19 17: 05: 36.328 Adding ApiKey: from = TMS - ApiKeyTime = 20260519140536
+2026-05-19 17: 05: 36.359 {"LogDate":"2026-05-19","LogTime":"17:05:36.359","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"SOFClientService","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":{"StatusCode":200,"Content":"{\"Message\":\"Success\",\"Code\":200,\"Data\":{\"Id\":1,\"Balance\":99985862.000,\"AvailableBalance\":99985862.000}}"},"ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 36.374 {"LogDate":"2026-05-19","LogTime":"17:05:36.373","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"Ocelot","BRN":1018164,"BillingAccount":null,"MessageBody":{"CustomerResponse":{"Code":200,"Message":"Success","BalanceTypeId":1,"TotalAvailableBalance":99985862.0,"TotalBalance":99985862.0,"LocalDate":null,"ServerDate":"5/19/2026 5:05:36 PM","Data":[[{"key":"transactionid","value":"470431","name":"رقم العمليه"}]],"Receipt":[{"title":{"serviceName":"كليفر\r\nدفع أقساط"},"header":{"data":[{"Key":"accountCode","Value":"6","Name":"رقم الجهاز","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1},{"Key":"date","Value":"2026-05-19","Name":"التاريخ","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1},{"Key":"time","Value":"17:05:36","Name":"الوقت ","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1},{"Key":"transactionid","Value":"470431","Name":"رقم العمليه","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1},{"Key":"serviceCode","Value":"3539","Name":"كود الخدمة","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1}]},"body":{"data":[{"Key":"referenceNumber","Value":"000000000385","Name":"الرقم المرجعي","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"billingAccount","Value":"01500000533","Name":"رقم الموبيل","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"customerName","Value":"داليا احمد فتحى ذكى","Name":"اسم العميل","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"dueDate","Value":"2026-05-16","Name":"تاريخ الاستحقاق","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"Amount","Value":"1300","Name":"المبلغ المستحق","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"ServiceFees","Value":"5","Name":"تكلفة الخدمة","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"totalAmount","Value":"1305٫00","Name":"المبلغ المدفوع","Bold":true,"Alignment":2,"ParameterType":2,"FontSize":2}]},"disclaimer":null,"footer":"خدمة عملاء الاهلى ممكن 16379\r\nwww.Alahlymomkn.com"}],"Brn":1018164},"ExtraData":null,"CorrelationId":"19ef5bd2-2da2-4480-8cab-a3934465a25d"}
+2026-05-19 17: 05: 36.378 Received response with Correlation_ID: 19ef5bd2-2da2-4480-8cab-a3934465a25d
+2026-05-19 17: 06: 03.078 start Retry! Thread: 93
+2026-05-19 17: 06: 03.083 Processing denomination 1971 on thread 84
+2026-05-19 17: 06: 03.097 Processing denomination 340 on thread 84
+2026-05-19 17: 06: 03.111 Processing denomination 1542 on thread 84
+2026-05-19 17: 06: 03.117 Processing denomination 1542 on thread 84
+2026-05-19 17: 06: 03.127 Processing denomination 1518 on thread 84
+2026-05-19 17: 06: 03.132 Processing denomination 1518 on thread 84
+2026-05-19 17: 06: 03.142 Processing denomination 3448 on thread 93
+2026-05-19 17: 06: 03.149 Processing denomination 3448 on thread 93
+2026-05-19 17: 06: 03.158 Processing denomination 3454 on thread 84
+2026-05-19 17: 06: 03.164 Processing denomination 3454 on thread 108
+2026-05-19 17: 06: 03.174 Processing denomination 317 on thread 84
+2026-05-19 17: 06: 03.180 Processing denomination 3728 on thread 84
+2026-05-19 17: 06: 03.187 Processing denomination 3554 on thread 84
+2026-05-19 17: 06: 03.193 end Retry! Thread: 93
+2026-05-19 17: 06: 36.874 Create request with Correlation_ID: 5f9097be-9b34-4962-a1d7-7098a4a7ca64
+2026-05-19 17: 06: 36.907 {"LogDate":"2026-05-19","LogTime":"17:06:36.907","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Inquiry","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 36.912 {"LogDate":"2026-05-19","LogTime":"17:06:36.912","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Inquiry","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":"","MessageBody":{"Messgae":"[AfterSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 36.912 {"LogDate":"2026-05-19","LogTime":"17:06:36.912","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Inquiry","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":"","MessageBody":{"Messgae":"[AfterAddProviderServiceRequestWithID]","ID":1018167},"ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 36.912 {"LogDate":"2026-05-19","LogTime":"17:06:36.912","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Inquiry","Source":"Ocelot","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"CustomerRequest":{"Data":[],"BillingAccount":"01500000533","Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":0,"SOF":0}},"ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 36.916 {"LogDate":"2026-05-19","LogTime":"17:06:36.916","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Inquiry","Source":"TMS","Destination":"Switch","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"ProviderRequest":{"billingAccount":"01500000533","clientDate":"2026-05-19 17:06:36","requestId":1018167,"amount":0.0,"count":0,"extraData":[],"invoices":[],"subRequestId":null,"isRetry":0}},"ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 36.921 http://10.90.7.192:8087/momknswitch/api/v1.0/services/3539/inquiry
+2026-05-19 17: 06: 37.483 {"LogDate":"2026-05-19","LogTime":"17:06:37.482","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Inquiry","Source":"Switch","Destination":"TMS","BRN":null,"BillingAccount":"01500000533","MessageBody":{"StatusCode":200,"Content":"{\"responseCode\":200,\"responseMessage\":\"SUCCESSFUL\",\"serverDate\":\"2026-05-19 17:06:35\",\"responseDate\":\"2026-05-19 17:06:36\",\"totalAmount\":1300.0,\"extraData\":[{\"key\":\"momknRef\",\"value\":\"19978608-3550-4076-88c8-c9205daf0ea7\"},{\"key\":\"customerName\",\"value\":\"داليا احمد فتحى ذكى\"}],\"invoices\":[{\"id\":1,\"alias\":\"\",\"amount\":1300.0,\"openAmount\":0.0,\"minAmount\":1300.0,\"maxAmount\":1300.0,\"mandatory\":false,\"extraData\":[{\"key\":\"providerDueAmount\",\"value\":\"1300.0\"},{\"key\":\"dueDate\",\"value\":\"2026-05-16\"},{\"key\":\"referenceNumber\",\"value\":\"000000000386\"}]}]}"},"ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 37.483 {"LogDate":"2026-05-19","LogTime":"17:06:37.483","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Inquiry","Source":"Switch","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"ProviderResponse":{"StatusCode":200,"ResponseCode":200,"Message":"SUCCESSFUL","Body":{"TotalAmount":1300.0,"ExtraData":[{"key":"momknRef","value":"19978608-3550-4076-88c8-c9205daf0ea7"},{"key":"customerName","value":"داليا احمد فتحى ذكى"}],"Invoices":[{"id":1,"amount":1300.0,"openAmount":0.0,"minAmount":1300.0,"maxAmount":1300.0,"mandatory":false,"extraData":[{"key":"providerDueAmount","value":"1300.0"},{"key":"dueDate","value":"2026-05-16"},{"key":"referenceNumber","value":"000000000386"}],"Alias":""}],"ResponseCode":200,"ResponseMessage":"SUCCESSFUL","MessageAr":null,"ResponseDate":"2026-05-19 17:06:36"}},"ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 37.515 {"LogDate":"2026-05-19","LogTime":"17:06:37.515","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"AddReceiptBodyParams","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"BeforeSave","ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 37.528 {"LogDate":"2026-05-19","LogTime":"17:06:37.528","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Inquiry","Source":"TMS","Destination":"Ocelot","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"CustomerResponse":{"Code":200,"Message":"Success","TotalAmount":1300.0,"Brn":1018167,"Data":[{"key":"billingaccount","value":"01500000533","name":"رقم الموبيل"},{"key":"customerName","value":"داليا احمد فتحى ذكى","name":"اسم العميل"}],"Invoices":[{"Data":[{"key":"providerDueAmount","value":"1300.0","name":"قيمة القسط"},{"key":"dueDate","value":"2026-05-16","name":"تاريخ الاستحقاق"}],"Amount":1300.0,"Sequence":1,"MinAmount":1300.0,"MaxAmount":1300.0,"OpenAmount":0.0,"Mandatory":false,"Alias":""}]},"ExtraData":null,"CorrelationId":"5f9097be-9b34-4962-a1d7-7098a4a7ca64"}
+2026-05-19 17: 06: 37.532 Received response with Correlation_ID: 5f9097be-9b34-4962-a1d7-7098a4a7ca64
+2026-05-19 17: 07: 02.446 Create request with Correlation_ID: 34ea7458-b0c0-4782-850c-4cfdbfcf8b4e
+2026-05-19 17: 07: 02.448 {"LogDate":"2026-05-19","LogTime":"17:07:02.448","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"Ocelot","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[API-CustomerRequestFees]","CustomerRequest":{"Amount":1300.0,"Version":"300","ServiceListVersion":"0","Data":[{"key":"Sequence","value":"1"}],"Brn":1018167,"AccountId":6,"AccountProfileId":7,"UserId":61479},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.448 {"LogDate":"2026-05-19","LogTime":"17:07:02.448","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"Ocelot","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[CustomerRequestFees]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.455 {"LogDate":"2026-05-19","LogTime":"17:07:02.454","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterGetDenominationCustomerRequestFees]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.459 {"LogDate":"2026-05-19","LogTime":"17:07:02.459","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeCheckProviderRequestExistFees]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.481 {"LogDate":"2026-05-19","LogTime":"17:07:02.481","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeGetInquiryBillFees]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.492 {"LogDate":"2026-05-19","LogTime":"17:07:02.491","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterGetInquiryBillFees]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.501 {"LogDate":"2026-05-19","LogTime":"17:07:02.501","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterServiceCatalogParametersKeyFees]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null},{"key":"amount","value":"1300","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.501 {"LogDate":"2026-05-19","LogTime":"17:07:02.501","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeAddProviderServiceRequestFees]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null},{"key":"amount","value":"1300","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.508 {"LogDate":"2026-05-19","LogTime":"17:07:02.508","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.521 {"LogDate":"2026-05-19","LogTime":"17:07:02.521","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.522 {"LogDate":"2026-05-19","LogTime":"17:07:02.522","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterAddProviderServiceRequestWithID]","ID":1018168},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.522 {"LogDate":"2026-05-19","LogTime":"17:07:02.522","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterAddProviderServiceRequestFees]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null},{"key":"amount","value":"1300","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.522 {"LogDate":"2026-05-19","LogTime":"17:07:02.522","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeGettingFeesAndTaxes]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null},{"key":"amount","value":"1300","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.538 {"LogDate":"2026-05-19","LogTime":"17:07:02.537","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterGettingFeesAndTaxes]","CustomerRequest":{"Amount":1300.0,"Brn":1018167,"Data":[{"key":"Sequence","value":"1","name":null},{"key":"amount","value":"1300","name":null}],"BillingAccount":null,"Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":0},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.552 {"LogDate":"2026-05-19","LogTime":"17:07:02.552","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"AddReceiptBodyParams","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"BeforeSave","ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.565 {"LogDate":"2026-05-19","LogTime":"17:07:02.565","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[CustomerResponseFees]","CustomerResponse":{"Code":200,"Message":"Success","Data":[],"Amount":1300.0,"Fees":5.0,"Taxes":0.0,"Discount":0.0,"IsDeduct":false,"TotalAmount":1305.0,"Brn":1018167}},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.565 {"LogDate":"2026-05-19","LogTime":"17:07:02.565","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Fees","Source":"Ocelot","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[API-CustomerRequestFees]","CustomerRequest":{"Code":200,"Message":"عمليه ناجحه","Data":[],"Amount":1300.0,"Fees":5.0,"Taxes":0.0,"Discount":0.0,"IsDeduct":false,"TotalAmount":1305.0,"Brn":1018167}},"ExtraData":null,"CorrelationId":"34ea7458-b0c0-4782-850c-4cfdbfcf8b4e"}
+2026-05-19 17: 07: 02.566 Received response with Correlation_ID: 34ea7458-b0c0-4782-850c-4cfdbfcf8b4e
+2026-05-19 17: 07: 06.782 Create request with Correlation_ID: 88df3523-4c63-4e30-be23-6959ed6d70dc
+2026-05-19 17: 07: 06.784 {"LogDate":"2026-05-19","LogTime":"17:07:06.784","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":"[Payment-Request] - BillPayment.API.Models.PaymentRequestModel","ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.785 {"LogDate":"2026-05-19","LogTime":"17:07:06.785","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":"[Payment-Request-SOF] - OldSystem","ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.854 {"LogDate":"2026-05-19","LogTime":"17:07:06.854","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"AddReceiptBodyParams","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"BeforeSave","ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.860 {"LogDate":"2026-05-19","LogTime":"17:07:06.860","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"AddReceiptBodyParams","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"BeforeSave","ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.866 {"LogDate":"2026-05-19","LogTime":"17:07:06.866","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"AddReceiptBodyParams","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"BeforeSave","ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.882 {"LogDate":"2026-05-19","LogTime":"17:07:06.882","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.897 {"LogDate":"2026-05-19","LogTime":"17:07:06.896","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.897 {"LogDate":"2026-05-19","LogTime":"17:07:06.897","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"","MessageBody":{"Messgae":"[AfterAddProviderServiceRequestWithID]","ID":1018169},"ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.910 {"LogDate":"2026-05-19","LogTime":"17:07:06.909","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":"[Dynamic]- second - request added","ExtraData":[{"Key":"RequestId","Value":"570754"}],"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.910 /api/v2/Accounts/6/balances/1/requests/570754
+2026-05-19 17: 07: 06.910 Adding ApiKey: from = TMS - ApiKeyTime = 20260519140706
+2026-05-19 17: 07: 06.932 {"LogDate":"2026-05-19","LogTime":"17:07:06.932","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"SOFClientService","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":{"StatusCode":200,"Content":"{\"Message\":\"Success\",\"Code\":200}"},"ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.938 {"LogDate":"2026-05-19","LogTime":"17:07:06.938","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"SOF","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"HoldAmount":1305.0,"AccountID":6},"ExtraData":[{"Key":"RequestId","Value":"570754"}],"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.939 {"LogDate":"2026-05-19","LogTime":"17:07:06.939","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"Ocelot","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"CustomerRequest":{"Brn":1018167,"HostTransactionID":"0","LocalDate":"0001-01-01T00:00:00","MomknPaymentId":null,"ChannelId":"353120638912427","ChannelIdentifier":null,"PMTMethod":1,"CompositeTransactionId":null,"Data":[{"key":"sofsource","value":"2","name":"sofsource"}],"BillingAccount":"01500000533","Version":"300","ServiceListVersion":"0","AccountId":6,"UserId":61479,"AccountProfileId":7,"SOF":2},"ExtraData":[{"Key":"RequestId","Value":"570754"}],"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.947 {"LogDate":"2026-05-19","LogTime":"17:07:06.947","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"ProviderResponseParams":[{"ServiceRequestID":0,"ProviderName":"customerName","Value":"داليا احمد فتحى ذكى","Brn":0},{"ServiceRequestID":0,"ProviderName":"ServiceFees","Value":"5","Brn":0}]},"ExtraData":[{"Key":"RequestId","Value":"570754"}],"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.947 {"LogDate":"2026-05-19","LogTime":"17:07:06.947","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"Switch","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"ProviderRequest":{"billingAccount":"01500000533","clientDate":"2026-05-19 17:07:06","requestId":1018169,"amount":1300.00,"count":1,"extraData":[{"key":"customerName","value":"داليا احمد فتحى ذكى"},{"key":"ServiceFees","value":"5"},{"key":"sofsource","value":"2"}],"invoices":[{"id":1,"amount":1300.00,"openAmount":null,"minAmount":null,"maxAmount":null,"mandatory":null,"extraData":[{"key":"providerDueAmount","value":"1300.0"},{"key":"dueDate","value":"2026-05-16"},{"key":"referenceNumber","value":"000000000386"}],"Alias":null}],"subRequestId":["570754-1"],"isRetry":0},"ExtraData":[{"Key":"RequestId","Value":"570754"}],"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 06.952 http://10.90.7.192:8087/momknswitch/api/v1.0/services/3539/payment
+2026-05-19 17: 07: 07.265 {"LogDate":"2026-05-19","LogTime":"17:07:07.265","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"Switch","Destination":"TMS","BRN":null,"BillingAccount":"01500000533","MessageBody":{"StatusCode":202,"Content":"{\"responseDate\":\"2026-05-19T17:07:05.850234692\",\"responseCode\":202,\"responseMessage\":\"PENDING\",\"details\":\"I/O error on POST request for \\\"/config.getPaymentUrl()\\\": Target host is not specified\",\"requestId\":\"1018169\"}"},"ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 07.273 {"LogDate":"2026-05-19","LogTime":"17:07:07.273","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"Switch","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":{"ProviderResponse":{"StatusCode":-200,"ResponseCode":202,"Message":"PENDING","Body":{"TotalAmount":0.0,"ExtraData":[],"Invoices":[],"ResponseCode":202,"ResponseMessage":"PENDING","MessageAr":null,"ResponseDate":"2026-05-19T17:07:05.850234692"}},"ExtraData":[{"Key":"RequestId","Value":"570754"}],"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 07.297 {"LogDate":"2026-05-19","LogTime":"17:07:07.297","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":"[Dynamic]- status pending- Transaction Id 470432","ExtraData":[{"Key":"RequestId","Value":"570754"}],"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 07.362 {"LogDate":"2026-05-19","LogTime":"17:07:07.361","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"AddReceiptBodyParams","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"BeforeSave","ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 07.455 {"LogDate":"2026-05-19","LogTime":"17:07:07.455","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"TMS","BRN":1018167,"BillingAccount":"01500000533","MessageBody":"[Transaction] first transactionId- 470432","ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 07.467 /api/v2/Requests/570754/Transactions/470432/AddTransaction
+2026-05-19 17: 07: 07.467 Adding ApiKey: from = TMS - ApiKeyTime = 20260519140707
+2026-05-19 17: 07: 07.497 {"LogDate":"2026-05-19","LogTime":"17:07:07.497","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"SOFClientService","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":{"StatusCode":200,"Content":"{\"Message\":\"Success\",\"Code\":200,\"Data\":{\"Id\":1,\"Balance\":99984557.000,\"AvailableBalance\":99984557.000}}"},"ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 07.519 {"LogDate":"2026-05-19","LogTime":"17:07:07.519","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3539,"Method":"Payment","Source":"TMS","Destination":"Ocelot","BRN":1018167,"BillingAccount":null,"MessageBody":{"CustomerResponse":{"Code":200,"Message":"Success","BalanceTypeId":1,"TotalAvailableBalance":99984557.0,"TotalBalance":99984557.0,"LocalDate":null,"ServerDate":"5/19/2026 5:07:07 PM","Data":[[{"key":"transactionid","value":"470432","name":"رقم العمليه"}]],"Receipt":[{"title":{"serviceName":"كليفر\r\nدفع أقساط"},"header":{"data":[{"Key":"accountCode","Value":"6","Name":"رقم الجهاز","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1},{"Key":"date","Value":"2026-05-19","Name":"التاريخ","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1},{"Key":"time","Value":"17:07:07","Name":"الوقت ","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1},{"Key":"transactionid","Value":"470432","Name":"رقم العمليه","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1},{"Key":"serviceCode","Value":"3539","Name":"كود الخدمة","Bold":false,"Alignment":1,"ParameterType":2,"FontSize":1}]},"body":{"data":[{"Key":"referenceNumber","Value":"000000000386","Name":"الرقم المرجعي","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"billingAccount","Value":"01500000533","Name":"رقم الموبيل","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"customerName","Value":"داليا احمد فتحى ذكى","Name":"اسم العميل","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"dueDate","Value":"2026-05-16","Name":"تاريخ الاستحقاق","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"Amount","Value":"1300","Name":"المبلغ المستحق","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"ServiceFees","Value":"5","Name":"تكلفة الخدمة","Bold":true,"Alignment":3,"ParameterType":2,"FontSize":1},{"Key":"totalAmount","Value":"1305٫00","Name":"المبلغ المدفوع","Bold":true,"Alignment":2,"ParameterType":2,"FontSize":2}]},"disclaimer":null,"footer":"خدمة عملاء الاهلى ممكن 16379\r\nwww.Alahlymomkn.com"}],"Brn":1018167},"ExtraData":null,"CorrelationId":"88df3523-4c63-4e30-be23-6959ed6d70dc"}
+2026-05-19 17: 07: 07.525 Received response with Correlation_ID: 88df3523-4c63-4e30-be23-6959ed6d70dc
+2026-05-19 17: 09: 03.231 start Retry! Thread: 92
+2026-05-19 17: 09: 03.237 Processing denomination 1971 on thread 89
+2026-05-19 17: 09: 03.259 Processing denomination 340 on thread 80
+2026-05-19 17: 09: 03.279 Processing denomination 1542 on thread 77
+2026-05-19 17: 09: 03.288 Processing denomination 1542 on thread 77
+2026-05-19 17: 09: 03.302 Processing denomination 1518 on thread 80
+2026-05-19 17: 09: 03.310 Processing denomination 1518 on thread 77
+2026-05-19 17: 09: 03.323 Processing denomination 3448 on thread 92
+2026-05-19 17: 09: 03.332 Processing denomination 3448 on thread 77
+2026-05-19 17: 09: 03.346 Processing denomination 3454 on thread 92
+2026-05-19 17: 09: 03.354 Processing denomination 3454 on thread 92
+2026-05-19 17: 09: 03.368 Processing denomination 317 on thread 92
+2026-05-19 17: 09: 03.377 Processing denomination 3728 on thread 92
+2026-05-19 17: 09: 03.386 Processing denomination 3554 on thread 92
+2026-05-19 17: 09: 03.395 end Retry! Thread: 92
+2026-05-19 17: 12: 03.359 start Retry! Thread: 80
+2026-05-19 17: 12: 03.364 Processing denomination 1971 on thread 80
+2026-05-19 17: 12: 03.557 Processing denomination 340 on thread 71
+2026-05-19 17: 12: 03.571 Processing denomination 1542 on thread 71
+2026-05-19 17: 12: 03.578 Processing denomination 1542 on thread 75
+2026-05-19 17: 12: 03.587 Processing denomination 1518 on thread 75
+2026-05-19 17: 12: 03.593 Processing denomination 1518 on thread 71
+2026-05-19 17: 12: 03.602 Processing denomination 3448 on thread 80
+2026-05-19 17: 12: 03.609 Processing denomination 3448 on thread 75
+2026-05-19 17: 12: 03.619 Processing denomination 3454 on thread 71
+2026-05-19 17: 12: 03.625 Processing denomination 3454 on thread 80
+2026-05-19 17: 12: 03.633 Processing denomination 317 on thread 71
+2026-05-19 17: 12: 03.639 Processing denomination 3728 on thread 71
+2026-05-19 17: 12: 03.645 Processing denomination 3554 on thread 67
+2026-05-19 17: 12: 03.651 end Retry! Thread: 80
+2026-05-19 17: 15: 03.528 start Retry! Thread: 65
+2026-05-19 17: 15: 03.531 Processing denomination 1971 on thread 65
+2026-05-19 17: 15: 03.546 Processing denomination 340 on thread 67
+2026-05-19 17: 15: 03.562 Processing denomination 1542 on thread 120
+2026-05-19 17: 15: 03.568 Processing denomination 1542 on thread 120
+2026-05-19 17: 15: 03.579 Processing denomination 1518 on thread 65
+2026-05-19 17: 15: 03.585 Processing denomination 1518 on thread 65
+2026-05-19 17: 15: 03.594 Processing denomination 3448 on thread 65
+2026-05-19 17: 15: 03.601 Processing denomination 3448 on thread 65
+2026-05-19 17: 15: 03.612 Processing denomination 3454 on thread 67
+2026-05-19 17: 15: 03.619 Processing denomination 3454 on thread 67
+2026-05-19 17: 15: 03.630 Processing denomination 317 on thread 67
+2026-05-19 17: 15: 03.637 Processing denomination 3728 on thread 67
+2026-05-19 17: 15: 03.643 Processing denomination 3554 on thread 67
+2026-05-19 17: 15: 03.650 end Retry! Thread: 65
+2026-05-19 17: 18: 03.843 start Retry! Thread: 119
+2026-05-19 17: 18: 03.847 Processing denomination 1971 on thread 119
+2026-05-19 17: 18: 03.863 Processing denomination 340 on thread 119
+2026-05-19 17: 18: 03.881 Processing denomination 1542 on thread 121
+2026-05-19 17: 18: 03.887 Processing denomination 1542 on thread 121
+2026-05-19 17: 18: 03.896 Processing denomination 1518 on thread 121
+2026-05-19 17: 18: 03.902 Processing denomination 1518 on thread 121
+2026-05-19 17: 18: 03.913 Processing denomination 3448 on thread 126
+2026-05-19 17: 18: 03.919 Processing denomination 3448 on thread 127
+2026-05-19 17: 18: 03.930 Processing denomination 3454 on thread 127
+2026-05-19 17: 18: 03.937 Processing denomination 3454 on thread 127
+2026-05-19 17: 18: 03.948 Processing denomination 317 on thread 127
+2026-05-19 17: 18: 03.955 Processing denomination 3728 on thread 126
+2026-05-19 17: 18: 03.962 Processing denomination 3554 on thread 126
+2026-05-19 17: 18: 03.969 end Retry! Thread: 119
+2026-05-19 17: 21: 03.841 start Retry! Thread: 127
+2026-05-19 17: 21: 03.845 Processing denomination 1971 on thread 127
+2026-05-19 17: 21: 03.867 Processing denomination 340 on thread 127
+2026-05-19 17: 21: 03.888 Processing denomination 1542 on thread 128
+2026-05-19 17: 21: 03.897 Processing denomination 1542 on thread 128
+2026-05-19 17: 21: 03.909 Processing denomination 1518 on thread 133
+2026-05-19 17: 21: 03.918 Processing denomination 1518 on thread 133
+2026-05-19 17: 21: 03.929 Processing denomination 3448 on thread 133
+2026-05-19 17: 21: 03.937 Processing denomination 3448 on thread 133
+2026-05-19 17: 21: 03.948 Processing denomination 3454 on thread 133
+2026-05-19 17: 21: 03.956 Processing denomination 3454 on thread 133
+2026-05-19 17: 21: 03.968 Processing denomination 317 on thread 128
+2026-05-19 17: 21: 03.976 Processing denomination 3728 on thread 128
+2026-05-19 17: 21: 03.984 Processing denomination 3554 on thread 133
+2026-05-19 17: 21: 03.993 end Retry! Thread: 127
+2026-05-19 17: 24: 04.164 start Retry! Thread: 156
+2026-05-19 17: 24: 04.168 Processing denomination 1971 on thread 156
+2026-05-19 17: 24: 04.196 Processing denomination 340 on thread 155
+2026-05-19 17: 24: 04.210 Processing denomination 1542 on thread 155
+2026-05-19 17: 24: 04.217 Processing denomination 1542 on thread 158
+2026-05-19 17: 24: 04.227 Processing denomination 1518 on thread 158
+2026-05-19 17: 24: 04.234 Processing denomination 1518 on thread 158
+2026-05-19 17: 24: 04.243 Processing denomination 3448 on thread 158
+2026-05-19 17: 24: 04.249 Processing denomination 3448 on thread 158
+2026-05-19 17: 24: 04.259 Processing denomination 3454 on thread 155
+2026-05-19 17: 24: 04.266 Processing denomination 3454 on thread 155
+2026-05-19 17: 24: 04.276 Processing denomination 317 on thread 155
+2026-05-19 17: 24: 04.283 Processing denomination 3728 on thread 158
+2026-05-19 17: 24: 04.289 Processing denomination 3554 on thread 155
+2026-05-19 17: 24: 04.296 end Retry! Thread: 156
+2026-05-19 17: 27: 04.141 start Retry! Thread: 158
+2026-05-19 17: 27: 04.145 Processing denomination 1971 on thread 160
+2026-05-19 17: 27: 04.161 Processing denomination 340 on thread 160
+2026-05-19 17: 27: 04.177 Processing denomination 1542 on thread 160
+2026-05-19 17: 27: 04.184 Processing denomination 1542 on thread 160
+2026-05-19 17: 27: 04.194 Processing denomination 1518 on thread 158
+2026-05-19 17: 27: 04.202 Processing denomination 1518 on thread 159
+2026-05-19 17: 27: 04.213 Processing denomination 3448 on thread 159
+2026-05-19 17: 27: 04.219 Processing denomination 3448 on thread 158
+2026-05-19 17: 27: 04.230 Processing denomination 3454 on thread 159
+2026-05-19 17: 27: 04.237 Processing denomination 3454 on thread 159
+2026-05-19 17: 27: 04.246 Processing denomination 317 on thread 127
+2026-05-19 17: 27: 04.253 Processing denomination 3728 on thread 158
+2026-05-19 17: 27: 04.260 Processing denomination 3554 on thread 158
+2026-05-19 17: 27: 04.267 end Retry! Thread: 158
+2026-05-19 17: 27: 36.767 Create request with Correlation_ID: e20b07ca-2a9f-4772-acb3-2ace99e75104
+2026-05-19 17: 27: 36.784 Received response with Correlation_ID: e20b07ca-2a9f-4772-acb3-2ace99e75104
+2026-05-19 17: 30: 04.429 start Retry! Thread: 165
+2026-05-19 17: 30: 04.432 Processing denomination 1971 on thread 163
+2026-05-19 17: 30: 04.450 Processing denomination 340 on thread 166
+2026-05-19 17: 30: 04.465 Processing denomination 1542 on thread 166
+2026-05-19 17: 30: 04.471 Processing denomination 1542 on thread 165
+2026-05-19 17: 30: 04.481 Processing denomination 1518 on thread 166
+2026-05-19 17: 30: 04.487 Processing denomination 1518 on thread 166
+2026-05-19 17: 30: 04.496 Processing denomination 3448 on thread 163
+2026-05-19 17: 30: 04.503 Processing denomination 3448 on thread 166
+2026-05-19 17: 30: 04.513 Processing denomination 3454 on thread 166
+2026-05-19 17: 30: 04.519 Processing denomination 3454 on thread 166
+2026-05-19 17: 30: 04.529 Processing denomination 317 on thread 166
+2026-05-19 17: 30: 04.535 Processing denomination 3728 on thread 163
+2026-05-19 17: 30: 04.541 Processing denomination 3554 on thread 166
+2026-05-19 17: 30: 04.547 end Retry! Thread: 165
+2026-05-19 17: 33: 04.456 start Retry! Thread: 168
+2026-05-19 17: 33: 04.459 Processing denomination 1971 on thread 168
+2026-05-19 17: 33: 04.477 Processing denomination 340 on thread 166
+2026-05-19 17: 33: 04.492 Processing denomination 1542 on thread 166
+2026-05-19 17: 33: 04.499 Processing denomination 1542 on thread 166
+2026-05-19 17: 33: 04.510 Processing denomination 1518 on thread 166
+2026-05-19 17: 33: 04.518 Processing denomination 1518 on thread 167
+2026-05-19 17: 33: 04.529 Processing denomination 3448 on thread 167
+2026-05-19 17: 33: 04.536 Processing denomination 3448 on thread 167
+2026-05-19 17: 33: 04.546 Processing denomination 3454 on thread 167
+2026-05-19 17: 33: 04.552 Processing denomination 3454 on thread 167
+2026-05-19 17: 33: 04.563 Processing denomination 317 on thread 170
+2026-05-19 17: 33: 04.570 Processing denomination 3728 on thread 168
+2026-05-19 17: 33: 04.577 Processing denomination 3554 on thread 168
+2026-05-19 17: 33: 04.583 end Retry! Thread: 168
+2026-05-19 17: 36: 04.801 start Retry! Thread: 166
+2026-05-19 17: 36: 04.806 Processing denomination 1971 on thread 165
+2026-05-19 17: 36: 04.847 Processing denomination 340 on thread 163
+2026-05-19 17: 36: 04.867 Processing denomination 1542 on thread 163
+2026-05-19 17: 36: 04.877 Processing denomination 1542 on thread 165
+2026-05-19 17: 36: 04.894 Processing denomination 1518 on thread 166
+2026-05-19 17: 36: 04.904 Processing denomination 1518 on thread 163
+2026-05-19 17: 36: 04.919 Processing denomination 3448 on thread 165
+2026-05-19 17: 36: 04.930 Processing denomination 3448 on thread 166
+2026-05-19 17: 36: 04.945 Processing denomination 3454 on thread 165
+2026-05-19 17: 36: 04.955 Processing denomination 3454 on thread 165
+2026-05-19 17: 36: 04.968 Processing denomination 317 on thread 165
+2026-05-19 17: 36: 04.978 Processing denomination 3728 on thread 165
+2026-05-19 17: 36: 04.986 Processing denomination 3554 on thread 165
+2026-05-19 17: 36: 04.995 end Retry! Thread: 166
+2026-05-19 17: 39: 04.757 start Retry! Thread: 163
+2026-05-19 17: 39: 04.761 Processing denomination 1971 on thread 163
+2026-05-19 17: 39: 04.781 Processing denomination 340 on thread 163
+2026-05-19 17: 39: 04.795 Processing denomination 1542 on thread 163
+2026-05-19 17: 39: 04.802 Processing denomination 1542 on thread 163
+2026-05-19 17: 39: 04.812 Processing denomination 1518 on thread 163
+2026-05-19 17: 39: 04.819 Processing denomination 1518 on thread 154
+2026-05-19 17: 39: 04.829 Processing denomination 3448 on thread 165
+2026-05-19 17: 39: 04.836 Processing denomination 3448 on thread 163
+2026-05-19 17: 39: 04.846 Processing denomination 3454 on thread 165
+2026-05-19 17: 39: 04.852 Processing denomination 3454 on thread 165
+2026-05-19 17: 39: 04.862 Processing denomination 317 on thread 165
+2026-05-19 17: 39: 04.868 Processing denomination 3728 on thread 165
+2026-05-19 17: 39: 04.875 Processing denomination 3554 on thread 163
+2026-05-19 17: 39: 04.883 end Retry! Thread: 163
+2026-05-19 17: 42: 05.027 start Retry! Thread: 126
+2026-05-19 17: 42: 05.031 Processing denomination 1971 on thread 126
+2026-05-19 17: 42: 05.047 Processing denomination 340 on thread 165
+2026-05-19 17: 42: 05.060 Processing denomination 1542 on thread 165
+2026-05-19 17: 42: 05.066 Processing denomination 1542 on thread 165
+2026-05-19 17: 42: 05.076 Processing denomination 1518 on thread 165
+2026-05-19 17: 42: 05.082 Processing denomination 1518 on thread 119
+2026-05-19 17: 42: 05.091 Processing denomination 3448 on thread 165
+2026-05-19 17: 42: 05.097 Processing denomination 3448 on thread 119
+2026-05-19 17: 42: 05.107 Processing denomination 3454 on thread 119
+2026-05-19 17: 42: 05.113 Processing denomination 3454 on thread 165
+2026-05-19 17: 42: 05.122 Processing denomination 317 on thread 165
+2026-05-19 17: 42: 05.128 Processing denomination 3728 on thread 165
+2026-05-19 17: 42: 05.133 Processing denomination 3554 on thread 119
+2026-05-19 17: 42: 05.139 end Retry! Thread: 126
+2026-05-19 17: 45: 05.040 start Retry! Thread: 119
+2026-05-19 17: 45: 05.043 Processing denomination 1971 on thread 119
+2026-05-19 17: 45: 05.059 Processing denomination 340 on thread 65
+2026-05-19 17: 45: 05.073 Processing denomination 1542 on thread 119
+2026-05-19 17: 45: 05.079 Processing denomination 1542 on thread 119
+2026-05-19 17: 45: 05.089 Processing denomination 1518 on thread 119
+2026-05-19 17: 45: 05.095 Processing denomination 1518 on thread 119
+2026-05-19 17: 45: 05.104 Processing denomination 3448 on thread 119
+2026-05-19 17: 45: 05.110 Processing denomination 3448 on thread 119
+2026-05-19 17: 45: 05.119 Processing denomination 3454 on thread 119
+2026-05-19 17: 45: 05.126 Processing denomination 3454 on thread 65
+2026-05-19 17: 45: 05.135 Processing denomination 317 on thread 65
+2026-05-19 17: 45: 05.142 Processing denomination 3728 on thread 119
+2026-05-19 17: 45: 05.148 Processing denomination 3554 on thread 119
+2026-05-19 17: 45: 05.154 end Retry! Thread: 119
+2026-05-19 17: 48: 05.362 start Retry! Thread: 70
+2026-05-19 17: 48: 05.366 Processing denomination 1971 on thread 119
+2026-05-19 17: 48: 05.399 Processing denomination 340 on thread 67
+2026-05-19 17: 48: 05.415 Processing denomination 1542 on thread 65
+2026-05-19 17: 48: 05.422 Processing denomination 1542 on thread 67
+2026-05-19 17: 48: 05.433 Processing denomination 1518 on thread 67
+2026-05-19 17: 48: 05.440 Processing denomination 1518 on thread 65
+2026-05-19 17: 48: 05.451 Processing denomination 3448 on thread 65
+2026-05-19 17: 48: 05.457 Processing denomination 3448 on thread 65
+2026-05-19 17: 48: 05.468 Processing denomination 3454 on thread 80
+2026-05-19 17: 48: 05.477 Processing denomination 3454 on thread 80
+2026-05-19 17: 48: 05.488 Processing denomination 317 on thread 67
+2026-05-19 17: 48: 05.494 Processing denomination 3728 on thread 80
+2026-05-19 17: 48: 05.501 Processing denomination 3554 on thread 80
+2026-05-19 17: 48: 05.508 end Retry! Thread: 70
+2026-05-19 17: 51: 05.317 start Retry! Thread: 67
+2026-05-19 17: 51: 05.322 Processing denomination 1971 on thread 71
+2026-05-19 17: 51: 05.342 Processing denomination 340 on thread 67
+2026-05-19 17: 51: 05.357 Processing denomination 1542 on thread 77
+2026-05-19 17: 51: 05.364 Processing denomination 1542 on thread 77
+2026-05-19 17: 51: 05.375 Processing denomination 1518 on thread 77
+2026-05-19 17: 51: 05.382 Processing denomination 1518 on thread 77
+2026-05-19 17: 51: 05.393 Processing denomination 3448 on thread 67
+2026-05-19 17: 51: 05.401 Processing denomination 3448 on thread 67
+2026-05-19 17: 51: 05.413 Processing denomination 3454 on thread 89
+2026-05-19 17: 51: 05.420 Processing denomination 3454 on thread 67
+2026-05-19 17: 51: 05.431 Processing denomination 317 on thread 89
+2026-05-19 17: 51: 05.438 Processing denomination 3728 on thread 89
+2026-05-19 17: 51: 05.445 Processing denomination 3554 on thread 67
+2026-05-19 17: 51: 05.451 end Retry! Thread: 67
+2026-05-19 17: 54: 05.612 start Retry! Thread: 94
+2026-05-19 17: 54: 05.615 Processing denomination 1971 on thread 94
+2026-05-19 17: 54: 05.631 Processing denomination 340 on thread 77
+2026-05-19 17: 54: 05.646 Processing denomination 1542 on thread 92
+2026-05-19 17: 54: 05.652 Processing denomination 1542 on thread 93
+2026-05-19 17: 54: 05.662 Processing denomination 1518 on thread 77
+2026-05-19 17: 54: 05.669 Processing denomination 1518 on thread 77
+2026-05-19 17: 54: 05.678 Processing denomination 3448 on thread 77
+2026-05-19 17: 54: 05.684 Processing denomination 3448 on thread 77
+2026-05-19 17: 54: 05.694 Processing denomination 3454 on thread 77
+2026-05-19 17: 54: 05.701 Processing denomination 3454 on thread 92
+2026-05-19 17: 54: 05.711 Processing denomination 317 on thread 92
+2026-05-19 17: 54: 05.717 Processing denomination 3728 on thread 92
+2026-05-19 17: 54: 05.723 Processing denomination 3554 on thread 92
+2026-05-19 17: 54: 05.730 end Retry! Thread: 94
+2026-05-19 17: 57: 05.590 start Retry! Thread: 93
+2026-05-19 17: 57: 05.594 Processing denomination 1971 on thread 93
+2026-05-19 17: 57: 05.610 Processing denomination 340 on thread 106
+2026-05-19 17: 57: 05.626 Processing denomination 1542 on thread 108
+2026-05-19 17: 57: 05.633 Processing denomination 1542 on thread 108
+2026-05-19 17: 57: 05.642 Processing denomination 1518 on thread 108
+2026-05-19 17: 57: 05.648 Processing denomination 1518 on thread 100
+2026-05-19 17: 57: 05.658 Processing denomination 3448 on thread 108
+2026-05-19 17: 57: 05.664 Processing denomination 3448 on thread 106
+2026-05-19 17: 57: 05.674 Processing denomination 3454 on thread 93
+2026-05-19 17: 57: 05.681 Processing denomination 3454 on thread 93
+2026-05-19 17: 57: 05.691 Processing denomination 317 on thread 93
+2026-05-19 17: 57: 05.697 Processing denomination 3728 on thread 106
+2026-05-19 17: 57: 05.703 Processing denomination 3554 on thread 100
+2026-05-19 17: 57: 05.709 end Retry! Thread: 93
+2026-05-19 18: 00: 05.902 start Retry! Thread: 114
+2026-05-19 18: 00: 05.907 Processing denomination 1971 on thread 114
+2026-05-19 18: 00: 05.937 Processing denomination 340 on thread 113
+2026-05-19 18: 00: 05.954 Processing denomination 1542 on thread 111
+2026-05-19 18: 00: 05.962 Processing denomination 1542 on thread 111
+2026-05-19 18: 00: 05.972 Processing denomination 1518 on thread 114
+2026-05-19 18: 00: 05.979 Processing denomination 1518 on thread 114
+2026-05-19 18: 00: 05.989 Processing denomination 3448 on thread 114
+2026-05-19 18: 00: 05.995 Processing denomination 3448 on thread 96
+2026-05-19 18: 00: 06.006 Processing denomination 3454 on thread 96
+2026-05-19 18: 00: 06.014 Processing denomination 3454 on thread 96
+2026-05-19 18: 00: 06.024 Processing denomination 317 on thread 114
+2026-05-19 18: 00: 06.031 Processing denomination 3728 on thread 114
+2026-05-19 18: 00: 06.038 Processing denomination 3554 on thread 114
+2026-05-19 18: 00: 06.045 end Retry! Thread: 114
+2026-05-19 18: 03: 05.875 start Retry! Thread: 140
+2026-05-19 18: 03: 05.878 Processing denomination 1971 on thread 73
+2026-05-19 18: 03: 05.896 Processing denomination 340 on thread 135
+2026-05-19 18: 03: 05.912 Processing denomination 1542 on thread 73
+2026-05-19 18: 03: 05.919 Processing denomination 1542 on thread 135
+2026-05-19 18: 03: 05.929 Processing denomination 1518 on thread 140
+2026-05-19 18: 03: 05.936 Processing denomination 1518 on thread 135
+2026-05-19 18: 03: 05.945 Processing denomination 3448 on thread 135
+2026-05-19 18: 03: 05.952 Processing denomination 3448 on thread 135
+2026-05-19 18: 03: 05.963 Processing denomination 3454 on thread 73
+2026-05-19 18: 03: 05.969 Processing denomination 3454 on thread 135
+2026-05-19 18: 03: 05.979 Processing denomination 317 on thread 73
+2026-05-19 18: 03: 05.985 Processing denomination 3728 on thread 73
+2026-05-19 18: 03: 05.992 Processing denomination 3554 on thread 73
+2026-05-19 18: 03: 05.997 end Retry! Thread: 140
+2026-05-19 18: 06: 06.200 start Retry! Thread: 143
+2026-05-19 18: 06: 06.204 Processing denomination 1971 on thread 143
+2026-05-19 18: 06: 06.222 Processing denomination 340 on thread 135
+2026-05-19 18: 06: 06.237 Processing denomination 1542 on thread 145
+2026-05-19 18: 06: 06.244 Processing denomination 1542 on thread 145
+2026-05-19 18: 06: 06.253 Processing denomination 1518 on thread 143
+2026-05-19 18: 06: 06.260 Processing denomination 1518 on thread 145
+2026-05-19 18: 06: 06.272 Processing denomination 3448 on thread 143
+2026-05-19 18: 06: 06.279 Processing denomination 3448 on thread 145
+2026-05-19 18: 06: 06.290 Processing denomination 3454 on thread 145
+2026-05-19 18: 06: 06.297 Processing denomination 3454 on thread 143
+2026-05-19 18: 06: 06.306 Processing denomination 317 on thread 145
+2026-05-19 18: 06: 06.313 Processing denomination 3728 on thread 145
+2026-05-19 18: 06: 06.320 Processing denomination 3554 on thread 145
+2026-05-19 18: 06: 06.326 end Retry! Thread: 143
+2026-05-19 18: 09: 06.202 start Retry! Thread: 150
+2026-05-19 18: 09: 06.208 Processing denomination 1971 on thread 148
+2026-05-19 18: 09: 06.231 Processing denomination 340 on thread 148
+2026-05-19 18: 09: 06.251 Processing denomination 1542 on thread 147
+2026-05-19 18: 09: 06.261 Processing denomination 1542 on thread 148
+2026-05-19 18: 09: 06.277 Processing denomination 1518 on thread 147
+2026-05-19 18: 09: 06.285 Processing denomination 1518 on thread 147
+2026-05-19 18: 09: 06.299 Processing denomination 3448 on thread 150
+2026-05-19 18: 09: 06.308 Processing denomination 3448 on thread 150
+2026-05-19 18: 09: 06.322 Processing denomination 3454 on thread 135
+2026-05-19 18: 09: 06.330 Processing denomination 3454 on thread 135
+2026-05-19 18: 09: 06.344 Processing denomination 317 on thread 135
+2026-05-19 18: 09: 06.352 Processing denomination 3728 on thread 135
+2026-05-19 18: 09: 06.361 Processing denomination 3554 on thread 135
+2026-05-19 18: 09: 06.369 end Retry! Thread: 150
+2026-05-19 18: 12: 06.364 start Retry! Thread: 147
+2026-05-19 18: 12: 06.370 Processing denomination 1971 on thread 66
+2026-05-19 18: 12: 06.405 Processing denomination 340 on thread 148
+2026-05-19 18: 12: 06.422 Processing denomination 1542 on thread 148
+2026-05-19 18: 12: 06.431 Processing denomination 1542 on thread 148
+2026-05-19 18: 12: 06.445 Processing denomination 1518 on thread 148
+2026-05-19 18: 12: 06.453 Processing denomination 1518 on thread 148
+2026-05-19 18: 12: 06.466 Processing denomination 3448 on thread 142
+2026-05-19 18: 12: 06.475 Processing denomination 3448 on thread 147
+2026-05-19 18: 12: 06.488 Processing denomination 3454 on thread 147
+2026-05-19 18: 12: 06.497 Processing denomination 3454 on thread 142
+2026-05-19 18: 12: 06.510 Processing denomination 317 on thread 142
+2026-05-19 18: 12: 06.520 Processing denomination 3728 on thread 147
+2026-05-19 18: 12: 06.529 Processing denomination 3554 on thread 147
+2026-05-19 18: 12: 06.537 end Retry! Thread: 147
+2026-05-19 18: 13: 08.695 Create request with Correlation_ID: 2297ec4a-eaed-4390-9774-b29735fb4d47
+2026-05-19 18: 13: 08.712 Received response with Correlation_ID: 2297ec4a-eaed-4390-9774-b29735fb4d47
+2026-05-19 18: 13: 58.109 Create request with Correlation_ID: b602ce9f-b6e0-405d-80a2-417e874aee72
+2026-05-19 18: 13: 58.227 {"LogDate":"2026-05-19","LogTime":"18:13:58.227","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3719,"Method":"Initiate","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":"","MessageBody":{"Messgae":"[BeforeSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+2026-05-19 18: 13: 58.240 {"LogDate":"2026-05-19","LogTime":"18:13:58.240","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3719,"Method":"Initiate","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":"","MessageBody":{"Messgae":"[AfterSaveAddProviderServiceRequest]"},"ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+2026-05-19 18: 13: 58.241 {"LogDate":"2026-05-19","LogTime":"18:13:58.241","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3719,"Method":"Initiate","Source":"TMS","Destination":"TMS","BRN":null,"BillingAccount":"","MessageBody":{"Messgae":"[AfterAddProviderServiceRequestWithID]","ID":1018170},"ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+2026-05-19 18: 13: 58.268 {"LogDate":"2026-05-19","LogTime":"18:13:58.241","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3719,"Method":"Initiate","Source":"Ocelot","Destination":"TMS","BRN":1018170,"BillingAccount":"29301121402318","MessageBody":{"CustomerRequest":{"Amount":10.0,"ChannelId":null,"Data":[{"key":"amount","value":"10","name":null}],"BillingAccount":"29301121402318","Version":"300","ServiceListVersion":"0","AccountId":4,"UserId":17123,"AccountProfileId":0,"SOF":0},"ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+2026-05-19 18: 13: 58.281 {"LogDate":"2026-05-19","LogTime":"18:13:58.280","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3719,"Method":"Initiate","Source":"TMS","Destination":"Switch","BRN":1018170,"BillingAccount":"29301121402318","MessageBody":{"ProviderRequest":{"billingAccount":"29301121402318","clientDate":"2026-05-19 18:13:58","requestId":1018170,"amount":10.0,"count":0,"extraData":[{"key":"amount","value":"10"}],"invoices":[],"subRequestId":null,"isRetry":0},"ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+2026-05-19 18: 13: 58.291 http://10.90.7.192:8087/momknswitch/api/v1.0/services/3719/cashInit
+2026-05-19 18: 13: 58.477 {"LogDate":"2026-05-19","LogTime":"18:13:58.476","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3719,"Method":"Inquiry","Source":"Switch","Destination":"TMS","BRN":null,"BillingAccount":"29301121402318","MessageBody":{"StatusCode":503,"Content":"{\"responseCode\":503,\"responseMessage\":\"503 SERVICE_UNAVAILABLE \\\"Unable to find instance for onlineOneFinanceCustomerWallet\\\"\",\"messageAr\":\"\",\"responseDate\":\"19/05/2026 18:13:58\",\"details\":\"\"}"},"ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+2026-05-19 18: 13: 58.480 {"LogDate":"2026-05-19","LogTime":"18:13:58.479","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3719,"Method":"Initiate","Source":"Switch","Destination":"TMS","BRN":1018170,"BillingAccount":"29301121402318","MessageBody":{"ProviderResponse":{"StatusCode":-300,"ResponseCode":503,"Message":"503 SERVICE_UNAVAILABLE \"Unable to find instance for onlineOneFinanceCustomerWallet\"","Body":{"TotalAmount":0.0,"ExtraData":[],"Invoices":[],"ResponseCode":503,"ResponseMessage":"503 SERVICE_UNAVAILABLE \"Unable to find instance for onlineOneFinanceCustomerWallet\"","MessageAr":"","ResponseDate":"19/05/2026 18:13:58"}},"ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+2026-05-19 18: 13: 58.495 {"LogDate":"2026-05-19","LogTime":"18:13:58.495","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":null,"Method":"ErrorMappingService","Source":"Switch","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"[NoDbStatusCode] - No Code for: 503, provider id: 206","ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+2026-05-19 18: 13: 58.496 {"LogDate":"2026-05-19","LogTime":"18:13:58.496","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.223","DenominationId":3719,"Method":"Inquiry","Source":null,"Destination":null,"BRN":null,"BillingAccount":"29301121402318","MessageBody":"[Inquiry-Exception-BackendException] خطأ مزود الخدمه","ExtraData":null,"CorrelationId":"b602ce9f-b6e0-405d-80a2-417e874aee72"}
+Backend.Infrastructure.Helpers.BackendException: خطأ مزود الخدمه
+   at BillPayment.Services.Services.V2.Services.DynamicServiceV2.Initiate(InitiateRequestDTO initiateModel, Int32 id) in /var/charts/sources/alahlymomkn.backend/TMS.Services/Services/V2/Services/DynamicServiceV2.cs:line 2226
+   at BillPayment.API.Controllers.V2.ServicesController.Initiate(InitiateRequestModel model, Int32 serviceId) in /var/charts/sources/alahlymomkn.backend/TMS.API/Controllers/V2/ServicesController.cs:line 209
+2026-05-19 18: 13: 58.502 Received response with Correlation_ID: b602ce9f-b6e0-405d-80a2-417e874aee72
+2026-05-19 18: 15: 06.508 start Retry! Thread: 66
+2026-05-19 18: 15: 06.513 Processing denomination 1971 on thread 66
+2026-05-19 18: 15: 06.533 Processing denomination 340 on thread 66
+2026-05-19 18: 15: 06.551 Processing denomination 1542 on thread 66
+2026-05-19 18: 15: 06.559 Processing denomination 1542 on thread 66
+2026-05-19 18: 15: 06.572 Processing denomination 1518 on thread 66
+2026-05-19 18: 15: 06.580 Processing denomination 1518 on thread 105
+2026-05-19 18: 15: 06.593 Processing denomination 3448 on thread 83
+2026-05-19 18: 15: 06.601 Processing denomination 3448 on thread 66
+2026-05-19 18: 15: 06.613 Processing denomination 3454 on thread 83
+2026-05-19 18: 15: 06.620 Processing denomination 3454 on thread 83
+2026-05-19 18: 15: 06.633 Processing denomination 317 on thread 83
+2026-05-19 18: 15: 06.641 Processing denomination 3728 on thread 66
+2026-05-19 18: 15: 06.649 Processing denomination 3554 on thread 66
+2026-05-19 18: 15: 06.657 end Retry! Thread: 66
+2026-05-19 18: 18: 06.807 start Retry! Thread: 83
+2026-05-19 18: 18: 06.811 Processing denomination 1971 on thread 102
+2026-05-19 18: 18: 06.828 Processing denomination 340 on thread 83
+2026-05-19 18: 18: 06.843 Processing denomination 1542 on thread 102
+2026-05-19 18: 18: 06.849 Processing denomination 1542 on thread 83
+2026-05-19 18: 18: 06.860 Processing denomination 1518 on thread 86
+2026-05-19 18: 18: 06.867 Processing denomination 1518 on thread 102
+2026-05-19 18: 18: 06.878 Processing denomination 3448 on thread 86
+2026-05-19 18: 18: 06.884 Processing denomination 3448 on thread 86
+2026-05-19 18: 18: 06.894 Processing denomination 3454 on thread 86
+2026-05-19 18: 18: 06.900 Processing denomination 3454 on thread 86
+2026-05-19 18: 18: 06.910 Processing denomination 317 on thread 86
+2026-05-19 18: 18: 06.917 Processing denomination 3728 on thread 83
+2026-05-19 18: 18: 06.923 Processing denomination 3554 on thread 83
+2026-05-19 18: 18: 06.930 end Retry! Thread: 83
+2026-05-19 18: 21: 06.789 start Retry! Thread: 102
+2026-05-19 18: 21: 06.794 Processing denomination 1971 on thread 102
+2026-05-19 18: 21: 06.817 Processing denomination 340 on thread 74
+2026-05-19 18: 21: 06.838 Processing denomination 1542 on thread 74
+2026-05-19 18: 21: 06.849 Processing denomination 1542 on thread 86
+2026-05-19 18: 21: 06.864 Processing denomination 1518 on thread 102
+2026-05-19 18: 21: 06.873 Processing denomination 1518 on thread 74
+2026-05-19 18: 21: 06.886 Processing denomination 3448 on thread 74
+2026-05-19 18: 21: 06.895 Processing denomination 3448 on thread 102
+2026-05-19 18: 21: 06.911 Processing denomination 3454 on thread 74
+2026-05-19 18: 21: 06.920 Processing denomination 3454 on thread 74
+2026-05-19 18: 21: 06.931 Processing denomination 317 on thread 74
+2026-05-19 18: 21: 06.938 Processing denomination 3728 on thread 74
+2026-05-19 18: 21: 06.946 Processing denomination 3554 on thread 74
+2026-05-19 18: 21: 06.953 end Retry! Thread: 102
+2026-05-19 18: 24: 07.111 start Retry! Thread: 10
+2026-05-19 18: 24: 07.115 Processing denomination 1971 on thread 10
+2026-05-19 18: 24: 07.145 Processing denomination 340 on thread 10
+2026-05-19 18: 24: 07.162 Processing denomination 1542 on thread 123
+2026-05-19 18: 24: 07.169 Processing denomination 1542 on thread 123
+2026-05-19 18: 24: 07.179 Processing denomination 1518 on thread 123
+2026-05-19 18: 24: 07.186 Processing denomination 1518 on thread 10
+2026-05-19 18: 24: 07.197 Processing denomination 3448 on thread 123
+2026-05-19 18: 24: 07.204 Processing denomination 3448 on thread 10
+2026-05-19 18: 24: 07.215 Processing denomination 3454 on thread 10
+2026-05-19 18: 24: 07.223 Processing denomination 3454 on thread 123
+2026-05-19 18: 24: 07.234 Processing denomination 317 on thread 123
+2026-05-19 18: 24: 07.241 Processing denomination 3728 on thread 123
+2026-05-19 18: 24: 07.249 Processing denomination 3554 on thread 123
+2026-05-19 18: 24: 07.255 end Retry! Thread: 10
+2026-05-19 18: 27: 07.074 start Retry! Thread: 131
+2026-05-19 18: 27: 07.077 Processing denomination 1971 on thread 131
+2026-05-19 18: 27: 07.095 Processing denomination 340 on thread 125
+2026-05-19 18: 27: 07.111 Processing denomination 1542 on thread 132
+2026-05-19 18: 27: 07.118 Processing denomination 1542 on thread 125
+2026-05-19 18: 27: 07.130 Processing denomination 1518 on thread 125
+2026-05-19 18: 27: 07.136 Processing denomination 1518 on thread 125
+2026-05-19 18: 27: 07.146 Processing denomination 3448 on thread 125
+2026-05-19 18: 27: 07.152 Processing denomination 3448 on thread 123
+2026-05-19 18: 27: 07.162 Processing denomination 3454 on thread 123
+2026-05-19 18: 27: 07.169 Processing denomination 3454 on thread 125
+2026-05-19 18: 27: 07.179 Processing denomination 317 on thread 125
+2026-05-19 18: 27: 07.185 Processing denomination 3728 on thread 131
+2026-05-19 18: 27: 07.192 Processing denomination 3554 on thread 131
+2026-05-19 18: 27: 07.198 end Retry! Thread: 131
+2026-05-19 18: 30: 07.223 start Retry! Thread: 123
+2026-05-19 18: 30: 07.228 Processing denomination 1971 on thread 129
+2026-05-19 18: 30: 07.246 Processing denomination 340 on thread 123
+2026-05-19 18: 30: 07.261 Processing denomination 1542 on thread 134
+2026-05-19 18: 30: 07.268 Processing denomination 1542 on thread 134
+2026-05-19 18: 30: 07.278 Processing denomination 1518 on thread 123
+2026-05-19 18: 30: 07.285 Processing denomination 1518 on thread 129
+2026-05-19 18: 30: 07.295 Processing denomination 3448 on thread 134
+2026-05-19 18: 30: 07.302 Processing denomination 3448 on thread 129
+2026-05-19 18: 30: 07.313 Processing denomination 3454 on thread 123
+2026-05-19 18: 30: 07.319 Processing denomination 3454 on thread 129
+2026-05-19 18: 30: 07.329 Processing denomination 317 on thread 123
+2026-05-19 18: 30: 07.336 Processing denomination 3728 on thread 123
+2026-05-19 18: 30: 07.342 Processing denomination 3554 on thread 123
+2026-05-19 18: 30: 07.348 end Retry! Thread: 123
+2026-05-19 18: 33: 07.380 start Retry! Thread: 86
+2026-05-19 18: 33: 07.384 Processing denomination 1971 on thread 86
+2026-05-19 18: 33: 07.400 Processing denomination 340 on thread 72
+2026-05-19 18: 33: 07.414 Processing denomination 1542 on thread 74
+2026-05-19 18: 33: 07.421 Processing denomination 1542 on thread 72
+2026-05-19 18: 33: 07.430 Processing denomination 1518 on thread 72
+2026-05-19 18: 33: 07.436 Processing denomination 1518 on thread 86
+2026-05-19 18: 33: 07.445 Processing denomination 3448 on thread 74
+2026-05-19 18: 33: 07.451 Processing denomination 3448 on thread 86
+2026-05-19 18: 33: 07.459 Processing denomination 3454 on thread 74
+2026-05-19 18: 33: 07.465 Processing denomination 3454 on thread 74
+2026-05-19 18: 33: 07.475 Processing denomination 317 on thread 74
+2026-05-19 18: 33: 07.481 Processing denomination 3728 on thread 74
+2026-05-19 18: 33: 07.487 Processing denomination 3554 on thread 72
+2026-05-19 18: 33: 07.492 end Retry! Thread: 86
+2026-05-19 18: 36: 07.508 start Retry! Thread: 102
+2026-05-19 18: 36: 07.512 Processing denomination 1971 on thread 72
+2026-05-19 18: 36: 07.793 Processing denomination 340 on thread 79
+2026-05-19 18: 36: 07.808 Processing denomination 1542 on thread 79
+2026-05-19 18: 36: 07.815 Processing denomination 1542 on thread 115
+2026-05-19 18: 36: 07.825 Processing denomination 1518 on thread 115
+2026-05-19 18: 36: 07.832 Processing denomination 1518 on thread 102
+2026-05-19 18: 36: 07.841 Processing denomination 3448 on thread 102
+2026-05-19 18: 36: 07.847 Processing denomination 3448 on thread 102
+2026-05-19 18: 36: 07.856 Processing denomination 3454 on thread 102
+2026-05-19 18: 36: 07.862 Processing denomination 3454 on thread 102
+2026-05-19 18: 36: 07.871 Processing denomination 317 on thread 102
+2026-05-19 18: 36: 07.877 Processing denomination 3728 on thread 102
+2026-05-19 18: 36: 07.883 Processing denomination 3554 on thread 102
+2026-05-19 18: 36: 07.888 end Retry! Thread: 102
+2026-05-19 18: 36: 17.137 Create request with Correlation_ID: 5cb669a6-4a13-44c1-ab1c-dd713eb6a4e6
+2026-05-19 18: 36: 17.155 Received response with Correlation_ID: 5cb669a6-4a13-44c1-ab1c-dd713eb6a4e6
+2026-05-19 18: 36: 18.514 Create request with Correlation_ID: 34273612-65ec-48cf-a508-e3e21dcb9e44
+2026-05-19 18: 36: 18.528 Received response with Correlation_ID: 34273612-65ec-48cf-a508-e3e21dcb9e44
+2026-05-19 18: 38: 27.485 Create request with Correlation_ID: e95d9559-2d0f-4db0-9742-ab334f3576ad
+2026-05-19 18: 38: 27.502 Received response with Correlation_ID: e95d9559-2d0f-4db0-9742-ab334f3576ad
+2026-05-19 18: 39: 07.809 start Retry! Thread: 68
+2026-05-19 18: 39: 07.813 Processing denomination 1971 on thread 83
+2026-05-19 18: 39: 07.829 Processing denomination 340 on thread 76
+2026-05-19 18: 39: 07.844 Processing denomination 1542 on thread 68
+2026-05-19 18: 39: 07.853 Processing denomination 1542 on thread 68
+2026-05-19 18: 39: 07.863 Processing denomination 1518 on thread 76
+2026-05-19 18: 39: 07.869 Processing denomination 1518 on thread 76
+2026-05-19 18: 39: 07.879 Processing denomination 3448 on thread 148
+2026-05-19 18: 39: 07.886 Processing denomination 3448 on thread 148
+2026-05-19 18: 39: 07.895 Processing denomination 3454 on thread 148
+2026-05-19 18: 39: 07.902 Processing denomination 3454 on thread 148
+2026-05-19 18: 39: 07.912 Processing denomination 317 on thread 148
+2026-05-19 18: 39: 07.918 Processing denomination 3728 on thread 148
+2026-05-19 18: 39: 07.925 Processing denomination 3554 on thread 148
+2026-05-19 18: 39: 07.933 end Retry! Thread: 68
+2026-05-19 18: 41: 23.233 Create request with Correlation_ID: dcde9dd3-d03a-4b69-b1fa-affdb4032aac
+2026-05-19 18: 41: 23.251 Received response with Correlation_ID: dcde9dd3-d03a-4b69-b1fa-affdb4032aac
+2026-05-19 18: 41: 36.489 Create request with Correlation_ID: ef7f7536-e63d-4539-9890-86d6226db36a
+2026-05-19 18: 41: 36.505 Received response with Correlation_ID: ef7f7536-e63d-4539-9890-86d6226db36a
+2026-05-19 18: 42: 08.103 start Retry! Thread: 149
+2026-05-19 18: 42: 08.106 Processing denomination 1971 on thread 149
+2026-05-19 18: 42: 08.123 Processing denomination 340 on thread 149
+2026-05-19 18: 42: 08.138 Processing denomination 1542 on thread 147
+2026-05-19 18: 42: 08.144 Processing denomination 1542 on thread 147
+2026-05-19 18: 42: 08.155 Processing denomination 1518 on thread 147
+2026-05-19 18: 42: 08.161 Processing denomination 1518 on thread 147
+2026-05-19 18: 42: 08.171 Processing denomination 3448 on thread 149
+2026-05-19 18: 42: 08.177 Processing denomination 3448 on thread 147
+2026-05-19 18: 42: 08.185 Processing denomination 3454 on thread 147
+2026-05-19 18: 42: 08.191 Processing denomination 3454 on thread 149
+2026-05-19 18: 42: 08.200 Processing denomination 317 on thread 147
+2026-05-19 18: 42: 08.206 Processing denomination 3728 on thread 147
+2026-05-19 18: 42: 08.213 Processing denomination 3554 on thread 147
+2026-05-19 18: 42: 08.220 end Retry! Thread: 149
+2026-05-19 18: 45: 08.083 start Retry! Thread: 141
+2026-05-19 18: 45: 08.086 Processing denomination 1971 on thread 141
+2026-05-19 18: 45: 08.102 Processing denomination 340 on thread 145
+2026-05-19 18: 45: 08.117 Processing denomination 1542 on thread 146
+2026-05-19 18: 45: 08.124 Processing denomination 1542 on thread 146
+2026-05-19 18: 45: 08.134 Processing denomination 1518 on thread 146
+2026-05-19 18: 45: 08.140 Processing denomination 1518 on thread 143
+2026-05-19 18: 45: 08.151 Processing denomination 3448 on thread 146
+2026-05-19 18: 45: 08.159 Processing denomination 3448 on thread 141
+2026-05-19 18: 45: 08.168 Processing denomination 3454 on thread 141
+2026-05-19 18: 45: 08.174 Processing denomination 3454 on thread 141
+2026-05-19 18: 45: 08.185 Processing denomination 317 on thread 143
+2026-05-19 18: 45: 08.191 Processing denomination 3728 on thread 140
+2026-05-19 18: 45: 08.197 Processing denomination 3554 on thread 141
+2026-05-19 18: 45: 08.203 end Retry! Thread: 141
+2026-05-19 18: 48: 08.384 start Retry! Thread: 73
+2026-05-19 18: 48: 08.388 Processing denomination 1971 on thread 73
+2026-05-19 18: 48: 08.420 Processing denomination 340 on thread 113
+2026-05-19 18: 48: 08.436 Processing denomination 1542 on thread 103
+2026-05-19 18: 48: 08.444 Processing denomination 1542 on thread 143
+2026-05-19 18: 48: 08.456 Processing denomination 1518 on thread 143
+2026-05-19 18: 48: 08.463 Processing denomination 1518 on thread 143
+2026-05-19 18: 48: 08.472 Processing denomination 3448 on thread 143
+2026-05-19 18: 48: 08.480 Processing denomination 3448 on thread 143
+2026-05-19 18: 48: 08.490 Processing denomination 3454 on thread 143
+2026-05-19 18: 48: 08.497 Processing denomination 3454 on thread 143
+2026-05-19 18: 48: 08.506 Processing denomination 317 on thread 140
+2026-05-19 18: 48: 08.513 Processing denomination 3728 on thread 103
+2026-05-19 18: 48: 08.520 Processing denomination 3554 on thread 103
+2026-05-19 18: 48: 08.527 end Retry! Thread: 73
+2026-05-19 18: 51: 08.358 start Retry! Thread: 112
+2026-05-19 18: 51: 08.362 Processing denomination 1971 on thread 114
+2026-05-19 18: 51: 08.378 Processing denomination 340 on thread 114
+2026-05-19 18: 51: 08.393 Processing denomination 1542 on thread 106
+2026-05-19 18: 51: 08.400 Processing denomination 1542 on thread 114
+2026-05-19 18: 51: 08.409 Processing denomination 1518 on thread 112
+2026-05-19 18: 51: 08.415 Processing denomination 1518 on thread 112
+2026-05-19 18: 51: 08.424 Processing denomination 3448 on thread 112
+2026-05-19 18: 51: 08.431 Processing denomination 3448 on thread 112
+2026-05-19 18: 51: 08.441 Processing denomination 3454 on thread 106
+2026-05-19 18: 51: 08.448 Processing denomination 3454 on thread 106
+2026-05-19 18: 51: 08.458 Processing denomination 317 on thread 106
+2026-05-19 18: 51: 08.464 Processing denomination 3728 on thread 106
+2026-05-19 18: 51: 08.471 Processing denomination 3554 on thread 103
+2026-05-19 18: 51: 08.477 end Retry! Thread: 112
+2026-05-19 18: 54: 08.484 start Retry! Thread: 100
+2026-05-19 18: 54: 08.487 Processing denomination 1971 on thread 111
+2026-05-19 18: 54: 08.503 Processing denomination 340 on thread 100
+2026-05-19 18: 54: 08.519 Processing denomination 1542 on thread 78
+2026-05-19 18: 54: 08.524 Processing denomination 1542 on thread 78
+2026-05-19 18: 54: 08.532 Processing denomination 1518 on thread 94
+2026-05-19 18: 54: 08.538 Processing denomination 1518 on thread 78
+2026-05-19 18: 54: 08.546 Processing denomination 3448 on thread 78
+2026-05-19 18: 54: 08.552 Processing denomination 3448 on thread 111
+2026-05-19 18: 54: 08.561 Processing denomination 3454 on thread 78
+2026-05-19 18: 54: 08.568 Processing denomination 3454 on thread 100
+2026-05-19 18: 54: 08.576 Processing denomination 317 on thread 78
+2026-05-19 18: 54: 08.581 Processing denomination 3728 on thread 101
+2026-05-19 18: 54: 08.586 Processing denomination 3554 on thread 101
+2026-05-19 18: 54: 08.593 end Retry! Thread: 100
+2026-05-19 18: 57: 08.635 start Retry! Thread: 87
+2026-05-19 18: 57: 08.639 Processing denomination 1971 on thread 100
+2026-05-19 18: 57: 08.654 Processing denomination 340 on thread 87
+2026-05-19 18: 57: 08.669 Processing denomination 1542 on thread 87
+2026-05-19 18: 57: 08.675 Processing denomination 1542 on thread 87
+2026-05-19 18: 57: 08.685 Processing denomination 1518 on thread 87
+2026-05-19 18: 57: 08.692 Processing denomination 1518 on thread 87
+2026-05-19 18: 57: 08.701 Processing denomination 3448 on thread 87
+2026-05-19 18: 57: 08.708 Processing denomination 3448 on thread 89
+2026-05-19 18: 57: 08.718 Processing denomination 3454 on thread 87
+2026-05-19 18: 57: 08.725 Processing denomination 3454 on thread 87
+2026-05-19 18: 57: 08.735 Processing denomination 317 on thread 87
+2026-05-19 18: 57: 08.741 Processing denomination 3728 on thread 87
+2026-05-19 18: 57: 08.748 Processing denomination 3554 on thread 89
+2026-05-19 18: 57: 08.755 end Retry! Thread: 87
+2026-05-19 19: 00: 08.957 start Retry! Thread: 89
+2026-05-19 19: 00: 08.962 Processing denomination 1971 on thread 70
+2026-05-19 19: 00: 08.998 Processing denomination 340 on thread 89
+2026-05-19 19: 00: 09.016 Processing denomination 1542 on thread 80
+2026-05-19 19: 00: 09.024 Processing denomination 1542 on thread 80
+2026-05-19 19: 00: 09.036 Processing denomination 1518 on thread 75
+2026-05-19 19: 00: 09.044 Processing denomination 1518 on thread 70
+2026-05-19 19: 00: 09.056 Processing denomination 3448 on thread 70
+2026-05-19 19: 00: 09.064 Processing denomination 3448 on thread 75
+2026-05-19 19: 00: 09.076 Processing denomination 3454 on thread 75
+2026-05-19 19: 00: 09.084 Processing denomination 3454 on thread 75
+2026-05-19 19: 00: 09.097 Processing denomination 317 on thread 75
+2026-05-19 19: 00: 09.105 Processing denomination 3728 on thread 89
+2026-05-19 19: 00: 09.112 Processing denomination 3554 on thread 89
+2026-05-19 19: 00: 09.120 end Retry! Thread: 89
+2026-05-19 19: 03: 08.944 start Retry! Thread: 89
+2026-05-19 19: 03: 08.948 Processing denomination 1971 on thread 5
+2026-05-19 19: 03: 08.966 Processing denomination 340 on thread 89
+2026-05-19 19: 03: 08.982 Processing denomination 1542 on thread 89
+2026-05-19 19: 03: 08.988 Processing denomination 1542 on thread 89
+2026-05-19 19: 03: 08.998 Processing denomination 1518 on thread 89
+2026-05-19 19: 03: 09.004 Processing denomination 1518 on thread 89
+2026-05-19 19: 03: 09.012 Processing denomination 3448 on thread 89
+2026-05-19 19: 03: 09.019 Processing denomination 3448 on thread 119
+2026-05-19 19: 03: 09.028 Processing denomination 3454 on thread 119
+2026-05-19 19: 03: 09.034 Processing denomination 3454 on thread 119
+2026-05-19 19: 03: 09.048 Processing denomination 317 on thread 80
+2026-05-19 19: 03: 09.055 Processing denomination 3728 on thread 80
+2026-05-19 19: 03: 09.062 Processing denomination 3554 on thread 80
+2026-05-19 19: 03: 09.068 end Retry! Thread: 89
+2026-05-19 19: 06: 09.103 start Retry! Thread: 154
+2026-05-19 19: 06: 09.108 Processing denomination 1971 on thread 156
+2026-05-19 19: 06: 09.126 Processing denomination 340 on thread 155
+2026-05-19 19: 06: 09.145 Processing denomination 1542 on thread 157
+2026-05-19 19: 06: 09.153 Processing denomination 1542 on thread 157
+2026-05-19 19: 06: 09.167 Processing denomination 1518 on thread 156
+2026-05-19 19: 06: 09.176 Processing denomination 1518 on thread 154
+2026-05-19 19: 06: 09.190 Processing denomination 3448 on thread 154
+2026-05-19 19: 06: 09.198 Processing denomination 3448 on thread 154
+2026-05-19 19: 06: 09.212 Processing denomination 3454 on thread 159
+2026-05-19 19: 06: 09.220 Processing denomination 3454 on thread 157
+2026-05-19 19: 06: 09.232 Processing denomination 317 on thread 154
+2026-05-19 19: 06: 09.240 Processing denomination 3728 on thread 154
+2026-05-19 19: 06: 09.248 Processing denomination 3554 on thread 157
+2026-05-19 19: 06: 09.257 end Retry! Thread: 154
+2026-05-19 19: 09: 09.241 start Retry! Thread: 154
+2026-05-19 19: 09: 09.245 Processing denomination 1971 on thread 154
+2026-05-19 19: 09: 09.265 Processing denomination 340 on thread 154
+2026-05-19 19: 09: 09.288 Processing denomination 1542 on thread 167
+2026-05-19 19: 09: 09.296 Processing denomination 1542 on thread 154
+2026-05-19 19: 09: 09.310 Processing denomination 1518 on thread 168
+2026-05-19 19: 09: 09.319 Processing denomination 1518 on thread 167
+2026-05-19 19: 09: 09.331 Processing denomination 3448 on thread 154
+2026-05-19 19: 09: 09.339 Processing denomination 3448 on thread 154
+2026-05-19 19: 09: 09.353 Processing denomination 3454 on thread 167
+2026-05-19 19: 09: 09.361 Processing denomination 3454 on thread 161
+2026-05-19 19: 09: 09.373 Processing denomination 317 on thread 156
+2026-05-19 19: 09: 09.381 Processing denomination 3728 on thread 161
+2026-05-19 19: 09: 09.390 Processing denomination 3554 on thread 168
+2026-05-19 19: 09: 09.399 end Retry! Thread: 154
+2026-05-19 19: 12: 09.543 start Retry! Thread: 151
+2026-05-19 19: 12: 09.547 Processing denomination 1971 on thread 161
+2026-05-19 19: 12: 09.575 Processing denomination 340 on thread 130
+2026-05-19 19: 12: 09.589 Processing denomination 1542 on thread 168
+2026-05-19 19: 12: 09.595 Processing denomination 1542 on thread 130
+2026-05-19 19: 12: 09.604 Processing denomination 1518 on thread 130
+2026-05-19 19: 12: 09.610 Processing denomination 1518 on thread 168
+2026-05-19 19: 12: 09.619 Processing denomination 3448 on thread 168
+2026-05-19 19: 12: 09.625 Processing denomination 3448 on thread 130
+2026-05-19 19: 12: 09.635 Processing denomination 3454 on thread 168
+2026-05-19 19: 12: 09.640 Processing denomination 3454 on thread 168
+2026-05-19 19: 12: 09.649 Processing denomination 317 on thread 168
+2026-05-19 19: 12: 09.655 Processing denomination 3728 on thread 168
+2026-05-19 19: 12: 09.661 Processing denomination 3554 on thread 168
+2026-05-19 19: 12: 09.667 end Retry! Thread: 151
+2026-05-19 19: 15: 09.530 start Retry! Thread: 97
+2026-05-19 19: 15: 09.534 Processing denomination 1971 on thread 97
+2026-05-19 19: 15: 09.550 Processing denomination 340 on thread 8
+2026-05-19 19: 15: 09.564 Processing denomination 1542 on thread 8
+2026-05-19 19: 15: 09.571 Processing denomination 1542 on thread 8
+2026-05-19 19: 15: 09.581 Processing denomination 1518 on thread 7
+2026-05-19 19: 15: 09.588 Processing denomination 1518 on thread 8
+2026-05-19 19: 15: 09.598 Processing denomination 3448 on thread 8
+2026-05-19 19: 15: 09.606 Processing denomination 3448 on thread 8
+2026-05-19 19: 15: 09.617 Processing denomination 3454 on thread 8
+2026-05-19 19: 15: 09.623 Processing denomination 3454 on thread 97
+2026-05-19 19: 15: 09.633 Processing denomination 317 on thread 7
+2026-05-19 19: 15: 09.640 Processing denomination 3728 on thread 8
+2026-05-19 19: 15: 09.647 Processing denomination 3554 on thread 97
+2026-05-19 19: 15: 09.653 end Retry! Thread: 97
+2026-05-19 19: 18: 09.786 start Retry! Thread: 81
+2026-05-19 19: 18: 09.790 Processing denomination 1971 on thread 81
+2026-05-19 19: 18: 09.806 Processing denomination 340 on thread 3
+2026-05-19 19: 18: 09.822 Processing denomination 1542 on thread 3
+2026-05-19 19: 18: 09.828 Processing denomination 1542 on thread 3
+2026-05-19 19: 18: 09.837 Processing denomination 1518 on thread 3
+2026-05-19 19: 18: 09.842 Processing denomination 1518 on thread 3
+2026-05-19 19: 18: 09.850 Processing denomination 3448 on thread 3
+2026-05-19 19: 18: 09.855 Processing denomination 3448 on thread 3
+2026-05-19 19: 18: 09.865 Processing denomination 3454 on thread 3
+2026-05-19 19: 18: 09.871 Processing denomination 3454 on thread 81
+2026-05-19 19: 18: 09.880 Processing denomination 317 on thread 81
+2026-05-19 19: 18: 09.887 Processing denomination 3728 on thread 3
+2026-05-19 19: 18: 09.892 Processing denomination 3554 on thread 81
+2026-05-19 19: 18: 09.898 end Retry! Thread: 81
+2026-05-19 19: 21: 09.816 start Retry! Thread: 7
+2026-05-19 19: 21: 09.819 Processing denomination 1971 on thread 7
+2026-05-19 19: 21: 09.836 Processing denomination 340 on thread 121
+2026-05-19 19: 21: 09.852 Processing denomination 1542 on thread 8
+2026-05-19 19: 21: 09.860 Processing denomination 1542 on thread 7
+2026-05-19 19: 21: 09.870 Processing denomination 1518 on thread 7
+2026-05-19 19: 21: 09.877 Processing denomination 1518 on thread 8
+2026-05-19 19: 21: 09.886 Processing denomination 3448 on thread 7
+2026-05-19 19: 21: 09.892 Processing denomination 3448 on thread 7
+2026-05-19 19: 21: 09.901 Processing denomination 3454 on thread 8
+2026-05-19 19: 21: 09.908 Processing denomination 3454 on thread 7
+2026-05-19 19: 21: 09.918 Processing denomination 317 on thread 97
+2026-05-19 19: 21: 09.924 Processing denomination 3728 on thread 7
+2026-05-19 19: 21: 09.930 Processing denomination 3554 on thread 7
+2026-05-19 19: 21: 09.936 end Retry! Thread: 7
+2026-05-19 19: 24: 09.946 start Retry! Thread: 7
+2026-05-19 19: 24: 09.950 Processing denomination 1971 on thread 133
+2026-05-19 19: 24: 10.290 Processing denomination 340 on thread 7
+2026-05-19 19: 24: 10.303 Processing denomination 1542 on thread 7
+2026-05-19 19: 24: 10.309 Processing denomination 1542 on thread 128
+2026-05-19 19: 24: 10.320 Processing denomination 1518 on thread 128
+2026-05-19 19: 24: 10.327 Processing denomination 1518 on thread 128
+2026-05-19 19: 24: 10.336 Processing denomination 3448 on thread 133
+2026-05-19 19: 24: 10.343 Processing denomination 3448 on thread 153
+2026-05-19 19: 24: 10.353 Processing denomination 3454 on thread 153
+2026-05-19 19: 24: 10.359 Processing denomination 3454 on thread 153
+2026-05-19 19: 24: 10.367 Processing denomination 317 on thread 133
+2026-05-19 19: 24: 10.373 Processing denomination 3728 on thread 133
+2026-05-19 19: 24: 10.381 Processing denomination 3554 on thread 133
+2026-05-19 19: 24: 10.390 end Retry! Thread: 7
+2026-05-19 19: 27: 10.095 start Retry! Thread: 161
+2026-05-19 19: 27: 10.099 Processing denomination 1971 on thread 161
+2026-05-19 19: 27: 10.114 Processing denomination 340 on thread 167
+2026-05-19 19: 27: 10.125 Processing denomination 1542 on thread 167
+2026-05-19 19: 27: 10.131 Processing denomination 1542 on thread 161
+2026-05-19 19: 27: 10.138 Processing denomination 1518 on thread 167
+2026-05-19 19: 27: 10.144 Processing denomination 1518 on thread 167
+2026-05-19 19: 27: 10.154 Processing denomination 3448 on thread 167
+2026-05-19 19: 27: 10.159 Processing denomination 3448 on thread 167
+2026-05-19 19: 27: 10.168 Processing denomination 3454 on thread 161
+2026-05-19 19: 27: 10.174 Processing denomination 3454 on thread 167
+2026-05-19 19: 27: 10.183 Processing denomination 317 on thread 161
+2026-05-19 19: 27: 10.188 Processing denomination 3728 on thread 167
+2026-05-19 19: 27: 10.194 Processing denomination 3554 on thread 161
+2026-05-19 19: 27: 10.199 end Retry! Thread: 161
+2026-05-19 19: 30: 10.400 start Retry! Thread: 159
+2026-05-19 19: 30: 10.404 Processing denomination 1971 on thread 162
+2026-05-19 19: 30: 10.417 Processing denomination 340 on thread 167
+2026-05-19 19: 30: 10.432 Processing denomination 1542 on thread 162
+2026-05-19 19: 30: 10.439 Processing denomination 1542 on thread 167
+2026-05-19 19: 30: 10.449 Processing denomination 1518 on thread 167
+2026-05-19 19: 30: 10.455 Processing denomination 1518 on thread 162
+2026-05-19 19: 30: 10.463 Processing denomination 3448 on thread 167
+2026-05-19 19: 30: 10.469 Processing denomination 3448 on thread 167
+2026-05-19 19: 30: 10.478 Processing denomination 3454 on thread 167
+2026-05-19 19: 30: 10.484 Processing denomination 3454 on thread 167
+2026-05-19 19: 30: 10.492 Processing denomination 317 on thread 162
+2026-05-19 19: 30: 10.498 Processing denomination 3728 on thread 167
+2026-05-19 19: 30: 10.503 Processing denomination 3554 on thread 167
+2026-05-19 19: 30: 10.508 end Retry! Thread: 159
+2026-05-19 19: 33: 10.372 start Retry! Thread: 156
+2026-05-19 19: 33: 10.376 Processing denomination 1971 on thread 167
+2026-05-19 19: 33: 10.388 Processing denomination 340 on thread 155
+2026-05-19 19: 33: 10.399 Processing denomination 1542 on thread 155
+2026-05-19 19: 33: 10.404 Processing denomination 1542 on thread 156
+2026-05-19 19: 33: 10.414 Processing denomination 1518 on thread 157
+2026-05-19 19: 33: 10.420 Processing denomination 1518 on thread 155
+2026-05-19 19: 33: 10.429 Processing denomination 3448 on thread 155
+2026-05-19 19: 33: 10.435 Processing denomination 3448 on thread 155
+2026-05-19 19: 33: 10.445 Processing denomination 3454 on thread 157
+2026-05-19 19: 33: 10.452 Processing denomination 3454 on thread 167
+2026-05-19 19: 33: 10.460 Processing denomination 317 on thread 157
+2026-05-19 19: 33: 10.466 Processing denomination 3728 on thread 157
+2026-05-19 19: 33: 10.472 Processing denomination 3554 on thread 157
+2026-05-19 19: 33: 10.478 end Retry! Thread: 156
+2026-05-19 19: 36: 10.675 start Retry! Thread: 69
+2026-05-19 19: 36: 10.679 Processing denomination 1971 on thread 69
+2026-05-19 19: 36: 10.708 Processing denomination 340 on thread 155
+2026-05-19 19: 36: 10.719 Processing denomination 1542 on thread 155
+2026-05-19 19: 36: 10.725 Processing denomination 1542 on thread 155
+2026-05-19 19: 36: 10.733 Processing denomination 1518 on thread 155
+2026-05-19 19: 36: 10.739 Processing denomination 1518 on thread 155
+2026-05-19 19: 36: 10.749 Processing denomination 3448 on thread 155
+2026-05-19 19: 36: 10.756 Processing denomination 3448 on thread 69
+2026-05-19 19: 36: 10.766 Processing denomination 3454 on thread 69
+2026-05-19 19: 36: 10.772 Processing denomination 3454 on thread 69
+2026-05-19 19: 36: 10.782 Processing denomination 317 on thread 69
+2026-05-19 19: 36: 10.789 Processing denomination 3728 on thread 69
+2026-05-19 19: 36: 10.795 Processing denomination 3554 on thread 69
+2026-05-19 19: 36: 10.801 end Retry! Thread: 69
+2026-05-19 19: 39: 10.642 start Retry! Thread: 69
+2026-05-19 19: 39: 10.646 Processing denomination 1971 on thread 70
+2026-05-19 19: 39: 10.661 Processing denomination 340 on thread 69
+2026-05-19 19: 39: 10.675 Processing denomination 1542 on thread 69
+2026-05-19 19: 39: 10.680 Processing denomination 1542 on thread 70
+2026-05-19 19: 39: 10.690 Processing denomination 1518 on thread 70
+2026-05-19 19: 39: 10.697 Processing denomination 1518 on thread 69
+2026-05-19 19: 39: 10.707 Processing denomination 3448 on thread 69
+2026-05-19 19: 39: 10.713 Processing denomination 3448 on thread 69
+2026-05-19 19: 39: 10.723 Processing denomination 3454 on thread 70
+2026-05-19 19: 39: 10.729 Processing denomination 3454 on thread 70
+2026-05-19 19: 39: 10.739 Processing denomination 317 on thread 87
+2026-05-19 19: 39: 10.744 Processing denomination 3728 on thread 87
+2026-05-19 19: 39: 10.750 Processing denomination 3554 on thread 87
+2026-05-19 19: 39: 10.755 end Retry! Thread: 69
+2026-05-19 19: 42: 10.941 start Retry! Thread: 89
+2026-05-19 19: 42: 10.945 Processing denomination 1971 on thread 100
+2026-05-19 19: 42: 10.962 Processing denomination 340 on thread 94
+2026-05-19 19: 42: 10.977 Processing denomination 1542 on thread 94
+2026-05-19 19: 42: 10.983 Processing denomination 1542 on thread 94
+2026-05-19 19: 42: 10.991 Processing denomination 1518 on thread 94
+2026-05-19 19: 42: 10.996 Processing denomination 1518 on thread 94
+2026-05-19 19: 42: 11.005 Processing denomination 3448 on thread 89
+2026-05-19 19: 42: 11.012 Processing denomination 3448 on thread 101
+2026-05-19 19: 42: 11.023 Processing denomination 3454 on thread 94
+2026-05-19 19: 42: 11.030 Processing denomination 3454 on thread 94
+2026-05-19 19: 42: 11.042 Processing denomination 317 on thread 106
+2026-05-19 19: 42: 11.049 Processing denomination 3728 on thread 106
+2026-05-19 19: 42: 11.056 Processing denomination 3554 on thread 87
+2026-05-19 19: 42: 11.062 end Retry! Thread: 89
