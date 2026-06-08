@@ -58,6 +58,9 @@ public sealed class QueryFilter
 
     [JsonPropertyName("to_utc")]
     public DateTimeOffset? ToUtc { get; init; }
+
+    [JsonPropertyName("linked_ids")]
+    public IReadOnlyList<string>? LinkedIds { get; init; }
 }
 
 public sealed record RetrievedChunk(

@@ -95,6 +95,9 @@ public sealed class QdrantVectorStore : IVectorStore
                     ["message"] = point.Chunk.Text,
                     ["log_hash"] = point.Chunk.LogHash,
                     ["extra"] = point.Chunk.Payload,
+                    ["linked_ids"] = point.Chunk.Payload.TryGetValue("linked_ids", out var idsStr)
+                        ? idsStr.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                        : Array.Empty<string>(),
                 },
             }),
         };
@@ -255,6 +258,12 @@ public sealed class QdrantVectorStore : IVectorStore
                     ["lte"] = filter.ToUtc?.ToString("O") ?? "",
                 }.Where(kvp => !string.IsNullOrWhiteSpace(kvp.Value)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
             });
+        }
+
+        if (filter.LinkedIds is not null && filter.LinkedIds.Count > 0)
+        {
+            var shouldClauses = filter.LinkedIds.Select(id => new { key = "linked_ids", match = new { value = id } }).ToArray();
+            must.Add(new { should = shouldClauses });
         }
 
         return must.Count == 0 ? null : new { must };

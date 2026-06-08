@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LogRag.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+170664636939e85e19fbfc8e6ab1039fc9c32a14")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8eb6ffbffe7814d4e92bc4e37dd240029c7f387")]
 [assembly: System.Reflection.AssemblyProductAttribute("LogRag.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LogRag.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

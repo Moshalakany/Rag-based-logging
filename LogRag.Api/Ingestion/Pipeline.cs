@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -517,8 +518,10 @@ public sealed class IngestionOrchestrator : IIngestionOrchestrator
         var filteredLogs = 0;
         var chunksCreated = 0;
         var vectorsUpserted = 0;
-        var processingBatchSize = Math.Max(1, _ingestionOptions.ProcessingBatchSize);
-        var pendingChunks = new List<LogChunk>(processingBatchSize);
+
+        var normalizedEntries = new List<NormalizedLogEntry>();
+        var entryIds = new List<HashSet<string>>();
+        var dsu = new DisjointSet();
 
         foreach (var source in _sourceRegistry.GetSources())
         {
@@ -533,20 +536,90 @@ public sealed class IngestionOrchestrator : IIngestionOrchestrator
 
                 var parsed = _parser.Parse(rawLog);
                 var normalized = _normalizer.Normalize(parsed);
-                var chunks = _chunker.Chunk(normalized);
-                if (chunks.Count == 0)
+                
+                var ids = LogIdExtractor.ExtractIds(normalized);
+                if (ids.Count > 1)
                 {
-                    continue;
+                    var idList = ids.ToList();
+                    for (int i = 1; i < idList.Count; i++)
+                    {
+                        dsu.Union(idList[0], idList[i]);
+                    }
                 }
 
-                chunksCreated += chunks.Count;
-                pendingChunks.AddRange(chunks);
+                normalizedEntries.Add(normalized);
+                entryIds.Add(ids);
+            }
+        }
 
-                if (pendingChunks.Count >= processingBatchSize)
+        if (normalizedEntries.Count == 0)
+        {
+            _logger.LogInformation("Ingestion completed with no chunks.");
+            return new IngestionRunResult(rawLogsRead, 0, 0, DateTimeOffset.UtcNow);
+        }
+
+        var components = dsu.GetComponents();
+        var processingBatchSize = Math.Max(1, _ingestionOptions.ProcessingBatchSize);
+        var pendingChunks = new List<LogChunk>(processingBatchSize);
+
+        for (int i = 0; i < normalizedEntries.Count; i++)
+        {
+            var entry = normalizedEntries[i];
+            var ids = entryIds[i];
+
+            var allLinked = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var id in ids)
+            {
+                var root = dsu.Find(id);
+                if (components.TryGetValue(root, out var set))
                 {
-                    vectorsUpserted += await UpsertBatchAsync(pendingChunks, cancellationToken);
-                    pendingChunks.Clear();
+                    foreach (var member in set)
+                    {
+                        allLinked.Add(member);
+                    }
                 }
+            }
+
+            var updatedPayload = new Dictionary<string, string>(entry.Payload, StringComparer.OrdinalIgnoreCase);
+            if (allLinked.Count > 0)
+            {
+                updatedPayload["linked_ids"] = string.Join(",", allLinked);
+            }
+
+            var traceId = entry.TraceId;
+            if (string.Equals(traceId, "n/a", StringComparison.OrdinalIgnoreCase) && allLinked.Count > 0)
+            {
+                var firstValid = allLinked.FirstOrDefault(id => id.Contains('-') || id.Length >= 16) ?? allLinked.FirstOrDefault();
+                if (firstValid != null)
+                {
+                    traceId = firstValid;
+                }
+            }
+
+            var updatedEntry = new NormalizedLogEntry(
+                entry.SourceId,
+                entry.SourceType,
+                entry.TimestampUtc,
+                entry.Severity,
+                entry.ServiceName,
+                traceId,
+                entry.Message,
+                entry.LogHash,
+                updatedPayload);
+
+            var chunks = _chunker.Chunk(updatedEntry);
+            if (chunks.Count == 0)
+            {
+                continue;
+            }
+
+            chunksCreated += chunks.Count;
+            pendingChunks.AddRange(chunks);
+
+            if (pendingChunks.Count >= processingBatchSize)
+            {
+                vectorsUpserted += await UpsertBatchAsync(pendingChunks, cancellationToken);
+                pendingChunks.Clear();
             }
         }
 
@@ -554,12 +627,6 @@ public sealed class IngestionOrchestrator : IIngestionOrchestrator
         {
             vectorsUpserted += await UpsertBatchAsync(pendingChunks, cancellationToken);
             pendingChunks.Clear();
-        }
-
-        if (chunksCreated == 0)
-        {
-            _logger.LogInformation("Ingestion completed with no chunks.");
-            return new IngestionRunResult(rawLogsRead, 0, 0, DateTimeOffset.UtcNow);
         }
 
         try
@@ -704,5 +771,158 @@ public sealed class IngestionHostedService : BackgroundService
         {
             _ingestLock.Release();
         }
+    }
+}
+
+public static class LogIdExtractor
+{
+    private static readonly Regex GuidRegex = new(@"\b[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\b", RegexOptions.Compiled);
+    
+    // Catch common patterns like RequestId: 0HNLLJNFUULGS:00000001, requestId: 1017975, Correlation_ID: 90c5f56a..., BRN: 1017975
+    private static readonly Regex KeyValueIdRegex = new(
+        @"\b(?:request_?id|correlation_?id|transaction_?id|trace_?id|brn)[:= ]+\s*([a-zA-Z0-9/:\-\._]+)\b", 
+        RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+    // Ocelot APM fields: Id: 2a5c25b568ce5cfb, TraceId: be254bae4286c4095a8cf68154ea94c2
+    private static readonly Regex ApmIdRegex = new(
+        @"\b(?:Id|TraceId|TransactionId|ParentId)[:= ]+\s*([a-fA-F0-9]{16,32})\b", 
+        RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+    public static HashSet<string> ExtractIds(NormalizedLogEntry entry)
+    {
+        var ids = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        // 1. Add trace id if it's not n/a
+        if (!string.IsNullOrWhiteSpace(entry.TraceId) && !entry.TraceId.Equals("n/a", StringComparison.OrdinalIgnoreCase))
+        {
+            ids.Add(entry.TraceId);
+        }
+
+        // 2. Scan message
+        ExtractFromText(entry.Message, ids);
+
+        // 3. Scan payload keys & values
+        foreach (var kvp in entry.Payload)
+        {
+            if (IsIdKey(kvp.Key))
+            {
+                ids.Add(kvp.Value);
+            }
+            ExtractFromText(kvp.Value, ids);
+        }
+
+        // 4. Scan raw message/extra data if they are stored as JSON strings
+        foreach (var val in entry.Payload.Values)
+        {
+            if (val.Contains("Key", StringComparison.OrdinalIgnoreCase) && val.Contains("Value", StringComparison.OrdinalIgnoreCase))
+            {
+                var match = Regex.Match(val, @"""Key""\s*:\s*""(?:RequestId|CorrelationId|TransactionId|BRN)""\s*,\s*""Value""\s*:\s*""([^""]+)""", RegexOptions.IgnoreCase);
+                if (match.Success)
+                {
+                    ids.Add(match.Groups[1].Value);
+                }
+            }
+        }
+
+        return ids;
+    }
+
+    private static void ExtractFromText(string text, HashSet<string> ids)
+    {
+        if (string.IsNullOrWhiteSpace(text)) return;
+
+        foreach (Match match in GuidRegex.Matches(text))
+        {
+            ids.Add(match.Value);
+        }
+
+        foreach (Match match in KeyValueIdRegex.Matches(text))
+        {
+            var val = match.Groups[1].Value.Trim().Trim('"');
+            if (IsValidIdValue(val))
+            {
+                ids.Add(val);
+            }
+        }
+
+        foreach (Match match in ApmIdRegex.Matches(text))
+        {
+            var val = match.Groups[1].Value.Trim().Trim('"');
+            if (IsValidIdValue(val))
+            {
+                ids.Add(val);
+            }
+        }
+    }
+
+    private static bool IsIdKey(string key)
+    {
+        return key.Contains("trace", StringComparison.OrdinalIgnoreCase) ||
+               key.Contains("correlation", StringComparison.OrdinalIgnoreCase) ||
+               key.Contains("request", StringComparison.OrdinalIgnoreCase) ||
+               key.Contains("transaction", StringComparison.OrdinalIgnoreCase) ||
+               key.Equals("brn", StringComparison.OrdinalIgnoreCase) ||
+               key.Equals("id", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static bool IsValidIdValue(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value)) return false;
+        if (value.Equals("null", StringComparison.OrdinalIgnoreCase) || 
+            value.Equals("undefined", StringComparison.OrdinalIgnoreCase) ||
+            value.Equals("n/a", StringComparison.OrdinalIgnoreCase)) return false;
+
+        if (double.TryParse(value, out _) && value.Length < 4) return false;
+
+        return true;
+    }
+}
+
+public class DisjointSet
+{
+    private readonly Dictionary<string, string> _parent = new(StringComparer.OrdinalIgnoreCase);
+
+    public string Find(string i)
+    {
+        if (!_parent.TryGetValue(i, out var p))
+        {
+            _parent[i] = i;
+            return i;
+        }
+
+        if (p.Equals(i, StringComparison.OrdinalIgnoreCase))
+        {
+            return i;
+        }
+
+        var root = Find(p);
+        _parent[i] = root;
+        return root;
+    }
+
+    public void Union(string i, string j)
+    {
+        var rootI = Find(i);
+        var rootJ = Find(j);
+        if (!rootI.Equals(rootJ, StringComparison.OrdinalIgnoreCase))
+        {
+            _parent[rootI] = rootJ;
+        }
+    }
+
+    public Dictionary<string, HashSet<string>> GetComponents()
+    {
+        var components = new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase);
+        foreach (var key in _parent.Keys)
+        {
+            var root = Find(key);
+            if (!components.TryGetValue(root, out var set))
+            {
+                set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                components[root] = set;
+            }
+            set.Add(key);
+        }
+        return components;
     }
 }
