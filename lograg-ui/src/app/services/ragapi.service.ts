@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ChatRequest, ChatStreamEvent, IngestionResult } from '../models/chat.model';
+import { ChatRequest, ChatStreamEvent, IngestionResult, IngestRequest, HealthResponse } from '../models/chat.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +11,12 @@ export class RagApiService {
 
   constructor(private http: HttpClient) {}
 
-  health(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/health`);
+  health(): Observable<HealthResponse> {
+    return this.http.get<HealthResponse>(`${this.apiUrl}/health`);
   }
 
-  ingest(): Observable<IngestionResult> {
-    return this.http.post<IngestionResult>(`${this.apiUrl}/ingest`, {});
+  ingest(body?: IngestRequest): Observable<IngestionResult> {
+    return this.http.post<IngestionResult>(`${this.apiUrl}/ingest`, body ?? {});
   }
 
   streamChat(request: ChatRequest): Observable<ChatStreamEvent> {

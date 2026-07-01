@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ChatRequest, Message, ChatStreamEvent, Citation } from './models/chat.model';
+import { ChatRequest, Message, ChatStreamEvent, Citation, HealthResponse, LogSourceInfo, IngestRequest } from './models/chat.model';
 import { RagApiService } from './services/ragapi.service';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -52,7 +52,18 @@ import { MarkdownModule } from 'ngx-markdown';
               </div>
             </div>
 
+            <div class="collection-bar" *ngIf="lastIngestResult?.collection_name">
+              <span>🔍 Searching: <strong>{{ collectionName || 'log_chunks (default)' }}</strong></span>
+              <span class="hint">(last ingest: {{ lastIngestResult.collection_name }})</span>
+            </div>
+
             <div class="input-group">
+              <input
+                [(ngModel)]="collectionName"
+                placeholder="Collection (default: log_chunks)"
+                type="text"
+                class="collection-input"
+              />
               <input
                 [(ngModel)]="currentQuestion"
                 (keyup.enter)="askQuestion()"
@@ -74,11 +85,21 @@ import { MarkdownModule } from 'ngx-markdown';
             <div class="ingest-section">
               <h3>Ingest Logs</h3>
               <h4>ingest first to load and populate the vector database with your logs, then ask questions about them in the chat panel</h4>
+              <div class="time-window">
+                <label>From (local time):</label>
+                <input type="datetime-local" [(ngModel)]="ingestFromUtc" />
+                <label>To (local time):</label>
+                <input type="datetime-local" [(ngModel)]="ingestToUtc" />
+                <button (click)="clearTimeWindow()" class="btn-clear" *ngIf="ingestFromUtc || ingestToUtc">Clear</button>
+                <span class="hint">Times are sent as UTC after conversion</span>
+              </div>
               <button (click)="triggerIngest()" [disabled]="isIngesting">
                 {{ isIngesting ? '⏳ Ingesting...' : '📥 Ingest Now' }}
               </button>
               <div *ngIf="lastIngestResult" class="ingest-result">
                 <strong>Last Ingest Result:</strong>
+                <br />
+                Collection: {{ lastIngestResult.collection_name || 'log_chunks (default)' }}
                 <br />
                 Logs Read: {{ lastIngestResult.raw_logs_read }}
                 <br />
@@ -86,7 +107,20 @@ import { MarkdownModule } from 'ngx-markdown';
                 <br />
                 Vectors Upserted: {{ lastIngestResult.vectors_upserted }}
                 <br />
+                <span *ngIf="lastIngestResult.window_from_utc">
+                  Window: {{ lastIngestResult.window_from_utc }} → {{ lastIngestResult.window_to_utc }}
+                  <br />
+                </span>
                 Time: {{ lastIngestResult.completed_at_utc }}
+              </div>
+            </div>
+
+            <div class="sources-section" *ngIf="availableSources.length > 0">
+              <h3>Configured Log Sources</h3>
+              <div *ngFor="let source of availableSources" class="source-item">
+                <span class="source-kind">{{ source.sourceKind }}</span>
+                <span class="source-id">{{ source.id }}</span>
+                <span class="source-type">({{ source.type }})</span>
               </div>
             </div>
 
@@ -95,7 +129,62 @@ import { MarkdownModule } from 'ngx-markdown';
       </div>
     </div>
   `,
-  styles: [],
+  styles: [
+    `
+      .time-window {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+      }
+      .time-window label {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #d1d5db;
+      }
+      .time-window input {
+        padding: 4px 8px;
+        border: 1px solid #374151;
+        border-radius: 6px;
+        background: #1f2937;
+        color: #f3f4f6;
+        font-size: 0.85rem;
+      }
+      .btn-clear {
+        background: transparent;
+        border: 1px solid #4b5563;
+        color: #9ca3af;
+        padding: 4px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+      .btn-clear:hover {
+        background: #374151;
+        color: #f3f4f6;
+      }
+      .hint {
+        font-size: 0.7rem;
+        color: #6b7280;
+        margin-left: 4px;
+      }
+      .collection-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 0;
+        font-size: 0.8rem;
+        color: #9ca3af;
+        border-bottom: 1px solid #374151;
+        margin-bottom: 4px;
+      }
+      .collection-input {
+        flex: 0 0 200px;
+        min-width: 160px;
+      }
+    `,
+  ],
 })
 export class AppComponent implements OnInit {
   messages: Message[] = [];
@@ -105,6 +194,10 @@ export class AppComponent implements OnInit {
   apiHealth: boolean = false;
   sessionId: string = '';
   lastIngestResult: any = null;
+  availableSources: LogSourceInfo[] = [];
+  ingestFromUtc: string = '';
+  ingestToUtc: string = '';
+  collectionName: string = '';
   private streamingMessage: Message | null = null;
 
   constructor(private ragApiService: RagApiService) {
@@ -117,11 +210,13 @@ export class AppComponent implements OnInit {
 
   checkApiHealth(): void {
     this.ragApiService.health().subscribe(
-      () => {
+      (response: HealthResponse) => {
         this.apiHealth = true;
+        this.availableSources = response.sources || [];
       },
       () => {
         this.apiHealth = false;
+        this.availableSources = [];
       }
     );
   }
@@ -156,6 +251,7 @@ export class AppComponent implements OnInit {
       session_id: this.sessionId,
       question,
       top_k: 8,
+      collection_name: this.collectionName || undefined,
     };
 
     this.ragApiService.streamChat(request).subscribe(
@@ -198,7 +294,15 @@ export class AppComponent implements OnInit {
 
   triggerIngest(): void {
     this.isIngesting = true;
-    this.ragApiService.ingest().subscribe(
+    const body: IngestRequest = {};
+    if (this.ingestFromUtc) {
+      // datetime-local returns "YYYY-MM-DDTHH:MM" — append seconds
+      body.from_utc = new Date(this.ingestFromUtc + ':00').toISOString();
+    }
+    if (this.ingestToUtc) {
+      body.to_utc = new Date(this.ingestToUtc + ':00').toISOString();
+    }
+    this.ragApiService.ingest(body).subscribe(
       (result) => {
         this.lastIngestResult = result;
         this.isIngesting = false;
@@ -207,6 +311,11 @@ export class AppComponent implements OnInit {
         this.isIngesting = false;
       }
     );
+  }
+
+  clearTimeWindow(): void {
+    this.ingestFromUtc = '';
+    this.ingestToUtc = '';
   }
 
   private generateSessionId(): string {

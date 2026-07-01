@@ -1028,3 +1028,543 @@ System.InvalidOperationException: Timeout expired.  The timeout period elapsed p
    at Hangfire.Server.BackgroundServerProcess.Execute(Guid executionId, BackgroundExecution execution, CancellationToken stoppingToken, CancellationToken stoppedToken, CancellationToken shutdownToken) in C:\projects\hangfire-525\src\Hangfire.Core\Server\BackgroundServerProcess.cs:line 127
    at Hangfire.Server.BackgroundProcessingServer.RunServer(Guid executionId, Object state) in C:\projects\hangfire-525\src\Hangfire.Core\Server\BackgroundProcessingServer.cs:line 249
    at Hangfire.Processing.BackgroundExecution.Run(Action`2 callback, Object state) in C:\projects\hangfire-525\src\Hangfire.Core\Processing\BackgroundExecution.cs:line 118
+   root@sof-test-647fb4585b-qsfbj:/var/www/sof# cd ..
+root@sof-test-647fb4585b-qsfbj:/var/www# cd Logs/
+root@sof-test-647fb4585b-qsfbj:/var/www/Logs# cd SOF/
+root@sof-test-647fb4585b-qsfbj:/var/www/Logs/SOF# ls
+SOF_applog_20260616.log  SOF_applog_20260617.log  SOF_applog_20260618.log  SOF_applog_20260619.log  SOF_applog_20260620.log  SOF_applog_20260621.log
+root@sof-test-647fb4585b-qsfbj:/var/www/Logs/SOF# cat SOF_applog_20260617.log 
+2026-06-17 04: 00: 06.142 {"LogDate":"2026-06-17","LogTime":"04:00:06.108","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission]","ExtraData":null,"CorrelationId":""}
+2026-06-17 04: 00: 06.155 {"LogDate":"2026-06-17","LogTime":"04:00:06.154","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[DisableServices]","ExtraData":null,"CorrelationId":""}
+2026-06-17 04: 00: 06.683 [Start-Commission-DisableServices] - Disabled 287 services
+2026-06-17 04: 00: 06.684 {"LogDate":"2026-06-17","LogTime":"04:00:06.684","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[DisableLogin]","ExtraData":null,"CorrelationId":""}
+2026-06-17 04: 00: 06.687 [Start-Commission-DisableLogin] - Login username: 
+2026-06-17 04: 00: 06.688 {"LogDate":"2026-06-17","LogTime":"04:00:06.687","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Sleep one minute]","ExtraData":null,"CorrelationId":""}
+2026-06-17 04: 01: 06.714 {"LogDate":"2026-06-17","LogTime":"04:01:06.714","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - Start Set Request And ransactions in db","ExtraData":null,"CorrelationId":""}
+2026-06-17 04: 01: 06.715 {"LogDate":"2026-06-17","LogTime":"04:01:06.715","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - number of days to take -1","ExtraData":null,"CorrelationId":""}
+2026-06-17 04: 01: 07.434 {"LogDate":"2026-06-17","LogTime":"04:01:07.428","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - End and the returned transactions count: 0, request id: 0","ExtraData":[{"Key":"AccountId","Value":"26456"}],"CorrelationId":""}
+2026-06-17 04: 01: 07.438 {"LogDate":"2026-06-17","LogTime":"04:01:07.437","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - SetCommissionForSourceOfFundBulk Procedure returned empty recored","ExtraData":[{"Key":"AccountId","Value":"26456"}],"CorrelationId":null}
+2026-06-17 04: 01: 07.439 {"LogDate":"2026-06-17","LogTime":"04:01:07.439","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[ErrorAddCommission]","ExtraData":null,"CorrelationId":null}
+Backend.Infrastructure.Helpers.BackendException: SetCommissionForSourceOfFundBulk Procedure returned empty recored
+   at SourceOfFund.Services.Services.CommissionService.ManageCommissions(Int32 fromAccountId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/CommissionService.cs:line 84
+   at SourceOfFund.Services.Services.CommissionService.AddCommission() in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/CommissionService.cs:line 59
+2026-06-17 04: 01: 07.446 {"LogDate":"2026-06-17","LogTime":"04:01:07.446","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[EnableLogin]","ExtraData":null,"CorrelationId":""}
+2026-06-17 04: 01: 07.449 [Start-Commission-EnableLogin] - Login username: 
+2026-06-17 04: 01: 07.450 {"LogDate":"2026-06-17","LogTime":"04:01:07.449","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[EnableServices]","ExtraData":null,"CorrelationId":""}
+2026-06-17 04: 01: 07.467 [Start-Commission-EnableServices] - Enabled 287 services
+2026-06-17 04: 01: 07.467 {"LogDate":"2026-06-17","LogTime":"04:01:07.467","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[End-Commission]","ExtraData":null,"CorrelationId":""}
+2026-06-17 15: 27: 37.380 Create request with Correlation_ID: b3626367-802f-4770-9724-735906e2f032
+2026-06-17 15: 27: 49.121 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 15: 27: 49.140 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 15: 27: 50.232 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 15: 27: 53.286 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 15: 27: 53.320 An exception occurred while iterating over the results of a query for context type '"SourceOfFund.Data.ApplicationDbContext"'."
+""Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database \"SourceOfFund\" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:e0487fe4-1241-43c5-8777-521c9c245740
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()"
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:e0487fe4-1241-43c5-8777-521c9c245740
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-06-17 15: 27: 53.337 {"LogDate":"2026-06-17","LogTime":"15:27:53.336","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"GetBalance","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"Exception","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"BalanceTypeId","Value":"1"}],"CorrelationId":"b3626367-802f-4770-9724-735906e2f032"}
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:e0487fe4-1241-43c5-8777-521c9c245740
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceService.GetBalance(Int32 accountId, Int32 balanceTypeId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceService.cs:line 197
+   at SourceOfFund.API.Controllers.V1.AccountsController.GetBalance(Int32 accountId, Int32 balanceTypeId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V1/AccountsController.cs:line 41
+2026-06-17 15: 27: 53.501 Received response with Correlation_ID: b3626367-802f-4770-9724-735906e2f032
+2026-06-17 17: 41: 17.799 Create request with Correlation_ID: 3d6c9dff-e1f3-4795-9887-8cff00bbf3a3
+2026-06-17 17: 41: 17.908 {"LogDate":"2026-06-17","LogTime":"17:41:17.907","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"TransactionHistory","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[TransactionHistory]","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571365"}],"CorrelationId":"3d6c9dff-e1f3-4795-9887-8cff00bbf3a3"}
+2026-06-17 17: 41: 17.925 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 17: 41: 17.929 {"LogDate":"2026-06-17","LogTime":"17:41:17.928","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"TransactionHistory","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[TransactionHistory Exception]","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571365"},{"Key":"TransactionIds","Value":"471068"}],"CorrelationId":"3d6c9dff-e1f3-4795-9887-8cff00bbf3a3"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.AddTransactionHistory(HoldBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 608
+   at SourceOfFund.API.Controllers.V2.AccountsController.AddTransactionHistory(Int32 accountId, Int32 requestId, Int32[] transactionIds) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 409
+ClientConnectionId:a3512c5e-1f75-4d8b-a906-2a2fcf91a637
+Error Number:4060,State:1,Class:11
+2026-06-17 17: 41: 17.944 Received response with Correlation_ID: 3d6c9dff-e1f3-4795-9887-8cff00bbf3a3
+2026-06-17 17: 52: 22.106 Create request with Correlation_ID: ab685a52-a548-468b-ab49-f3977aff979e
+2026-06-17 17: 52: 22.138 {"LogDate":"2026-06-17","LogTime":"17:52:22.138","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"TransactionHistory","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[TransactionHistory]","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571366"}],"CorrelationId":"ab685a52-a548-468b-ab49-f3977aff979e"}
+2026-06-17 17: 52: 32.313 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 17: 52: 32.316 {"LogDate":"2026-06-17","LogTime":"17:52:32.316","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"TransactionHistory","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[TransactionHistory Exception]","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571366"},{"Key":"TransactionIds","Value":"471069"}],"CorrelationId":"ab685a52-a548-468b-ab49-f3977aff979e"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.AddTransactionHistory(HoldBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 608
+   at SourceOfFund.API.Controllers.V2.AccountsController.AddTransactionHistory(Int32 accountId, Int32 requestId, Int32[] transactionIds) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 409
+ClientConnectionId:5890fe22-4228-492d-a283-82740480af11
+Error Number:4060,State:1,Class:11
+2026-06-17 17: 52: 32.327 Received response with Correlation_ID: ab685a52-a548-468b-ab49-f3977aff979e
+2026-06-17 18: 16: 26.103 Create request with Correlation_ID: 4610d00e-cb0d-46f0-8902-eb6d4fc47189
+2026-06-17 18: 16: 26.142 {"LogDate":"2026-06-17","LogTime":"18:16:26.142","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"Refund","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"SOF Refund","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571367"}],"CorrelationId":"4610d00e-cb0d-46f0-8902-eb6d4fc47189"}
+2026-06-17 18: 16: 26.154 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 18: 16: 26.155 {"LogDate":"2026-06-17","LogTime":"18:16:26.155","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"Refund","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[Refund Exception]","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571367"}],"CorrelationId":"4610d00e-cb0d-46f0-8902-eb6d4fc47189"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.ManualRefundAmount(HoldBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 193
+   at SourceOfFund.API.Controllers.V2.AccountsController.ManualRefund(Int32 accountId, Int32 requestId, Int32 balanceTypeId, Int32[] transactionIds) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 144
+ClientConnectionId:a1e5064c-8c39-4195-822d-e0d1361247c0
+Error Number:4060,State:1,Class:11
+2026-06-17 18: 16: 26.166 Received response with Correlation_ID: 4610d00e-cb0d-46f0-8902-eb6d4fc47189
+2026-06-17 18: 24: 24.094 Create request with Correlation_ID: 9d31d3af-5e3a-487d-a492-f9d9963dad84
+2026-06-17 18: 24: 24.100 {"LogDate":"2026-06-17","LogTime":"18:24:24.100","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"Refund","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"SOF Refund","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571368"}],"CorrelationId":"9d31d3af-5e3a-487d-a492-f9d9963dad84"}
+2026-06-17 18: 24: 34.134 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 18: 24: 34.137 {"LogDate":"2026-06-17","LogTime":"18:24:34.137","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"Refund","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[Refund Exception]","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571368"}],"CorrelationId":"9d31d3af-5e3a-487d-a492-f9d9963dad84"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.ManualRefundAmount(HoldBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 193
+   at SourceOfFund.API.Controllers.V2.AccountsController.ManualRefund(Int32 accountId, Int32 requestId, Int32 balanceTypeId, Int32[] transactionIds) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 144
+ClientConnectionId:6020fcc4-f531-453f-abca-72cbe43c3502
+Error Number:4060,State:1,Class:11
+2026-06-17 18: 24: 34.145 Received response with Correlation_ID: 9d31d3af-5e3a-487d-a492-f9d9963dad84
+2026-06-17 18: 34: 28.863 Create request with Correlation_ID: 2a905b79-c56f-432d-9f80-dfade7147018
+2026-06-17 18: 34: 28.865 {"LogDate":"2026-06-17","LogTime":"18:34:28.865","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"Refund","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"SOF Refund","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571370"}],"CorrelationId":"2a905b79-c56f-432d-9f80-dfade7147018"}
+2026-06-17 18: 34: 39.049 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 18: 34: 39.050 {"LogDate":"2026-06-17","LogTime":"18:34:39.050","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"Refund","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[Refund Exception]","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"RequestId","Value":"571370"}],"CorrelationId":"2a905b79-c56f-432d-9f80-dfade7147018"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.ManualRefundAmount(HoldBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 193
+   at SourceOfFund.API.Controllers.V2.AccountsController.ManualRefund(Int32 accountId, Int32 requestId, Int32 balanceTypeId, Int32[] transactionIds) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 144
+ClientConnectionId:493ddea4-4491-4b19-b28c-69b2c6c44524
+Error Number:4060,State:1,Class:11
+2026-06-17 18: 34: 39.061 Received response with Correlation_ID: 2a905b79-c56f-432d-9f80-dfade7147018
+2026-06-17 19: 51: 36.573 Create request with Correlation_ID: 48724b5f-e7ff-4a93-9e13-c5a66c208086
+2026-06-17 19: 51: 46.645 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 19: 51: 46.655 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 19: 51: 47.687 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 19: 51: 50.704 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-17 19: 51: 50.709 An exception occurred while iterating over the results of a query for context type '"SourceOfFund.Data.ApplicationDbContext"'."
+""Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database \"SourceOfFund\" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:f8851605-71d2-4a85-ba74-dd1f6385df41
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()"
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:f8851605-71d2-4a85-ba74-dd1f6385df41
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-06-17 19: 51: 50.716 {"LogDate":"2026-06-17","LogTime":"19:51:50.715","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"GetBalance","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"Exception","ExtraData":[{"Key":"AccountId","Value":"132389"},{"Key":"BalanceTypeId","Value":"1"}],"CorrelationId":"48724b5f-e7ff-4a93-9e13-c5a66c208086"}
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:f8851605-71d2-4a85-ba74-dd1f6385df41
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceService.GetBalance(Int32 accountId, Int32 balanceTypeId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceService.cs:line 197
+   at SourceOfFund.API.Controllers.V1.AccountsController.GetBalance(Int32 accountId, Int32 balanceTypeId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V1/AccountsController.cs:line 41
+2026-06-17 19: 51: 50.723 Received response with Correlation_ID: 48724b5f-e7ff-4a93-9e13-c5a66c208086
+2026-06-21 04: 00: 14.327 {"LogDate":"2026-06-21","LogTime":"04:00:14.327","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission]","ExtraData":null,"CorrelationId":""}
+2026-06-21 04: 00: 14.329 {"LogDate":"2026-06-21","LogTime":"04:00:14.329","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[DisableServices]","ExtraData":null,"CorrelationId":""}
+2026-06-21 04: 00: 14.346 [Start-Commission-DisableServices] - Disabled 287 services
+2026-06-21 04: 00: 14.346 {"LogDate":"2026-06-21","LogTime":"04:00:14.346","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[DisableLogin]","ExtraData":null,"CorrelationId":""}
+2026-06-21 04: 00: 14.347 [Start-Commission-DisableLogin] - Login username: 
+2026-06-21 04: 00: 14.347 {"LogDate":"2026-06-21","LogTime":"04:00:14.347","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Sleep one minute]","ExtraData":null,"CorrelationId":""}
+2026-06-21 04: 01: 14.353 {"LogDate":"2026-06-21","LogTime":"04:01:14.353","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - Start Set Request And ransactions in db","ExtraData":null,"CorrelationId":""}
+2026-06-21 04: 01: 14.353 {"LogDate":"2026-06-21","LogTime":"04:01:14.353","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - number of days to take -1","ExtraData":null,"CorrelationId":""}
+2026-06-21 04: 01: 14.847 {"LogDate":"2026-06-21","LogTime":"04:01:14.846","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - End and the returned transactions count: 0, request id: 0","ExtraData":[{"Key":"AccountId","Value":"26456"}],"CorrelationId":""}
+2026-06-21 04: 01: 14.847 {"LogDate":"2026-06-21","LogTime":"04:01:14.847","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[Start-Commission-SetRequestAndTransaction] - SetCommissionForSourceOfFundBulk Procedure returned empty recored","ExtraData":[{"Key":"AccountId","Value":"26456"}],"CorrelationId":null}
+2026-06-21 04: 01: 14.847 {"LogDate":"2026-06-21","LogTime":"04:01:14.847","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[ErrorAddCommission]","ExtraData":null,"CorrelationId":null}
+Backend.Infrastructure.Helpers.BackendException: SetCommissionForSourceOfFundBulk Procedure returned empty recored
+   at SourceOfFund.Services.Services.CommissionService.ManageCommissions(Int32 fromAccountId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/CommissionService.cs:line 84
+   at SourceOfFund.Services.Services.CommissionService.AddCommission() in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/CommissionService.cs:line 59
+2026-06-21 04: 01: 14.849 {"LogDate":"2026-06-21","LogTime":"04:01:14.848","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[EnableLogin]","ExtraData":null,"CorrelationId":""}
+2026-06-21 04: 01: 14.849 [Start-Commission-EnableLogin] - Login username: 
+2026-06-21 04: 01: 14.849 {"LogDate":"2026-06-21","LogTime":"04:01:14.849","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[EnableServices]","ExtraData":null,"CorrelationId":""}
+2026-06-21 04: 01: 14.862 [Start-Commission-EnableServices] - Enabled 287 services
+2026-06-21 04: 01: 14.862 {"LogDate":"2026-06-21","LogTime":"04:01:14.862","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddCommission","Source":"SOF","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[End-Commission]","ExtraData":null,"CorrelationId":""}
+2026-06-21 12: 17: 56.559 Create request with Correlation_ID: a6a1ba75-1a14-440e-ae22-4381ffd2d843
+2026-06-21 12: 17: 56.564 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-21 12: 17: 56.565 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-21 12: 17: 57.646 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-21 12: 18: 00.827 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-21 12: 18: 00.832 An exception occurred while iterating over the results of a query for context type '"SourceOfFund.Data.ApplicationDbContext"'."
+""Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database \"SourceOfFund\" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:11aa264d-36ca-4c20-908b-6e1b5ebd3849
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()"
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:11aa264d-36ca-4c20-908b-6e1b5ebd3849
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-06-21 12: 18: 00.837 {"LogDate":"2026-06-21","LogTime":"12:18:00.837","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"GetBalance","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"Exception","ExtraData":[{"Key":"AccountId","Value":"6"},{"Key":"BalanceTypeId","Value":"1"}],"CorrelationId":"a6a1ba75-1a14-440e-ae22-4381ffd2d843"}
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (3) was exceeded while executing database operations with 'SqlServerRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+ClientConnectionId:11aa264d-36ca-4c20-908b-6e1b5ebd3849
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceService.GetBalance(Int32 accountId, Int32 balanceTypeId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceService.cs:line 197
+   at SourceOfFund.API.Controllers.V1.AccountsController.GetBalance(Int32 accountId, Int32 balanceTypeId) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V1/AccountsController.cs:line 41
+2026-06-21 12: 18: 00.845 Received response with Correlation_ID: a6a1ba75-1a14-440e-ae22-4381ffd2d843
+2026-06-21 13: 30: 50.342 Create request with Correlation_ID: ba9ef7c5-6449-40c8-8879-364dcc8beb81
+2026-06-21 13: 30: 50.491 {"LogDate":"2026-06-21","LogTime":"13:30:50.491","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddBalance","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[AddBalance] ","ExtraData":[{"Key":"ToAccountId","Value":"6"},{"Key":"RequestId","Value":"571372"},{"Key":"Amount","Value":"90.0"}],"CorrelationId":"ba9ef7c5-6449-40c8-8879-364dcc8beb81"}
+2026-06-21 13: 30: 50.492 {"LogDate":"2026-06-21","LogTime":"13:30:50.491","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddBalance","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[AddBalance] ","ExtraData":[{"Key":"ToAccountId","Value":"6"},{"Key":"RequestId","Value":"571372"},{"Key":"Amount","Value":"90.0"}],"CorrelationId":"ba9ef7c5-6449-40c8-8879-364dcc8beb81"}
+2026-06-21 13: 30: 50.501 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-21 13: 30: 50.503 {"LogDate":"2026-06-21","LogTime":"13:30:50.502","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddBalance","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[AddBalance Exception]","ExtraData":[{"Key":"ToAccountId","Value":"6"},{"Key":"RequestId","Value":"571372"},{"Key":"Amount","Value":"90.0"}],"CorrelationId":"ba9ef7c5-6449-40c8-8879-364dcc8beb81"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.AddBalance(AddBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 732
+   at SourceOfFund.API.Controllers.V2.AccountsController.AddBalance(AddBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 577
+ClientConnectionId:535e066b-a6c0-428b-8265-24c1c2c54e86
+Error Number:4060,State:1,Class:11
+2026-06-21 13: 30: 50.512 {"LogDate":"2026-06-21","LogTime":"13:30:50.512","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddBalance","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[AddBalance Exception]","ExtraData":[{"Key":"ToAccountId","Value":"6"},{"Key":"RequestId","Value":"571372"},{"Key":"Amount","Value":"90.0"}],"CorrelationId":"ba9ef7c5-6449-40c8-8879-364dcc8beb81"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.AddBalance(AddBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 732
+   at SourceOfFund.API.Controllers.V2.AccountsController.AddBalance(AddBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 577
+ClientConnectionId:535e066b-a6c0-428b-8265-24c1c2c54e86
+Error Number:4060,State:1,Class:11
+2026-06-21 13: 30: 50.520 Received response with Correlation_ID: ba9ef7c5-6449-40c8-8879-364dcc8beb81
+2026-06-21 13: 36: 02.985 Create request with Correlation_ID: f0c7dc1b-a32b-4b05-8dd6-63c22dd3bb24
+2026-06-21 13: 36: 02.990 {"LogDate":"2026-06-21","LogTime":"13:36:02.990","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddBalance","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[AddBalance] ","ExtraData":[{"Key":"ToAccountId","Value":"6"},{"Key":"RequestId","Value":"571373"},{"Key":"Amount","Value":"90.0"}],"CorrelationId":"f0c7dc1b-a32b-4b05-8dd6-63c22dd3bb24"}
+2026-06-21 13: 36: 02.990 {"LogDate":"2026-06-21","LogTime":"13:36:02.990","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddBalance","Source":"TMS","Destination":"SOF","BRN":null,"BillingAccount":null,"MessageBody":"[AddBalance] ","ExtraData":[{"Key":"ToAccountId","Value":"6"},{"Key":"RequestId","Value":"571373"},{"Key":"Amount","Value":"90.0"}],"CorrelationId":"f0c7dc1b-a32b-4b05-8dd6-63c22dd3bb24"}
+2026-06-21 13: 36: 13.032 An error occurred using the connection to database '"SourceOfFund"' on server '"10.90.7.160"'.
+2026-06-21 13: 36: 13.036 {"LogDate":"2026-06-21","LogTime":"13:36:13.035","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddBalance","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[AddBalance Exception]","ExtraData":[{"Key":"ToAccountId","Value":"6"},{"Key":"RequestId","Value":"571373"},{"Key":"Amount","Value":"90.0"}],"CorrelationId":"f0c7dc1b-a32b-4b05-8dd6-63c22dd3bb24"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.AddBalance(AddBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 732
+   at SourceOfFund.API.Controllers.V2.AccountsController.AddBalance(AddBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 577
+ClientConnectionId:80d716b7-4f3a-41fd-ab7e-fc41a9389dc0
+Error Number:4060,State:1,Class:11
+2026-06-21 13: 36: 13.044 {"LogDate":"2026-06-21","LogTime":"13:36:13.044","LogLevel":"Error","Entity":"Momkn","Module":"TMS","IP":"10.244.8.209","DenominationId":null,"Method":"AddBalance","Source":null,"Destination":null,"BRN":null,"BillingAccount":null,"MessageBody":"[AddBalance Exception]","ExtraData":[{"Key":"ToAccountId","Value":"6"},{"Key":"RequestId","Value":"571373"},{"Key":"Amount","Value":"90.0"}],"CorrelationId":"f0c7dc1b-a32b-4b05-8dd6-63c22dd3bb24"}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "SourceOfFund" requested by the login. The login failed.
+Login failed for user 'Rana'.
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at SourceOfFund.Services.Services.AccountBalanceServiceV2.AddBalance(AddBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.Services/Services/AccountBalanceServiceV2.cs:line 732
+   at SourceOfFund.API.Controllers.V2.AccountsController.AddBalance(AddBalanceDTO model) in /var/charts/sources/alahlymomkn.backend/SourceOfFund.API/Controllers/V2/AccountsController.cs:line 577
+ClientConnectionId:80d716b7-4f3a-41fd-ab7e-fc41a9389dc0
+Error Number:4060,State:1,Class:11
+2026-06-21 13: 36: 13.051 Received response with Correlation_ID: f0c7dc1b-a32b-4b05-8dd6-63c22dd3bb24

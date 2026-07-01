@@ -10,7 +10,7 @@ namespace LogRag.Api.Query;
 
 public interface IRagQueryEngine
 {
-    Task<IReadOnlyList<RetrievedChunk>> RetrieveAsync(string question, QueryFilter filter, int topK, CancellationToken cancellationToken);
+    Task<IReadOnlyList<RetrievedChunk>> RetrieveAsync(string question, QueryFilter filter, int topK, string? collectionName, CancellationToken cancellationToken);
 }
 
 public interface IContextBuilder
@@ -42,7 +42,7 @@ public sealed class RagQueryEngine : IRagQueryEngine
         _vectorStoreOptions = vectorStoreOptions.Value;
     }
 
-    public async Task<IReadOnlyList<RetrievedChunk>> RetrieveAsync(string question, QueryFilter filter, int topK, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<RetrievedChunk>> RetrieveAsync(string question, QueryFilter filter, int topK, string? collectionName, CancellationToken cancellationToken)
     {
         var extractedIds = QueryIdExtractor.Extract(question);
         var exactMatches = new List<RetrievedChunk>();
@@ -60,47 +60,77 @@ public sealed class RagQueryEngine : IRagQueryEngine
             };
 
             var zeroVector = new float[_vectorStoreOptions.VectorSize];
-            var matches = await _vectorStore.SearchAsync(zeroVector, idFilter, limit: 100, cancellationToken);
+            var matches = await _vectorStore.SearchAsync(zeroVector, idFilter, limit: 200, collectionName, cancellationToken);
             exactMatches.AddRange(matches);
         }
 
-        var queryEmbedding = (await _embeddingService.EmbedTextsAsync([question], cancellationToken))[0];
-        var candidateCount = Math.Max(topK * 3, topK);
-        var semanticCandidates = await _vectorStore.SearchAsync(queryEmbedding, filter, candidateCount, cancellationToken);
-
-        // Deduplicate exact matches by LogHash and sort chronologically (ascending)
+        // Deduplicate exact matches by LogHash and sort chronologically
         var dedupedExact = exactMatches
             .GroupBy(chunk => chunk.LogHash)
             .Select(group => group.First())
             .OrderBy(chunk => chunk.TimestampUtc)
             .ToList();
 
-        // Deduplicate semantic candidates by LogHash
+        // CRITICAL: If user asked about a specific ID (extracted from question)
+        // and we found ZERO exact matches, return empty — don't pollute with
+        // random semantic results that don't have the requested ID.
+        if (extractedIds.Count > 0 && dedupedExact.Count == 0)
+        {
+            return [];
+        }
+
+        // PERF: When we have exact ID matches, bias heavily toward them.
+        // Semantic search only fills remaining slots, and only if there's room.
+        if (dedupedExact.Count >= topK)
+        {
+            return dedupedExact.Take(topK).ToList();
+        }
+
+        var remaining = topK - dedupedExact.Count;
+        var queryEmbedding = (await _embeddingService.EmbedTextsAsync([question], cancellationToken))[0];
+
+        // If we have exact matches, use their linked_ids to narrow the semantic search
+        QueryFilter semanticFilter;
+        if (dedupedExact.Count > 0)
+        {
+            // Collect all linked IDs from exact matches to bias semantic search
+            var allLinkedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var chunk in dedupedExact)
+            {
+                if (chunk.Payload.TryGetValue("linked_ids", out var idsStr) && !string.IsNullOrWhiteSpace(idsStr))
+                {
+                    foreach (var id in idsStr.Split(',', StringSplitOptions.TrimEntries))
+                        allLinkedIds.Add(id);
+                }
+            }
+            semanticFilter = new QueryFilter
+            {
+                ServiceName = filter.ServiceName,
+                Severity = filter.Severity,
+                SourceType = filter.SourceType,
+                FromUtc = filter.FromUtc,
+                ToUtc = filter.ToUtc,
+                LinkedIds = allLinkedIds.Count > 0 ? allLinkedIds.ToList() : null,
+            };
+        }
+        else
+        {
+            semanticFilter = filter;
+        }
+
+        var candidateCount = Math.Max(remaining * 3, 10);
+        var semanticCandidates = await _vectorStore.SearchAsync(queryEmbedding, semanticFilter, candidateCount, collectionName, cancellationToken);
+
         var dedupedSemantic = semanticCandidates
-            .GroupBy(chunk => chunk.LogHash)
-            .Select(group => group.OrderByDescending(x => x.Score).First())
+            .Where(c => !dedupedExact.Any(e => e.LogHash == c.LogHash))
+            .OrderByDescending(c => c.Score)
+            .Take(remaining)
             .ToList();
 
         var merged = new List<RetrievedChunk>(dedupedExact);
-        var exactHashes = new HashSet<string>(dedupedExact.Select(x => x.LogHash));
+        merged.AddRange(dedupedSemantic);
 
-        foreach (var sem in dedupedSemantic)
-        {
-            if (!exactHashes.Contains(sem.LogHash))
-            {
-                merged.Add(sem);
-            }
-        }
-
-        var semanticOnly = merged.Skip(dedupedExact.Count).ToArray();
-        var rerankedSemantic = _options.EnableHeuristicReranker
-            ? semanticOnly.OrderByDescending(chunk => (chunk.Score * 0.85) + (LexicalOverlap(question, chunk.Text) * 0.15)).ToArray()
-            : semanticOnly.OrderByDescending(chunk => chunk.Score).ToArray();
-
-        var finalResult = new List<RetrievedChunk>(dedupedExact);
-        finalResult.AddRange(rerankedSemantic);
-
-        return finalResult.Take(Math.Max(topK, Math.Max(10, dedupedExact.Count))).ToArray();
+        return merged;
     }
 
     private static double LexicalOverlap(string question, string chunkText)
@@ -160,34 +190,50 @@ public sealed class MarkdownResponseShaper : IResponseShaper
     }
 }
 
-public static class QueryIdExtractor
+public static partial class QueryIdExtractor
 {
-    private static readonly Regex GuidRegex = new(@"\b[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\b", RegexOptions.Compiled);
-    private static readonly Regex NumericIdRegex = new(@"\b\d{5,}\b", RegexOptions.Compiled);
-    private static readonly Regex ApmHexIdRegex = new(@"\b[a-fA-F0-9]{16}\b|\b[a-fA-F0-9]{32}\b", RegexOptions.Compiled);
-    private static readonly Regex KestrelRequestIdRegex = new(@"\b[a-zA-Z0-9]{8,20}:\d{4,10}\b", RegexOptions.Compiled);
+    // PERF: Source-generated regex — compiled at build time, 3-5x faster.
+    [System.Text.RegularExpressions.GeneratedRegex(
+        @"\b[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\b",
+        System.Text.RegularExpressions.RegexOptions.Compiled)]
+    private static partial Regex GuidRegex();
+
+    [System.Text.RegularExpressions.GeneratedRegex(
+        @"\b\d{5,}\b",
+        System.Text.RegularExpressions.RegexOptions.Compiled)]
+    private static partial Regex NumericIdRegex();
+
+    [System.Text.RegularExpressions.GeneratedRegex(
+        @"\b[a-fA-F0-9]{16}\b|\b[a-fA-F0-9]{32}\b",
+        System.Text.RegularExpressions.RegexOptions.Compiled)]
+    private static partial Regex ApmHexIdRegex();
+
+    [System.Text.RegularExpressions.GeneratedRegex(
+        @"\b[a-zA-Z0-9]{8,20}:\d{4,10}\b",
+        System.Text.RegularExpressions.RegexOptions.Compiled)]
+    private static partial Regex KestrelRequestIdRegex();
 
     public static HashSet<string> Extract(string question)
     {
         var ids = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         if (string.IsNullOrWhiteSpace(question)) return ids;
 
-        foreach (Match match in GuidRegex.Matches(question))
+        foreach (Match match in GuidRegex().Matches(question))
         {
             ids.Add(match.Value);
         }
 
-        foreach (Match match in NumericIdRegex.Matches(question))
+        foreach (Match match in NumericIdRegex().Matches(question))
         {
             ids.Add(match.Value);
         }
 
-        foreach (Match match in ApmHexIdRegex.Matches(question))
+        foreach (Match match in ApmHexIdRegex().Matches(question))
         {
             ids.Add(match.Value);
         }
 
-        foreach (Match match in KestrelRequestIdRegex.Matches(question))
+        foreach (Match match in KestrelRequestIdRegex().Matches(question))
         {
             ids.Add(match.Value);
         }

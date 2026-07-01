@@ -1,0 +1,169 @@
+#cloud-config
+# =============================================================================
+# LogRag — Azure VM Cloud-Init Configuration (private repo supported)
+# =============================================================================
+# For PRIVATE repos, create a GitHub PAT first:
+#   https://github.com/settings/tokens → Generate new token (classic)
+#   Scopes: repo (full control of private repos)
+#
+# Then replace GITHUB_PAT_PLACEHOLDER below with your token,
+# OR pass it via Azure CLI:
+#   az vm create ... --custom-data cloud-init.yaml \
+#       --protected-settings '{"GITHUB_PAT": "ghp_xxxx"}'
+#
+# For PUBLIC repos: delete the two GITHUB_PAT lines in runcmd below.
+# =============================================================================
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - git
+  - wget
+  - ufw
+
+# ── Write files ─────────────────────────────────────────────────────────────
+write_files:
+  # Docker Compose for Qdrant + Ollama
+  - path: /opt/lograg/docker-compose.yml
+    content: |
+      version: "3.8"
+      services:
+        qdrant:
+          image: qdrant/qdrant
+          restart: unless-stopped
+          ports:
+            - "6333:6333"
+            - "6334:6334"
+          volumes:
+            - qdrant_storage:/qdrant/storage
+        ollama:
+          image: ollama/ollama
+          restart: unless-stopped
+          ports:
+            - "11434:11434"
+          volumes:
+            - ollama_data:/root/.ollama
+          deploy:
+            resources:
+              reservations:
+                memory: 12G
+      volumes:
+        qdrant_storage:
+        ollama_data:
+
+  # Systemd service for LogRag API
+  - path: /etc/systemd/system/lograg-api.service
+    content: |
+      [Unit]
+      Description=LogRag .NET API
+      After=network.target docker.service
+      Requires=docker.service
+
+      [Service]
+      Type=simple
+      WorkingDirectory=/opt/lograg/LogRag.Api
+      Environment=ASPNETCORE_URLS=http://0.0.0.0:5000
+      Environment=DOTNET_ENVIRONMENT=Production
+      ExecStart=/usr/bin/dotnet /opt/lograg/LogRag.Api/publish/LogRag.Api.dll
+      Restart=on-failure
+      RestartSec=10
+
+      [Install]
+      WantedBy=multi-user.target
+
+  # Systemd service for Angular frontend
+  - path: /etc/systemd/system/lograg-ui.service
+    content: |
+      [Unit]
+      Description=LogRag Angular Frontend
+      After=network.target lograg-api.service
+      Requires=lograg-api.service
+
+      [Service]
+      Type=simple
+      WorkingDirectory=/opt/lograg/lograg-ui
+      ExecStart=/usr/bin/npx ng serve --host 0.0.0.0 --port 4200 --disable-host-check
+      Restart=on-failure
+      RestartSec=10
+
+      [Install]
+      WantedBy=multi-user.target
+
+  # Post-setup script (runs once)
+  - path: /opt/lograg/setup.sh
+    permissions: "0755"
+    content: |
+      #!/bin/bash
+      set -e
+      LOG="/var/log/lograg-setup.log"
+      exec > >(tee -a "$LOG") 2>&1
+      echo "=== LogRag Setup — $(date) ==="
+
+      # Install .NET 8 SDK
+      wget -q https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O /tmp/ms.deb
+      dpkg -i /tmp/ms.deb && rm /tmp/ms.deb
+      apt-get update && apt-get install -y dotnet-sdk-8.0
+
+      # Clone project (replace GITHUB_PAT_PLACEHOLDER with your token for private repos)
+      - |
+        GITHUB_PAT="GITHUB_PAT_PLACEHOLDER"
+        if [ "${GITHUB_PAT}" != "GITHUB_PAT_PLACEHOLDER" ] && [ -n "${GITHUB_PAT}" ]; then
+          CLONE_URL=$(echo "https://github.com/Moshalakany/Rag-based-logging.git" | sed "s|https://|https://${GITHUB_PAT}@|")
+        else
+          CLONE_URL="https://github.com/Moshalakany/Rag-based-logging.git"
+        fi
+        git clone "${CLONE_URL}" /opt/lograg
+      cd /opt/lograg/LogRag.Api
+      dotnet restore && dotnet publish -c Release -o publish
+
+      # Install frontend deps
+      cd /opt/lograg/lograg-ui
+      npm install
+
+      # Enable services
+      systemctl daemon-reload
+      systemctl enable lograg-api lograg-ui
+      systemctl start lograg-api lograg-ui
+
+      echo "Setup complete."
+
+# ── Run commands ────────────────────────────────────────────────────────────
+runcmd:
+  # Install Docker
+  - curl -fsSL https://get.docker.com | sh
+  - usermod -aG docker azureuser
+
+  # Install Node.js 22
+  - curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+  - apt-get install -y nodejs
+
+  # Start Qdrant + Ollama via Docker Compose
+  - cd /opt/lograg && docker compose up -d
+
+  # Wait for Ollama, then pull models
+  - |
+    for i in $(seq 1 60); do
+      curl -s http://localhost:11434/api/tags && break
+      sleep 5
+    done
+    docker exec ollama ollama pull nomic-embed-text
+    docker exec ollama ollama pull llama3.2
+
+  # Run post-setup (clone, build, start services)
+  - bash /opt/lograg/setup.sh
+
+  # Firewall
+  - ufw allow 5000/tcp
+  - ufw allow 4200/tcp
+  - ufw allow 6333/tcp
+  - ufw --force enable || true
+
+  # Done
+  - echo "LogRag cloud-init complete."
+
+# ── Final message (shown in /var/log/cloud-init-output.log) ──────────────────
+final_message: "LogRag deployment complete. API: http://<ip>:5000/health, UI: http://<ip>:4200"

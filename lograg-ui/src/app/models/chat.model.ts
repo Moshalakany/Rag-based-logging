@@ -3,6 +3,7 @@ export interface ChatRequest {
   question: string;
   top_k?: number;
   filter?: QueryFilter;
+  collection_name?: string;
 }
 
 export interface QueryFilter {
@@ -40,4 +41,24 @@ export interface IngestionResult {
   chunks_created: number;
   vectors_upserted: number;
   completed_at_utc: string;
+  collection_name?: string;
+  window_from_utc?: string;
+  window_to_utc?: string;
+}
+
+export interface IngestRequest {
+  from_utc?: string;
+  to_utc?: string;
+  collection_name?: string;
+}
+
+export interface HealthResponse {
+  status: string;
+  sources?: LogSourceInfo[];
+}
+
+export interface LogSourceInfo {
+  id: string;
+  type: string;
+  sourceKind: string;
 }

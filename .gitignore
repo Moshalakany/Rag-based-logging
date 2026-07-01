@@ -2,7 +2,8 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
-
+.venv/
+.hermes/
 # ===== IDE / Editor =====
 .vs/
 .vscode/
@@ -54,3 +55,4 @@ pnpm-debug.log*
 
 .fake
 lograg-ui/.angular/cache/17.3.17/angular-webpack/497617e68e8de3f5069b35b09988857006345458/0.pack
+LogRag.Api/bin/Debug/net8.0/LogRag.Api.pdb

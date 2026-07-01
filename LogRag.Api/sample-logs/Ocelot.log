@@ -2043,3 +2043,2025 @@
     Elastic.Apm.Metrics.MetricSet,
     Elastic.Apm.Metrics.MetricSet,
     Elastic.Apm.Metrics.MetricSet"
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 11: 31.727 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 14: 51.731 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 18: 11.741 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 21: 31.747 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 24: 51.755 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 28: 11.760 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 31: 31.767 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 34: 51.772 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 38: 11.787 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 41: 31.791 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 44: 51.799 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 48: 11.803 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 51: 31.809 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 51: 35.819 Create request with Correlation_ID: e8936fc5-af51-42c7-8eb7-2d5c5e67c9bd
+2026-06-17 19: 51: 35.821 requestId: 0HNM28CTNS905:00000001, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/Accounts/{accountid}/authenticate
+2026-06-17 19: 51: 35.821 requestId: 0HNM28CTNS905:00000001, previousRequestId: no previous request id, message: No authentication needed for /api/Accounts/132389/authenticate
+2026-06-17 19: 51: 35.821 requestId: 0HNM28CTNS905:00000001, previousRequestId: no previous request id, message: /api/Accounts/{accountid}/authenticate route does not require user to be authorised
+2026-06-17 19: 51: 35.821 Adding ApiKey: from = Ocelot - ApiKeyTime = 20260617165135
+2026-06-17 19: 51: 50.819 requestId: 0HNM28CTNS905:00000001, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: 
+2026-06-17 19: 51: 50.819 Received response with Correlation_ID: e8936fc5-af51-42c7-8eb7-2d5c5e67c9bd
+2026-06-17 19: 52: 50.553 Create request with Correlation_ID: d20462e3-e21e-466c-82ae-e394650b4fcb
+2026-06-17 19: 52: 50.555 requestId: 0HNM28CTNS905:00000002, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/{Version}/services/{ServiceID}/{Action}
+2026-06-17 19: 52: 50.555 requestId: 0HNM28CTNS905:00000002, previousRequestId: no previous request id, message: No authentication needed for /api/v2/services/144/fees
+2026-06-17 19: 52: 50.555 requestId: 0HNM28CTNS905:00000002, previousRequestId: no previous request id, message: /api/{Version}/services/{ServiceID}/{Action} route does not require user to be authorised
+2026-06-17 19: 52: 50.556 {"LogDate":"2026-06-17","LogTime":"19:52:50.555","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":{"Request":"{\"data\":[{\"key\":\"Sequence\",\"value\":\"1\"}],\"amount\":5.0,\"BillingAccount\":\"01124569877\",\"hostRequestId\":\"\",\"localDate\":\"2025-12-03T11:02:18\",\"ServiceListVersion\":\"112\",\"sn\":\"1850226981\",\"version\":\"4\",\"AccountId\":6,\"AccountProfileId\":9,\"UserId\":22307}"},"ExtraData":null,"CorrelationId":"d20462e3-e21e-466c-82ae-e394650b4fcb"}
+2026-06-17 19: 52: 50.556 Correlation_ID: d20462e3-e21e-466c-82ae-e394650b4fcb - [RemoteIpAddress] - 352966108812146
+2026-06-17 19: 52: 50.848 Correlation_ID: d20462e3-e21e-466c-82ae-e394650b4fcb - [ValidateTokenResponse] - Status Code: OK
+2026-06-17 19: 52: 50.849 Correlation_ID: d20462e3-e21e-466c-82ae-e394650b4fcb - [ValidateToken] - True
+2026-06-17 19: 52: 50.850 {"LogDate":"2026-06-17","LogTime":"19:52:50.850","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":{"ValidatedToken":{"AccountId":132389,"UserId":129352,"ChannelId":"352966108812146","AccountProfileId":7,"Valid":true}},"ExtraData":null,"CorrelationId":"d20462e3-e21e-466c-82ae-e394650b4fcb"}
+2026-06-17 19: 52: 50.851 {"LogDate":"2026-06-17","LogTime":"19:52:50.850","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Ocelot","Destination":"TMS","BRN":null,"BillingAccount":"01124569877","MessageBody":{"RequestContent":{"Version":"4","ServiceListVersion":"112","Brn":null,"UserId":129352,"BillingAccount":"01124569877","HostTransactionID":null,"LocalDate":"2025-12-03T11:02:18","Data":[{"key":"Sequence","value":"1","name":null}],"ExtraData":[],"AccountId":132389,"AccountProfileId":7,"MomknPaymentId":null,"ChannelId":"352966108812146","ChannelIdentifier":null,"IsRetry":false,"PMTMethod":1,"Amount":5.0,"AccountIDTo":0,"CompositeTransactionId":null,"BalanceTransferDetails":null},"ExtraData":null,"CorrelationId":"d20462e3-e21e-466c-82ae-e394650b4fcb"}
+2026-06-17 19: 52: 50.966 {"LogDate":"2026-06-17","LogTime":"19:52:50.965","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"TMS","Destination":"Ocelot","BRN":null,"BillingAccount":"01124569877","MessageBody":{"Response":"{\"code\":200,\"message\":\"عمليه ناجحه\",\"data\":[],\"amount\":5,\"fees\":0,\"taxes\":2.15,\"discount\":0,\"totalAmount\":7.15,\"brn\":1022484}"},"ExtraData":null,"CorrelationId":"d20462e3-e21e-466c-82ae-e394650b4fcb"}
+2026-06-17 19: 52: 50.966 requestId: 0HNM28CTNS905:00000002, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://tms-test.retail-test.svc.cluster.local:8030/api/v2/services/144/fees
+2026-06-17 19: 52: 50.967 Received response with Correlation_ID: d20462e3-e21e-466c-82ae-e394650b4fcb
+2026-06-17 19: 53: 19.817 Create request with Correlation_ID: fb35c7b0-9809-4c3d-9793-5893ae296adb
+2026-06-17 19: 53: 19.818 requestId: 0HNM28CTNS905:00000003, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/{Version}/services/{ServiceID}/{Action}
+2026-06-17 19: 53: 19.818 requestId: 0HNM28CTNS905:00000003, previousRequestId: no previous request id, message: No authentication needed for /api/v2/services/144/fees
+2026-06-17 19: 53: 19.818 requestId: 0HNM28CTNS905:00000003, previousRequestId: no previous request id, message: /api/{Version}/services/{ServiceID}/{Action} route does not require user to be authorised
+2026-06-17 19: 53: 19.819 {"LogDate":"2026-06-17","LogTime":"19:53:19.819","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":{"Request":"{\"data\":[{\"key\":\"Sequence\",\"value\":\"1\"}],\"amount\":5.0,\"BillingAccount\":\"01124569877\",\"hostRequestId\":\"\",\"localDate\":\"2025-12-03T11:02:18\",\"ServiceListVersion\":\"112\",\"sn\":\"1850226981\",\"version\":\"4\",\"AccountId\":6,\"AccountProfileId\":9,\"UserId\":22307}"},"ExtraData":null,"CorrelationId":"fb35c7b0-9809-4c3d-9793-5893ae296adb"}
+2026-06-17 19: 53: 19.819 Correlation_ID: fb35c7b0-9809-4c3d-9793-5893ae296adb - [RemoteIpAddress] - 352966108812146
+2026-06-17 19: 53: 19.880 Correlation_ID: fb35c7b0-9809-4c3d-9793-5893ae296adb - [ValidateTokenResponse] - Status Code: OK
+2026-06-17 19: 53: 19.881 Correlation_ID: fb35c7b0-9809-4c3d-9793-5893ae296adb - [ValidateToken] - True
+2026-06-17 19: 53: 19.881 {"LogDate":"2026-06-17","LogTime":"19:53:19.881","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":{"ValidatedToken":{"AccountId":132389,"UserId":129352,"ChannelId":"352966108812146","AccountProfileId":7,"Valid":true}},"ExtraData":null,"CorrelationId":"fb35c7b0-9809-4c3d-9793-5893ae296adb"}
+2026-06-17 19: 53: 19.882 {"LogDate":"2026-06-17","LogTime":"19:53:19.881","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Ocelot","Destination":"TMS","BRN":null,"BillingAccount":"01124569877","MessageBody":{"RequestContent":{"Version":"4","ServiceListVersion":"112","Brn":null,"UserId":129352,"BillingAccount":"01124569877","HostTransactionID":null,"LocalDate":"2025-12-03T11:02:18","Data":[{"key":"Sequence","value":"1","name":null}],"ExtraData":[],"AccountId":132389,"AccountProfileId":7,"MomknPaymentId":null,"ChannelId":"352966108812146","ChannelIdentifier":null,"IsRetry":false,"PMTMethod":1,"Amount":5.0,"AccountIDTo":0,"CompositeTransactionId":null,"BalanceTransferDetails":null},"ExtraData":null,"CorrelationId":"fb35c7b0-9809-4c3d-9793-5893ae296adb"}
+2026-06-17 19: 53: 19.978 {"LogDate":"2026-06-17","LogTime":"19:53:19.977","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"TMS","Destination":"Ocelot","BRN":null,"BillingAccount":"01124569877","MessageBody":{"Response":"{\"code\":200,\"message\":\"عمليه ناجحه\",\"data\":[],\"amount\":5,\"fees\":0,\"taxes\":2.15,\"discount\":0,\"totalAmount\":7.15,\"brn\":1022485}"},"ExtraData":null,"CorrelationId":"fb35c7b0-9809-4c3d-9793-5893ae296adb"}
+2026-06-17 19: 53: 19.978 requestId: 0HNM28CTNS905:00000003, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://tms-test.retail-test.svc.cluster.local:8030/api/v2/services/144/fees
+2026-06-17 19: 53: 19.978 Received response with Correlation_ID: fb35c7b0-9809-4c3d-9793-5893ae296adb
+2026-06-17 19: 53: 59.029 Create request with Correlation_ID: 8185bb35-fb09-4522-946f-e622d74b0f97
+2026-06-17 19: 53: 59.031 requestId: 0HNM28CTNS905:00000004, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/{Version}/services/{ServiceID}/{Action}
+2026-06-17 19: 53: 59.031 requestId: 0HNM28CTNS905:00000004, previousRequestId: no previous request id, message: No authentication needed for /api/v2/services/144/fees
+2026-06-17 19: 53: 59.031 requestId: 0HNM28CTNS905:00000004, previousRequestId: no previous request id, message: /api/{Version}/services/{ServiceID}/{Action} route does not require user to be authorised
+2026-06-17 19: 53: 59.032 {"LogDate":"2026-06-17","LogTime":"19:53:59.032","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":{"Request":"{\"data\":[{\"key\":\"Sequence\",\"value\":\"1\"}],\"amount\":5.0,\"BillingAccount\":\"01124569877\",\"hostRequestId\":\"\",\"localDate\":\"2025-12-03T11:02:18\",\"ServiceListVersion\":\"112\",\"sn\":\"1850226981\",\"version\":\"4\",\"AccountId\":6,\"AccountProfileId\":9,\"UserId\":22307}"},"ExtraData":null,"CorrelationId":"8185bb35-fb09-4522-946f-e622d74b0f97"}
+2026-06-17 19: 53: 59.032 Correlation_ID: 8185bb35-fb09-4522-946f-e622d74b0f97 - [RemoteIpAddress] - 352966108812146
+2026-06-17 19: 53: 59.100 Correlation_ID: 8185bb35-fb09-4522-946f-e622d74b0f97 - [ValidateTokenResponse] - Status Code: OK
+2026-06-17 19: 53: 59.100 Correlation_ID: 8185bb35-fb09-4522-946f-e622d74b0f97 - [ValidateToken] - True
+2026-06-17 19: 53: 59.100 {"LogDate":"2026-06-17","LogTime":"19:53:59.100","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":{"ValidatedToken":{"AccountId":132389,"UserId":129352,"ChannelId":"352966108812146","AccountProfileId":7,"Valid":true}},"ExtraData":null,"CorrelationId":"8185bb35-fb09-4522-946f-e622d74b0f97"}
+2026-06-17 19: 53: 59.101 {"LogDate":"2026-06-17","LogTime":"19:53:59.101","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"Ocelot","Destination":"TMS","BRN":null,"BillingAccount":"01124569877","MessageBody":{"RequestContent":{"Version":"4","ServiceListVersion":"112","Brn":null,"UserId":129352,"BillingAccount":"01124569877","HostTransactionID":null,"LocalDate":"2025-12-03T11:02:18","Data":[{"key":"Sequence","value":"1","name":null}],"ExtraData":[],"AccountId":132389,"AccountProfileId":7,"MomknPaymentId":null,"ChannelId":"352966108812146","ChannelIdentifier":null,"IsRetry":false,"PMTMethod":1,"Amount":5.0,"AccountIDTo":0,"CompositeTransactionId":null,"BalanceTransferDetails":null},"ExtraData":null,"CorrelationId":"8185bb35-fb09-4522-946f-e622d74b0f97"}
+2026-06-17 19: 53: 59.196 {"LogDate":"2026-06-17","LogTime":"19:53:59.196","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":144,"Method":"fees","Source":"TMS","Destination":"Ocelot","BRN":null,"BillingAccount":"01124569877","MessageBody":{"Response":"{\"code\":200,\"message\":\"عمليه ناجحه\",\"data\":[],\"amount\":5,\"fees\":0,\"taxes\":2.15,\"discount\":0,\"totalAmount\":7.15,\"brn\":1022486}"},"ExtraData":null,"CorrelationId":"8185bb35-fb09-4522-946f-e622d74b0f97"}
+2026-06-17 19: 53: 59.197 requestId: 0HNM28CTNS905:00000004, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://tms-test.retail-test.svc.cluster.local:8030/api/v2/services/144/fees
+2026-06-17 19: 53: 59.197 Received response with Correlation_ID: 8185bb35-fb09-4522-946f-e622d74b0f97
+2026-06-17 19: 54: 51.816 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 19: 58: 11.825 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 01: 31.832 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 04: 51.840 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 08: 11.843 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 11: 31.851 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 14: 51.854 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 18: 11.864 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 21: 31.868 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 24: 51.880 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 28: 11.888 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 31: 31.899 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 34: 51.902 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 38: 11.911 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 41: 31.915 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 44: 51.925 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 48: 11.932 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 51: 31.939 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 54: 51.947 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 20: 58: 11.955 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 01: 31.960 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 04: 52.024 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Span{Id: 116dc703fd1f1cb7, TransactionId: e3e3a00e8fe90d8b, ParentId: e3e3a00e8fe90d8b, TraceId: d2626eff4e91c2bb204049cf6fb3bcf4, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 103.854},
+    Span{Id: b3919316b3d426ec, TransactionId: e3e3a00e8fe90d8b, ParentId: e3e3a00e8fe90d8b, TraceId: d2626eff4e91c2bb204049cf6fb3bcf4, Name: PUT tms-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, IsSampled: True, Duration: 22.016},
+    Transaction{Id: e3e3a00e8fe90d8b, TraceId: d2626eff4e91c2bb204049cf6fb3bcf4, ParentId: null, Name: PUT /api/Request/571337/ApproveRefund, Type: request, Outcome: Success, IsSampled: True},
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 08: 12.031 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 11: 32.039 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 14: 52.042 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 18: 12.052 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 21: 32.055 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 24: 52.062 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 28: 12.065 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 31: 32.071 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 34: 52.077 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 38: 12.085 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 41: 32.094 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 44: 52.099 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 48: 12.106 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 51: 32.111 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 54: 52.119 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 21: 58: 12.123 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 01: 32.131 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 04: 52.134 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 08: 12.142 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 11: 32.147 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 14: 52.155 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 18: 12.160 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 21: 32.167 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 24: 52.170 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 28: 12.179 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 31: 32.183 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 34: 52.233 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Transaction{Id: 01c8facc48e2b05e, TraceId: e66e547fa580fc588278976b9f2e2786, ParentId: null, Name: OPTIONS /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Span{Id: da2eb37d118db6b4, TransactionId: 4ec379f870a77c19, ParentId: 4ec379f870a77c19, TraceId: 26aedf83c35a007cb5741eb1c20d6b78, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 28.52},
+    Span{Id: cf3beaf4135753f1, TransactionId: 4ec379f870a77c19, ParentId: 4ec379f870a77c19, TraceId: 26aedf83c35a007cb5741eb1c20d6b78, Name: POST tms-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 89.385},
+    Transaction{Id: 4ec379f870a77c19, TraceId: 26aedf83c35a007cb5741eb1c20d6b78, ParentId: null, Name: POST /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Span{Id: 770c86fdbfd98b27, TransactionId: 2f6cf24ecdff30fb, ParentId: 2f6cf24ecdff30fb, TraceId: ded00f6c89da960b56521735dcb3a424, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 23.053},
+    Span{Id: 6186bd283d2b756d, TransactionId: 2f6cf24ecdff30fb, ParentId: 2f6cf24ecdff30fb, TraceId: ded00f6c89da960b56521735dcb3a424, Name: POST tms-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 84.002},
+    Transaction{Id: 2f6cf24ecdff30fb, TraceId: ded00f6c89da960b56521735dcb3a424, ParentId: null, Name: POST /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Span{Id: a96e54e9858ca5eb, TransactionId: af8aeeb4114f7b22, ParentId: af8aeeb4114f7b22, TraceId: cce75edc80802552bdb238297d36bbce, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 27.609},
+    Span{Id: 031b70e2ee678f65, TransactionId: af8aeeb4114f7b22, ParentId: af8aeeb4114f7b22, TraceId: cce75edc80802552bdb238297d36bbce, Name: POST tms-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 77.187},
+    Transaction{Id: af8aeeb4114f7b22, TraceId: cce75edc80802552bdb238297d36bbce, ParentId: null, Name: POST /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True}"
+2026-06-17 22: 38: 12.255 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Transaction{Id: f9aadf63d1a33a76, TraceId: 6e0d198267e1c8aec8e0553f81053b69, ParentId: null, Name: OPTIONS /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Span{Id: cfb799b84dbaf01a, TransactionId: c3aec36c4d85854a, ParentId: c3aec36c4d85854a, TraceId: 0af2d9866b01c787b2db29eac293bc32, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 34.655},
+    Span{Id: 50f5c18cf403d8b6, TransactionId: c3aec36c4d85854a, ParentId: c3aec36c4d85854a, TraceId: 0af2d9866b01c787b2db29eac293bc32, Name: POST tms-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 102.547},
+    Transaction{Id: c3aec36c4d85854a, TraceId: 0af2d9866b01c787b2db29eac293bc32, ParentId: null, Name: POST /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 41: 32.264 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 44: 52.290 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Transaction{Id: ce75ed0753cd37b8, TraceId: e4698d9298aa850ac46a529226757b82, ParentId: null, Name: OPTIONS /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Span{Id: 6bb39df286dbfd69, TransactionId: 1fa743788b037a1b, ParentId: 1fa743788b037a1b, TraceId: 553c216b95e681b1ab125e964e95d041, Name: GET identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 23.751},
+    Span{Id: 0b94289c4fbe127b, TransactionId: 1fa743788b037a1b, ParentId: 1fa743788b037a1b, TraceId: 553c216b95e681b1ab125e964e95d041, Name: GET identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 5.384},
+    Span{Id: b71938754db2c945, TransactionId: 1fa743788b037a1b, ParentId: 1fa743788b037a1b, TraceId: 553c216b95e681b1ab125e964e95d041, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 38.918}"
+2026-06-17 22: 48: 12.311 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Transaction{Id: 2baa1b46ef94cb5e, TraceId: 89f88e45cce2389f87d2b8e0ae461be9, ParentId: null, Name: OPTIONS /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Span{Id: 993eed6b543fef70, TransactionId: 455a10bfcfbb5718, ParentId: 455a10bfcfbb5718, TraceId: 7fb70dec6f92cb0d57358851a5ca689f, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 47.321},
+    Span{Id: 86814c4a86739267, TransactionId: 455a10bfcfbb5718, ParentId: 455a10bfcfbb5718, TraceId: 7fb70dec6f92cb0d57358851a5ca689f, Name: POST tms-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 102.181},
+    Transaction{Id: 455a10bfcfbb5718, TraceId: 7fb70dec6f92cb0d57358851a5ca689f, ParentId: null, Name: POST /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True}"
+2026-06-17 22: 51: 32.316 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 54: 52.323 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 22: 58: 12.327 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 01: 32.368 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Transaction{Id: ae7d5d1bb080f3ca, TraceId: 83d9f05e2e2a8eb471b3d9bc0617f820, ParentId: null, Name: OPTIONS /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Span{Id: ae2b48acd7398fda, TransactionId: 74f135d080b7bb08, ParentId: 74f135d080b7bb08, TraceId: 408abfff36fdfff907d88389a8391a37, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 55.474},
+    Span{Id: aa1c3c28a66ed1ff, TransactionId: 74f135d080b7bb08, ParentId: 74f135d080b7bb08, TraceId: 408abfff36fdfff907d88389a8391a37, Name: POST tms-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 90.599},
+    Transaction{Id: 74f135d080b7bb08, TraceId: 408abfff36fdfff907d88389a8391a37, ParentId: null, Name: POST /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Span{Id: 8ecad2f8be462404, TransactionId: 12ed8416808143b2, ParentId: 12ed8416808143b2, TraceId: 3d5b794c44fbbb47d80e95aedf7cfbb7, Name: POST identity-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 27.202},
+    Span{Id: 0554219dcc74d2bc, TransactionId: 12ed8416808143b2, ParentId: 12ed8416808143b2, TraceId: 3d5b794c44fbbb47d80e95aedf7cfbb7, Name: POST tms-test.retail-test.svc.cluster.local, Type: external, Outcome: Success, IsSampled: True, Duration: 85.621},
+    Transaction{Id: 12ed8416808143b2, TraceId: 3d5b794c44fbbb47d80e95aedf7cfbb7, ParentId: null, Name: POST /api/Transactions/PortalTransactionsReport, Type: request, Outcome: Success, IsSampled: True},
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 04: 52.371 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 08: 12.380 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 11: 32.383 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 14: 52.391 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 18: 12.395 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 21: 32.403 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 24: 52.407 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 28: 12.414 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 31: 32.420 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 34: 52.427 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 38: 12.431 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 41: 32.437 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 44: 52.443 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 48: 12.450 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 51: 32.455 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 54: 52.464 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-17 23: 58: 12.467 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+        Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 18: 23.138 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 21: 43.141 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 25: 03.152 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 28: 23.160 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 31: 43.170 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 35: 03.173 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 38: 23.183 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 41: 43.192 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 45: 03.200 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 48: 23.208 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 51: 43.217 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 55: 03.224 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 10: 58: 23.240 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 01: 43.243 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 05: 03.250 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 08: 23.255 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 11: 43.264 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 15: 03.267 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 18: 23.276 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 21: 43.284 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 25: 03.289 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 28: 23.297 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 31: 43.308 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 35: 03.315 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 38: 23.324 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 41: 43.328 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 45: 03.335 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 48: 23.343 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 51: 43.347 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 55: 03.355 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 11: 58: 23.359 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 01: 43.368 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 05: 03.370 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 08: 23.380 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 11: 43.383 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 15: 03.391 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 17: 55.626 Create request with Correlation_ID: 95047e45-de4e-4ab8-b71d-9ccc54d40b91
+2026-06-21 12: 17: 55.630 requestId: 0HNM28CTNS906:00000001, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/Accounts/{accountid}/authenticate
+2026-06-21 12: 17: 55.630 requestId: 0HNM28CTNS906:00000001, previousRequestId: no previous request id, message: No authentication needed for /api/accounts/6/authenticate
+2026-06-21 12: 17: 55.630 requestId: 0HNM28CTNS906:00000001, previousRequestId: no previous request id, message: /api/Accounts/{accountid}/authenticate route does not require user to be authorised
+2026-06-21 12: 17: 55.630 Adding ApiKey: from = Ocelot - ApiKeyTime = 20260621091755
+2026-06-21 12: 18: 02.065 requestId: 0HNM28CTNS906:00000001, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: 
+2026-06-21 12: 18: 02.065 Received response with Correlation_ID: 95047e45-de4e-4ab8-b71d-9ccc54d40b91
+2026-06-21 12: 18: 23.395 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 21: 43.399 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 25: 03.412 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 28: 23.421 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 31: 43.429 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 35: 03.434 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 38: 23.442 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 41: 43.452 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 42: 08.685 Create request with Correlation_ID: 11777915-b435-426f-9c84-8690f701ec64
+2026-06-21 12: 42: 08.685 Received response with Correlation_ID: 11777915-b435-426f-9c84-8690f701ec64
+2026-06-21 12: 42: 08.805 Create request with Correlation_ID: 377d56f4-c03a-4b9d-9aa8-a14967baf8a0
+2026-06-21 12: 42: 08.843 requestId: 0HNM28CTNS907:00000002, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /newapproach/api/Cache/refresh
+2026-06-21 12: 42: 08.843 requestId: 0HNM28CTNS907:00000002, previousRequestId: no previous request id, message: No authentication needed for /api/Cache/refresh
+2026-06-21 12: 42: 08.843 requestId: 0HNM28CTNS907:00000002, previousRequestId: no previous request id, message: /newapproach/api/Cache/refresh route does not require user to be authorised
+2026-06-21 12: 42: 08.844 {"LogDate":"2026-06-21","LogTime":"12:42:08.844","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"StartedRequest","ExtraData":null,"CorrelationId":"377d56f4-c03a-4b9d-9aa8-a14967baf8a0"}
+2026-06-21 12: 42: 08.844 Correlation_ID: 377d56f4-c03a-4b9d-9aa8-a14967baf8a0 - [RemoteIpAddress] - 10.244.3.0
+2026-06-21 12: 42: 09.275 Correlation_ID: 377d56f4-c03a-4b9d-9aa8-a14967baf8a0 - [ValidateTokenResponse] - Status Code: OK
+2026-06-21 12: 42: 09.275 Correlation_ID: 377d56f4-c03a-4b9d-9aa8-a14967baf8a0 - [ValidatePortalToken] - True
+2026-06-21 12: 42: 09.277 {"LogDate":"2026-06-21","LogTime":"12:42:09.276","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"After validate token","ExtraData":null,"CorrelationId":"377d56f4-c03a-4b9d-9aa8-a14967baf8a0"}
+2026-06-21 12: 42: 09.277 {"LogDate":"2026-06-21","LogTime":"12:42:09.277","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"after override request","ExtraData":null,"CorrelationId":"377d56f4-c03a-4b9d-9aa8-a14967baf8a0"}
+2026-06-21 12: 42: 10.425 requestId: 0HNM28CTNS907:00000002, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://10.90.7.61:30004/newapproach/api/Cache/refresh
+2026-06-21 12: 42: 10.426 Received response with Correlation_ID: 377d56f4-c03a-4b9d-9aa8-a14967baf8a0
+2026-06-21 12: 43: 25.559 Create request with Correlation_ID: 1bce5b8e-7123-4fdd-8ad1-10e59168766b
+2026-06-21 12: 43: 25.560 requestId: 0HNM28CTNS908:00000001, previousRequestId: no previous request id, message: DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Cache/refresh, verb: GET.
+2026-06-21 12: 43: 25.560 requestId: 0HNM28CTNS908:00000001, previousRequestId: no previous request id, message: Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Cache/refresh, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/Cache/refresh, request method: GET
+2026-06-21 12: 43: 25.561 Received response with Correlation_ID: 1bce5b8e-7123-4fdd-8ad1-10e59168766b
+2026-06-21 12: 43: 41.883 Create request with Correlation_ID: e5ac2310-063a-4e33-a1ef-190f28629f90
+2026-06-21 12: 43: 41.884 requestId: 0HNM28CTNS908:00000002, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /newapproach/api/Cache/refresh
+2026-06-21 12: 43: 41.885 requestId: 0HNM28CTNS908:00000002, previousRequestId: no previous request id, message: No authentication needed for /api/Cache/refresh
+2026-06-21 12: 43: 41.885 requestId: 0HNM28CTNS908:00000002, previousRequestId: no previous request id, message: /newapproach/api/Cache/refresh route does not require user to be authorised
+2026-06-21 12: 43: 41.885 {"LogDate":"2026-06-21","LogTime":"12:43:41.885","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"StartedRequest","ExtraData":null,"CorrelationId":"e5ac2310-063a-4e33-a1ef-190f28629f90"}
+2026-06-21 12: 43: 41.885 [AuthorizationException]
+2026-06-21 12: 43: 41.885 requestId: 0HNM28CTNS908:00000002, previousRequestId: no previous request id, message: 401 (Unauthorized) status code, request uri: 
+2026-06-21 12: 43: 41.886 Received response with Correlation_ID: e5ac2310-063a-4e33-a1ef-190f28629f90
+2026-06-21 12: 44: 30.881 Create request with Correlation_ID: 6967b48f-56c7-4887-872f-3a9a6846c4db
+2026-06-21 12: 44: 30.882 requestId: 0HNM28CTNS909:00000001, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /newapproach/api/Cache/refresh
+2026-06-21 12: 44: 30.882 requestId: 0HNM28CTNS909:00000001, previousRequestId: no previous request id, message: No authentication needed for /api/Cache/refresh
+2026-06-21 12: 44: 30.882 requestId: 0HNM28CTNS909:00000001, previousRequestId: no previous request id, message: /newapproach/api/Cache/refresh route does not require user to be authorised
+2026-06-21 12: 44: 30.882 {"LogDate":"2026-06-21","LogTime":"12:44:30.882","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"StartedRequest","ExtraData":null,"CorrelationId":"6967b48f-56c7-4887-872f-3a9a6846c4db"}
+2026-06-21 12: 44: 30.882 Correlation_ID: 6967b48f-56c7-4887-872f-3a9a6846c4db - [RemoteIpAddress] - 10.244.3.0
+2026-06-21 12: 44: 30.923 Correlation_ID: 6967b48f-56c7-4887-872f-3a9a6846c4db - [ValidateTokenResponse] - Status Code: OK
+2026-06-21 12: 44: 30.923 Correlation_ID: 6967b48f-56c7-4887-872f-3a9a6846c4db - [ValidatePortalToken] - False
+2026-06-21 12: 44: 30.923 {"LogDate":"2026-06-21","LogTime":"12:44:30.923","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"After validate token","ExtraData":null,"CorrelationId":"6967b48f-56c7-4887-872f-3a9a6846c4db"}
+2026-06-21 12: 44: 30.923 [AuthorizationException]
+2026-06-21 12: 44: 30.923 requestId: 0HNM28CTNS909:00000001, previousRequestId: no previous request id, message: 401 (Unauthorized) status code, request uri: 
+2026-06-21 12: 44: 30.924 Received response with Correlation_ID: 6967b48f-56c7-4887-872f-3a9a6846c4db
+2026-06-21 12: 44: 57.998 Create request with Correlation_ID: 0261a66a-01f3-49bf-9944-68be0c2d7868
+2026-06-21 12: 44: 58.000 requestId: 0HNM28CTNS909:00000002, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /newapproach/api/Cache/refresh
+2026-06-21 12: 44: 58.000 requestId: 0HNM28CTNS909:00000002, previousRequestId: no previous request id, message: No authentication needed for /api/Cache/refresh
+2026-06-21 12: 44: 58.000 requestId: 0HNM28CTNS909:00000002, previousRequestId: no previous request id, message: /newapproach/api/Cache/refresh route does not require user to be authorised
+2026-06-21 12: 44: 58.000 {"LogDate":"2026-06-21","LogTime":"12:44:58.000","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"StartedRequest","ExtraData":null,"CorrelationId":"0261a66a-01f3-49bf-9944-68be0c2d7868"}
+2026-06-21 12: 44: 58.001 Correlation_ID: 0261a66a-01f3-49bf-9944-68be0c2d7868 - [RemoteIpAddress] - 10.244.3.0
+2026-06-21 12: 44: 58.030 Correlation_ID: 0261a66a-01f3-49bf-9944-68be0c2d7868 - [ValidateTokenResponse] - Status Code: OK
+2026-06-21 12: 44: 58.030 Correlation_ID: 0261a66a-01f3-49bf-9944-68be0c2d7868 - [ValidatePortalToken] - False
+2026-06-21 12: 44: 58.030 {"LogDate":"2026-06-21","LogTime":"12:44:58.030","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"After validate token","ExtraData":null,"CorrelationId":"0261a66a-01f3-49bf-9944-68be0c2d7868"}
+2026-06-21 12: 44: 58.030 [AuthorizationException]
+2026-06-21 12: 44: 58.030 requestId: 0HNM28CTNS909:00000002, previousRequestId: no previous request id, message: 401 (Unauthorized) status code, request uri: 
+2026-06-21 12: 44: 58.031 Received response with Correlation_ID: 0261a66a-01f3-49bf-9944-68be0c2d7868
+2026-06-21 12: 45: 03.459 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 45: 12.020 Create request with Correlation_ID: abb370bd-5a24-403f-9126-8d23daa96ad5
+2026-06-21 12: 45: 12.023 requestId: 0HNM28CTNS909:00000003, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /newapproach/api/Cache/refresh
+2026-06-21 12: 45: 12.023 requestId: 0HNM28CTNS909:00000003, previousRequestId: no previous request id, message: No authentication needed for /api/Cache/refresh
+2026-06-21 12: 45: 12.023 requestId: 0HNM28CTNS909:00000003, previousRequestId: no previous request id, message: /newapproach/api/Cache/refresh route does not require user to be authorised
+2026-06-21 12: 45: 12.024 {"LogDate":"2026-06-21","LogTime":"12:45:12.023","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"StartedRequest","ExtraData":null,"CorrelationId":"abb370bd-5a24-403f-9126-8d23daa96ad5"}
+2026-06-21 12: 45: 12.024 Correlation_ID: abb370bd-5a24-403f-9126-8d23daa96ad5 - [RemoteIpAddress] - 10.244.3.0
+2026-06-21 12: 45: 12.057 Correlation_ID: abb370bd-5a24-403f-9126-8d23daa96ad5 - [ValidateTokenResponse] - Status Code: OK
+2026-06-21 12: 45: 12.057 Correlation_ID: abb370bd-5a24-403f-9126-8d23daa96ad5 - [ValidatePortalToken] - True
+2026-06-21 12: 45: 12.058 {"LogDate":"2026-06-21","LogTime":"12:45:12.058","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"After validate token","ExtraData":null,"CorrelationId":"abb370bd-5a24-403f-9126-8d23daa96ad5"}
+2026-06-21 12: 45: 12.058 {"LogDate":"2026-06-21","LogTime":"12:45:12.058","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":null,"Method":"PortalRequest","Source":"AdminDashBoard","Destination":"TMS","BRN":null,"BillingAccount":null,"MessageBody":"after override request","ExtraData":null,"CorrelationId":"abb370bd-5a24-403f-9126-8d23daa96ad5"}
+2026-06-21 12: 45: 12.925 requestId: 0HNM28CTNS909:00000003, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://10.90.7.61:30004/newapproach/api/Cache/refresh
+2026-06-21 12: 45: 12.926 Received response with Correlation_ID: abb370bd-5a24-403f-9126-8d23daa96ad5
+2026-06-21 12: 48: 23.463 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 51: 43.471 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 55: 03.479 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 12: 58: 23.483 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 01: 43.492 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 05: 03.495 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 08: 23.501 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 11: 43.507 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 15: 03.509 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 18: 23.516 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 21: 43.525 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 23: 36.826 Create request with Correlation_ID: a87bc259-a4c5-4c79-8750-cc8343725b10
+2026-06-21 13: 23: 36.830 requestId: 0HNM28CTNS90A:00000001, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/{Version}/services/{ServiceID}/{Action}
+2026-06-21 13: 23: 36.830 requestId: 0HNM28CTNS90A:00000001, previousRequestId: no previous request id, message: No authentication needed for /api/v2/services/364/inquiry
+2026-06-21 13: 23: 36.830 requestId: 0HNM28CTNS90A:00000001, previousRequestId: no previous request id, message: /api/{Version}/services/{ServiceID}/{Action} route does not require user to be authorised
+2026-06-21 13: 23: 36.832 {"LogDate":"2026-06-21","LogTime":"13:23:36.831","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":364,"Method":"inquiry","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":{"Request":"{\"billingAccount\":\"01200783099\"}"},"ExtraData":null,"CorrelationId":"a87bc259-a4c5-4c79-8750-cc8343725b10"}
+2026-06-21 13: 23: 36.832 Correlation_ID: a87bc259-a4c5-4c79-8750-cc8343725b10 - [RemoteIpAddress] - 352966108812146
+2026-06-21 13: 23: 37.163 Correlation_ID: a87bc259-a4c5-4c79-8750-cc8343725b10 - [ValidateTokenResponse] - Status Code: OK
+2026-06-21 13: 23: 37.164 Correlation_ID: a87bc259-a4c5-4c79-8750-cc8343725b10 - [ValidateToken] - False
+2026-06-21 13: 23: 37.165 {"LogDate":"2026-06-21","LogTime":"13:23:37.164","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":364,"Method":"inquiry","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":{"ValidatedToken":{"AccountId":0,"UserId":0,"ChannelId":"352966108812146","AccountProfileId":0,"Valid":false}},"ExtraData":null,"CorrelationId":"a87bc259-a4c5-4c79-8750-cc8343725b10"}
+2026-06-21 13: 23: 37.165 {"LogDate":"2026-06-21","LogTime":"13:23:37.165","LogLevel":"Information","Entity":"Momkn","Module":"TMS","IP":"10.244.4.215","DenominationId":364,"Method":"inquiry","Source":"Channel","Destination":"Ocelot","BRN":null,"BillingAccount":null,"MessageBody":"[AuthorizationException]","ExtraData":null,"CorrelationId":"a87bc259-a4c5-4c79-8750-cc8343725b10"}
+2026-06-21 13: 23: 37.165 requestId: 0HNM28CTNS90A:00000001, previousRequestId: no previous request id, message: 401 (Unauthorized) status code, request uri: 
+2026-06-21 13: 23: 37.166 Received response with Correlation_ID: a87bc259-a4c5-4c79-8750-cc8343725b10
+2026-06-21 13: 25: 03.534 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 28: 23.547 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 31: 43.552 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 35: 03.559 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 38: 23.567 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 41: 43.568 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 45: 03.579 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 48: 23.583 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 51: 43.591 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 55: 03.594 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 13: 58: 23.603 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 01: 43.609 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 05: 03.620 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 08: 23.624 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 11: 43.628 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 15: 03.632 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 18: 23.639 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 21: 43.644 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 25: 03.651 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 28: 23.660 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 31: 43.671 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 35: 03.676 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 38: 23.686 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 41: 43.692 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 45: 03.704 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 48: 23.707 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 51: 43.713 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"
+2026-06-21 14: 55: 03.719 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet,
+    Elastic.Apm.Metrics.MetricSet"

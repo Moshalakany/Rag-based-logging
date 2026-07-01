@@ -34,4 +34,55 @@ C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag base
 C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\obj\Debug\net8.0\LogRag.Api.genruntimeconfig.cache
 C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\obj\Debug\net8.0\ref\LogRag.Api.dll
 C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\obj\Debug\net8.0\LogRag.Api.sourcelink.json
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\tmp\lograg-build\appsettings.json
+C:\tmp\lograg-build\LogRag.Api.staticwebassets.endpoints.json
+C:\tmp\lograg-build\LogRag.Api.exe
+C:\tmp\lograg-build\LogRag.Api.deps.json
+C:\tmp\lograg-build\LogRag.Api.runtimeconfig.json
+C:\tmp\lograg-build\LogRag.Api.dll
+C:\tmp\lograg-build\LogRag.Api.pdb
+C:\tmp\lograg-new\appsettings.json
+C:\tmp\lograg-new\data\ingestion-checkpoints.json
+C:\tmp\lograg-new\LogRag.Api.staticwebassets.endpoints.json
+C:\tmp\lograg-new\LogRag.Api.exe
+C:\tmp\lograg-new\LogRag.Api.deps.json
+C:\tmp\lograg-new\LogRag.Api.runtimeconfig.json
+C:\tmp\lograg-new\LogRag.Api.dll
+C:\tmp\lograg-new\LogRag.Api.pdb
 C:\Users\Ahmed.AbdelAti\OneDrive - Al-Ahly Momkn for e-payments\Desktop\Rag based logging\LogRag.Api\bin\Debug\net8.0\data\ingestion-checkpoints.json

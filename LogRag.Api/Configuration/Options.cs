@@ -8,9 +8,28 @@ public sealed class LogSourcesOptions
 public sealed class LogSourceDescriptorOptions
 {
     public string Id { get; init; } = "";
-    public string Type { get; init; } = "file";
-    public string Path { get; init; } = "";
+    public string Type { get; init; } = "file";    // file | elasticsearch | sql | http
+    public string Path { get; init; } = "";         // file path (file type)
     public string SourceType { get; init; } = "app";
+
+    // ── Elasticsearch ──
+    public string ElasticsearchUrl { get; init; } = "";
+    public string ElasticsearchIndex { get; init; } = "";
+    public string ElasticsearchQuery { get; init; } = "";  // JSON query body
+    public string ElasticsearchApiKey { get; init; } = "";
+    public int ElasticsearchScrollSize { get; init; } = 1000;
+
+    // ── SQL ──
+    public string SqlConnectionString { get; init; } = "";
+    public string SqlQuery { get; init; } = "";            // e.g. "SELECT * FROM logs WHERE ..."
+    public string SqlTimestampColumn { get; init; } = "timestamp";
+    public string SqlCursorColumn { get; init; } = "id";   // for checkpointing
+
+    // ── HTTP ──
+    public string HttpUrl { get; init; } = "";
+    public string HttpMethod { get; init; } = "GET";
+    public string HttpHeaders { get; init; } = "";         // JSON object string
+    public string HttpBody { get; init; } = "";            // request body template
 }
 
 public sealed class ParserOptions
@@ -32,7 +51,7 @@ public sealed class ChunkingOptions
 
 public sealed class IngestionOptions
 {
-    public int ProcessingBatchSize { get; init; } = 256;
+    public int ProcessingBatchSize { get; init; } = 1000;
     public bool EnableNoiseFiltering { get; init; } = true;
     public List<string> DropRawPatterns { get; init; } =
     [
@@ -50,23 +69,34 @@ public sealed class SchedulerOptions
     public bool RunBatchOnStartup { get; init; } = true;
     public int DailyBatchIntervalHours { get; init; } = 24;
     public int StreamingPollSeconds { get; init; } = 15;
+
+    /// <summary>
+    /// If > 0, scheduled ingestion only pulls logs from the last N hours
+    /// instead of from the last checkpoint. 0 = disabled (use checkpoint).
+    /// </summary>
+    public int IngestionTimeWindowHours { get; init; } = 0;
 }
 
 public sealed class EmbeddingOptions
 {
+    public string Provider { get; init; } = "ollama";   // "ollama" | "vllm"
     public string BaseUrl { get; init; } = "http://localhost:11434";
     public string Model { get; init; } = "nomic-embed-text";
-    public int BatchSize { get; init; } = 16;
-    public int MaxParallelBatches { get; init; } = 4;
+    public int BatchSize { get; init; } = 64;
+    public int MaxParallelBatches { get; init; } = 2;
+    public string? ApiKey { get; init; }                  // vLLM API key (if needed)
 }
 
 public sealed class LlmOptions
 {
+    public string Provider { get; init; } = "ollama";     // "ollama" | "vllm"
     public string BaseUrl { get; init; } = "http://localhost:11434";
     public string Model { get; init; } = "llama3";
     public int MaxHistoryMessages { get; init; } = 8;
+    public string? ApiKey { get; init; }                  // vLLM API key (if needed)
     public string SystemPrompt { get; init; } =
-        "You are a log analyst assistant. Answer only from provided log context. " +
+        "You are a log analyst assistant. Answer only from provided log context when it is relevant to the question. " +
+        "If the user asks a simple question about yourself (your name, greetings, capabilities), answer naturally without citing logs. " +
         "Quote relevant entries with timestamps. Use natural language. " +
         "If context is empty or irrelevant, clearly say no matching logs were found.";
 }

@@ -1,6 +1,9 @@
+using System.Diagnostics;
+using System.Net;
 using System.Text;
 using LogRag.Api.Configuration;
 using LogRag.Api.Domain;
+using LogRag.Api.Telemetry;
 using Microsoft.Extensions.Options;
 using OllamaSharp;
 using OllamaSharp.Models;
@@ -17,10 +20,23 @@ public sealed class OllamaLlmClient : ILlmClient
     private readonly LlmOptions _options;
     private readonly OllamaApiClient _client;
 
+    // PERF: Use shared pooled HttpClient to avoid TCP/TLS handshake per request.
+    private static readonly SocketsHttpHandler SharedHandler = new()
+    {
+        PooledConnectionLifetime = TimeSpan.FromMinutes(10),
+        MaxConnectionsPerServer = 4,
+        EnableMultipleHttp2Connections = true,
+    };
+
     public OllamaLlmClient(IOptions<LlmOptions> options)
     {
         _options = options.Value;
-        _client = new OllamaApiClient(new Uri(_options.BaseUrl), _options.Model);
+        var httpClient = new HttpClient(SharedHandler)
+        {
+            BaseAddress = new Uri(_options.BaseUrl),
+            Timeout = TimeSpan.FromMinutes(5),
+        };
+        _client = new OllamaApiClient(httpClient, _options.Model);
     }
 
     public async IAsyncEnumerable<string> StreamAnswerAsync(
@@ -29,6 +45,10 @@ public sealed class OllamaLlmClient : ILlmClient
         IReadOnlyList<SessionMessage> history,
         [System.Runtime.CompilerServices.EnumeratorCancellation] CancellationToken cancellationToken)
     {
+        using var _ = LogRagTelemetry.MeasureLatency(LogRagTelemetry.LlmLatency);
+        LogRagTelemetry.LlmRequests.Add(1);
+        MetricsSnapshot.RecordLlmRequest();
+
         var historyBlock = BuildHistory(history, _options.MaxHistoryMessages);
         var prompt = BuildPrompt(question, context, historyBlock);
 
@@ -70,7 +90,9 @@ public sealed class OllamaLlmClient : ILlmClient
     {
         var builder = new StringBuilder();
         builder.AppendLine("You are a helpful assistant for answering questions based on log data and your name is Momkn intelligent Logs inspector.");
-        builder.AppendLine("Use the provided context only.");
+        builder.AppendLine("Use the provided context only when it is relevant to the question.");
+        builder.AppendLine("If the user asks a simple question about yourself (your name, greetings, capabilities), answer naturally without citing logs.");
+        builder.AppendLine("Only cite log chunks when they are directly relevant to the question.");
         if (!string.IsNullOrWhiteSpace(history))
         {
             builder.AppendLine("Conversation history:");
@@ -84,7 +106,7 @@ public sealed class OllamaLlmClient : ILlmClient
         builder.AppendLine("Question:");
         builder.AppendLine(question);
         builder.AppendLine();
-        builder.AppendLine("Answer with concise natural language and cite timestamps from context.");
+        builder.AppendLine("Answer with concise natural language and cite timestamps from context when relevant.");
         builder.AppendLine("Ask clarifying questions if the context is insufficient and don't cite sources.");
         builder.AppendLine("Do not make up information that is not in the context.");
         return builder.ToString();

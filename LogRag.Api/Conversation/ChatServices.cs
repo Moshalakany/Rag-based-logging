@@ -1,9 +1,11 @@
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Text;
 using LogRag.Api.Configuration;
 using LogRag.Api.Domain;
 using LogRag.Api.Llm;
 using LogRag.Api.Query;
+using LogRag.Api.Telemetry;
 using Microsoft.Extensions.Options;
 
 namespace LogRag.Api.Conversation;
@@ -93,12 +95,29 @@ public sealed class ChatService : IChatService
         var filter = request.Filter ?? new QueryFilter();
 
         var history = _sessionManager.GetHistory(sessionId);
+
+        // Quick gate: skip retrieval entirely for obvious small-talk
+        if (IsSmallTalk(request.Question))
+        {
+            LogRagTelemetry.ChatRequests.Add(1);
+            LogRagTelemetry.ChatSmallTalkSkips.Add(1);
+            MetricsSnapshot.RecordChat(smallTalk: true);
+            const string greeting = "Hello! I'm Momkn intelligent Logs inspector. I help you search, analyze, and understand your application logs. How can I assist you today?";
+            _sessionManager.Append(sessionId, "user", request.Question);
+            _sessionManager.Append(sessionId, "assistant", greeting);
+            yield return new ChatStreamEvent("meta", null, new { session_id = sessionId, chunk_count = 0, small_talk = true });
+            yield return new ChatStreamEvent("final", greeting, new { session_id = sessionId, citations = Array.Empty<object>() });
+            yield break;
+        }
+
         IReadOnlyList<RetrievedChunk> chunks = Array.Empty<RetrievedChunk>();
         bool qdrantFailed = false;
+
+        LogRagTelemetry.ChatRequests.Add(1);
         
         try
         {
-            chunks = await _ragQueryEngine.RetrieveAsync(request.Question, filter, topK, cancellationToken);
+            chunks = await _ragQueryEngine.RetrieveAsync(request.Question, filter, topK, request.CollectionName, cancellationToken);
         }
         catch (Exception ex)
         {
@@ -118,7 +137,10 @@ public sealed class ChatService : IChatService
 
         if (chunks.Count == 0)
         {
-            const string noMatch = "No matching logs were found for the current question and filters.";
+            var collectionInfo = string.IsNullOrWhiteSpace(request.CollectionName) 
+                ? "default collection (log_chunks)" 
+                : $"collection '{request.CollectionName}'";
+            var noMatch = $"No matching logs were found in the {collectionInfo}. If your logs are in a different collection, specify it in the collection field above. To search all data, leave the collection field empty.";
             _sessionManager.Append(sessionId, "user", request.Question);
             _sessionManager.Append(sessionId, "assistant", noMatch);
             yield return new ChatStreamEvent("final", noMatch, new { session_id = sessionId, citations = Array.Empty<object>() });
@@ -151,7 +173,7 @@ public sealed class ChatService : IChatService
 
         if (llmFailed)
         {
-            const string llmError = "Chat is temporarily unavailable because the language model cannot be reached. Ensure Ollama is running on localhost:11434.";
+            const string llmError = "Chat is temporarily unavailable because the language model cannot be reached. Ensure the LLM provider is running.";
             yield return new ChatStreamEvent("final", llmError, new { session_id = sessionId, citations = Array.Empty<object>(), error = "llm_unavailable" });
             yield break;
         }
@@ -171,5 +193,50 @@ public sealed class ChatService : IChatService
         }).ToArray();
 
         yield return new ChatStreamEvent("final", finalMarkdown, new { session_id = sessionId, citations = citationMetadata });
+    }
+
+    /// <summary>
+    /// Returns true when the question is obvious small-talk (greetings, identity questions, etc.)
+    /// that should not trigger log retrieval.
+    /// </summary>
+    private static bool IsSmallTalk(string question)
+    {
+        if (string.IsNullOrWhiteSpace(question))
+            return true;
+
+        var normalized = question.Trim().ToLowerInvariant();
+
+        // Very short greetings
+        if (normalized is "hi" or "hello" or "hey" or "yo" or "sup" or "howdy" or "hola" or "good morning" or "good afternoon" or "good evening")
+            return true;
+
+        // Greeting-like short phrases (up to ~5 words) that contain greeting words
+        var words = normalized.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (words.Length <= 5)
+        {
+            var greetingWords = new HashSet<string> { "hi", "hello", "hey", "yo", "sup", "howdy", "hola", "morning", "afternoon", "evening" };
+            if (words.Any(w => greetingWords.Contains(w)))
+                return true;
+        }
+
+        // Questions about identity / name / capabilities
+        if (normalized.Contains("your name") ||
+            normalized.Contains("who are you") ||
+            normalized.Contains("what are you") ||
+            normalized.Contains("what is your name") ||
+            normalized.Contains("what can you do") ||
+            normalized.Contains("what do you do") ||
+            normalized.Contains("how can you help") ||
+            normalized.Contains("are you a bot") ||
+            normalized.Contains("are you ai") ||
+            normalized.Contains("are you an ai") ||
+            normalized.Contains("are you human") ||
+            normalized.Contains("tell me about yourself") ||
+            normalized.Contains("introduce yourself"))
+        {
+            return true;
+        }
+
+        return false;
     }
 }
