@@ -12,7 +12,10 @@ Desktop.ini
 *.userosscache
 *.sln.docstates
 *.rsuser
-
+.venv/
+*.dll
+*.pdb
+*.cache
 # ===== .NET / Visual Studio =====
 [Bb]in/
 [Oo]bj/
@@ -22,6 +25,7 @@ TestResults/
 .nuget/packages/
 *.dll
 *.pdb
+*.so
 
 # ===== ASP.NET local config =====
 appsettings.Development.json
