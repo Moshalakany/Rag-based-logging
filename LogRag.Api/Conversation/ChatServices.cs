@@ -128,24 +128,35 @@ public sealed class ChatService : IChatService
         var context = _contextBuilder.BuildContext(chunks);
         var answerBuilder = new StringBuilder();
         var llmFailed = false;
-        List<string> tokens = new List<string>();
-        
-        try
-        {
-            await foreach (var token in _llmClient.StreamAnswerAsync(request.Question, context, history, cancellationToken))
-            {
-                tokens.Add(token);
-                answerBuilder.Append(token);
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "LLM generation failed for session {SessionId}.", sessionId);
-            llmFailed = true;
-        }
 
-        foreach (var token in tokens)
+        // Use a channel to decouple LLM consumption (try/catch) from SSE emission (yield return)
+        var tokenChannel = System.Threading.Channels.Channel.CreateUnbounded<string>();
+
+        // Start LLM consumption on a background task
+        _ = Task.Run(async () =>
         {
+            try
+            {
+                await foreach (var token in _llmClient.StreamAnswerAsync(request.Question, context, history, cancellationToken))
+                {
+                    await tokenChannel.Writer.WriteAsync(token, cancellationToken);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "LLM generation failed for session {SessionId}.", sessionId);
+                llmFailed = true;
+            }
+            finally
+            {
+                tokenChannel.Writer.Complete();
+            }
+        }, cancellationToken);
+
+        // Yield tokens as they arrive from the channel (outside try-catch)
+        await foreach (var token in tokenChannel.Reader.ReadAllAsync(cancellationToken))
+        {
+            answerBuilder.Append(token);
             yield return new ChatStreamEvent("token", token, null);
         }
 

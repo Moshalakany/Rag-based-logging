@@ -103,6 +103,18 @@ public sealed class GenericLogParser : IGenericLogParser
             return CreateParsedEntry(rawLogEntry, jsonFields);
         }
 
+        // Handle the dominant Momkn format: "2026-05-19 18: 13: 07.823 {JSON...}"
+        if (TryParseTimestampPrefixedJson(text, out var tpjFields))
+        {
+            return CreateParsedEntry(rawLogEntry, tpjFields);
+        }
+
+        // Handle hybrid/mixed key-value timestamp-prefixed formats
+        if (TryParseTimestampPrefixedKeyValue(text, out var tpkvFields))
+        {
+            return CreateParsedEntry(rawLogEntry, tpkvFields);
+        }
+
         if (TryParseCsv(text, out var csvFields))
         {
             return CreateParsedEntry(rawLogEntry, csvFields);
@@ -185,12 +197,270 @@ public sealed class GenericLogParser : IGenericLogParser
                 };
             }
 
+            ExtractNestedProperties(map);
+
             fields = map;
             return map.Count > 0;
         }
         catch (JsonException)
         {
             return false;
+        }
+    }
+
+    private static readonly Regex TimestampThenJsonRegex = new(
+        "^(?<timestamp>\\d{4}-\\d{2}-\\d{2}(?:[ T]\\d{2}\\s*:\\s*\\d{2}\\s*:\\s*\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?)?)\\s+(?<json>\\{[\\s\\S]+\\})\\s*$",
+        RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
+    private static bool TryParseTimestampPrefixedJson(string text, out IReadOnlyDictionary<string, string> fields)
+    {
+        fields = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        var match = TimestampThenJsonRegex.Match(text);
+        if (!match.Success)
+        {
+            return false;
+        }
+
+        var timestampPrefix = match.Groups["timestamp"].Value.Trim();
+        var jsonBody = match.Groups["json"].Value.Trim();
+
+        try
+        {
+            using var document = JsonDocument.Parse(jsonBody);
+            if (document.RootElement.ValueKind != JsonValueKind.Object)
+            {
+                return false;
+            }
+
+            var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["timestamp"] = timestampPrefix,
+            };
+
+            foreach (var property in document.RootElement.EnumerateObject())
+            {
+                var value = property.Value.ValueKind switch
+                {
+                    JsonValueKind.String => property.Value.GetString() ?? "",
+                    JsonValueKind.Number => property.Value.GetRawText(),
+                    JsonValueKind.True => "true",
+                    JsonValueKind.False => "false",
+                    JsonValueKind.Null => "",
+                    // For nested objects/arrays (e.g. MessageBody, ExtraData), serialize as JSON string
+                    _ => property.Value.GetRawText(),
+                };
+                map[property.Name] = value;
+            }
+
+            // Extract message from MessageBody if it's a string, or keep JSON for complex bodies
+            if (map.TryGetValue("MessageBody", out var msgBody) && !string.IsNullOrWhiteSpace(msgBody))
+            {
+                map["message"] = msgBody;
+            }
+
+            // Use LogLevel as severity if present
+            if (map.TryGetValue("LogLevel", out var logLevel) && !string.IsNullOrWhiteSpace(logLevel))
+            {
+                map["severity"] = logLevel;
+            }
+
+            // Use LogDate + LogTime for more precise timestamp if available
+            if (map.TryGetValue("LogDate", out var logDate) && map.TryGetValue("LogTime", out var logTime)
+                && !string.IsNullOrWhiteSpace(logDate) && !string.IsNullOrWhiteSpace(logTime))
+            {
+                map["timestamp"] = $"{logDate} {logTime}";
+            }
+
+            ExtractNestedProperties(map);
+
+            fields = map;
+            return map.Count > 1; // Must have more than just timestamp
+        }
+        catch (JsonException)
+        {
+            return false;
+        }
+    }
+
+    private static bool TryParseTimestampPrefixedKeyValue(string text, out IReadOnlyDictionary<string, string> fields)
+    {
+        fields = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        var tsMatch = TimestampPrefixedRegex.Match(text);
+        if (!tsMatch.Success)
+        {
+            return false;
+        }
+
+        var timestampPrefix = tsMatch.Groups["timestamp"].Value.Trim();
+        var remaining = tsMatch.Groups["message"].Value.Trim();
+
+        var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["timestamp"] = timestampPrefix
+        };
+
+        // Regex to match quoted keys followed by colon or unquoted keys followed by equals
+        var keyRegex = new Regex(@"(?:""(?<key>[a-zA-Z0-9_\-]+)""\s*:\s*|\b(?<key>[a-zA-Z0-9_\-]+)\s*=\s*)", RegexOptions.Compiled);
+        var matches = keyRegex.Matches(remaining);
+
+        if (matches.Count == 0)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < matches.Count; i++)
+        {
+            var match = matches[i];
+            var key = match.Groups["key"].Value;
+            int valueStart = match.Index + match.Length;
+
+            if (valueStart >= remaining.Length)
+            {
+                continue;
+            }
+
+            string value;
+            char firstChar = remaining[valueStart];
+
+            if (firstChar == '{' || firstChar == '[')
+            {
+                value = ExtractBalancedBlock(remaining, valueStart, firstChar);
+            }
+            else if (firstChar == '"')
+            {
+                value = ExtractQuotedString(remaining, valueStart);
+            }
+            else
+            {
+                value = ExtractUnquotedValue(remaining, valueStart);
+            }
+
+            map[key] = value;
+        }
+
+        ExtractNestedProperties(map);
+
+        fields = map;
+        return map.Count > 1;
+    }
+
+    private static string ExtractBalancedBlock(string text, int startIndex, char openChar)
+    {
+        char closeChar = openChar == '{' ? '}' : ']';
+        int braceCount = 0;
+        bool inQuotes = false;
+        int i = startIndex;
+
+        for (; i < text.Length; i++)
+        {
+            char c = text[i];
+            if (c == '"' && (i == 0 || text[i - 1] != '\\'))
+            {
+                inQuotes = !inQuotes;
+            }
+            else if (!inQuotes)
+            {
+                if (c == openChar)
+                {
+                    braceCount++;
+                }
+                else if (c == closeChar)
+                {
+                    braceCount--;
+                    if (braceCount == 0)
+                    {
+                        i++; // Include the closing brace
+                        break;
+                    }
+                }
+            }
+        }
+
+        int length = Math.Min(i, text.Length) - startIndex;
+        return text.Substring(startIndex, length);
+    }
+
+    private static string ExtractQuotedString(string text, int startIndex)
+    {
+        int i = startIndex + 1;
+        for (; i < text.Length; i++)
+        {
+            if (text[i] == '"' && text[i - 1] != '\\')
+            {
+                i++; // Include the closing quote
+                break;
+            }
+        }
+        int length = Math.Min(i, text.Length) - startIndex;
+        return text.Substring(startIndex, length).Trim('"');
+    }
+
+    private static string ExtractUnquotedValue(string text, int startIndex)
+    {
+        int i = startIndex;
+        for (; i < text.Length; i++)
+        {
+            char c = text[i];
+            if (c == ',' || c == ' ' || c == ']' || c == '}')
+            {
+                break;
+            }
+        }
+        return text.Substring(startIndex, i - startIndex).Trim();
+    }
+
+    private static void ExtractNestedProperties(Dictionary<string, string> map)
+    {
+        string[] candidateJsonKeys = ["MessageBody", "message", "ExtraData", "payload"];
+        foreach (var key in candidateJsonKeys)
+        {
+            if (map.TryGetValue(key, out var jsonStr) && !string.IsNullOrWhiteSpace(jsonStr))
+            {
+                var trimmed = jsonStr.Trim();
+                if (trimmed.StartsWith('{'))
+                {
+                    try
+                    {
+                        using var doc = JsonDocument.Parse(trimmed);
+                        ExtractJsonElementProperties(doc.RootElement, map);
+                    }
+                    catch (JsonException) { /* Skip invalid JSON */ }
+                }
+            }
+        }
+    }
+
+    private static void ExtractJsonElementProperties(JsonElement element, Dictionary<string, string> map)
+    {
+        if (element.ValueKind != JsonValueKind.Object)
+        {
+            return;
+        }
+
+        foreach (var prop in element.EnumerateObject())
+        {
+            if (!map.TryGetValue(prop.Name, out var existing) || string.IsNullOrWhiteSpace(existing) || existing == "null")
+            {
+                string valStr = prop.Value.ValueKind switch
+                {
+                    JsonValueKind.String => prop.Value.GetString() ?? "",
+                    JsonValueKind.Number => prop.Value.GetRawText(),
+                    JsonValueKind.True => "true",
+                    JsonValueKind.False => "false",
+                    JsonValueKind.Null => "",
+                    _ => prop.Value.GetRawText()
+                };
+                
+                if (!string.IsNullOrWhiteSpace(valStr))
+                {
+                    map[prop.Name] = valStr;
+                }
+            }
+
+            if (prop.Value.ValueKind == JsonValueKind.Object)
+            {
+                ExtractJsonElementProperties(prop.Value, map);
+            }
         }
     }
 
@@ -301,12 +571,19 @@ public sealed class GenericLogParser : IGenericLogParser
 
 public sealed class LogNormalizer : ILogNormalizer
 {
-    private static readonly string[] TimestampKeys = ["timestamp", "ts", "@timestamp", "time", "date"];
+    private static readonly string[] TimestampKeys = ["timestamp", "ts", "@timestamp", "time", "date", "logdate", "logtime"];
     private static readonly string[] SeverityKeys = ["severity", "level", "loglevel"];
     private static readonly string[] ServiceKeys = ["service_name", "service", "application", "app"];
-    private static readonly string[] TraceKeys = ["trace_id", "traceid", "correlation_id", "request_id"];
-    private static readonly string[] MessageKeys = ["message", "msg", "log", "text"];
+    private static readonly string[] TraceKeys = ["trace_id", "traceid", "correlation_id", "correlationid", "request_id"];
+    private static readonly string[] MessageKeys = ["message", "msg", "log", "text", "messagebody"];
     private static readonly string[] SyslogTimestampFormats = ["MMM d HH:mm:ss", "MMM dd HH:mm:ss"];
+
+    // Momkn business field keys (promoted to first-class fields, excluded from generic payload)
+    private static readonly string[] MomknFieldKeys = [
+        "correlationid", "module", "method", "source", "destination",
+        "brn", "billingaccount", "denominationid", "accountid", "ip",
+        "entity", "statuscode"
+    ];
 
     public NormalizedLogEntry Normalize(ParsedLogEntry parsedLogEntry)
     {
@@ -318,12 +595,55 @@ public sealed class LogNormalizer : ILogNormalizer
         var traceId = GetFirst(fields, TraceKeys) ?? "n/a";
         var message = GetFirst(fields, MessageKeys) ?? parsedLogEntry.Message;
 
+        // Extract Momkn business fields
+        var correlationId = GetFieldValue(fields, "CorrelationId") ?? traceId;
+        var module = GetFieldValue(fields, "Module") ?? "";
+        var method = GetFieldValue(fields, "Method") ?? "";
+        var logSource = GetFieldValue(fields, "Source") ?? "";
+        var destination = GetFieldValue(fields, "Destination") ?? "";
+        var brn = GetFieldValue(fields, "BRN");
+        var billingAccount = GetFieldValue(fields, "BillingAccount");
+        var denominationId = GetFieldValue(fields, "DenominationId");
+        var ip = GetFieldValue(fields, "IP");
+
+        // Extract AccountId from ExtraData if present (supports arbitrary array/object nesting safely)
+        string? accountId = null;
+        if (fields.TryGetValue("ExtraData", out var extraData) && !string.IsNullOrWhiteSpace(extraData) && extraData != "null")
+        {
+            try
+            {
+                using var doc = JsonDocument.Parse(extraData);
+                accountId = FindAccountIdInJsonElement(doc.RootElement);
+            }
+            catch (JsonException) { /* ExtraData is not valid JSON, skip */ }
+        }
+
+        // Extract StatusCode from MessageBody if it's a JSON object containing StatusCode
+        int? statusCode = null;
+        if (!string.IsNullOrWhiteSpace(message) && message.TrimStart().StartsWith('{'))
+        {
+            try
+            {
+                using var msgDoc = JsonDocument.Parse(message);
+                if (msgDoc.RootElement.ValueKind == JsonValueKind.Object && msgDoc.RootElement.TryGetProperty("StatusCode", out var sc))
+                {
+                    statusCode = sc.TryGetInt32(out var code) ? code : null;
+                }
+            }
+            catch (JsonException) { /* Not JSON, skip */ }
+        }
+
+        var allPromotedKeys = TimestampKeys
+            .Concat(SeverityKeys)
+            .Concat(ServiceKeys)
+            .Concat(TraceKeys)
+            .Concat(MessageKeys)
+            .Concat(MomknFieldKeys)
+            .Append("ExtraData")
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
         var payload = fields
-            .Where(kvp => !TimestampKeys.Contains(kvp.Key, StringComparer.OrdinalIgnoreCase))
-            .Where(kvp => !SeverityKeys.Contains(kvp.Key, StringComparer.OrdinalIgnoreCase))
-            .Where(kvp => !ServiceKeys.Contains(kvp.Key, StringComparer.OrdinalIgnoreCase))
-            .Where(kvp => !TraceKeys.Contains(kvp.Key, StringComparer.OrdinalIgnoreCase))
-            .Where(kvp => !MessageKeys.Contains(kvp.Key, StringComparer.OrdinalIgnoreCase))
+            .Where(kvp => !allPromotedKeys.Contains(kvp.Key))
             .ToDictionary(kvp => kvp.Key, kvp => kvp.Value, StringComparer.OrdinalIgnoreCase);
 
         var logHash = ComputeSha256($"{parsedLogEntry.Raw.SourceId}|{parsedLogEntry.Raw.RawText}");
@@ -337,7 +657,58 @@ public sealed class LogNormalizer : ILogNormalizer
             traceId,
             message,
             logHash,
-            payload);
+            payload,
+            CorrelationId: correlationId,
+            Module: module,
+            Method: method,
+            LogSource: logSource,
+            Destination: destination,
+            BRN: brn,
+            BillingAccount: billingAccount,
+            DenominationId: denominationId,
+            AccountId: accountId,
+            IP: ip,
+            StatusCode: statusCode);
+    }
+
+    private static string? FindAccountIdInJsonElement(JsonElement element)
+    {
+        if (element.ValueKind == JsonValueKind.Array)
+        {
+            foreach (var item in element.EnumerateArray())
+            {
+                var found = FindAccountIdInJsonElement(item);
+                if (found != null)
+                {
+                    return found;
+                }
+            }
+        }
+        else if (element.ValueKind == JsonValueKind.Object)
+        {
+            if (element.TryGetProperty("Key", out var key) && key.ValueKind == JsonValueKind.String && key.GetString() == "AccountId"
+                && element.TryGetProperty("Value", out var val))
+            {
+                return val.ValueKind == JsonValueKind.String ? val.GetString() : val.GetRawText();
+            }
+
+            foreach (var prop in element.EnumerateObject())
+            {
+                var found = FindAccountIdInJsonElement(prop.Value);
+                if (found != null)
+                {
+                    return found;
+                }
+            }
+        }
+        return null;
+    }
+
+    private static string? GetFieldValue(IReadOnlyDictionary<string, string> fields, string key)
+    {
+        return fields.TryGetValue(key, out var value) && !string.IsNullOrWhiteSpace(value) && value != "null"
+            ? value
+            : null;
     }
 
     private static DateTimeOffset ParseTimestamp(string value, DateTimeOffset fallback)
@@ -452,7 +823,18 @@ public sealed class SlidingWindowLogChunker : ILogChunker
                 TraceId: normalizedLogEntry.TraceId,
                 SourceId: normalizedLogEntry.SourceId,
                 SourceType: normalizedLogEntry.SourceType,
-                Payload: normalizedLogEntry.Payload));
+                Payload: normalizedLogEntry.Payload,
+                CorrelationId: normalizedLogEntry.CorrelationId,
+                Module: normalizedLogEntry.Module,
+                Method: normalizedLogEntry.Method,
+                LogSource: normalizedLogEntry.LogSource,
+                Destination: normalizedLogEntry.Destination,
+                BRN: normalizedLogEntry.BRN,
+                BillingAccount: normalizedLogEntry.BillingAccount,
+                DenominationId: normalizedLogEntry.DenominationId,
+                AccountId: normalizedLogEntry.AccountId,
+                IP: normalizedLogEntry.IP,
+                StatusCode: normalizedLogEntry.StatusCode));
 
             chunkIndex++;
             if (start + chunkSize >= tokens.Length)
@@ -472,6 +854,7 @@ public sealed class IngestionOrchestrator : IIngestionOrchestrator
     private readonly ILogNormalizer _normalizer;
     private readonly ILogChunker _chunker;
     private readonly ILogEntryFilter _logEntryFilter;
+    private readonly IPiiRedactor _piiRedactor;
     private readonly IEmbeddingService _embeddingService;
     private readonly IVectorStore _vectorStore;
     private readonly IngestionOptions _ingestionOptions;
@@ -484,6 +867,7 @@ public sealed class IngestionOrchestrator : IIngestionOrchestrator
         ILogNormalizer normalizer,
         ILogChunker chunker,
         ILogEntryFilter logEntryFilter,
+        IPiiRedactor piiRedactor,
         IEmbeddingService embeddingService,
         IVectorStore vectorStore,
         IOptions<IngestionOptions> ingestionOptions,
@@ -495,6 +879,7 @@ public sealed class IngestionOrchestrator : IIngestionOrchestrator
         _normalizer = normalizer;
         _chunker = chunker;
         _logEntryFilter = logEntryFilter;
+        _piiRedactor = piiRedactor;
         _embeddingService = embeddingService;
         _vectorStore = vectorStore;
         _ingestionOptions = ingestionOptions.Value;
@@ -539,8 +924,11 @@ public sealed class IngestionOrchestrator : IIngestionOrchestrator
                     continue;
                 }
 
-                chunksCreated += chunks.Count;
-                pendingChunks.AddRange(chunks);
+                // Apply PII redaction before embedding
+                var redactedChunks = chunks.Select(c => c with { Text = _piiRedactor.Redact(c.Text) }).ToList();
+
+                chunksCreated += redactedChunks.Count;
+                pendingChunks.AddRange(redactedChunks);
 
                 if (pendingChunks.Count >= processingBatchSize)
                 {

@@ -38,6 +38,7 @@ logs/
 
 # ===== Node.js / Frontend =====
 node_modules/
+.angular/
 dist/
 build/
 coverage/
@@ -57,4 +58,3 @@ pnpm-debug.log*
 *.pack
 
 .fake
-lograg-ui/.angular/cache/17.3.17/angular-webpack/497617e68e8de3f5069b35b09988857006345458/0.pack

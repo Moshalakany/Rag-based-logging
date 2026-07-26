@@ -23,7 +23,19 @@ public sealed record NormalizedLogEntry(
     string TraceId,
     string Message,
     string LogHash,
-    IReadOnlyDictionary<string, string> Payload);
+    IReadOnlyDictionary<string, string> Payload,
+    // Momkn business fields
+    string CorrelationId = "n/a",
+    string Module = "",
+    string Method = "",
+    string LogSource = "",
+    string Destination = "",
+    string? BRN = null,
+    string? BillingAccount = null,
+    string? DenominationId = null,
+    string? AccountId = null,
+    string? IP = null,
+    int? StatusCode = null);
 
 public sealed record LogChunk(
     string ChunkId,
@@ -35,7 +47,19 @@ public sealed record LogChunk(
     string TraceId,
     string SourceId,
     string SourceType,
-    IReadOnlyDictionary<string, string> Payload);
+    IReadOnlyDictionary<string, string> Payload,
+    // Momkn business fields
+    string CorrelationId = "n/a",
+    string Module = "",
+    string Method = "",
+    string LogSource = "",
+    string Destination = "",
+    string? BRN = null,
+    string? BillingAccount = null,
+    string? DenominationId = null,
+    string? AccountId = null,
+    string? IP = null,
+    int? StatusCode = null);
 
 public sealed record VectorPoint(
     string Id,
@@ -58,6 +82,25 @@ public sealed class QueryFilter
 
     [JsonPropertyName("to_utc")]
     public DateTimeOffset? ToUtc { get; init; }
+
+    // Momkn-specific filters
+    [JsonPropertyName("correlation_id")]
+    public string? CorrelationId { get; init; }
+
+    [JsonPropertyName("module")]
+    public string? Module { get; init; }
+
+    [JsonPropertyName("method")]
+    public string? Method { get; init; }
+
+    [JsonPropertyName("brn")]
+    public string? BRN { get; init; }
+
+    [JsonPropertyName("denomination_id")]
+    public string? DenominationId { get; init; }
+
+    [JsonPropertyName("account_id")]
+    public string? AccountId { get; init; }
 }
 
 public sealed record RetrievedChunk(
@@ -71,7 +114,19 @@ public sealed record RetrievedChunk(
     string TraceId,
     string SourceId,
     string SourceType,
-    IReadOnlyDictionary<string, string> Payload);
+    IReadOnlyDictionary<string, string> Payload,
+    // Momkn business fields
+    string CorrelationId = "n/a",
+    string Module = "",
+    string Method = "",
+    string LogSource = "",
+    string Destination = "",
+    string? BRN = null,
+    string? BillingAccount = null,
+    string? DenominationId = null,
+    string? AccountId = null,
+    string? IP = null,
+    int? StatusCode = null);
 
 public sealed class ChatRequestDto
 {

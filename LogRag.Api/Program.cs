@@ -25,6 +25,7 @@ builder.Services.AddSingleton<IGenericLogParser, GenericLogParser>();
 builder.Services.AddSingleton<ILogNormalizer, LogNormalizer>();
 builder.Services.AddSingleton<ILogChunker, SlidingWindowLogChunker>();
 builder.Services.AddSingleton<ILogEntryFilter, RegexLogEntryFilter>();
+builder.Services.AddSingleton<IPiiRedactor, PiiRedactor>();
 builder.Services.AddSingleton<IIngestionOrchestrator, IngestionOrchestrator>();
 builder.Services.AddHostedService<IngestionHostedService>();
 
