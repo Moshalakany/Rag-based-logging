@@ -1,19 +1,25 @@
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using LogRag.Api.Configuration;
 using LogRag.Api.Domain;
+using LogRag.Api.Telemetry;
 using Microsoft.Extensions.Options;
 
 namespace LogRag.Api.VectorStore;
 
 public interface IVectorStore
 {
-    Task EnsureCollectionAsync(CancellationToken cancellationToken);
-    Task UpsertAsync(IReadOnlyList<VectorPoint> points, CancellationToken cancellationToken);
-    Task<IReadOnlyList<RetrievedChunk>> SearchAsync(float[] queryVector, QueryFilter filter, int limit, CancellationToken cancellationToken);
-    Task DeleteOlderThanAsync(DateTimeOffset cutoffUtc, CancellationToken cancellationToken);
+    Task EnsureCollectionAsync(string? collectionName, CancellationToken cancellationToken);
+    Task UpsertAsync(IReadOnlyList<VectorPoint> points, string? collectionName, CancellationToken cancellationToken);
+    Task<IReadOnlyList<RetrievedChunk>> SearchAsync(float[] queryVector, QueryFilter filter, int limit, string? collectionName, CancellationToken cancellationToken);
+    Task DeleteOlderThanAsync(DateTimeOffset cutoffUtc, string? collectionName, CancellationToken cancellationToken);
+    /// <summary>
+    /// Wait for all pending async operations to be indexed (call after batch ingestion with wait=false).
+    /// </summary>
+    Task RefreshCollectionAsync(string? collectionName, CancellationToken cancellationToken);
 }
 
 public sealed class QdrantVectorStore : IVectorStore
@@ -33,7 +39,7 @@ public sealed class QdrantVectorStore : IVectorStore
         _httpClient.BaseAddress ??= new Uri(_options.BaseUrl);
     }
 
-    public async Task EnsureCollectionAsync(CancellationToken cancellationToken)
+    public async Task EnsureCollectionAsync(string? collectionName, CancellationToken cancellationToken)
     {
         if (_isInitialized)
         {
@@ -48,6 +54,7 @@ public sealed class QdrantVectorStore : IVectorStore
                 return;
             }
 
+            var name = ResolveCollectionName(collectionName);
             var createPayload = new
             {
                 vectors = new
@@ -57,17 +64,17 @@ public sealed class QdrantVectorStore : IVectorStore
                 },
             };
 
-            using var request = BuildRequest(HttpMethod.Put, $"/collections/{_options.CollectionName}", createPayload);
+            using var request = BuildRequest(HttpMethod.Put, $"/collections/{name}", createPayload);
             using var response = await _httpClient.SendAsync(request, cancellationToken);
             if (!response.IsSuccessStatusCode && response.StatusCode != HttpStatusCode.Conflict)
             {
                 var body = await response.Content.ReadAsStringAsync(cancellationToken);
-                throw new InvalidOperationException($"Failed to ensure Qdrant collection. HTTP {(int)response.StatusCode}: {body}");
+                throw new InvalidOperationException($"Failed to ensure Qdrant collection '{name}'. HTTP {(int)response.StatusCode}: {body}");
             }
 
-            // Create payload indexes for efficient filtered search
-            await CreatePayloadIndexesAsync(cancellationToken);
-
+            // PERF: Create payload indexes for frequently filtered fields.
+            // These are idempotent — safe to call on every startup.
+            await CreatePayloadIndexesAsync(name, cancellationToken);
             _isInitialized = true;
         }
         finally
@@ -76,14 +83,18 @@ public sealed class QdrantVectorStore : IVectorStore
         }
     }
 
-    private async Task CreatePayloadIndexesAsync(CancellationToken cancellationToken)
+
+    /// <summary>
+    /// PERF: Create Qdrant payload indexes for fields used in filter queries.
+    /// Without these, Qdrant does full payload scans on every filtered search.
+    /// </summary>
+    private async Task CreatePayloadIndexesAsync(string collectionName, CancellationToken cancellationToken)
     {
-        // Keyword indexes for exact-match filtering
         string[] keywordFields = [
             "severity", "service_name", "source_id", "source_type",
             "correlation_id", "module", "method", "log_source", "destination",
             "brn", "billing_account", "denomination_id", "account_id", "ip",
-            "trace_id", "log_hash"
+            "trace_id", "log_hash", "linked_ids"
         ];
 
         foreach (var field in keywordFields)
@@ -91,9 +102,14 @@ public sealed class QdrantVectorStore : IVectorStore
             try
             {
                 var indexPayload = new { field_name = field, field_schema = "keyword" };
-                using var req = BuildRequest(HttpMethod.Put, $"/collections/{_options.CollectionName}/index", indexPayload);
+                using var req = BuildRequest(HttpMethod.Put, $"/collections/{collectionName}/index", indexPayload);
                 using var resp = await _httpClient.SendAsync(req, cancellationToken);
-                // Ignore failures — index may already exist
+                // 409 Conflict = index already exists — fine
+                if (!resp.IsSuccessStatusCode && resp.StatusCode != HttpStatusCode.Conflict)
+                {
+                    var body = await resp.Content.ReadAsStringAsync(cancellationToken);
+                    _logger.LogWarning("Failed to create Qdrant index on '{Field}'. HTTP {StatusCode}: {Body}", field, (int)resp.StatusCode, body);
+                }
             }
             catch (Exception ex)
             {
@@ -101,11 +117,23 @@ public sealed class QdrantVectorStore : IVectorStore
             }
         }
 
+        // Datetime index for timestamp range queries
+        try
+        {
+            var tsPayload = new { field_name = "timestamp", field_schema = "datetime" };
+            using var req = BuildRequest(HttpMethod.Put, $"/collections/{collectionName}/index", tsPayload);
+            using var resp = await _httpClient.SendAsync(req, cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Failed to create Qdrant index for timestamp.");
+        }
+
         // Integer index for status_code range queries
         try
         {
             var statusIndexPayload = new { field_name = "status_code", field_schema = "integer" };
-            using var req = BuildRequest(HttpMethod.Put, $"/collections/{_options.CollectionName}/index", statusIndexPayload);
+            using var req = BuildRequest(HttpMethod.Put, $"/collections/{collectionName}/index", statusIndexPayload);
             using var resp = await _httpClient.SendAsync(req, cancellationToken);
         }
         catch (Exception ex)
@@ -114,7 +142,21 @@ public sealed class QdrantVectorStore : IVectorStore
         }
     }
 
-    public async Task UpsertAsync(IReadOnlyList<VectorPoint> points, CancellationToken cancellationToken)
+    public async Task RefreshCollectionAsync(string? collectionName, CancellationToken cancellationToken)
+    {
+        var name = ResolveCollectionName(collectionName);
+        using var request = BuildRequest(HttpMethod.Get, $"/collections/{name}", null);
+        using var response = await _httpClient.SendAsync(request, cancellationToken);
+        if (!response.IsSuccessStatusCode)
+        {
+            var body = await response.Content.ReadAsStringAsync(cancellationToken);
+            throw new InvalidOperationException(
+                $"Qdrant collection refresh failed. HTTP {(int)response.StatusCode}: {body}");
+        }
+    }
+
+    public async Task UpsertAsync(IReadOnlyList<VectorPoint> points, string? collectionName, CancellationToken cancellationToken)
+
     {
         if (points.Count == 0)
         {
@@ -150,11 +192,19 @@ public sealed class QdrantVectorStore : IVectorStore
                     ["ip"] = point.Chunk.IP,
                     ["status_code"] = point.Chunk.StatusCode,
                     ["extra"] = point.Chunk.Payload,
+                    ["linked_ids"] = point.Chunk.Payload.TryGetValue("linked_ids", out var idsStr)
+                        ? idsStr.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                        : Array.Empty<string>(),
                 },
             }),
         };
 
-        using var request = BuildRequest(HttpMethod.Put, $"/collections/{_options.CollectionName}/points?wait=true", payload);
+        var name = ResolveCollectionName(collectionName);
+        // PERF: Use wait=false for batch ingestion. Qdrant indexes asynchronously.
+        using var _ = LogRagTelemetry.MeasureLatency(LogRagTelemetry.QdrantUpsertLatency);
+        LogRagTelemetry.QdrantUpserts.Add(1);
+        MetricsSnapshot.RecordQdrantUpsert();
+        using var request = BuildRequest(HttpMethod.Put, $"/collections/{name}/points?wait=false", payload);
         using var response = await _httpClient.SendAsync(request, cancellationToken);
         if (!response.IsSuccessStatusCode)
         {
@@ -163,8 +213,12 @@ public sealed class QdrantVectorStore : IVectorStore
         }
     }
 
-    public async Task<IReadOnlyList<RetrievedChunk>> SearchAsync(float[] queryVector, QueryFilter filter, int limit, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<RetrievedChunk>> SearchAsync(float[] queryVector, QueryFilter filter, int limit, string? collectionName, CancellationToken cancellationToken)
     {
+        var name = ResolveCollectionName(collectionName);
+        using var _ = LogRagTelemetry.MeasureLatency(LogRagTelemetry.QdrantSearchLatency);
+        LogRagTelemetry.QdrantSearches.Add(1);
+        MetricsSnapshot.RecordQdrantSearch();
         var filterClause = BuildFilterClause(filter);
         var requestPayload = new Dictionary<string, object?>
         {
@@ -178,13 +232,13 @@ public sealed class QdrantVectorStore : IVectorStore
             requestPayload["filter"] = filterClause;
         }
 
-        using var request = BuildRequest(HttpMethod.Post, $"/collections/{_options.CollectionName}/points/search", requestPayload);
-        using var response = await _httpClient.SendAsync(request, cancellationToken);
-        if (!response.IsSuccessStatusCode)
-        {
-            var body = await response.Content.ReadAsStringAsync(cancellationToken);
-            throw new InvalidOperationException($"Qdrant search failed. HTTP {(int)response.StatusCode}: {body}");
-        }
+        using var request = BuildRequest(HttpMethod.Post, $"/collections/{name}/points/search", requestPayload);
+                using var response = await _httpClient.SendAsync(request, cancellationToken);
+                if (!response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync(cancellationToken);
+                    throw new InvalidOperationException($"Qdrant search failed. HTTP {(int)response.StatusCode}: {body}");
+                }
 
         var document = await response.Content.ReadFromJsonAsync<JsonDocument>(cancellationToken);
         if (document is null)
@@ -246,8 +300,9 @@ public sealed class QdrantVectorStore : IVectorStore
         return results;
     }
 
-    public async Task DeleteOlderThanAsync(DateTimeOffset cutoffUtc, CancellationToken cancellationToken)
+    public async Task DeleteOlderThanAsync(DateTimeOffset cutoffUtc, string? collectionName, CancellationToken cancellationToken)
     {
+        var name = ResolveCollectionName(collectionName);
         var payload = new
         {
             filter = new
@@ -266,13 +321,18 @@ public sealed class QdrantVectorStore : IVectorStore
             },
         };
 
-        using var request = BuildRequest(HttpMethod.Post, $"/collections/{_options.CollectionName}/points/delete?wait=true", payload);
+        using var request = BuildRequest(HttpMethod.Post, $"/collections/{name}/points/delete?wait=true", payload);
         using var response = await _httpClient.SendAsync(request, cancellationToken);
         if (!response.IsSuccessStatusCode)
         {
             var body = await response.Content.ReadAsStringAsync(cancellationToken);
             throw new InvalidOperationException($"Qdrant delete failed. HTTP {(int)response.StatusCode}: {body}");
         }
+    }
+
+    private string ResolveCollectionName(string? collectionName)
+    {
+        return string.IsNullOrWhiteSpace(collectionName) ? _options.CollectionName : collectionName;
     }
 
     private HttpRequestMessage BuildRequest(HttpMethod method, string path, object? content)
@@ -358,6 +418,12 @@ public sealed class QdrantVectorStore : IVectorStore
                     ["lte"] = filter.ToUtc?.ToString("O") ?? "",
                 }.Where(kvp => !string.IsNullOrWhiteSpace(kvp.Value)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
             });
+        }
+
+        if (filter.LinkedIds is not null && filter.LinkedIds.Count > 0)
+        {
+            var shouldClauses = filter.LinkedIds.Select(id => new { key = "linked_ids", match = new { value = id } }).ToArray();
+            must.Add(new { should = shouldClauses });
         }
 
         return must.Count == 0 ? null : new { must };

@@ -2,7 +2,8 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
-
+.venv/
+.hermes/
 # ===== IDE / Editor =====
 .vs/
 .vscode/
@@ -58,3 +59,4 @@ pnpm-debug.log*
 *.pack
 
 .fake
+

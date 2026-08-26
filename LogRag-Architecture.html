@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogRag Architecture Diagram</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: #020617;
+      min-height: 100vh;
+      padding: 2rem;
+      color: white;
+    }
+    .container { max-width: 1300px; margin: 0 auto; }
+    .header { margin-bottom: 2rem; }
+    .header-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+    .pulse-dot { width: 12px; height: 12px; background: #22d3ee; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; }
+    .subtitle { color: #94a3b8; font-size: 0.875rem; margin-left: 1.75rem; }
+    .diagram-container {
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 1rem; border: 1px solid #1e293b;
+      padding: 1.5rem; overflow-x: auto;
+    }
+    svg { width: 100%; min-width: 1100px; display: block; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .card { background: rgba(15, 23, 42, 0.5); border-radius: 0.75rem; border: 1px solid #1e293b; padding: 1.25rem; }
+    .card-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .card-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .card-dot.cyan { background: #22d3ee; } .card-dot.emerald { background: #34d399; }
+    .card-dot.violet { background: #a78bfa; } .card-dot.amber { background: #fbbf24; }
+    .card-dot.rose { background: #fb7185; }
+    .card h3 { font-size: 0.875rem; font-weight: 600; }
+    .card ul { list-style: none; color: #94a3b8; font-size: 0.75rem; }
+    .card li { margin-bottom: 0.375rem; }
+    .footer { text-align: center; margin-top: 1.5rem; color: #475569; font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-row">
+        <div class="pulse-dot"></div>
+        <h1>LogRag — RAG-Based Log Intelligence System</h1>
+      </div>
+      <p class="subtitle">Architecture Overview · .NET 8 API + Angular 17 UI + Ollama + Qdrant</p>
+    </div>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 1150 850">
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+          </marker>
+          <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee" />
+          </marker>
+          <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+          </marker>
+          <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa" />
+          </marker>
+          <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+          </marker>
+          <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#fb7185" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- ====== PIPELINE ARROWS (rendered behind boxes) ====== -->
+
+        <!-- Ingestion pipeline flow arrows -->
+        <line x1="690" y1="145" x2="830" y2="145" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+        <line x1="690" y1="225" x2="830" y2="225" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+        <line x1="830" y1="265" x2="830" y2="390" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+        <text x="845" y="335" fill="#94a3b8" font-size="8">embed</text>
+
+        <!-- Log Source → Ingestion -->
+        <line x1="230" y1="340" x2="425" y2="340" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+        <line x1="230" y1="390" x2="425" y2="390" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+        <text x="310" y="370" fill="#94a3b8" font-size="8">async enum</text>
+
+        <!-- Ingestion → Qdrant (upsert) -->
+        <line x1="435" y1="620" x2="435" y2="670" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+        <text x="450" y="652" fill="#94a3b8" font-size="8">upsert</text>
+
+        <!-- Qdrant → Query (search) -->
+        <line x1="555" y1="690" x2="675" y2="690" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+        <text x="595" y="682" fill="#94a3b8" font-size="8">search</text>
+
+        <!-- User → Frontend -->
+        <line x1="80" y1="80" x2="80" y2="195" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+        <text x="95" y="145" fill="#94a3b8" font-size="8">SSE</text>
+
+        <!-- Frontend → API -->
+        <line x1="175" y1="240" x2="245" y2="240" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+        <text x="185" y="232" fill="#94a3b8" font-size="7">/chat</text>
+        <line x1="175" y1="280" x2="245" y2="280" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+        <text x="185" y="272" fill="#94a3b8" font-size="7">/ingest</text>
+        <line x1="175" y1="320" x2="245" y2="320" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+        <text x="185" y="312" fill="#94a3b8" font-size="7">/health</text>
+
+        <!-- API Chat → Query Engine -->
+        <line x1="380" y1="420" x2="575" y2="420" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+        <text x="460" y="413" fill="#94a3b8" font-size="8">retrieve</text>
+
+        <!-- Query Engine → Embedding Service -->
+        <line x1="695" y1="440" x2="695" y2="505" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+        <text x="705" y="478" fill="#94a3b8" font-size="8">embed</text>
+
+        <!-- API Chat → LLM -->
+        <line x1="300" y1="500" x2="300" y2="590" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+        <text x="270" y="548" fill="#94a3b8" font-size="8">stream</text>
+
+        <!-- LLM → Ollama -->
+        <line x1="425" y1="610" x2="555" y2="610" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+        <text x="470" y="602" fill="#94a3b8" font-size="8">generate</text>
+
+        <!-- Embedding Service → Ollama -->
+        <line x1="830" y1="525" x2="830" y2="575" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+
+        <!-- ====== Ollama Boundary ====== -->
+        <rect x="580" y="550" width="280" height="140" rx="12" fill="rgba(251, 191, 36, 0.05)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="8,4"/>
+        <text x="592" y="568" fill="#fbbf24" font-size="9" font-weight="600">Ollama Server :11434</text>
+
+        <rect x="600" y="580" width="115" height="50" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="657" y="598" fill="white" font-size="10" font-weight="600" text-anchor="middle">nomic-embed-text</text>
+        <text x="657" y="614" fill="#94a3b8" font-size="8" text-anchor="middle">768-dim vectors</text>
+
+        <rect x="730" y="580" width="115" height="50" rx="6" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="787" y="598" fill="white" font-size="10" font-weight="600" text-anchor="middle">llama3.2</text>
+        <text x="787" y="614" fill="#94a3b8" font-size="8" text-anchor="middle">LLM inference</text>
+
+        <rect x="600" y="640" width="245" height="35" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="0.5"/>
+        <text x="722" y="662" fill="#94a3b8" font-size="8" text-anchor="middle">REST API · /api/embed · /api/generate</text>
+
+        <!-- ====== Qdrant Boundary ====== -->
+        <rect x="380" y="670" width="280" height="155" rx="12" fill="rgba(167, 139, 250, 0.05)" stroke="#a78bfa" stroke-width="1" stroke-dasharray="8,4"/>
+        <text x="392" y="688" fill="#a78bfa" font-size="9" font-weight="600">Qdrant Vector DB :6333</text>
+
+        <rect x="395" y="700" width="250" height="55" rx="6" fill="rgba(76, 29, 149, 0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="520" y="720" fill="white" font-size="10" font-weight="600" text-anchor="middle">Collection: log_chunks</text>
+        <text x="520" y="736" fill="#94a3b8" font-size="8" text-anchor="middle">Distance: Cosine · 768d · 30d retention</text>
+
+        <rect x="395" y="765" width="250" height="35" rx="6" fill="#0f172a" stroke="#a78bfa" stroke-width="0.5"/>
+        <text x="520" y="786" fill="#94a3b8" font-size="8" text-anchor="middle">Payload: timestamp, severity, svc, trace, linked_ids...</text>
+
+        <!-- ====== LOG SOURCES (left) ====== -->
+        <rect x="25" y="370" width="195" height="55" rx="6" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+        <text x="122" y="392" fill="white" font-size="10" font-weight="600" text-anchor="middle">Log Files (Disk)</text>
+        <text x="122" y="408" fill="#94a3b8" font-size="8" text-anchor="middle">4 sources · checkpoint resume</text>
+
+        <rect x="25" y="446" width="195" height="140" rx="6" fill="rgba(30, 41, 59, 0.3)" stroke="#94a3b8" stroke-width="0.8"/>
+        <text x="122" y="466" fill="#94a3b8" font-size="8" text-anchor="middle">payments-app.log</text>
+        <text x="122" y="484" fill="#94a3b8" font-size="8" text-anchor="middle">ocelot-gateway.log</text>
+        <text x="122" y="502" fill="#94a3b8" font-size="8" text-anchor="middle">SourceOfFund.log</text>
+        <text x="122" y="520" fill="#94a3b8" font-size="8" text-anchor="middle">ACL.log</text>
+        <text x="122" y="548" fill="#475569" font-size="7" text-anchor="middle">Multi-line event detection</text>
+        <text x="122" y="566" fill="#475569" font-size="7" text-anchor="middle">BOM/CRLF handling · ArrayPool</text>
+
+        <!-- ====== INGESTION PIPELINE (center) ====== -->
+        <!-- Pipeline boundary -->
+        <rect x="415" y="75" width="290" height="585" rx="5" fill="transparent" stroke="#34d399" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="422" y="92" fill="#34d399" font-size="8" font-weight="600">Ingestion Pipeline</text>
+
+        <!-- Filter -->
+        <rect x="425" y="105" width="270" height="40" rx="6" fill="rgba(136, 19, 55, 0.3)" stroke="#fb7185" stroke-width="1.5"/>
+        <text x="560" y="122" fill="white" font-size="9" font-weight="600" text-anchor="middle">RegexLogEntryFilter</text>
+        <text x="560" y="136" fill="#94a3b8" font-size="7" text-anchor="middle">Drop: PayloadSenderV2, MetricSet noise</text>
+
+        <!-- Parser -->
+        <rect x="425" y="155" width="270" height="60" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="560" y="174" fill="white" font-size="9" font-weight="600" text-anchor="middle">GenericLogParser</text>
+        <text x="560" y="189" fill="#94a3b8" font-size="7" text-anchor="middle">JSON → CSV → RegexRules → Key=Value → Timestamp</text>
+        <text x="560" y="204" fill="#94a3b8" font-size="7" text-anchor="middle">5 fallback strategies · compiled regex cache</text>
+
+        <!-- Normalizer -->
+        <rect x="425" y="225" width="270" height="55" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="560" y="244" fill="white" font-size="9" font-weight="600" text-anchor="middle">LogNormalizer</text>
+        <text x="560" y="259" fill="#94a3b8" font-size="7" text-anchor="middle">Canonical: ts, severity, svc, trace, msg + SHA256</text>
+        <text x="560" y="273" fill="#94a3b8" font-size="7" text-anchor="middle">Syslog fallback · Extra fields → payload</text>
+
+        <!-- ID Extractor + DSU -->
+        <rect x="425" y="290" width="270" height="55" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="560" y="309" fill="white" font-size="9" font-weight="600" text-anchor="middle">LogIdExtractor + DisjointSet</text>
+        <text x="560" y="324" fill="#94a3b8" font-size="7" text-anchor="middle">GUID·ReqID·CorrID·APM Hex·Kestrel → UnionFind</text>
+        <text x="560" y="338" fill="#94a3b8" font-size="7" text-anchor="middle">Cross-log correlation via linked_ids</text>
+
+        <!-- Chunker -->
+        <rect x="425" y="355" width="270" height="50" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="560" y="374" fill="white" font-size="9" font-weight="600" text-anchor="middle">SlidingWindowLogChunker</text>
+        <text x="560" y="390" fill="#94a3b8" font-size="7" text-anchor="middle">512 token window · 64 token overlap · idempotent IDs</text>
+
+        <!-- Ingestion Orchestrator -->
+        <rect x="425" y="415" width="270" height="35" rx="6" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+        <text x="560" y="437" fill="#34d399" font-size="9" font-weight="600" text-anchor="middle">IngestionOrchestrator (coordinator)</text>
+
+        <!-- Embedding Service -->
+        <rect x="740" y="490" width="195" height="70" rx="6" fill="rgba(6, 78, 59, 0.3)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="837" y="510" fill="white" font-size="9" font-weight="600" text-anchor="middle">OllamaEmbeddingService</text>
+        <text x="837" y="525" fill="#94a3b8" font-size="7" text-anchor="middle">Batch 16 · parallel 4 batches</text>
+        <text x="837" y="540" fill="#94a3b8" font-size="7" text-anchor="middle">SemaphoreSlim gate · index-preserving</text>
+
+        <!-- Qdrant Vector Store -->
+        <rect x="425" y="585" width="270" height="60" rx="6" fill="rgba(76, 29, 149, 0.3)" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="560" y="604" fill="white" font-size="9" font-weight="600" text-anchor="middle">QdrantVectorStore</text>
+        <text x="560" y="619" fill="#94a3b8" font-size="7" text-anchor="middle">Upsert · Search · Delete (retention) · MD5→UUID IDs</text>
+        <text x="560" y="634" fill="#94a3b8" font-size="7" text-anchor="middle">Filter: svc, severity, type, time range, linked_ids</text>
+
+        <!-- ====== QUERY / RETRIEVAL (center-right) ====== -->
+        <rect x="565" y="395" width="315" height="140" rx="5" fill="transparent" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="572" y="412" fill="#fbbf24" font-size="8" font-weight="600">Query / Retrieval Pipeline</text>
+
+        <rect x="575" y="422" width="295" height="50" rx="6" fill="rgba(120, 53, 15, 0.15)" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="722" y="440" fill="white" font-size="9" font-weight="600" text-anchor="middle">RagQueryEngine</text>
+        <text x="722" y="456" fill="#94a3b8" font-size="7" text-anchor="middle">ID extract → exact match → semantic search → dedup → rerank</text>
+
+        <rect x="575" y="480" width="295" height="45" rx="6" fill="rgba(120, 53, 15, 0.1)" stroke="#fbbf24" stroke-width="1"/>
+        <text x="722" y="498" fill="white" font-size="9" font-weight="600" text-anchor="middle">ContextBuilder → MarkdownResponseShaper</text>
+        <text x="722" y="514" fill="#94a3b8" font-size="7" text-anchor="middle">Numbered chunks · citations footer</text>
+
+        <!-- ====== .NET API SERVER (center-top) ====== -->
+        <rect x="240" y="138" width="165" height="225" rx="8" fill="rgba(6, 78, 59, 0.2)" stroke="#34d399" stroke-width="1.5"/>
+        <!-- ChatService -->
+        <rect x="250" y="150" width="145" height="70" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="322" y="172" fill="white" font-size="9" font-weight="600" text-anchor="middle">ChatService</text>
+        <text x="322" y="188" fill="#94a3b8" font-size="7" text-anchor="middle">Orchestrates: retrieve</text>
+        <text x="322" y="202" fill="#94a3b8" font-size="7" text-anchor="middle">→ context → LLM → shape</text>
+
+        <!-- Session Manager -->
+        <rect x="250" y="230" width="145" height="40" rx="6" fill="rgba(6, 78, 59, 0.3)" stroke="#34d399" stroke-width="1"/>
+        <text x="322" y="246" fill="white" font-size="9" font-weight="600" text-anchor="middle">InMemorySessionMgr</text>
+        <text x="322" y="261" fill="#94a3b8" font-size="7" text-anchor="middle">ConcurrentDictionary · 32msg cap</text>
+
+        <!-- LLM Client -->
+        <rect x="250" y="280" width="145" height="35" rx="6" fill="rgba(120, 53, 15, 0.2)" stroke="#fbbf24" stroke-width="1"/>
+        <text x="322" y="302" fill="white" font-size="9" font-weight="600" text-anchor="middle">OllamaLlmClient</text>
+
+        <!-- Ingestion Hosted Service -->
+        <rect x="250" y="325" width="145" height="28" rx="6" fill="rgba(6, 78, 59, 0.3)" stroke="#34d399" stroke-width="0.8"/>
+        <text x="322" y="343" fill="#94a3b8" font-size="7" text-anchor="middle">IngestionHostedService</text>
+
+        <!-- API Endpoints label -->
+        <rect x="240" y="375" width="165" height="18" rx="4" fill="#0f172a" stroke="#34d399" stroke-width="0.5"/>
+        <text x="322" y="389" fill="#34d399" font-size="7" text-anchor="middle">GET /health · POST /ingest · POST /chat</text>
+
+        <!-- ====== USER + FRONTEND (top-left) ====== -->
+        <!-- User -->
+        <rect x="25" y="30" width="110" height="40" rx="6" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+        <text x="80" y="56" fill="white" font-size="10" font-weight="600" text-anchor="middle">User</text>
+
+        <!-- Angular Frontend -->
+        <rect x="25" y="200" width="195" height="135" rx="8" fill="rgba(8, 51, 68, 0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+        <text x="122" y="225" fill="white" font-size="10" font-weight="600" text-anchor="middle">Angular 17 UI</text>
+        <text x="122" y="243" fill="#94a3b8" font-size="7" text-anchor="middle">Standalone · ngx-markdown</text>
+        <text x="122" y="258" fill="#94a3b8" font-size="7" text-anchor="middle">SSE streaming chat</text>
+        <text x="122" y="276" fill="#94a3b8" font-size="7" text-anchor="middle">RagApiService → proxy /api</text>
+        <text x="122" y="294" fill="#94a3b8" font-size="7" text-anchor="middle">Ingest controls + health check</text>
+        <text x="122" y="314" fill="#94a3b8" font-size="7" text-anchor="middle">Session: session_xxx</text>
+
+        <!-- ====== LEGEND (top-right) ====== -->
+        <text x="930" y="45" fill="white" font-size="10" font-weight="600">Legend</text>
+        <rect x="930" y="58" width="16" height="10" rx="2" fill="rgba(8, 51, 68, 0.4)" stroke="#22d3ee" stroke-width="1"/>
+        <text x="952" y="66" fill="#94a3b8" font-size="8">Frontend</text>
+        <rect x="930" y="74" width="16" height="10" rx="2" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1"/>
+        <text x="952" y="82" fill="#94a3b8" font-size="8">Backend / Pipeline</text>
+        <rect x="930" y="90" width="16" height="10" rx="2" fill="rgba(120, 53, 15, 0.3)" stroke="#fbbf24" stroke-width="1"/>
+        <text x="952" y="98" fill="#94a3b8" font-size="8">Ollama / AI Services</text>
+        <rect x="930" y="106" width="16" height="10" rx="2" fill="rgba(76, 29, 149, 0.4)" stroke="#a78bfa" stroke-width="1"/>
+        <text x="952" y="114" fill="#94a3b8" font-size="8">Qdrant / Vector DB</text>
+        <rect x="930" y="122" width="16" height="10" rx="2" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1"/>
+        <text x="952" y="130" fill="#94a3b8" font-size="8">External / Storage</text>
+        <rect x="930" y="138" width="16" height="10" rx="2" fill="rgba(136, 19, 55, 0.4)" stroke="#fb7185" stroke-width="1"/>
+        <text x="952" y="146" fill="#94a3b8" font-size="8">Filter / Noise</text>
+        <line x1="930" y1="162" x2="946" y2="162" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="952" y="165" fill="#94a3b8" font-size="8">Boundary / Group</text>
+
+        <!-- ====== ARROW: Ingestion → Query (reads stored vectors) ====== -->
+        <!-- Already covered by the Qdrant→Query arrow -->
+      </svg>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot emerald"></div>
+          <h3>Ingestion Pipeline</h3>
+        </div>
+        <ul>
+          <li>• FileLogSource: checkpoint-resume, multi-line event detection, BOM/CRLF handling</li>
+          <li>• Filter → Parse (5 strategies) → Normalize (SHA256 dedup) → ID Extract (UnionFind)</li>
+          <li>• SlidingWindowChunker (512/64 tokens) → Embed (Ollama, batch 16, 4 parallel)</li>
+          <li>• Upsert to Qdrant + 30-day retention cleanup</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot amber"></div>
+          <h3>Query / Retrieval</h3>
+        </div>
+        <ul>
+          <li>• Dual-path: ID exact match + semantic vector search</li>
+          <li>• LogHash dedup, heuristic reranker (0.85×score + 0.15×lexical)</li>
+          <li>• ContextBuilder formats numbered chunks with metadata</li>
+          <li>• SSE streaming: meta → tokens → final (with citations)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot violet"></div>
+          <h3>Infrastructure</h3>
+        </div>
+        <ul>
+          <li>• .NET 8 Minimal API, Angular 17 Standalone</li>
+          <li>• Ollama: llama3.2 (LLM) + nomic-embed-text (768d)</li>
+          <li>• Qdrant: Cosine distance, 30-day retention</li>
+          <li>• Ingestion: daily batch (24h) or streaming poll (30s)</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer">LogRag · RAG-Based Log Analysis · .NET 8 + Angular 17 + Ollama + Qdrant</p>
+  </div>
+</body>
+</html>

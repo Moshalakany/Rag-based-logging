@@ -1,11 +1,13 @@
 using System.Text.Json;
 using LogRag.Api.Configuration;
 using LogRag.Api.Conversation;
+using LogRag.Api.Domain;
 using LogRag.Api.Embedding;
 using LogRag.Api.Ingestion;
 using LogRag.Api.Llm;
 using LogRag.Api.Query;
 using LogRag.Api.Sources;
+using LogRag.Api.Telemetry;
 using LogRag.Api.VectorStore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,7 @@ builder.Services.Configure<LlmOptions>(builder.Configuration.GetSection("Llm"));
 builder.Services.Configure<VectorStoreOptions>(builder.Configuration.GetSection("VectorStore"));
 builder.Services.Configure<RetrievalOptions>(builder.Configuration.GetSection("Retrieval"));
 
+builder.Services.AddHttpClient(); // For ElasticsearchLogSource + HttpApiLogSource
 builder.Services.AddSingleton<ILogSourceRegistry, OptionsLogSourceRegistry>();
 builder.Services.AddSingleton<IGenericLogParser, GenericLogParser>();
 builder.Services.AddSingleton<ILogNormalizer, LogNormalizer>();
@@ -28,26 +31,89 @@ builder.Services.AddSingleton<ILogEntryFilter, RegexLogEntryFilter>();
 builder.Services.AddSingleton<IPiiRedactor, PiiRedactor>();
 builder.Services.AddSingleton<IIngestionOrchestrator, IngestionOrchestrator>();
 builder.Services.AddHostedService<IngestionHostedService>();
+builder.Services.AddHostedService<MetricsConsoleReporter>();
 
-builder.Services.AddSingleton<IEmbeddingService, OllamaEmbeddingService>();
+// ── Embedding service: Ollama or vLLM ──
+var embeddingProvider = builder.Configuration.GetValue<string>("Embedding:Provider") ?? "ollama";
+if (string.Equals(embeddingProvider, "vllm", StringComparison.OrdinalIgnoreCase))
+{
+    builder.Services.AddSingleton<IEmbeddingService, VllmEmbeddingService>();
+}
+else
+{
+    builder.Services.AddSingleton<IEmbeddingService, OllamaEmbeddingService>();
+}
+
 builder.Services.AddHttpClient<IVectorStore, QdrantVectorStore>();
 builder.Services.AddSingleton<IRagQueryEngine, RagQueryEngine>();
 builder.Services.AddSingleton<IContextBuilder, ContextBuilder>();
 builder.Services.AddSingleton<IResponseShaper, MarkdownResponseShaper>();
-builder.Services.AddSingleton<ILlmClient, OllamaLlmClient>();
+
+// ── LLM client: Ollama or vLLM ──
+var llmProvider = builder.Configuration.GetValue<string>("Llm:Provider") ?? "ollama";
+if (string.Equals(llmProvider, "vllm", StringComparison.OrdinalIgnoreCase))
+{
+    builder.Services.AddSingleton<ILlmClient, VllmLlmClient>();
+}
+else
+{
+    builder.Services.AddSingleton<ILlmClient, OllamaLlmClient>();
+}
 
 builder.Services.AddSingleton<ISessionManager, InMemorySessionManager>();
 builder.Services.AddSingleton<IChatService, ChatService>();
 
 var app = builder.Build();
 
-app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
-
-app.MapPost("/ingest", async (IIngestionOrchestrator orchestrator, ILoggerFactory loggerFactory, CancellationToken cancellationToken) =>
+app.MapGet("/health", (ILogSourceRegistry registry) =>
 {
+    var sources = registry.GetSources().Select(s => new
+    {
+        id = s.Id,
+        type = s.SourceType,
+        sourceKind = s.GetType().Name.Replace("LogSource", "").ToLowerInvariant()
+    });
+    return Results.Ok(new { status = "ok", sources });
+});
+
+app.MapGet("/metrics", () =>
+{
+    return Results.Text(MetricsSnapshot.GetSnapshot(), contentType: "text/plain");
+});
+
+app.MapPost("/ingest", async (HttpContext httpContext, IIngestionOrchestrator orchestrator, ILoggerFactory loggerFactory, CancellationToken cancellationToken) =>
+{
+    IngestRequestDto? requestBody = null;
+    IngestionTimeWindow? timeWindow = null;
+
+    // Try to parse request body for optional time window
+    if (httpContext.Request.ContentLength > 0)
+    {
+        try
+        {
+            requestBody = await httpContext.Request.ReadFromJsonAsync<IngestRequestDto>(cancellationToken: cancellationToken);
+        }
+        catch (JsonException)
+        {
+            // Body is not valid JSON — ignore, use defaults (full ingestion)
+        }
+    }
+
+    if (requestBody is { FromUtc: not null } || requestBody is { ToUtc: not null })
+    {
+        timeWindow = new IngestionTimeWindow(requestBody!.FromUtc, requestBody.ToUtc);
+    }
+
+    var collectionName = requestBody?.CollectionName;
+
     try
     {
-        var result = await orchestrator.IngestAsync(cancellationToken);
+        // PERF: Use a separate long-running token so the ingestion
+        // completes even if the HTTP client (Postman/curl) times out.
+        // Embedding 2000+ chunks on CPU takes 5-15 minutes.
+        using var ingestCts = new CancellationTokenSource(TimeSpan.FromMinutes(30));
+        using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(ingestCts.Token, cancellationToken);
+        var result = await orchestrator.IngestAsync(timeWindow, collectionName, linkedCts.Token);
         return Results.Ok(result);
     }
     catch (Exception ex)
