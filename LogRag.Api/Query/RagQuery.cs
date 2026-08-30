@@ -60,8 +60,40 @@ public sealed class RagQueryEngine : IRagQueryEngine
             };
 
             var zeroVector = new float[_vectorStoreOptions.VectorSize];
-            var matches = await _vectorStore.SearchAsync(zeroVector, idFilter, limit: 200, collectionName, cancellationToken);
-            exactMatches.AddRange(matches);
+            var initialMatches = await _vectorStore.SearchAsync(zeroVector, idFilter, limit: 200, collectionName, cancellationToken);
+            exactMatches.AddRange(initialMatches);
+
+            // Perform 2nd-hop graph expansion: extract all linked_ids across retrieved initial matches
+            var allLinkedIds = new HashSet<string>(extractedIds, StringComparer.OrdinalIgnoreCase);
+            foreach (var chunk in initialMatches)
+            {
+                if (chunk.Payload.TryGetValue("linked_ids", out var idsStr) && !string.IsNullOrWhiteSpace(idsStr))
+                {
+                    foreach (var id in idsStr.Split(',', StringSplitOptions.TrimEntries))
+                    {
+                        if (!string.IsNullOrWhiteSpace(id) && id.Length > 2)
+                        {
+                            allLinkedIds.Add(id);
+                        }
+                    }
+                }
+            }
+
+            if (allLinkedIds.Count > extractedIds.Count)
+            {
+                var expandedFilter = new QueryFilter
+                {
+                    ServiceName = filter.ServiceName,
+                    Severity = filter.Severity,
+                    SourceType = filter.SourceType,
+                    FromUtc = filter.FromUtc,
+                    ToUtc = filter.ToUtc,
+                    LinkedIds = allLinkedIds.ToList()
+                };
+
+                var expandedMatches = await _vectorStore.SearchAsync(zeroVector, expandedFilter, limit: 200, collectionName, cancellationToken);
+                exactMatches.AddRange(expandedMatches);
+            }
         }
 
         // Deduplicate exact matches by LogHash and sort chronologically
@@ -71,67 +103,29 @@ public sealed class RagQueryEngine : IRagQueryEngine
             .OrderBy(chunk => chunk.TimestampUtc)
             .ToList();
 
-        // CRITICAL: If user asked about a specific ID (extracted from question)
-        // and we found ZERO exact matches, return empty — don't pollute with
-        // random semantic results that don't have the requested ID.
+        // If user asked about specific ID(s) and zero matches were found, return empty
         if (extractedIds.Count > 0 && dedupedExact.Count == 0)
         {
             return [];
         }
 
-        // PERF: When we have exact ID matches, bias heavily toward them.
-        // Semantic search only fills remaining slots, and only if there's room.
-        if (dedupedExact.Count >= topK)
-        {
-            return dedupedExact.Take(topK).ToList();
-        }
-
-        var remaining = topK - dedupedExact.Count;
-        var queryEmbedding = (await _embeddingService.EmbedTextsAsync([question], cancellationToken))[0];
-
-        // If we have exact matches, use their linked_ids to narrow the semantic search
-        QueryFilter semanticFilter;
+        // If we have exact graph matches, return them (up to topK or max 50 for complete context)
         if (dedupedExact.Count > 0)
         {
-            // Collect all linked IDs from exact matches to bias semantic search
-            var allLinkedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            foreach (var chunk in dedupedExact)
-            {
-                if (chunk.Payload.TryGetValue("linked_ids", out var idsStr) && !string.IsNullOrWhiteSpace(idsStr))
-                {
-                    foreach (var id in idsStr.Split(',', StringSplitOptions.TrimEntries))
-                        allLinkedIds.Add(id);
-                }
-            }
-            semanticFilter = new QueryFilter
-            {
-                ServiceName = filter.ServiceName,
-                Severity = filter.Severity,
-                SourceType = filter.SourceType,
-                FromUtc = filter.FromUtc,
-                ToUtc = filter.ToUtc,
-                LinkedIds = allLinkedIds.Count > 0 ? allLinkedIds.ToList() : null,
-            };
-        }
-        else
-        {
-            semanticFilter = filter;
+            var limit = Math.Max(topK, 25);
+            return dedupedExact.Take(limit).ToList();
         }
 
-        var candidateCount = Math.Max(remaining * 3, 10);
-        var semanticCandidates = await _vectorStore.SearchAsync(queryEmbedding, semanticFilter, candidateCount, collectionName, cancellationToken);
+        var queryEmbedding = (await _embeddingService.EmbedTextsAsync([question], cancellationToken))[0];
+        var candidateCount = Math.Max(topK * 3, 10);
+        var semanticCandidates = await _vectorStore.SearchAsync(queryEmbedding, filter, candidateCount, collectionName, cancellationToken);
 
-        var dedupedSemantic = semanticCandidates
-            .Where(c => !dedupedExact.Any(e => e.LogHash == c.LogHash))
+        return semanticCandidates
             .OrderByDescending(c => c.Score)
-            .Take(remaining)
+            .Take(topK)
             .ToList();
-
-        var merged = new List<RetrievedChunk>(dedupedExact);
-        merged.AddRange(dedupedSemantic);
-
-        return merged;
     }
+
 
     private static double LexicalOverlap(string question, string chunkText)
     {
@@ -194,9 +188,10 @@ public static partial class QueryIdExtractor
 {
     // PERF: Source-generated regex — compiled at build time, 3-5x faster.
     [System.Text.RegularExpressions.GeneratedRegex(
-        @"\b[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\b",
+        @"\b[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{8,16}\b",
         System.Text.RegularExpressions.RegexOptions.Compiled)]
     private static partial Regex GuidRegex();
+
 
     [System.Text.RegularExpressions.GeneratedRegex(
         @"\b\d{5,}\b",

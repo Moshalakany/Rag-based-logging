@@ -1,2 +1,7 @@
-{
-}
+﻿{
+  "ocelot-gateway-log|C:\\Users\\Ahmed.AbdelAti\\OneDrive - Al-Ahly Momkn for e-payments\\Desktop\\Rag based logging\\LogRag.Api\\sample-logs\\ocelot.log": 281478,
+  "source-of-fund-log|C:\\Users\\Ahmed.AbdelAti\\OneDrive - Al-Ahly Momkn for e-payments\\Desktop\\Rag based logging\\LogRag.Api\\sample-logs\\SourceOfFund.log": 363687,
+  "TMS-app-log|C:\\Users\\Ahmed.AbdelAti\\OneDrive - Al-Ahly Momkn for e-payments\\Desktop\\Rag based logging\\LogRag.Api\\sample-logs\\TMS.log": 455567,
+  "identity-log|C:\\Users\\Ahmed.AbdelAti\\OneDrive - Al-Ahly Momkn for e-payments\\Desktop\\Rag based logging\\LogRag.Api\\sample-logs\\Identity.log": 106596,
+  "acl-log|C:\\Users\\Ahmed.AbdelAti\\OneDrive - Al-Ahly Momkn for e-payments\\Desktop\\Rag based logging\\LogRag.Api\\sample-logs\\ACL.log": 742472
+}

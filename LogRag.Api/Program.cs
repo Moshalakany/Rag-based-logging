@@ -10,7 +10,22 @@ using LogRag.Api.Sources;
 using LogRag.Api.Telemetry;
 using LogRag.Api.VectorStore;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 builder.Services.Configure<LogSourcesOptions>(builder.Configuration.GetSection("LogSources"));
 builder.Services.Configure<ParserOptions>(builder.Configuration.GetSection("Parser"));
@@ -111,9 +126,9 @@ app.MapPost("/ingest", async (HttpContext httpContext, IIngestionOrchestrator or
         // PERF: Use a separate long-running token so the ingestion
         // completes even if the HTTP client (Postman/curl) times out.
         // Embedding 2000+ chunks on CPU takes 5-15 minutes.
-        using var ingestCts = new CancellationTokenSource(TimeSpan.FromMinutes(30));
-        using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(ingestCts.Token, cancellationToken);
-        var result = await orchestrator.IngestAsync(timeWindow, collectionName, linkedCts.Token);
+        using var ingestCts = new CancellationTokenSource(TimeSpan.FromMinutes(60));
+        var result = await orchestrator.IngestAsync(timeWindow, collectionName, ingestCts.Token);
+
         return Results.Ok(result);
     }
     catch (Exception ex)

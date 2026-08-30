@@ -55,7 +55,7 @@ function Ensure-DockerContainer($ContainerName, $ImageName, $PortMapping, $Extra
 }
 
 # Helper to wait for a port to become ready
-function Wait-PortReady($Port, $TimeoutSeconds = 15) {
+function Wait-PortReady($Port, $TimeoutSeconds = 20) {
     Write-Host "[INFO] Waiting for port $Port to respond..." -ForegroundColor Cyan
     $elapsed = 0
     while (-not (Test-PortOpen $Port) -and $elapsed -lt $TimeoutSeconds) {
@@ -118,12 +118,15 @@ else {
 # 3. Start Frontend & Backend
 Write-Host "`n=== [Step 3: Launching Applications] ===" -ForegroundColor DarkCyan
 
-Write-Host "Starting frontend lograg-ui..." -ForegroundColor Green
-Write-Host "Location: $uiPath"
-Start-Process -FilePath "cmd.exe" -ArgumentList "/k", "npm install && npm start" -WorkingDirectory $uiPath
-
 Write-Host "Starting LogRag.Api..." -ForegroundColor Green
 Write-Host "Location: $apiPath"
-Start-Process -FilePath "cmd.exe" -ArgumentList "/k", "dotnet run" -WorkingDirectory $apiPath
+Start-Process -FilePath "cmd.exe" -ArgumentList "/k", "dotnet run --urls http://localhost:5000" -WorkingDirectory $apiPath
 
-Write-Host "`nSetup complete! Frontend and API processes launched." -ForegroundColor Green
+
+if (Test-Path $uiPath) {
+    Write-Host "Starting frontend lograg-ui..." -ForegroundColor Green
+    Write-Host "Location: $uiPath"
+    Start-Process -FilePath "cmd.exe" -ArgumentList "/k", "npm start" -WorkingDirectory $uiPath
+}
+
+Write-Host "`nSetup complete! All services and processes launched." -ForegroundColor Green

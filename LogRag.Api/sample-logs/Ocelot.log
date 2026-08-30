@@ -4065,3 +4065,287 @@
     Elastic.Apm.Metrics.MetricSet,
     Elastic.Apm.Metrics.MetricSet,
     Elastic.Apm.Metrics.MetricSet"
+2026-08-26 15:20:01.100 {"PayloadSenderV2"} Cancellation requested. Following events were not transferred successfully to the server (http://10.90.6.20:8600/):
+    "Transaction{Id: e826082699994444, TraceId: e8260826-9999-4444-a111-testcorr0001, ParentId: null, Name: POST /api/v2/services/4520/initiate, Type: request, Outcome: Failure, IsSampled: True},
+    Span{Id: a111222333444555, TransactionId: e826082699994444, ParentId: e826082699994444, TraceId: e8260826-9999-4444-a111-testcorr0001, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, IsSampled: True, Duration: 1250.45},
+    Elastic.Apm.Metrics.MetricSet"
+2026-08-26 10:35:30.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:35:30.997 Transaction{Id: c4084870d16b419e, TraceId: c4084870-d16b-419e-97d5-46a8acc9dd9a, ParentId: null, Name: POST /api/v2/services/1601/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:35:42.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:35:42.997 Transaction{Id: e33766abaf0c4c14, TraceId: e33766ab-af0c-4c14-9503-2ce504497d8c, ParentId: null, Name: POST /api/v2/services/1602/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:35:54.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:35:54.997 Transaction{Id: 0d8d480c40554ef5, TraceId: 0d8d480c-4055-4ef5-ab8d-21ea88e807f9, ParentId: null, Name: POST /api/v2/services/1603/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:36:06.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:36:06.997 Transaction{Id: c93e240b01444405, TraceId: c93e240b-0144-4405-be32-4f690a02c38f, ParentId: null, Name: POST /api/v2/services/1604/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:36:18.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:36:18.997 Transaction{Id: 89b5a157e0eb443e, TraceId: 89b5a157-e0eb-443e-a8d9-f9b41e8987cd, ParentId: null, Name: POST /api/v2/services/1605/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:36:30.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:36:30.997 Transaction{Id: dbfa2a121dfd44bc, TraceId: dbfa2a12-1dfd-44bc-8d72-b46f8471fc70, ParentId: null, Name: POST /api/v2/services/1606/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:36:42.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:36:42.997 Transaction{Id: 5254a042205f4d39, TraceId: 5254a042-205f-4d39-8387-9abcca8b9041, ParentId: null, Name: POST /api/v2/services/1607/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:36:54.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:36:54.997 Transaction{Id: 60255b5fed3e4282, TraceId: 60255b5f-ed3e-4282-b4f2-83f499d332b3, ParentId: null, Name: POST /api/v2/services/1608/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:37:06.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:37:06.997 Transaction{Id: 1a9befd1a77e46c9, TraceId: 1a9befd1-a77e-46c9-abfa-a07b82a35fb4, ParentId: null, Name: POST /api/v2/services/1609/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:37:18.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:37:18.997 Transaction{Id: 5288622b26b84cb8, TraceId: 5288622b-26b8-4cb8-9522-a01e462b268e, ParentId: null, Name: POST /api/v2/services/1610/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:37:30.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:37:30.997 Transaction{Id: 4da307b6804940c2, TraceId: 4da307b6-8049-40c2-a1b9-0300b95dbda9, ParentId: null, Name: POST /api/v2/services/1611/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:37:42.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:37:42.997 Transaction{Id: c9aa848386514b5c, TraceId: c9aa8483-8651-4b5c-8b13-3a8e80ebeca3, ParentId: null, Name: POST /api/v2/services/1612/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:37:54.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:37:54.997 Transaction{Id: 8ad9941125064926, TraceId: 8ad99411-2506-4926-b2d0-c525f4e62371, ParentId: null, Name: POST /api/v2/services/1613/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:38:06.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:38:06.997 Transaction{Id: e88267a59db34167, TraceId: e88267a5-9db3-4167-b654-44eddaeb8322, ParentId: null, Name: POST /api/v2/services/1614/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:38:18.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:38:18.997 Transaction{Id: aa9c2984a2d4437c, TraceId: aa9c2984-a2d4-437c-9250-f3c75796d165, ParentId: null, Name: POST /api/v2/services/1615/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:38:30.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:38:30.997 Transaction{Id: ed2a909763a4431d, TraceId: ed2a9097-63a4-431d-948b-f946d32eed75, ParentId: null, Name: POST /api/v2/services/1616/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:38:42.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:38:42.997 Transaction{Id: dc9af6913bb341b7, TraceId: dc9af691-3bb3-41b7-b5ca-5dd7f1af1917, ParentId: null, Name: POST /api/v2/services/1617/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:38:54.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:38:54.997 Transaction{Id: 9cb3c43fd8f64d6c, TraceId: 9cb3c43f-d8f6-4d6c-90c4-85a21b9f967d, ParentId: null, Name: POST /api/v2/services/1618/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:39:06.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:39:06.997 Transaction{Id: 4fc68ab320cf449f, TraceId: 4fc68ab3-20cf-449f-96a2-aec153870b1a, ParentId: null, Name: POST /api/v2/services/1619/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:39:18.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:39:18.997 Transaction{Id: bdab6a9f731745de, TraceId: bdab6a9f-7317-45de-8d06-93623a74bf76, ParentId: null, Name: POST /api/v2/services/1600/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:39:30.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:39:30.997 Transaction{Id: a4c7490646fe4fa5, TraceId: a4c74906-46fe-4fa5-a9a3-12defa36565c, ParentId: null, Name: POST /api/v2/services/1601/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:39:42.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:39:42.997 Transaction{Id: e2af9eca45e44530, TraceId: e2af9eca-45e4-4530-b235-2acfc12b9c79, ParentId: null, Name: POST /api/v2/services/1602/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:39:54.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:39:54.997 Transaction{Id: f43800f6e3214797, TraceId: f43800f6-e321-4797-9256-09308c9fb5d0, ParentId: null, Name: POST /api/v2/services/1603/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:40:06.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:40:06.997 Transaction{Id: 0b04892bbeb14915, TraceId: 0b04892b-beb1-4915-9a08-39b7af3b37c0, ParentId: null, Name: POST /api/v2/services/1604/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:40:18.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:40:18.997 Transaction{Id: 8bb32b37e07d45c3, TraceId: 8bb32b37-e07d-45c3-b466-9eb87cf616ff, ParentId: null, Name: POST /api/v2/services/1605/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:40:30.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:40:30.997 Transaction{Id: 28ad4013706a48c9, TraceId: 28ad4013-706a-48c9-8aea-713cc15e24f8, ParentId: null, Name: POST /api/v2/services/1606/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:40:42.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:40:42.997 Transaction{Id: 9626c4ab01014be0, TraceId: 9626c4ab-0101-4be0-a62a-8e42f1a2ceb5, ParentId: null, Name: POST /api/v2/services/1607/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:40:54.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:40:54.997 Transaction{Id: 60051aaca0ec4a4e, TraceId: 60051aac-a0ec-4a4e-a10f-dcb1c1ede1a7, ParentId: null, Name: POST /api/v2/services/1608/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:41:06.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:41:06.997 Transaction{Id: cd38c91d5d59435e, TraceId: cd38c91d-5d59-435e-ba02-32095d7ed63e, ParentId: null, Name: POST /api/v2/services/1609/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:41:18.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:41:18.997 Transaction{Id: b51040fc4f604998, TraceId: b51040fc-4f60-4998-863d-7727286986a0, ParentId: null, Name: POST /api/v2/services/1610/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:41:30.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:41:30.997 Transaction{Id: 8356416bc7094e4f, TraceId: 8356416b-c709-4e4f-a4b1-694b3fa878fd, ParentId: null, Name: POST /api/v2/services/1611/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:41:42.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:41:42.997 Transaction{Id: 72726b7f218142a5, TraceId: 72726b7f-2181-42a5-bde0-5830bd66d6ad, ParentId: null, Name: POST /api/v2/services/1612/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:41:54.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:41:54.997 Transaction{Id: ffefe6e24ff54388, TraceId: ffefe6e2-4ff5-4388-830b-e119ebc6a67a, ParentId: null, Name: POST /api/v2/services/1613/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:42:06.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:42:06.997 Transaction{Id: fa49141690c44063, TraceId: fa491416-90c4-4063-b7a1-ee29981198fe, ParentId: null, Name: POST /api/v2/services/1614/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:42:18.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:42:18.997 Transaction{Id: 359a673d549d4ded, TraceId: 359a673d-549d-4ded-ae0e-45a11d136c7d, ParentId: null, Name: POST /api/v2/services/1615/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:42:30.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:42:30.997 Transaction{Id: 1a15b9357267469c, TraceId: 1a15b935-7267-469c-9bec-1928407fd0d3, ParentId: null, Name: POST /api/v2/services/1616/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:42:42.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:42:42.997 Transaction{Id: cceade51756b46f4, TraceId: cceade51-756b-46f4-b3a8-a7f14dad362e, ParentId: null, Name: POST /api/v2/services/1617/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:42:54.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:42:54.997 Transaction{Id: 0f282f0228c24164, TraceId: 0f282f02-28c2-4164-967f-976c0cd49619, ParentId: null, Name: POST /api/v2/services/1618/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:43:06.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:43:06.997 Transaction{Id: f4f1fd528f3d4be3, TraceId: f4f1fd52-8f3d-4be3-a988-246d576cd056, ParentId: null, Name: POST /api/v2/services/1619/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:43:18.997 RequestId: 0HNTEST971314:00000001
+2026-08-26 10:43:18.997 Transaction{Id: 38b56f3856f64fb0, TraceId: 38b56f38-56f6-4fb0-868f-1989d0afbf7a, ParentId: null, Name: POST /api/v2/services/1600/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:45:33.997 Transaction{Id: 8683c5b430f44fa0, TraceId: 8683c5b4-30f4-4fa0-92cb-450565060be2, Name: POST /api/v2/services/2001/initiate, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:45:48.997 Transaction{Id: 5245c808a38f4a22, TraceId: 5245c808-a38f-4a22-a55e-6463a4280167, Name: POST /api/v2/services/2002/initiate, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:46:03.997 Transaction{Id: cb569daa5e504eff, TraceId: cb569daa-5e50-4eff-a8db-e3cd1eb6b55a, Name: POST /api/v2/services/2003/initiate, Outcome: Failure, Reason: TMS_INVALID_DENOMINATION}
+2026-08-26 10:46:18.997 Transaction{Id: a515f3a179be4535, TraceId: a515f3a1-79be-4535-aded-009c923ba669, Name: POST /api/v2/services/2004/initiate, Outcome: Failure, Reason: 401 Unauthorized}
+2026-08-26 10:46:33.997 Transaction{Id: 4c41d06fe7864719, TraceId: 4c41d06f-e786-4719-aaf7-d1aedd453a75, Name: POST /api/v2/services/2005/initiate, Outcome: Failure, Reason: 401 Unauthorized}
+2026-08-26 10:46:48.997 Transaction{Id: c863fabc44f84b1a, TraceId: c863fabc-44f8-4b1a-a278-66ee71e51531, Name: POST /api/v2/services/2006/initiate, Outcome: Failure, Reason: ACL_DOWNSTREAM_500_TIMEOUT}
+2026-08-26 10:47:03.997 Transaction{Id: 31908a47bc1949df, TraceId: 31908a47-bc19-49df-9492-22f601124363, Name: POST /api/v2/services/2007/initiate, Outcome: Failure, Reason: SOF_SQL_DEADLOCK}
+2026-08-26 10:47:18.997 Transaction{Id: dfaa644a4b4e45ce, TraceId: dfaa644a-4b4e-45ce-b841-d2a3b31a0ec7, Name: POST /api/v2/services/2008/initiate, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:47:33.997 Transaction{Id: 4f3115a076434886, TraceId: 4f3115a0-7643-4886-82be-f822ffd6d7fa, Name: POST /api/v2/services/2009/initiate, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:47:48.997 Transaction{Id: f9602e3c9fce4019, TraceId: f9602e3c-9fce-4019-a259-2c88e5a60141, Name: POST /api/v2/services/2010/initiate, Outcome: Failure, Reason: TMS_INVALID_DENOMINATION}
+2026-08-26 10:48:03.997 Transaction{Id: df790f3d3d8846bd, TraceId: df790f3d-3d88-46bd-ba9b-c9ec97f9f43b, Name: POST /api/v2/services/2011/initiate, Outcome: Failure, Reason: 401 Unauthorized}
+2026-08-26 10:48:18.997 Transaction{Id: 0fc2764192a1467d, TraceId: 0fc27641-92a1-467d-8f0b-e91b83fa466d, Name: POST /api/v2/services/2012/initiate, Outcome: Failure, Reason: 401 Unauthorized}
+2026-08-26 10:48:33.997 Transaction{Id: 128f227f27144a7a, TraceId: 128f227f-2714-4a7a-9950-96911d07affe, Name: POST /api/v2/services/2013/initiate, Outcome: Failure, Reason: ACL_DOWNSTREAM_500_TIMEOUT}
+2026-08-26 10:48:48.997 Transaction{Id: 4e25f008b3024a6b, TraceId: 4e25f008-b302-4a6b-aa7c-836956bd15f0, Name: POST /api/v2/services/2014/initiate, Outcome: Failure, Reason: SOF_SQL_DEADLOCK}
+2026-08-26 10:49:03.997 Transaction{Id: 3990b273e1424f65, TraceId: 3990b273-e142-4f65-b255-3d6d400789f6, Name: POST /api/v2/services/2000/initiate, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:49:18.997 Transaction{Id: 78e6b3f713624a27, TraceId: 78e6b3f7-1362-4a27-abfc-12c7518edbc2, Name: POST /api/v2/services/2001/initiate, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:49:33.997 Transaction{Id: 60ae7c19fe594efc, TraceId: 60ae7c19-fe59-4efc-ae10-fda920bb7a1c, Name: POST /api/v2/services/2002/initiate, Outcome: Failure, Reason: TMS_INVALID_DENOMINATION}
+2026-08-26 10:49:48.997 Transaction{Id: 28a3623e10a14d4c, TraceId: 28a3623e-10a1-4d4c-88f2-ec0a4db7fa1a, Name: POST /api/v2/services/2003/initiate, Outcome: Failure, Reason: 401 Unauthorized}
+2026-08-26 10:50:03.997 Transaction{Id: 543dcf6533934771, TraceId: 543dcf65-3393-4771-91fc-cb9ce4a33cad, Name: POST /api/v2/services/2004/initiate, Outcome: Failure, Reason: 401 Unauthorized}
+2026-08-26 10:50:18.997 Transaction{Id: 05a1a7504b1a4be2, TraceId: 05a1a750-4b1a-4be2-9e3b-076d57aff52f, Name: POST /api/v2/services/2005/initiate, Outcome: Failure, Reason: ACL_DOWNSTREAM_500_TIMEOUT}
+2026-08-26 10:50:33.997 Transaction{Id: ab1203a544b14798, TraceId: ab1203a5-44b1-4798-8207-006731275742, Name: POST /api/v2/services/2006/initiate, Outcome: Failure, Reason: SOF_SQL_DEADLOCK}
+2026-08-26 10:50:48.997 Transaction{Id: 22e973212de44a3c, TraceId: 22e97321-2de4-4a3c-9bc4-f816bb81a633, Name: POST /api/v2/services/2007/initiate, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:51:03.997 Transaction{Id: 2d0c9ed7d7e7497a, TraceId: 2d0c9ed7-d7e7-497a-ad34-3ecd7343c7b0, Name: POST /api/v2/services/2008/initiate, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:51:18.997 Transaction{Id: d34fe4c0353a493a, TraceId: d34fe4c0-353a-493a-a4ee-f0518502be10, Name: POST /api/v2/services/2009/initiate, Outcome: Failure, Reason: TMS_INVALID_DENOMINATION}
+2026-08-26 10:51:33.997 Transaction{Id: 55e0521d8b8a4041, TraceId: 55e0521d-8b8a-4041-bd5a-83434476710a, Name: POST /api/v2/services/2010/initiate, Outcome: Failure, Reason: 401 Unauthorized}
+2026-08-26 10:51:48.997 Transaction{Id: bc6fa7f177ed45b2, TraceId: bc6fa7f1-77ed-45b2-b92c-728911074839, Name: POST /api/v2/services/2011/initiate, Outcome: Failure, Reason: 401 Unauthorized}
+2026-08-26 10:52:03.997 Transaction{Id: 6a99e0dc09074133, TraceId: 6a99e0dc-0907-4133-8e2e-47a518a6cf7a, Name: POST /api/v2/services/2012/initiate, Outcome: Failure, Reason: ACL_DOWNSTREAM_500_TIMEOUT}
+2026-08-26 10:52:18.997 Transaction{Id: d349ae40ed32473e, TraceId: d349ae40-ed32-473e-98f4-a7accfd335d1, Name: POST /api/v2/services/2013/initiate, Outcome: Failure, Reason: SOF_SQL_DEADLOCK}
+2026-08-26 10:52:33.997 Transaction{Id: e591ae9d295b4cbb, TraceId: e591ae9d-295b-4cbb-86a9-9bf69c567959, Name: POST /api/v2/services/2014/initiate, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:52:48.997 Transaction{Id: 569fe96a26e14bec, TraceId: 569fe96a-26e1-4bec-bbf1-a98090ea1cac, Name: POST /api/v2/services/2000/initiate, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:42:22.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:42:22.231 Transaction{Id: e0ce5a40a49e43ee, TraceId: e0ce5a40-a49e-43ee-8320-06edc36c70cb, ParentId: null, Name: POST /api/v2/services/1601/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:42:32.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:42:32.231 Transaction{Id: bdaa25cfddd9453a, TraceId: bdaa25cf-ddd9-453a-8465-bfe37b21134e, ParentId: null, Name: POST /api/v2/services/1602/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:42:42.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:42:42.231 Transaction{Id: 6860f25566544d87, TraceId: 6860f255-6654-4d87-ad1e-487862978bae, ParentId: null, Name: POST /api/v2/services/1603/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:42:52.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:42:52.231 Transaction{Id: 915f8db371fe4f74, TraceId: 915f8db3-71fe-4f74-808a-02e28f4032fe, ParentId: null, Name: POST /api/v2/services/1604/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:43:02.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:43:02.231 Transaction{Id: 5a34ffd3ff6b45a4, TraceId: 5a34ffd3-ff6b-45a4-9168-be9e88ae27c4, ParentId: null, Name: POST /api/v2/services/1605/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:43:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:43:12.231 Transaction{Id: 695bda0acd18440b, TraceId: 695bda0a-cd18-440b-93db-b943b4a980ae, ParentId: null, Name: POST /api/v2/services/1606/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:43:22.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:43:22.231 Transaction{Id: b505ce22e33f4e6f, TraceId: b505ce22-e33f-4e6f-aa40-fba1f960f2d9, ParentId: null, Name: POST /api/v2/services/1607/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:43:32.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:43:32.231 Transaction{Id: 4fd99ded034d43f2, TraceId: 4fd99ded-034d-43f2-8179-ec826d5123df, ParentId: null, Name: POST /api/v2/services/1608/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:43:42.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:43:42.231 Transaction{Id: 291bc87a44394b5c, TraceId: 291bc87a-4439-4b5c-8fbe-76319b892c08, ParentId: null, Name: POST /api/v2/services/1609/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:43:52.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:43:52.231 Transaction{Id: 5d93b645d1b543ba, TraceId: 5d93b645-d1b5-43ba-a882-ea28002e7984, ParentId: null, Name: POST /api/v2/services/1610/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:44:02.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:44:02.231 Transaction{Id: 8f52e12a156945ba, TraceId: 8f52e12a-1569-45ba-97a0-af5dc1dbabce, ParentId: null, Name: POST /api/v2/services/1611/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:44:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:44:12.231 Transaction{Id: 01e2dc0f2ff54742, TraceId: 01e2dc0f-2ff5-4742-8fe2-456fdc3c0864, ParentId: null, Name: POST /api/v2/services/1612/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:44:22.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:44:22.231 Transaction{Id: f315090e6c2e4f28, TraceId: f315090e-6c2e-4f28-a41b-91c5a64992f8, ParentId: null, Name: POST /api/v2/services/1613/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:44:32.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:44:32.231 Transaction{Id: fa73094eb37349c3, TraceId: fa73094e-b373-49c3-b2ce-feb4a783764b, ParentId: null, Name: POST /api/v2/services/1614/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:44:42.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:44:42.231 Transaction{Id: b82689b498874221, TraceId: b82689b4-9887-4221-9da6-2fe99d3d42ef, ParentId: null, Name: POST /api/v2/services/1615/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:44:52.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:44:52.231 Transaction{Id: f0d97f7603fa411a, TraceId: f0d97f76-03fa-411a-ad51-30f986dbefba, ParentId: null, Name: POST /api/v2/services/1616/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:45:02.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:45:02.231 Transaction{Id: 14d4616c591d4d17, TraceId: 14d4616c-591d-4d17-bb89-f5006bdde3e5, ParentId: null, Name: POST /api/v2/services/1617/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:45:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:45:12.231 Transaction{Id: fd5e97769ae34ccd, TraceId: fd5e9776-9ae3-4ccd-ae8f-487630810d89, ParentId: null, Name: POST /api/v2/services/1618/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:45:22.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:45:22.231 Transaction{Id: 9d60b7a56d6b49ef, TraceId: 9d60b7a5-6d6b-49ef-ae2e-eb20973b210a, ParentId: null, Name: POST /api/v2/services/1619/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:45:32.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:45:32.231 Transaction{Id: 8066053dc8784bfc, TraceId: 8066053d-c878-4bfc-adef-7359411c527b, ParentId: null, Name: POST /api/v2/services/1600/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:45:42.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:45:42.231 Transaction{Id: 512b828fe59e42ca, TraceId: 512b828f-e59e-42ca-9a08-c1b11c42f2fe, ParentId: null, Name: POST /api/v2/services/1601/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:45:52.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:45:52.231 Transaction{Id: b6f67e0319ad4597, TraceId: b6f67e03-19ad-4597-a0f1-74c56857e16a, ParentId: null, Name: POST /api/v2/services/1602/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:46:02.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:46:02.231 Transaction{Id: 103cf906da49431a, TraceId: 103cf906-da49-431a-be12-520396649189, ParentId: null, Name: POST /api/v2/services/1603/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:46:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:46:12.231 Transaction{Id: 3e50c83f354b4680, TraceId: 3e50c83f-354b-4680-bd2a-412b42face0f, ParentId: null, Name: POST /api/v2/services/1604/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:46:22.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:46:22.231 Transaction{Id: 39fd5fc85da3460a, TraceId: 39fd5fc8-5da3-460a-93b3-d8d3ffca9f54, ParentId: null, Name: POST /api/v2/services/1605/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:46:32.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:46:32.231 Transaction{Id: 6df04cb29609439e, TraceId: 6df04cb2-9609-439e-8e03-69172c2c02e5, ParentId: null, Name: POST /api/v2/services/1606/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:46:42.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:46:42.231 Transaction{Id: 5041593337134ec9, TraceId: 50415933-3713-4ec9-92bc-5c907d43e022, ParentId: null, Name: POST /api/v2/services/1607/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:46:52.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:46:52.231 Transaction{Id: 44d6c1f383164928, TraceId: 44d6c1f3-8316-4928-a4cd-f3d58f1fd98a, ParentId: null, Name: POST /api/v2/services/1608/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:47:02.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:02.231 Transaction{Id: 1d9a52bdc2324508, TraceId: 1d9a52bd-c232-4508-8112-8679001a95ab, ParentId: null, Name: POST /api/v2/services/1609/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:47:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:12.231 Transaction{Id: 5c9b727fe4d243f4, TraceId: 5c9b727f-e4d2-43f4-8931-45d0f6d97d4a, ParentId: null, Name: POST /api/v2/services/1610/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:47:22.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:22.231 Transaction{Id: 20675dd05d2f49ac, TraceId: 20675dd0-5d2f-49ac-b9b0-90357838cf15, ParentId: null, Name: POST /api/v2/services/1611/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:47:32.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:32.231 Transaction{Id: 7770357904b74b5e, TraceId: 77703579-04b7-4b5e-b7e5-2d9cc53aeee3, ParentId: null, Name: POST /api/v2/services/1612/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:47:42.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:42.231 Transaction{Id: 7098a2e72a824c88, TraceId: 7098a2e7-2a82-4c88-b561-48be733d4525, ParentId: null, Name: POST /api/v2/services/1613/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:47:52.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:52.231 Transaction{Id: 8eacbb115a7c4f2c, TraceId: 8eacbb11-5a7c-4f2c-bd0d-11d9a8991723, ParentId: null, Name: POST /api/v2/services/1614/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:48:02.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:02.231 Transaction{Id: ffae85b2f6e54d95, TraceId: ffae85b2-f6e5-4d95-aad0-6b8e0930a5b1, ParentId: null, Name: POST /api/v2/services/1615/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:48:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:12.231 Transaction{Id: d9cab8b71c17407b, TraceId: d9cab8b7-1c17-407b-bf43-36e8c33c88ba, ParentId: null, Name: POST /api/v2/services/1616/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:48:22.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:22.231 Transaction{Id: e453dd805159474d, TraceId: e453dd80-5159-474d-9f11-041163919e8c, ParentId: null, Name: POST /api/v2/services/1617/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:48:32.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:32.231 Transaction{Id: 1cd86e4043664803, TraceId: 1cd86e40-4366-4803-a382-4e76ac1fcbd1, ParentId: null, Name: POST /api/v2/services/1618/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:48:42.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:42.231 Transaction{Id: 756a7f0531e844c2, TraceId: 756a7f05-31e8-44c2-94a2-b7b8c7efc59d, ParentId: null, Name: POST /api/v2/services/1619/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:48:52.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:52.231 Transaction{Id: d2c03f751a234f00, TraceId: d2c03f75-1a23-4f00-a410-ff2b7451538f, ParentId: null, Name: POST /api/v2/services/1600/initiate, Type: request, Outcome: Success, IsSampled: True}
+2026-08-26 10:47:24.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:24.231 Transaction{Id: 3e3c6963fe894774, TraceId: 3e3c6963-fe89-4774-9790-625244e4fdb3, ParentId: null, Name: POST /api/v2/services/2001/initiate, Type: request, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:47:24.231 Span{Id: 9790625244e4fdb3, TransactionId: 3e3c6963fe894774, ParentId: 3e3c6963fe894774, TraceId: 3e3c6963-fe89-4774-9790-625244e4fdb3, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:47:36.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:36.231 Transaction{Id: c093c0e89a2e4890, TraceId: c093c0e8-9a2e-4890-a07d-d9ddcbc3ee9d, ParentId: null, Name: POST /api/v2/services/2002/initiate, Type: request, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:47:36.231 Span{Id: a07dd9ddcbc3ee9d, TransactionId: c093c0e89a2e4890, ParentId: c093c0e89a2e4890, TraceId: c093c0e8-9a2e-4890-a07d-d9ddcbc3ee9d, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:47:48.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:47:48.231 Transaction{Id: 1e72b42eefba4343, TraceId: 1e72b42e-efba-4343-ac18-15b4a375abbc, ParentId: null, Name: POST /api/v2/services/2003/initiate, Type: request, Outcome: Failure, Reason: TMS_INVALID_DENOMINATION}
+2026-08-26 10:47:48.231 Span{Id: ac1815b4a375abbc, TransactionId: 1e72b42eefba4343, ParentId: 1e72b42eefba4343, TraceId: 1e72b42e-efba-4343-ac18-15b4a375abbc, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:48:00.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:00.231 Transaction{Id: 53e0a3c3013c4c26, TraceId: 53e0a3c3-013c-4c26-8511-f70952ffb24c, ParentId: null, Name: POST /api/v2/services/2004/initiate, Type: request, Outcome: Failure, Reason: IDENTITY_TOKEN_EXPIRED}
+2026-08-26 10:48:00.231 Span{Id: 8511f70952ffb24c, TransactionId: 53e0a3c3013c4c26, ParentId: 53e0a3c3013c4c26, TraceId: 53e0a3c3-013c-4c26-8511-f70952ffb24c, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:48:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:12.231 Transaction{Id: 22489694d3bf4941, TraceId: 22489694-d3bf-4941-a10c-f8e9349f73d5, ParentId: null, Name: POST /api/v2/services/2005/initiate, Type: request, Outcome: Failure, Reason: IDENTITY_CLIENT_SECRET_MISMATCH}
+2026-08-26 10:48:12.231 Span{Id: a10cf8e9349f73d5, TransactionId: 22489694d3bf4941, ParentId: 22489694d3bf4941, TraceId: 22489694-d3bf-4941-a10c-f8e9349f73d5, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:48:24.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:24.231 Transaction{Id: 57f40198f0364ca2, TraceId: 57f40198-f036-4ca2-8f8a-185fe8714707, ParentId: null, Name: POST /api/v2/services/2006/initiate, Type: request, Outcome: Failure, Reason: ACL_DOWNSTREAM_500_TIMEOUT}
+2026-08-26 10:48:24.231 Span{Id: 8f8a185fe8714707, TransactionId: 57f40198f0364ca2, ParentId: 57f40198f0364ca2, TraceId: 57f40198-f036-4ca2-8f8a-185fe8714707, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:48:36.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:36.231 Transaction{Id: 2160ea72991b48b0, TraceId: 2160ea72-991b-48b0-af59-f4b7aa7a8155, ParentId: null, Name: POST /api/v2/services/2007/initiate, Type: request, Outcome: Failure, Reason: SOF_SQL_DEADLOCK}
+2026-08-26 10:48:36.231 Span{Id: af59f4b7aa7a8155, TransactionId: 2160ea72991b48b0, ParentId: 2160ea72991b48b0, TraceId: 2160ea72-991b-48b0-af59-f4b7aa7a8155, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:48:48.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:48:48.231 Transaction{Id: b52a1820146642a5, TraceId: b52a1820-1466-42a5-9e49-87033c5a1e5f, ParentId: null, Name: POST /api/v2/services/2008/initiate, Type: request, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:48:48.231 Span{Id: 9e4987033c5a1e5f, TransactionId: b52a1820146642a5, ParentId: b52a1820146642a5, TraceId: b52a1820-1466-42a5-9e49-87033c5a1e5f, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:49:00.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:49:00.231 Transaction{Id: 1857c06afe884198, TraceId: 1857c06a-fe88-4198-90a5-6cb5bf1aa131, ParentId: null, Name: POST /api/v2/services/2009/initiate, Type: request, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:49:00.231 Span{Id: 90a56cb5bf1aa131, TransactionId: 1857c06afe884198, ParentId: 1857c06afe884198, TraceId: 1857c06a-fe88-4198-90a5-6cb5bf1aa131, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:49:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:49:12.231 Transaction{Id: e61f6f50c0574939, TraceId: e61f6f50-c057-4939-914a-adaeb7c3432a, ParentId: null, Name: POST /api/v2/services/2010/initiate, Type: request, Outcome: Failure, Reason: TMS_INVALID_DENOMINATION}
+2026-08-26 10:49:12.231 Span{Id: 914aadaeb7c3432a, TransactionId: e61f6f50c0574939, ParentId: e61f6f50c0574939, TraceId: e61f6f50-c057-4939-914a-adaeb7c3432a, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:49:24.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:49:24.231 Transaction{Id: 7efb1a9566c743ab, TraceId: 7efb1a95-66c7-43ab-9ca1-b10a1e7cc7cb, ParentId: null, Name: POST /api/v2/services/2011/initiate, Type: request, Outcome: Failure, Reason: IDENTITY_TOKEN_EXPIRED}
+2026-08-26 10:49:24.231 Span{Id: 9ca1b10a1e7cc7cb, TransactionId: 7efb1a9566c743ab, ParentId: 7efb1a9566c743ab, TraceId: 7efb1a95-66c7-43ab-9ca1-b10a1e7cc7cb, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:49:36.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:49:36.231 Transaction{Id: ebf1b41ff56942ea, TraceId: ebf1b41f-f569-42ea-a2a9-c266279094d9, ParentId: null, Name: POST /api/v2/services/2012/initiate, Type: request, Outcome: Failure, Reason: IDENTITY_CLIENT_SECRET_MISMATCH}
+2026-08-26 10:49:36.231 Span{Id: a2a9c266279094d9, TransactionId: ebf1b41ff56942ea, ParentId: ebf1b41ff56942ea, TraceId: ebf1b41f-f569-42ea-a2a9-c266279094d9, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:49:48.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:49:48.231 Transaction{Id: f5cf16bd88b64258, TraceId: f5cf16bd-88b6-4258-b55b-ee7b14d12460, ParentId: null, Name: POST /api/v2/services/2013/initiate, Type: request, Outcome: Failure, Reason: ACL_DOWNSTREAM_500_TIMEOUT}
+2026-08-26 10:49:48.231 Span{Id: b55bee7b14d12460, TransactionId: f5cf16bd88b64258, ParentId: f5cf16bd88b64258, TraceId: f5cf16bd-88b6-4258-b55b-ee7b14d12460, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:50:00.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:50:00.231 Transaction{Id: 0c932c0b2d944555, TraceId: 0c932c0b-2d94-4555-9c52-230d0d0875e1, ParentId: null, Name: POST /api/v2/services/2014/initiate, Type: request, Outcome: Failure, Reason: SOF_SQL_DEADLOCK}
+2026-08-26 10:50:00.231 Span{Id: 9c52230d0d0875e1, TransactionId: 0c932c0b2d944555, ParentId: 0c932c0b2d944555, TraceId: 0c932c0b-2d94-4555-9c52-230d0d0875e1, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:50:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:50:12.231 Transaction{Id: 50655fd97d9a4d7e, TraceId: 50655fd9-7d9a-4d7e-b01e-966d365e169e, ParentId: null, Name: POST /api/v2/services/2000/initiate, Type: request, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:50:12.231 Span{Id: b01e966d365e169e, TransactionId: 50655fd97d9a4d7e, ParentId: 50655fd97d9a4d7e, TraceId: 50655fd9-7d9a-4d7e-b01e-966d365e169e, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:50:24.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:50:24.231 Transaction{Id: 2a5200de41bc407b, TraceId: 2a5200de-41bc-407b-b250-105cb7596979, ParentId: null, Name: POST /api/v2/services/2001/initiate, Type: request, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:50:24.231 Span{Id: b250105cb7596979, TransactionId: 2a5200de41bc407b, ParentId: 2a5200de41bc407b, TraceId: 2a5200de-41bc-407b-b250-105cb7596979, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:50:36.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:50:36.231 Transaction{Id: 1caf5ecd5c314602, TraceId: 1caf5ecd-5c31-4602-a4b4-04972d901353, ParentId: null, Name: POST /api/v2/services/2002/initiate, Type: request, Outcome: Failure, Reason: TMS_INVALID_DENOMINATION}
+2026-08-26 10:50:36.231 Span{Id: a4b404972d901353, TransactionId: 1caf5ecd5c314602, ParentId: 1caf5ecd5c314602, TraceId: 1caf5ecd-5c31-4602-a4b4-04972d901353, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:50:48.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:50:48.231 Transaction{Id: 5734c930460b4b77, TraceId: 5734c930-460b-4b77-aab6-8772365f6159, ParentId: null, Name: POST /api/v2/services/2003/initiate, Type: request, Outcome: Failure, Reason: IDENTITY_TOKEN_EXPIRED}
+2026-08-26 10:50:48.231 Span{Id: aab68772365f6159, TransactionId: 5734c930460b4b77, ParentId: 5734c930460b4b77, TraceId: 5734c930-460b-4b77-aab6-8772365f6159, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:51:00.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:51:00.231 Transaction{Id: 41dc77e023144f1f, TraceId: 41dc77e0-2314-4f1f-bbfb-5508b4a3a6e7, ParentId: null, Name: POST /api/v2/services/2004/initiate, Type: request, Outcome: Failure, Reason: IDENTITY_CLIENT_SECRET_MISMATCH}
+2026-08-26 10:51:00.231 Span{Id: bbfb5508b4a3a6e7, TransactionId: 41dc77e023144f1f, ParentId: 41dc77e023144f1f, TraceId: 41dc77e0-2314-4f1f-bbfb-5508b4a3a6e7, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:51:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:51:12.231 Transaction{Id: f57e7a6c9be04db2, TraceId: f57e7a6c-9be0-4db2-a11c-c2a376092fd5, ParentId: null, Name: POST /api/v2/services/2005/initiate, Type: request, Outcome: Failure, Reason: ACL_DOWNSTREAM_500_TIMEOUT}
+2026-08-26 10:51:12.231 Span{Id: a11cc2a376092fd5, TransactionId: f57e7a6c9be04db2, ParentId: f57e7a6c9be04db2, TraceId: f57e7a6c-9be0-4db2-a11c-c2a376092fd5, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:51:24.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:51:24.231 Transaction{Id: 44672e4c302e4f09, TraceId: 44672e4c-302e-4f09-8c6c-f90fccd90e1e, ParentId: null, Name: POST /api/v2/services/2006/initiate, Type: request, Outcome: Failure, Reason: SOF_SQL_DEADLOCK}
+2026-08-26 10:51:24.231 Span{Id: 8c6cf90fccd90e1e, TransactionId: 44672e4c302e4f09, ParentId: 44672e4c302e4f09, TraceId: 44672e4c-302e-4f09-8c6c-f90fccd90e1e, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:51:36.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:51:36.231 Transaction{Id: d820fba58042494d, TraceId: d820fba5-8042-494d-919c-90de0d58eb1a, ParentId: null, Name: POST /api/v2/services/2007/initiate, Type: request, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:51:36.231 Span{Id: 919c90de0d58eb1a, TransactionId: d820fba58042494d, ParentId: d820fba58042494d, TraceId: d820fba5-8042-494d-919c-90de0d58eb1a, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:51:48.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:51:48.231 Transaction{Id: 0961ea12b4984a39, TraceId: 0961ea12-b498-4a39-8a14-b1c12d287a4f, ParentId: null, Name: POST /api/v2/services/2008/initiate, Type: request, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:51:48.231 Span{Id: 8a14b1c12d287a4f, TransactionId: 0961ea12b4984a39, ParentId: 0961ea12b4984a39, TraceId: 0961ea12-b498-4a39-8a14-b1c12d287a4f, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:52:00.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:52:00.231 Transaction{Id: 15a4e9343f5d43a7, TraceId: 15a4e934-3f5d-43a7-a749-860b94e7e6fd, ParentId: null, Name: POST /api/v2/services/2009/initiate, Type: request, Outcome: Failure, Reason: TMS_INVALID_DENOMINATION}
+2026-08-26 10:52:00.231 Span{Id: a749860b94e7e6fd, TransactionId: 15a4e9343f5d43a7, ParentId: 15a4e9343f5d43a7, TraceId: 15a4e934-3f5d-43a7-a749-860b94e7e6fd, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:52:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:52:12.231 Transaction{Id: 5f323cb730da4ee3, TraceId: 5f323cb7-30da-4ee3-8169-8262d2f26982, ParentId: null, Name: POST /api/v2/services/2010/initiate, Type: request, Outcome: Failure, Reason: IDENTITY_TOKEN_EXPIRED}
+2026-08-26 10:52:12.231 Span{Id: 81698262d2f26982, TransactionId: 5f323cb730da4ee3, ParentId: 5f323cb730da4ee3, TraceId: 5f323cb7-30da-4ee3-8169-8262d2f26982, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:52:24.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:52:24.231 Transaction{Id: 170e6d5fcd8c4609, TraceId: 170e6d5f-cd8c-4609-abda-49158a7610ef, ParentId: null, Name: POST /api/v2/services/2011/initiate, Type: request, Outcome: Failure, Reason: IDENTITY_CLIENT_SECRET_MISMATCH}
+2026-08-26 10:52:24.231 Span{Id: abda49158a7610ef, TransactionId: 170e6d5fcd8c4609, ParentId: 170e6d5fcd8c4609, TraceId: 170e6d5f-cd8c-4609-abda-49158a7610ef, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:52:36.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:52:36.231 Transaction{Id: 98740beec62b4e66, TraceId: 98740bee-c62b-4e66-bcd1-c7cf5ac00c55, ParentId: null, Name: POST /api/v2/services/2012/initiate, Type: request, Outcome: Failure, Reason: ACL_DOWNSTREAM_500_TIMEOUT}
+2026-08-26 10:52:36.231 Span{Id: bcd1c7cf5ac00c55, TransactionId: 98740beec62b4e66, ParentId: 98740beec62b4e66, TraceId: 98740bee-c62b-4e66-bcd1-c7cf5ac00c55, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:52:48.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:52:48.231 Transaction{Id: addee5b2d51d4fa3, TraceId: addee5b2-d51d-4fa3-b32e-39a4d7823563, ParentId: null, Name: POST /api/v2/services/2013/initiate, Type: request, Outcome: Failure, Reason: SOF_SQL_DEADLOCK}
+2026-08-26 10:52:48.231 Span{Id: b32e39a4d7823563, TransactionId: addee5b2d51d4fa3, ParentId: addee5b2d51d4fa3, TraceId: addee5b2-d51d-4fa3-b32e-39a4d7823563, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:53:00.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:53:00.231 Transaction{Id: cf32db384bed4629, TraceId: cf32db38-4bed-4629-bfda-de14441a9780, ParentId: null, Name: POST /api/v2/services/2014/initiate, Type: request, Outcome: Failure, Reason: SOF_CONNECTION_TIMEOUT}
+2026-08-26 10:53:00.231 Span{Id: bfdade14441a9780, TransactionId: cf32db384bed4629, ParentId: cf32db384bed4629, TraceId: cf32db38-4bed-4629-bfda-de14441a9780, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}
+2026-08-26 10:53:12.231 RequestId: 0HNTEST315272:00000001
+2026-08-26 10:53:12.231 Transaction{Id: 530ecd54d04d42b3, TraceId: 530ecd54-d04d-42b3-9932-60b21df47c82, ParentId: null, Name: POST /api/v2/services/2000/initiate, Type: request, Outcome: Failure, Reason: TMS_SWITCH_501_NOT_FOUND}
+2026-08-26 10:53:12.231 Span{Id: 993260b21df47c82, TransactionId: 530ecd54d04d42b3, ParentId: 530ecd54d04d42b3, TraceId: 530ecd54-d04d-42b3-9932-60b21df47c82, Name: POST acl-test.retail-test.svc.cluster.local, Type: external, Outcome: Failure, Duration: 850.12}

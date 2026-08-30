@@ -106,9 +106,9 @@ public sealed class OllamaLlmClient : ILlmClient
         builder.AppendLine("Question:");
         builder.AppendLine(question);
         builder.AppendLine();
-        builder.AppendLine("Answer with concise natural language and cite timestamps from context when relevant.");
-        builder.AppendLine("Ask clarifying questions if the context is insufficient and don't cite sources.");
+        builder.AppendLine("Identify and explain the primary root cause clearly. Detail the cross-component failure chain (Identity -> ACL -> TMS -> SourceOfFund) and cite relevant log chunks.");
         builder.AppendLine("Do not make up information that is not in the context.");
+
         return builder.ToString();
     }
 }
