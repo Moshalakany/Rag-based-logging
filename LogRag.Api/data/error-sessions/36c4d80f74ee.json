@@ -1,0 +1,19 @@
+{
+  "sessionId": "36c4d80f74ee",
+  "name": "Error-Analysis-20260908-1428",
+  "fromUtc": "2026-08-01T14:28:00+00:00",
+  "toUtc": "2026-09-08T14:28:00+00:00",
+  "status": "Completed",
+  "progressStage": "Completed",
+  "progressMessage": "Analysis complete. No errors were found in the selected time range (0 logs inspected).",
+  "collectionName": "error_session_36c4d80f74ee",
+  "createdAtUtc": "2026-09-08T14:28:43.7204491+00:00",
+  "completedAtUtc": "2026-09-08T14:28:43.734278+00:00",
+  "totalRawScanned": 0,
+  "errorsFound": 0,
+  "correlatedTracesCount": 0,
+  "vectorsUpserted": 0,
+  "rcaCompletedCount": 0,
+  "errorMessage": null,
+  "traces": []
+}

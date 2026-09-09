@@ -36,6 +36,7 @@ builder.Services.Configure<EmbeddingOptions>(builder.Configuration.GetSection("E
 builder.Services.Configure<LlmOptions>(builder.Configuration.GetSection("Llm"));
 builder.Services.Configure<VectorStoreOptions>(builder.Configuration.GetSection("VectorStore"));
 builder.Services.Configure<RetrievalOptions>(builder.Configuration.GetSection("Retrieval"));
+builder.Services.Configure<ErrorAnalysisOptions>(builder.Configuration.GetSection("ErrorAnalysis"));
 
 builder.Services.AddHttpClient(); // For ElasticsearchLogSource + HttpApiLogSource
 builder.Services.AddSingleton<ILogSourceRegistry, OptionsLogSourceRegistry>();
@@ -45,6 +46,8 @@ builder.Services.AddSingleton<ILogChunker, SlidingWindowLogChunker>();
 builder.Services.AddSingleton<ILogEntryFilter, RegexLogEntryFilter>();
 builder.Services.AddSingleton<IPiiRedactor, PiiRedactor>();
 builder.Services.AddSingleton<IIngestionOrchestrator, IngestionOrchestrator>();
+builder.Services.AddSingleton<IErrorAnalysisSessionStore, JsonErrorAnalysisSessionStore>();
+builder.Services.AddSingleton<IErrorAnalysisEngine, ErrorAnalysisEngine>();
 builder.Services.AddHostedService<IngestionHostedService>();
 builder.Services.AddHostedService<MetricsConsoleReporter>();
 
@@ -186,6 +189,120 @@ app.MapPost("/chat", async (LogRag.Api.Domain.ChatRequestDto request, HttpContex
         await httpContext.Response.Body.FlushAsync(cancellationToken);
     }
 });
+
+// ── Error Correlation & Root Cause Analysis Endpoints ──
+
+void MapErrorAnalysisEndpoints(WebApplication webApp, string prefix)
+{
+    webApp.MapPost($"{prefix}/sessions", async (CreateErrorAnalysisRequest request, IErrorAnalysisEngine engine, CancellationToken cancellationToken) =>
+    {
+        var session = await engine.StartSessionAsync(request, cancellationToken);
+        return Results.Ok(session);
+    });
+
+    webApp.MapGet($"{prefix}/sessions", async (IErrorAnalysisEngine engine, CancellationToken cancellationToken) =>
+    {
+        var sessions = await engine.ListSessionsAsync(cancellationToken);
+        return Results.Ok(sessions);
+    });
+
+    webApp.MapGet($"{prefix}/sessions/{{id}}", async (string id, IErrorAnalysisEngine engine, CancellationToken cancellationToken) =>
+    {
+        var session = await engine.GetSessionAsync(id, cancellationToken);
+        return session is not null ? Results.Ok(session) : Results.NotFound(new { error = $"Session '{id}' not found." });
+    });
+
+    webApp.MapGet($"{prefix}/sessions/{{id}}/stream", async (string id, HttpContext httpContext, IErrorAnalysisEngine engine, CancellationToken cancellationToken) =>
+    {
+        httpContext.Response.StatusCode = StatusCodes.Status200OK;
+        httpContext.Response.ContentType = "text/event-stream";
+        httpContext.Response.Headers.CacheControl = "no-cache";
+        httpContext.Response.Headers.Connection = "keep-alive";
+
+        try
+        {
+            await foreach (var evt in engine.StreamProgressAsync(id, cancellationToken))
+            {
+                var payload = JsonSerializer.Serialize(evt);
+                await httpContext.Response.WriteAsync($"data: {payload}\n\n", cancellationToken);
+                await httpContext.Response.Body.FlushAsync(cancellationToken);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // Client disconnected
+        }
+    });
+
+    webApp.MapPost($"{prefix}/sessions/{{id}}/stop", async (string id, IErrorAnalysisEngine engine, CancellationToken cancellationToken) =>
+    {
+        var stopped = await engine.StopSessionAsync(id, cancellationToken);
+        return stopped ? Results.Ok(new { status = "stopped" }) : Results.NotFound(new { error = $"Session '{id}' not found." });
+    });
+
+    webApp.MapDelete($"{prefix}/sessions/{{id}}", async (string id, IErrorAnalysisEngine engine, CancellationToken cancellationToken) =>
+    {
+        var deleted = await engine.DeleteSessionAsync(id, cancellationToken);
+        return deleted ? Results.Ok(new { status = "deleted" }) : Results.NotFound(new { error = $"Session '{id}' not found." });
+    });
+
+    webApp.MapPost($"{prefix}/sessions/{{id}}/chat", async (string id, ChatRequestDto request, HttpContext httpContext, IErrorAnalysisEngine engine, IChatService chatService, ILoggerFactory loggerFactory, CancellationToken cancellationToken) =>
+    {
+        var session = await engine.GetSessionAsync(id, cancellationToken);
+        if (session is null)
+        {
+            httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+            await httpContext.Response.WriteAsJsonAsync(new { error = $"Session '{id}' not found." }, cancellationToken: cancellationToken);
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Question))
+        {
+            httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+            await httpContext.Response.WriteAsJsonAsync(new { error = "question is required" }, cancellationToken: cancellationToken);
+            return;
+        }
+
+        // Direct the question to this session's dedicated Qdrant collection
+        var scopedRequest = new ChatRequestDto
+        {
+            Question = request.Question,
+            TopK = request.TopK,
+            Filter = request.Filter,
+            CollectionName = session.CollectionName,
+            SessionId = $"error_analysis_{id}"
+        };
+
+        httpContext.Response.StatusCode = StatusCodes.Status200OK;
+        httpContext.Response.ContentType = "text/event-stream";
+        httpContext.Response.Headers.CacheControl = "no-cache";
+        httpContext.Response.Headers.Connection = "keep-alive";
+
+        try
+        {
+            await foreach (var evt in chatService.StreamChatAsync(scopedRequest, cancellationToken))
+            {
+                var payload = JsonSerializer.Serialize(evt);
+                await httpContext.Response.WriteAsync($"data: {payload}\n\n", cancellationToken);
+                await httpContext.Response.Body.FlushAsync(cancellationToken);
+            }
+        }
+        catch (Exception ex)
+        {
+            loggerFactory.CreateLogger("SessionChatEndpoint").LogError(ex, "Session chat request failed.");
+            var fallback = new ChatStreamEvent(
+                Type: "final",
+                Content: "Chat failed due to a backend dependency error. Ensure Qdrant and LLM are running.",
+                Metadata: new { error = "session_chat_failure" });
+            var payload = JsonSerializer.Serialize(fallback);
+            await httpContext.Response.WriteAsync($"data: {payload}\n\n", cancellationToken);
+            await httpContext.Response.Body.FlushAsync(cancellationToken);
+        }
+    });
+}
+
+MapErrorAnalysisEndpoints(app, "/error-analysis");
+MapErrorAnalysisEndpoints(app, "/api/error-analysis");
 
 app.Run();
 

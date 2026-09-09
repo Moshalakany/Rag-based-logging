@@ -96,4 +96,149 @@ export class RagApiService {
       observer.next(parsed);
     }
   }
+
+  // ── Error Analysis Methods ──
+
+  createErrorSession(req: import('../models/error-analysis.model').CreateErrorAnalysisRequest): Observable<import('../models/error-analysis.model').ErrorAnalysisSession> {
+    return this.http.post<import('../models/error-analysis.model').ErrorAnalysisSession>(`${this.apiUrl}/error-analysis/sessions`, req);
+  }
+
+  listErrorSessions(): Observable<import('../models/error-analysis.model').ErrorAnalysisSessionSummary[]> {
+    return this.http.get<import('../models/error-analysis.model').ErrorAnalysisSessionSummary[]>(`${this.apiUrl}/error-analysis/sessions`);
+  }
+
+  getErrorSession(sessionId: string): Observable<import('../models/error-analysis.model').ErrorAnalysisSession> {
+    return this.http.get<import('../models/error-analysis.model').ErrorAnalysisSession>(`${this.apiUrl}/error-analysis/sessions/${sessionId}`);
+  }
+
+  stopErrorSession(sessionId: string): Observable<{ status: string }> {
+    return this.http.post<{ status: string }>(`${this.apiUrl}/error-analysis/sessions/${sessionId}/stop`, {});
+  }
+
+  deleteErrorSession(sessionId: string): Observable<{ status: string }> {
+    return this.http.delete<{ status: string }>(`${this.apiUrl}/error-analysis/sessions/${sessionId}`);
+  }
+
+  streamErrorSessionProgress(sessionId: string): Observable<import('../models/error-analysis.model').ErrorAnalysisProgressEvent> {
+    return new Observable((observer) => {
+      const abortController = new AbortController();
+
+      (async () => {
+        try {
+          const response = await fetch(`${this.apiUrl}/error-analysis/sessions/${sessionId}/stream`, {
+            method: 'GET',
+            headers: { Accept: 'text/event-stream' },
+            signal: abortController.signal,
+          });
+
+          if (!response.ok) {
+            throw new Error(`Progress stream failed with status ${response.status}`);
+          }
+
+          if (!response.body) {
+            throw new Error('Progress stream response body is empty');
+          }
+
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = '';
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) {
+              break;
+            }
+
+            buffer += decoder.decode(value, { stream: true });
+            while (true) {
+              const separatorMatch = /\r?\n\r?\n/.exec(buffer);
+              if (!separatorMatch || separatorMatch.index < 0) {
+                break;
+              }
+
+              const separatorIndex = separatorMatch.index;
+              const separatorLength = separatorMatch[0].length;
+              const rawEvent = buffer.slice(0, separatorIndex).trim();
+              buffer = buffer.slice(separatorIndex + separatorLength);
+
+              if (!rawEvent.startsWith('data:')) {
+                continue;
+              }
+
+              const payload = rawEvent.slice(5).trim();
+              if (!payload) {
+                continue;
+              }
+
+              const parsed = JSON.parse(payload) as import('../models/error-analysis.model').ErrorAnalysisProgressEvent;
+              observer.next(parsed);
+            }
+          }
+
+          observer.complete();
+        } catch (error) {
+          if (error instanceof DOMException && error.name === 'AbortError') {
+            return;
+          }
+          observer.error(error);
+        }
+      })();
+
+      return () => {
+        abortController.abort();
+      };
+    });
+  }
+
+  streamErrorSessionChat(sessionId: string, request: ChatRequest): Observable<ChatStreamEvent> {
+    return new Observable((observer) => {
+      const abortController = new AbortController();
+
+      (async () => {
+        try {
+          const response = await fetch(`${this.apiUrl}/error-analysis/sessions/${sessionId}/chat`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(request),
+            signal: abortController.signal,
+          });
+
+          if (!response.ok) {
+            throw new Error(`Session chat failed with status ${response.status}`);
+          }
+
+          if (!response.body) {
+            throw new Error('Session chat response body is empty');
+          }
+
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = '';
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) {
+              break;
+            }
+
+            buffer += decoder.decode(value, { stream: true });
+            buffer = this.emitSseEvents(buffer, observer);
+          }
+
+          buffer += decoder.decode();
+          this.emitSseEvents(buffer, observer);
+          observer.complete();
+        } catch (error) {
+          if (error instanceof DOMException && error.name === 'AbortError') {
+            return;
+          }
+          observer.error(error);
+        }
+      })();
+
+      return () => {
+        abortController.abort();
+      };
+    });
+  }
 }

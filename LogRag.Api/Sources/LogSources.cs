@@ -14,6 +14,7 @@ public interface ILogSource
     string Id { get; }
     string SourceType { get; }
     IAsyncEnumerable<RawLogEntry> ReadAsync(IngestionTimeWindow? timeWindow, CancellationToken cancellationToken);
+    IAsyncEnumerable<RawLogEntry> ReadAllAsync(IngestionTimeWindow? timeWindow, CancellationToken cancellationToken) => ReadAsync(timeWindow, cancellationToken);
 }
 
 public interface ILogSourceRegistry
@@ -240,7 +241,16 @@ public sealed partial class FileLogSource : ILogSource
 
     public async IAsyncEnumerable<RawLogEntry> ReadAsync(IngestionTimeWindow? timeWindow, [System.Runtime.CompilerServices.EnumeratorCancellation] CancellationToken cancellationToken)
     {
-        _ = timeWindow; // File sources filter post-read via orchestrator
+        // If a specific timeWindow is requested, do not limit by checkpoint offset or advance checkpoint offset
+        if (timeWindow is not null && !timeWindow.IsEmpty)
+        {
+            await foreach (var entry in ReadAllAsync(timeWindow, cancellationToken))
+            {
+                yield return entry;
+            }
+            yield break;
+        }
+
         if (!File.Exists(_resolvedPath))
         {
             _logger.LogWarning("Log source file does not exist: {Path}", _resolvedPath);
@@ -294,6 +304,55 @@ public sealed partial class FileLogSource : ILogSource
         if (_ingestionOptions.EnableSourceCheckpoints)
         {
             _checkpointStore.SaveOffset(_checkpointKey, currentOffset);
+        }
+    }
+
+    public async IAsyncEnumerable<RawLogEntry> ReadAllAsync(IngestionTimeWindow? timeWindow, [System.Runtime.CompilerServices.EnumeratorCancellation] CancellationToken cancellationToken)
+    {
+        _ = timeWindow;
+        if (!File.Exists(_resolvedPath))
+        {
+            _logger.LogWarning("Log source file does not exist: {Path}", _resolvedPath);
+            yield break;
+        }
+
+        // Always read from start of file (offset 0), and never mutate the checkpoint store
+        await using var stream = new FileStream(_resolvedPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+        var eventBuilder = new StringBuilder();
+        long eventStartOffset = 0;
+        long currentOffset = 0;
+
+        await foreach (var lineSlice in ReadLinesAsync(stream, 0, cancellationToken))
+        {
+            currentOffset = lineSlice.NextOffset;
+            if (string.IsNullOrWhiteSpace(lineSlice.Line))
+            {
+                continue;
+            }
+
+            if (eventBuilder.Length == 0)
+            {
+                eventStartOffset = lineSlice.StartOffset;
+                eventBuilder.Append(lineSlice.Line);
+                continue;
+            }
+
+            if (IsEventStart(lineSlice.Line))
+            {
+                yield return CreateEntry(eventBuilder.ToString(), eventStartOffset, lineSlice.StartOffset);
+                eventBuilder.Clear();
+                eventStartOffset = lineSlice.StartOffset;
+                eventBuilder.Append(lineSlice.Line);
+                continue;
+            }
+
+            eventBuilder.AppendLine();
+            eventBuilder.Append(lineSlice.Line);
+        }
+
+        if (eventBuilder.Length > 0)
+        {
+            yield return CreateEntry(eventBuilder.ToString(), eventStartOffset, currentOffset);
         }
     }
 

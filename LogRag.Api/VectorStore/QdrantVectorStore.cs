@@ -13,6 +13,7 @@ namespace LogRag.Api.VectorStore;
 public interface IVectorStore
 {
     Task EnsureCollectionAsync(string? collectionName, CancellationToken cancellationToken);
+    Task DeleteCollectionAsync(string collectionName, CancellationToken cancellationToken);
     Task UpsertAsync(IReadOnlyList<VectorPoint> points, string? collectionName, CancellationToken cancellationToken);
     Task<IReadOnlyList<RetrievedChunk>> SearchAsync(float[] queryVector, QueryFilter filter, int limit, string? collectionName, CancellationToken cancellationToken);
     Task DeleteOlderThanAsync(DateTimeOffset cutoffUtc, string? collectionName, CancellationToken cancellationToken);
@@ -27,9 +28,9 @@ public sealed class QdrantVectorStore : IVectorStore
     private readonly HttpClient _httpClient;
     private readonly VectorStoreOptions _options;
     private readonly SemaphoreSlim _collectionInitLock = new(1, 1);
+    private readonly System.Collections.Concurrent.ConcurrentDictionary<string, bool> _initializedCollections = new(StringComparer.OrdinalIgnoreCase);
     private readonly JsonSerializerOptions _serializerOptions = new(JsonSerializerDefaults.Web);
     private readonly ILogger<QdrantVectorStore> _logger;
-    private bool _isInitialized;
 
     public QdrantVectorStore(HttpClient httpClient, IOptions<VectorStoreOptions> options, ILogger<QdrantVectorStore> logger)
     {
@@ -41,7 +42,8 @@ public sealed class QdrantVectorStore : IVectorStore
 
     public async Task EnsureCollectionAsync(string? collectionName, CancellationToken cancellationToken)
     {
-        if (_isInitialized)
+        var name = ResolveCollectionName(collectionName);
+        if (_initializedCollections.ContainsKey(name))
         {
             return;
         }
@@ -49,12 +51,11 @@ public sealed class QdrantVectorStore : IVectorStore
         await _collectionInitLock.WaitAsync(cancellationToken);
         try
         {
-            if (_isInitialized)
+            if (_initializedCollections.ContainsKey(name))
             {
                 return;
             }
 
-            var name = ResolveCollectionName(collectionName);
             var createPayload = new
             {
                 vectors = new
@@ -75,11 +76,40 @@ public sealed class QdrantVectorStore : IVectorStore
             // PERF: Create payload indexes for frequently filtered fields.
             // These are idempotent — safe to call on every startup.
             await CreatePayloadIndexesAsync(name, cancellationToken);
-            _isInitialized = true;
+            _initializedCollections.TryAdd(name, true);
         }
         finally
         {
             _collectionInitLock.Release();
+        }
+    }
+
+    public async Task DeleteCollectionAsync(string collectionName, CancellationToken cancellationToken)
+    {
+        if (string.IsNullOrWhiteSpace(collectionName))
+        {
+            return;
+        }
+
+        var name = collectionName.Trim();
+        try
+        {
+            using var request = new HttpRequestMessage(HttpMethod.Delete, $"/collections/{name}");
+            using var response = await _httpClient.SendAsync(request, cancellationToken);
+            _initializedCollections.TryRemove(name, out _);
+            if (response.IsSuccessStatusCode || response.StatusCode == HttpStatusCode.NotFound)
+            {
+                _logger.LogInformation("Qdrant collection '{CollectionName}' dropped successfully.", name);
+            }
+            else
+            {
+                var body = await response.Content.ReadAsStringAsync(cancellationToken);
+                _logger.LogWarning("Failed to delete Qdrant collection '{CollectionName}'. HTTP {StatusCode}: {Body}", name, (int)response.StatusCode, body);
+            }
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            _logger.LogWarning(ex, "Exception while deleting Qdrant collection '{CollectionName}'.", name);
         }
     }
 
