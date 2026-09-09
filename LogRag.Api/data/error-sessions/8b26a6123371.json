@@ -3,17 +3,17 @@
   "name": "Error-Analysis-20260909-1056",
   "fromUtc": "2026-07-31T10:56:00+00:00",
   "toUtc": "2026-09-09T10:56:00+00:00",
-  "status": "Running",
-  "progressStage": "Analyzing",
-  "progressMessage": "Analyzing trace 40/61 (Correlation ID: 1caf5ecd-5c31-4602-a4b4-04972d901353)...",
+  "status": "Stopped",
+  "progressStage": "Stopped",
+  "progressMessage": "Session was manually stopped.",
   "collectionName": "error_session_8b26a6123371",
   "createdAtUtc": "2026-09-09T10:56:28.4274634+00:00",
-  "completedAtUtc": null,
+  "completedAtUtc": "2026-09-09T11:43:38.872851+00:00",
   "totalRawScanned": 6541,
   "errorsFound": 150,
   "correlatedTracesCount": 61,
   "vectorsUpserted": 862,
-  "rcaCompletedCount": 40,
+  "rcaCompletedCount": 53,
   "errorMessage": null,
   "traces": [
     {
@@ -7006,7 +7006,14 @@
           "rawText": "2026-08-26 10:50:48.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 5734c930-460b-4b77-aab6-8772365f6159"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The primary root cause of this failure chain was an expired identity token in the \u0060Identity\u0060 component, which led to a cascade of failures in subsequent components.",
+        "culpritComponent": "TMS-app-log",
+        "rootCause": "The primary root cause of the failure was due to an expired identity token, which led to a downstream processing failure. The \u0060Identity\u0060 component\u0027s token validation failed with an error message \u0022Token validation failed for Correlation_ID: 5734c930-460b-4b77-aab6-8772365f6159. Reason: IDENTITY_TOKEN_EXPIRED\u0022.",
+        "impact": "This failure chain affected the subsequent components, causing them to fail as well. The \u0060ACL\u0060 component reported a downstream processing failure due to the expired identity token, which in turn led to an error response from \u0060TMS-app-log\u0060. Finally, the \u0060SourceOfFund\u0060 component also failed due to the same reason.",
+        "suggestedFix": "To prevent this issue, it is recommended that the \u0060Identity\u0060 component implements token renewal mechanisms or refreshes the identity token before passing it to downstream components. Additionally, the \u0060ACL\u0060 and \u0060TMS-app-log\u0060 components should be configured to handle expired identity tokens by providing fallback options or retry mechanisms.",
+        "completedAtUtc": "2026-09-09T11:33:05.694206+00:00"
+      }
     },
     {
       "correlationId": "41dc77e0-2314-4f1f-bbfb-5508b4a3a6e7",
@@ -7191,7 +7198,14 @@
           "rawText": "2026-08-26 10:51:00.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 41dc77e0-2314-4f1f-bbfb-5508b4a3a6e7"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The failure chain began with a TMS-app-log error due to an IDENTITY_CLIENT_SECRET_MISMATCH, which caused downstream processing failures in ACL, SourceOfFund, and ultimately resulted in a system error.",
+        "culpritComponent": "TMS-app-log",
+        "rootCause": "The primary root cause of the failure was an \u0022IDENTITY_CLIENT_SECRET_MISMATCH\u0022 error, which led to a validation failure. This error occurred due to an invalid client secret being used, causing downstream processing to fail.",
+        "impact": "This failure affected the entire transaction chain, impacting multiple services including SourceOfFund, ACL, and ultimately resulting in a 500 status code response with an error message indicating that downstream processing failed due to IDENTITY_CLIENT_SECRET_MISMATCH. The user was not directly affected, but the system reported an error.",
+        "suggestedFix": "To prevent this issue, ensure that client secrets are properly validated and stored securely. Additionally, implement robust token validation mechanisms to handle cases where the client secret is invalid or missing.",
+        "completedAtUtc": "2026-09-09T11:33:52.6499389+00:00"
+      }
     },
     {
       "correlationId": "f57e7a6c-9be0-4db2-a11c-c2a376092fd5",
@@ -7366,7 +7380,14 @@
           "rawText": "2026-08-26 10:51:12.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: f57e7a6c-9be0-4db2-a11c-c2a376092fd5"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The transaction failure was caused by an **ACL_DOWNSTREAM_500_TIMEOUT** in the TMS service, triggered by an error in the SourceOfFund component, which had itself encountered a similar issue.",
+        "culpritComponent": "**TMS**",
+        "rootCause": "The TMS service failed with a **BackendException** due to an **ACL_DOWNSTREAM_500_TIMEOUT**, which was triggered by an error in the **SourceOfFund** component. The SourceOfFund service encountered an **ErrorHoldBalance** error, also caused by the ACL timeout.",
+        "impact": "This failure affected all subsequent services and ultimately impacted the user\u0027s transaction, resulting in a failed processing of their bill payment request.",
+        "suggestedFix": "To prevent this issue, I recommend implementing mechanisms to detect and handle ACL timeouts more robustly within each component. This might involve increasing timeout values, adding retry logic, or leveraging circuit breakers to avoid cascading failures.",
+        "completedAtUtc": "2026-09-09T11:34:34.6292747+00:00"
+      }
     },
     {
       "correlationId": "44672e4c-302e-4f09-8c6c-f90fccd90e1e",
@@ -7541,7 +7562,14 @@
           "rawText": "2026-08-26 10:51:24.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 44672e4c-302e-4f09-8c6c-f90fccd90e1e"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The failure of Transaction Correlation ID: 44672e4c-302e-4f09-8c6c-f90fccd90e1e was caused by a SQL deadlock in the SOF service, which cascaded down the transaction chain and affected subsequent services. Implementing tuning measures for the SOF service and introducing locking mechanisms can help prevent similar failures in the future.",
+        "culpritComponent": "The primary component that failed is **TMS (Transaction Management System)**, which led to a cascade failure in the entire transaction chain.\n\n[10:51:24.231] [TMS-app-log] [ERROR]: [Hold-Exception-BackendException] SOF_SQL_DEADLOCK\n\nThis error message indicates that TMS encountered a SQL deadlock issue, which is further propagated down the chain through other services due to correlated requests.",
+        "rootCause": "The root cause of this failure lies in the **SOF (Source Of Fund) service**, specifically with its database connectivity. The SOF service experienced a SQL deadlock, causing the entire transaction chain to fail. This issue was triggered by an incorrect configuration or resource allocation within the SOF service.\n\n[10:51:24.231] [source-of-fund-log] [ERROR]: [ErrorHoldBalance] SOF_SQL_DEADLOCK",
+        "impact": "The failure of this transaction had a significant impact on subsequent services, including **ACL (Access Control List)** and **Identity**. These services were unable to complete their tasks due to the TMS service\u0027s failure, resulting in an incomplete or invalid response.\n\nThe user who initiated the request was also affected, as they did not receive the expected outcome from the transaction.",
+        "suggestedFix": "To prevent this type of failure, we recommend the following concrete technical steps:\n\n1.  **Tune SOF Service Configuration**: Ensure that the SOF service is configured to handle concurrent requests effectively and avoid resource contention.\n2.  **Implement Locking Mechanisms**: Introduce locking mechanisms within the SOF service to prevent deadlocks, such as using optimistic concurrency or more efficient locking protocols.\n3.  **Monitor and Analyze Deadlock Prone Paths**: Regularly analyze log data and performance metrics to identify potential deadlock-prone paths within the system.",
+        "completedAtUtc": "2026-09-09T11:35:38.043569+00:00"
+      }
     },
     {
       "correlationId": "d820fba5-8042-494d-919c-90de0d58eb1a",
@@ -7716,7 +7744,14 @@
           "rawText": "2026-08-26 10:51:36.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: d820fba5-8042-494d-919c-90de0d58eb1a"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The transaction failed due to a \u0060SOF_CONNECTION_TIMEOUT\u0060 error propagating through the \u0060TMS-app-log\u0060, \u0060acl-log\u0060, \u0060source-of-fund-log\u0060, and \u0060identity-log\u0060 services.",
+        "culpritComponent": "The first service to fail was \u0060TMS-app-log\u0060 with a Correlation_ID of \u0060d820fba5-8042-494d-919c-90de0d58eb1a\u0060.",
+        "rootCause": "The root cause of this failure chain is a \u0060SOF_CONNECTION_TIMEOUT\u0060 error, which occurred when the \u0060TMS-app-log\u0060 service attempted to hold a connection with the SourceOfFund service. This error propagated through multiple services, ultimately causing the entire transaction to fail.",
+        "impact": "This failure had a cascading impact on the subsequent services in the chain, including \u0060acl-log\u0060, \u0060source-of-fund-log\u0060, and \u0060identity-log\u0060. These services received an error response from the previous service, which they attempted to process further, leading to additional failures. The user was not directly affected by this failure, but their transaction was ultimately rejected due to the downstream processing issues.",
+        "suggestedFix": "To prevent similar failures in the future, it is recommended that:\n\n* The \u0060TMS-app-log\u0060 service investigates and resolves the underlying connection timeout issue with the SourceOfFund service.\n* The service chain considers implementing retry mechanisms or fallback strategies for handling temporary connection timeouts.\n* Additional logging and monitoring be implemented to detect such issues earlier, allowing for prompt intervention.",
+        "completedAtUtc": "2026-09-09T11:36:24.023013+00:00"
+      }
     },
     {
       "correlationId": "0961ea12-b498-4a39-8a14-b1c12d287a4f",
@@ -7891,7 +7926,14 @@
           "rawText": "2026-08-26 10:51:48.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 0961ea12-b498-4a39-8a14-b1c12d287a4f"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The transaction failed due to a chain of events starting from the TMS system, where an invalid switch ID led to propagation through Identity, ACL, and ultimately SourceOfFund services.",
+        "culpritComponent": "TMS (Transaction Management System)",
+        "rootCause": "The primary root cause of this transaction\u0027s failure lies in the inability to find a valid TMS switch with ID 501. This error propagates through the system, starting from the Identity log where a request is made to create a request with Correlation ID 0961ea12-b498-4a39-8a14-b1c12d287a4f.\n\n[10:51:48.231] [TMS-app-log] [ERROR]: [Hold-Exception-BackendException] TMS_SWITCH_501_NOT_FOUND\n\nThis error is then propagated to the ACL log, where a request is made to route a bill payment request to TMS with Denomination ID 2008.\n\n[10:51:48.231] [acl-log] [ERROR] [Status: 500]: {\u0022StatusCode\u0022:500,\u0022Success\u0022:false,\u0022ErrorMessage\u0022:\u0022Downstream processing failed due to TMS_SWITCH_501_NOT_FOUND\u0022}\n\nFinally, this error reaches the SourceOfFund log, where a request is made to create a request with Correlation ID 0961ea12-b498-4a39-8a14-b1c12d287a4f.\n\n[10:51:48.231] [source-of-fund-log] [ERROR]: [ErrorHoldBalance] TMS_SWITCH_501_NOT_FOUND",
+        "impact": "This failure chain affects the user, as the bill payment request is unable to be processed successfully. The system fails to create a request for account ID 20023.",
+        "suggestedFix": "To prevent this failure chain, ensure that all downstream services (Identity, ACL, and TMS) are functioning correctly and have valid switch IDs. Implement error handling mechanisms to catch such exceptions early in the pipeline and retry or fallback to an alternative service if necessary. Additionally, review and update the system\u0027s configuration to avoid TMS switch ID 501 being unavailable.",
+        "completedAtUtc": "2026-09-09T11:37:21.5969351+00:00"
+      }
     },
     {
       "correlationId": "15a4e934-3f5d-43a7-a749-860b94e7e6fd",
@@ -8066,7 +8108,14 @@
           "rawText": "2026-08-26 10:52:00.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 15a4e934-3f5d-43a7-a749-860b94e7e6fd"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The primary root cause of this transaction\u0027s failure was an invalid denomination ID, which led to a chain of failures across multiple services.",
+        "culpritComponent": "The first service that failed was \u0060TMS\u0060. The error message \u0022Hold-Exception-BackendException\u0022 with code \u0060TMS_INVALID_DENOMINATION\u0060 indicated a problem with the denomination ID.\n\n[10:52:00.231] [TMS-app-log] [ERROR]: [Hold-Exception-BackendException] TMS_INVALID_DENOMINATION",
+        "rootCause": "The primary root cause of the failure was an invalid denomination ID, which caused downstream processing to fail. The \u0060TMS\u0060 service received a request with an invalid denomination ID, resulting in the error message.",
+        "impact": "This failure had an impact on other services and the user. Although not explicitly stated in the log chunks provided, failed transactions would likely lead to additional errors or delays across the entire system, affecting both internal processes and external users.",
+        "suggestedFix": "To prevent this issue, concrete technical steps could involve:\n\n*   Implementing robust input validation for denomination IDs at the \u0060TMS\u0060 service level.\n*   Enhancing error handling mechanisms to catch and handle exceptions like \u0060TMS_INVALID_DENOMINATION\u0060.\n*   Reviewing and updating downstream services (like \u0060ACL\u0060) to ensure they can recover from similar errors.",
+        "completedAtUtc": "2026-09-09T11:38:07.3219279+00:00"
+      }
     },
     {
       "correlationId": "5f323cb7-30da-4ee3-8169-8262d2f26982",
@@ -8251,7 +8300,14 @@
           "rawText": "2026-08-26 10:52:12.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 5f323cb7-30da-4ee3-8169-8262d2f26982"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The primary root cause of this transaction failure was the expired Identity token, which triggered a chain reaction of errors across multiple services, ultimately affecting the user\u0027s experience.",
+        "culpritComponent": "The first service to fail was **TMS-app-log**. Specifically, it failed with an error at [10:52:12.231] [TMS-app-log] [ERROR]: [Hold-Exception-BackendException] IDENTITY_TOKEN_EXPIRED.",
+        "rootCause": "The root cause of the failure is that the Identity token expired, causing a cascade of errors throughout the system. The TMS application attempted to use this expired token for authentication, which resulted in a backend exception.",
+        "impact": "This failure had an impact on subsequent services, such as **source-of-fund-log**, **acl-log**, and ultimately the user. The error chain was triggered when the Identity token validation failed due to expiration, causing a downstream processing failure in TMS.",
+        "suggestedFix": "To prevent this issue, consider implementing a mechanism to detect and renew the Identity token before using it for authentication. This could involve integrating an identity token refresh process into the application flow or utilizing a more robust token management system.",
+        "completedAtUtc": "2026-09-09T11:38:51.8748426+00:00"
+      }
     },
     {
       "correlationId": "170e6d5f-cd8c-4609-abda-49158a7610ef",
@@ -8436,7 +8492,14 @@
           "rawText": "2026-08-26 10:52:24.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 170e6d5f-cd8c-4609-abda-49158a7610ef"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The primary root cause of this failure chain was an invalid client secret mismatch between the \u0060Identity\u0060 service and downstream services, resulting in a cascading failure that impacted the processing of the transaction.",
+        "culpritComponent": "The first service to fail was the \u0060TMS-app-log\u0060, which received an error message at timestamp \u0060[10:52:24.231] [TMS-app-log] [ERROR]: [Hold-Exception-BackendException] IDENTITY_CLIENT_SECRET_MISMATCH\u0060.",
+        "rootCause": "The primary root cause of this failure chain is a mismatch in the client secret between the \u0060Identity\u0060 service and the downstream services (\u0060ACL\u0060, \u0060TMS\u0060, and \u0060SourceOfFund\u0060). The error message indicates that an exception was raised due to an invalid client secret, which prevented the request from being processed successfully.",
+        "impact": "This failure chain impacted the processing of the transaction, causing all subsequent services in the chain (including \u0060ACL\u0060, \u0060TMS\u0060, and \u0060SourceOfFund\u0060) to fail. As a result, the user\u0027s request may not have been completed as expected, and any associated transactions or payments may have been affected.",
+        "suggestedFix": "To prevent similar failures in the future, it is essential to ensure that client secrets are properly configured and synchronized across all services in the chain. This can be achieved by implementing a robust secret management system and ensuring that sensitive information is securely stored and transmitted.",
+        "completedAtUtc": "2026-09-09T11:39:41.8481154+00:00"
+      }
     },
     {
       "correlationId": "98740bee-c62b-4e66-bcd1-c7cf5ac00c55",
@@ -8611,7 +8674,14 @@
           "rawText": "2026-08-26 10:52:36.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 98740bee-c62b-4e66-bcd1-c7cf5ac00c55"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The transaction failed due to an ACL downstream processing timeout, which cascaded through multiple services, ultimately impacting the \u0060source-of-fund-log\u0060 and \u0060identity-log\u0060 components.",
+        "culpritComponent": "The first service to fail was the \u0060TMS-app-log\u0060 with an error message of \u0060[Hold-Exception-BackendException] ACL_DOWNSTREAM_500_TIMEOUT\u0060.",
+        "rootCause": "The primary root cause of this failure is a downstream processing timeout in the ACL system. The \u0060ACL_DOWNSTREAM_500_TIMEOUT\u0060 error indicates that the TMS application encountered a timeout while trying to validate and process a bill payment request. This was triggered by an issue with the downstream ACL service, which failed to complete its processing within the allotted time frame.",
+        "impact": "The failure of this transaction had a cascading impact on the subsequent services involved in the workflow. The \u0060source-of-fund-log\u0060 service reported an \u0060[ErrorHoldBalance]\u0060 error due to the same ACL timeout issue, and the \u0060acl-log\u0060 service returned a status code of 500 with an error message indicating downstream processing failure. Meanwhile, the \u0060identity-log\u0060 service received a response with a Correlation ID but failed to provide any meaningful output.",
+        "suggestedFix": "To prevent this failure chain in the future, concrete steps could include:\n- Improving the performance and responsiveness of the ACL system to reduce downstream timeouts.\n- Enhancing error handling mechanisms within TMS-app-log to better manage such exceptions.\n- Ensuring that all services involved in the workflow are properly configured and monitored for performance issues.",
+        "completedAtUtc": "2026-09-09T11:40:30.2321766+00:00"
+      }
     },
     {
       "correlationId": "addee5b2-d51d-4fa3-b32e-39a4d7823563",
@@ -8786,7 +8856,14 @@
           "rawText": "2026-08-26 10:52:48.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: addee5b2-d51d-4fa3-b32e-39a4d7823563"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "The failure chain for the transaction began with \u0060TMS-app-log\u0060 encountering a \u0060SOF_SQL_DEADLOCK\u0060 error, which propagated to downstream services \u0060source-of-fund-log\u0060, \u0060acl-log\u0060, and ultimately affected user interactions.",
+        "culpritComponent": "The first service to fail was \u0060TMS-app-log\u0060, specifically encountering an error with Correlation_ID: addee5b2-d51d-4fa3-b32e-39a4d7823563.\n\n[10:52:48.231] [TMS-app-log] [ERROR]: [Hold-Exception-BackendException] SOF_SQL_DEADLOCK",
+        "rootCause": "The root cause of the failure chain was a \u0060SOF_SQL_DEADLOCK\u0060 error, which occurred on the backend of \u0060TMS-app-log\u0060. This error caused an exception that propagated to downstream services.\n\n[10:52:48.231] [TMS-app-log] [ERROR]: [Hold-Exception-BackendException] SOF_SQL_DEADLOCK",
+        "impact": "The failure of \u0060TMS-app-log\u0060 had a cascading effect on the following services:\n\n*   \u0060source-of-fund-log\u0060: encountered an error with Correlation_ID: addee5b2-d51d-4fa3-b32e-39a4d7823563, due to the failed response from \u0060TMS-app-log\u0060.\n    [10:52:48.231] [source-of-fund-log] [ERROR]: [ErrorHoldBalance] SOF_SQL_DEADLOCK\n*   \u0060acl-log\u0060: received a 500 error with Correlation_ID: addee5b2-d51d-4fa3-b32e-39a4d7823563, due to the failed response from \u0060TMS-app-log\u0060.\n    [10:52:48.231] [acl-log] [ERROR] [Status: 500]: {\u0022StatusCode\u0022:500,\u0022Success\u0022:false,\u0022ErrorMessage\u0022:\u0022Downstream processing failed due to SOF_SQL_DEADLOCK\u0022}\n*   \u0060identity-log\u0060: received an information message with Correlation_ID: addee5b2-d51d-4fa3-b32e-39a4d7823563, but its response was not affected by the failure of \u0060TMS-app-log\u0060.\n    [10:52:48.231] [identity-log] [INFO]: [Information] Received response with Correlation_ID: addee5b2-d51d-4fa3-b32e-39a4d7823563",
+        "suggestedFix": "To prevent similar failures, consider implementing additional error handling and retries for \u0060TMS-app-log\u0060, particularly for \u0060Hold\u0060 operations. Additionally, review the database schema to optimize query performance and reduce the likelihood of deadlocks.\n\n[10:52:48.231] [TMS-app-log] [INFORMATION]: [Hold]\n[10:52:48.231] [TMS-app-log] [ERROR]: [Hold-Exception-BackendException] SOF_SQL_DEADLOCK",
+        "completedAtUtc": "2026-09-09T11:41:48.0077748+00:00"
+      }
     },
     {
       "correlationId": "cf32db38-4bed-4629-bfda-de14441a9780",
@@ -8961,7 +9038,14 @@
           "rawText": "2026-08-26 10:53:00.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: cf32db38-4bed-4629-bfda-de14441a9780"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "A SOF_CONNECTION_TIMEOUT in TMS-app-log caused a chain reaction of failures across identity-log, acl-log, source-of-fund-log, leading to request timeouts and downstream service disruptions.",
+        "culpritComponent": "TMS-app-log",
+        "rootCause": "The primary root cause of the failure chain was a SOF_CONNECTION_TIMEOUT exception in the TMS-app-log component. This occurred when the Hold operation on an account failed due to a timeout, causing the backend exception [Hold-Exception-BackendException] to be thrown.",
+        "impact": "The failure in TMS-app-log affected downstream services like source-of-fund-log and acl-log, resulting in a cascade of errors. Specifically, source-of-fund-log encountered an ErrorHoldBalance error due to the same SOF_CONNECTION_TIMEOUT, while acl-log failed with a 500 status code after routing the bill payment request to TMS. Identity-log received responses but couldn\u0027t provide accurate information due to the upstream failures.",
+        "suggestedFix": "To prevent this issue, ensure that all components in the transaction flow can handle hold operations without timeouts. Implement retry mechanisms or circuit breakers for the TMS-app-log component and review its backend exception handling to avoid such errors. Additionally, verify that all services can communicate effectively and provide error-free responses.",
+        "completedAtUtc": "2026-09-09T11:42:49.8825086+00:00"
+      }
     },
     {
       "correlationId": "530ecd54-d04d-42b3-9932-60b21df47c82",
@@ -9136,7 +9220,14 @@
           "rawText": "2026-08-26 10:53:12.231 [identity-log] [INFO] [Information] Received response with Correlation_ID: 530ecd54-d04d-42b3-9932-60b21df47c82"
         }
       ],
-      "rcaResult": null
+      "rcaResult": {
+        "summary": "A cross-component failure chain was triggered due to an invalid switch code (\u0022TMS_SWITCH_501_NOT_FOUND\u0022) being returned by the TMS service, affecting subsequent operations and causing failures across Identity, ACL, and SourceOfFund services.",
+        "culpritComponent": "TMS-app-log (specifically, the backend exception \u0022Hold-Exception-BackendException\u0022 with code TMS_SWITCH_501_NOT_FOUND)",
+        "rootCause": "The primary root cause of this transaction failure lies in the invalid Switch Code (\u0022TMS_SWITCH_501_NOT_FOUND\u0022) being returned by the TMS service. This error prevents the subsequent operations from succeeding, causing a chain reaction of failures across services.",
+        "impact": "This failure has cascaded through the system, affecting:\n- TMS-app-log: The request was unable to proceed due to the invalid switch code.\n- source-of-fund-log: The \u0022ErrorHoldBalance\u0022 operation failed due to the same TMS_SWITCH_501_NOT_FOUND error.\n- acl-log: The routing bill payment request was cancelled and returned a status of 500, as downstream processing failed.",
+        "suggestedFix": "To prevent similar failures in the future:\n1. **Implement robust switch code validation**: Ensure that all switch codes are correctly formatted and validated before passing them to the TMS service.\n2. **Upgrade or configure TMS service**: Review and update the TMS service configuration to handle invalid switch codes gracefully, potentially by returning a standard error response instead of failing abruptly.",
+        "completedAtUtc": "2026-09-09T11:43:37.0868133+00:00"
+      }
     },
     {
       "correlationId": "a515f3a1-79be-4535-aded-009c923ba669",

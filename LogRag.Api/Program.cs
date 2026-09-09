@@ -12,6 +12,7 @@ using LogRag.Api.VectorStore;
 
 
 var builder = WebApplication.CreateBuilder(args);
+var webJsonOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
 
 
 
@@ -169,7 +170,7 @@ app.MapPost("/chat", async (LogRag.Api.Domain.ChatRequestDto request, HttpContex
     {
         await foreach (var evt in chatService.StreamChatAsync(request, cancellationToken))
         {
-            var payload = JsonSerializer.Serialize(evt);
+            var payload = JsonSerializer.Serialize(evt, webJsonOptions);
             await httpContext.Response.WriteAsync($"data: {payload}\n\n", cancellationToken);
             await httpContext.Response.Body.FlushAsync(cancellationToken);
         }
@@ -184,7 +185,7 @@ app.MapPost("/chat", async (LogRag.Api.Domain.ChatRequestDto request, HttpContex
             Content: "Chat failed due to a backend dependency error. Ensure Qdrant (localhost:6333) and Ollama (localhost:11434) are running.",
             Metadata: new { error = "chat_dependency_failure" });
 
-        var payload = JsonSerializer.Serialize(fallback);
+        var payload = JsonSerializer.Serialize(fallback, webJsonOptions);
         await httpContext.Response.WriteAsync($"data: {payload}\n\n", cancellationToken);
         await httpContext.Response.Body.FlushAsync(cancellationToken);
     }
@@ -223,7 +224,7 @@ void MapErrorAnalysisEndpoints(WebApplication webApp, string prefix)
         {
             await foreach (var evt in engine.StreamProgressAsync(id, cancellationToken))
             {
-                var payload = JsonSerializer.Serialize(evt);
+                var payload = JsonSerializer.Serialize(evt, webJsonOptions);
                 await httpContext.Response.WriteAsync($"data: {payload}\n\n", cancellationToken);
                 await httpContext.Response.Body.FlushAsync(cancellationToken);
             }
@@ -282,7 +283,7 @@ void MapErrorAnalysisEndpoints(WebApplication webApp, string prefix)
         {
             await foreach (var evt in chatService.StreamChatAsync(scopedRequest, cancellationToken))
             {
-                var payload = JsonSerializer.Serialize(evt);
+                var payload = JsonSerializer.Serialize(evt, webJsonOptions);
                 await httpContext.Response.WriteAsync($"data: {payload}\n\n", cancellationToken);
                 await httpContext.Response.Body.FlushAsync(cancellationToken);
             }
@@ -294,7 +295,7 @@ void MapErrorAnalysisEndpoints(WebApplication webApp, string prefix)
                 Type: "final",
                 Content: "Chat failed due to a backend dependency error. Ensure Qdrant and LLM are running.",
                 Metadata: new { error = "session_chat_failure" });
-            var payload = JsonSerializer.Serialize(fallback);
+            var payload = JsonSerializer.Serialize(fallback, webJsonOptions);
             await httpContext.Response.WriteAsync($"data: {payload}\n\n", cancellationToken);
             await httpContext.Response.Body.FlushAsync(cancellationToken);
         }

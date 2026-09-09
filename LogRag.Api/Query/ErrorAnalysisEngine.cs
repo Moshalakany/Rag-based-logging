@@ -39,7 +39,7 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
     private readonly ILogger<ErrorAnalysisEngine> _logger;
 
     private readonly ConcurrentDictionary<string, CancellationTokenSource> _activeRuns = new(StringComparer.OrdinalIgnoreCase);
-    private readonly ConcurrentDictionary<string, Channel<ErrorAnalysisProgressEvent>> _progressChannels = new(StringComparer.OrdinalIgnoreCase);
+    private readonly ConcurrentDictionary<string, ConcurrentDictionary<Guid, Channel<ErrorAnalysisProgressEvent>>> _subscribers = new(StringComparer.OrdinalIgnoreCase);
 
     public ErrorAnalysisEngine(
         ILogSourceRegistry sourceRegistry,
@@ -83,17 +83,12 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
             Status = ErrorAnalysisSessionStatus.Running,
             ProgressStage = ErrorAnalysisProgressStage.Initializing,
             ProgressMessage = "Initializing error analysis session...",
+            PercentComplete = 5,
             CollectionName = $"error_session_{sessionId}",
             CreatedAtUtc = DateTimeOffset.UtcNow
         };
 
         await _sessionStore.SaveAsync(session, cancellationToken);
-
-        var channel = Channel.CreateBounded<ErrorAnalysisProgressEvent>(new BoundedChannelOptions(100)
-        {
-            FullMode = BoundedChannelFullMode.DropOldest
-        });
-        _progressChannels[sessionId] = channel;
 
         var cts = new CancellationTokenSource();
         _activeRuns[sessionId] = cts;
@@ -122,6 +117,7 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
         session.ProgressStage = ErrorAnalysisProgressStage.Stopped;
         session.ProgressMessage = "Session was manually stopped.";
         session.CompletedAtUtc = DateTimeOffset.UtcNow;
+        session.PercentComplete = 100;
 
         if (_options.AutoDropCollectionOnStop && !string.IsNullOrWhiteSpace(session.CollectionName))
         {
@@ -138,9 +134,12 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
         await _sessionStore.SaveAsync(session, cancellationToken);
         BroadcastProgress(session, 100);
 
-        if (_progressChannels.TryGetValue(sessionId, out var channel))
+        if (_subscribers.TryRemove(sessionId, out var sessionSubs))
         {
-            channel.Writer.TryComplete();
+            foreach (var sub in sessionSubs.Values)
+            {
+                sub.Writer.TryComplete();
+            }
         }
 
         return true;
@@ -167,9 +166,12 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
             }
         }
 
-        if (_progressChannels.TryRemove(sessionId, out var channel))
+        if (_subscribers.TryRemove(sessionId, out var sessionSubs))
         {
-            channel.Writer.TryComplete();
+            foreach (var sub in sessionSubs.Values)
+            {
+                sub.Writer.TryComplete();
+            }
         }
 
         return await _sessionStore.DeleteAsync(sessionId, cancellationToken);
@@ -191,7 +193,9 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
             yield break;
         }
 
-        // Emit current state first
+        var currentPct = CalculateProgressPercent(session);
+
+        // Emit current state snapshot immediately with accurate percent
         yield return new ErrorAnalysisProgressEvent(
             session.SessionId,
             session.ProgressStage,
@@ -202,7 +206,7 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
             session.VectorsUpserted,
             session.RcaCompletedCount,
             session.Traces.Count,
-            session.Status == ErrorAnalysisSessionStatus.Completed ? 100 : 0,
+            currentPct,
             DateTimeOffset.UtcNow);
 
         if (session.Status != ErrorAnalysisSessionStatus.Running)
@@ -210,16 +214,53 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
             yield break;
         }
 
-        var channel = _progressChannels.GetOrAdd(sessionId, _ => Channel.CreateBounded<ErrorAnalysisProgressEvent>(100));
-        var reader = channel.Reader;
-
-        while (!cancellationToken.IsCancellationRequested && await reader.WaitToReadAsync(cancellationToken))
+        var subId = Guid.NewGuid();
+        var subChannel = Channel.CreateBounded<ErrorAnalysisProgressEvent>(new BoundedChannelOptions(100)
         {
-            while (reader.TryRead(out var evt))
+            FullMode = BoundedChannelFullMode.DropOldest
+        });
+
+        var sessionSubs = _subscribers.GetOrAdd(sessionId, _ => new ConcurrentDictionary<Guid, Channel<ErrorAnalysisProgressEvent>>());
+        sessionSubs[subId] = subChannel;
+
+        try
+        {
+            while (!cancellationToken.IsCancellationRequested && await subChannel.Reader.WaitToReadAsync(cancellationToken))
             {
-                yield return evt;
+                while (subChannel.Reader.TryRead(out var evt))
+                {
+                    yield return evt;
+                }
             }
         }
+        finally
+        {
+            sessionSubs.TryRemove(subId, out _);
+        }
+    }
+
+    public static int CalculateProgressPercent(ErrorAnalysisSession session)
+    {
+        if (session.PercentComplete > 0)
+        {
+            return session.PercentComplete;
+        }
+
+        if (session.Status is ErrorAnalysisSessionStatus.Completed or ErrorAnalysisSessionStatus.Stopped or ErrorAnalysisSessionStatus.Failed)
+        {
+            return 100;
+        }
+
+        return session.ProgressStage switch
+        {
+            ErrorAnalysisProgressStage.Initializing => 5,
+            ErrorAnalysisProgressStage.Scanning => 15,
+            ErrorAnalysisProgressStage.Correlating => 35,
+            ErrorAnalysisProgressStage.Vectorizing => 50,
+            ErrorAnalysisProgressStage.Analyzing => 60 + (int)(38.0 * session.RcaCompletedCount / Math.Max(1, session.CorrelatedTracesCount > 0 ? session.CorrelatedTracesCount : session.Traces.Count)),
+            ErrorAnalysisProgressStage.Completed => 100,
+            _ => 5
+        };
     }
 
     private async Task RunAnalysisCycleAsync(ErrorAnalysisSession session, int? maxTracesParam, CancellationToken ct)
@@ -482,9 +523,12 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
         finally
         {
             _activeRuns.TryRemove(session.SessionId, out _);
-            if (_progressChannels.TryGetValue(session.SessionId, out var ch))
+            if (_subscribers.TryRemove(session.SessionId, out var sessionSubs))
             {
-                ch.Writer.TryComplete();
+                foreach (var sub in sessionSubs.Values)
+                {
+                    sub.Writer.TryComplete();
+                }
             }
         }
     }
@@ -589,6 +633,7 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
 
     private void BroadcastProgress(ErrorAnalysisSession session, int percent)
     {
+        session.PercentComplete = percent;
         var evt = new ErrorAnalysisProgressEvent(
             session.SessionId,
             session.ProgressStage,
@@ -602,9 +647,12 @@ public sealed class ErrorAnalysisEngine : IErrorAnalysisEngine
             percent,
             DateTimeOffset.UtcNow);
 
-        if (_progressChannels.TryGetValue(session.SessionId, out var ch))
+        if (_subscribers.TryGetValue(session.SessionId, out var sessionSubs))
         {
-            ch.Writer.TryWrite(evt);
+            foreach (var sub in sessionSubs.Values)
+            {
+                sub.Writer.TryWrite(evt);
+            }
         }
     }
 

@@ -247,15 +247,25 @@ import { Subscription } from 'rxjs';
           </div>
         </div>
 
-        <!-- Live Progress Banner (shown if running or actively loaded) -->
-        <div class="ea-progress-card panel" *ngIf="selectedSession && (selectedSession.status === 'Running' || activeProgress)">
+        <!-- Live Progress Banner (shown for any selected session) -->
+        <div
+          class="ea-progress-card panel"
+          [ngClass]="selectedSession.status.toLowerCase()"
+          *ngIf="selectedSession && selectedSessionId !== '__NEW__'"
+        >
           <div class="ea-progress-header">
             <div class="stage-tag">
               <span class="spinner-small" *ngIf="selectedSession.status === 'Running'"></span>
+              <span class="status-icon" *ngIf="selectedSession.status === 'Completed'">✅</span>
+              <span class="status-icon" *ngIf="selectedSession.status === 'Stopped'">⏹️</span>
+              <span class="status-icon" *ngIf="selectedSession.status === 'Failed'">❌</span>
               Stage: <strong>{{ activeProgress?.stage || selectedSession.progressStage }}</strong>
+              <span class="status-badge" [ngClass]="selectedSession.status.toLowerCase()">
+                {{ selectedSession.status }}
+              </span>
             </div>
             <div class="progress-pct">
-              {{ activeProgress?.percentComplete ?? (selectedSession.status === 'Completed' ? 100 : 0) }}%
+              {{ calculateSessionPercent(selectedSession) }}%
             </div>
           </div>
 
@@ -263,7 +273,8 @@ import { Subscription } from 'rxjs';
           <div class="progress-track">
             <div
               class="progress-fill"
-              [style.width.%]="activeProgress?.percentComplete ?? (selectedSession.status === 'Completed' ? 100 : 15)"
+              [ngClass]="selectedSession.status.toLowerCase()"
+              [style.width.%]="calculateSessionPercent(selectedSession)"
             ></div>
           </div>
 
@@ -757,6 +768,27 @@ import { Subscription } from 'rxjs';
         background: linear-gradient(90deg, #38bdf8 0%, #3b82f6 100%);
         transition: width 0.4s ease;
       }
+      .progress-fill.completed {
+        background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+      }
+      .progress-fill.stopped {
+        background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+      }
+      .progress-fill.failed {
+        background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+      }
+      .ea-progress-card.completed {
+        border-left-color: #22c55e;
+      }
+      .ea-progress-card.stopped {
+        border-left-color: #f59e0b;
+      }
+      .ea-progress-card.failed {
+        border-left-color: #ef4444;
+      }
+      .status-icon {
+        font-size: 1.05rem;
+      }
       .ea-progress-message {
         font-size: 0.9rem;
         color: #94a3b8;
@@ -1127,7 +1159,7 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   // Navigation
-  activeTab: 'chat' | 'error-analysis' = 'chat';
+  activeTab: 'chat' | 'error-analysis' = (localStorage.getItem('lograg_active_tab') as any) || 'chat';
 
   // ── Tab 1 State ──
   messages: Message[] = [];
@@ -1145,7 +1177,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // ── Tab 2 State (Error Correlation & RCA) ──
   errorSessions: ErrorAnalysisSessionSummary[] = [];
-  selectedSessionId: string = '__NEW__';
+  selectedSessionId: string = localStorage.getItem('lograg_selected_session') || '__NEW__';
   selectedSession: ErrorAnalysisSession | null = null;
   errorAnalysisName: string = '';
   errorFromUtc: string = '';
@@ -1188,6 +1220,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   setActiveTab(tab: 'chat' | 'error-analysis'): void {
     this.activeTab = tab;
+    localStorage.setItem('lograg_active_tab', tab);
     if (tab === 'error-analysis') {
       this.loadErrorSessions();
     }
@@ -1313,15 +1346,27 @@ export class AppComponent implements OnInit, OnDestroy {
   loadErrorSessions(): void {
     this.ragApiService.listErrorSessions().subscribe((sessions) => {
       this.errorSessions = sessions;
-      if (this.selectedSessionId === '__NEW__' && sessions.length > 0 && !this.selectedSession) {
-        // Auto-select most recent session if available
-        this.selectedSessionId = sessions[0].sessionId;
-        this.loadSessionDetails(this.selectedSessionId);
+      const savedId = localStorage.getItem('lograg_selected_session');
+      let targetId = '__NEW__';
+
+      if (savedId && sessions.some((s) => s.sessionId === savedId)) {
+        targetId = savedId;
+      } else if (this.selectedSessionId !== '__NEW__' && sessions.some((s) => s.sessionId === this.selectedSessionId)) {
+        targetId = this.selectedSessionId;
+      } else if (sessions.length > 0) {
+        targetId = sessions[0].sessionId;
+      }
+
+      if (targetId !== '__NEW__') {
+        this.selectedSessionId = targetId;
+        localStorage.setItem('lograg_selected_session', targetId);
+        this.loadSessionDetails(targetId);
       }
     });
   }
 
   onSessionSelectChange(): void {
+    localStorage.setItem('lograg_selected_session', this.selectedSessionId);
     if (this.selectedSessionId === '__NEW__') {
       this.selectedSession = null;
       this.stopProgressStreaming();
@@ -1331,19 +1376,21 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  loadSessionDetails(sessionId: string): void {
-    this.stopProgressStreaming();
+  loadSessionDetails(sessionId: string, preserveStreaming = false): void {
+    if (!preserveStreaming) {
+      this.stopProgressStreaming();
+    }
     this.sessionMessages = [];
     this.ragApiService.getErrorSession(sessionId).subscribe((session) => {
       this.selectedSession = session;
       this.isAnalysisRunning = session.status === 'Running';
 
       // Auto-expand the first trace if available
-      if (session.traces && session.traces.length > 0) {
+      if (session.traces && session.traces.length > 0 && Object.keys(this.expandedTraces).length === 0) {
         this.expandedTraces[session.traces[0].correlationId] = true;
       }
 
-      if (session.status === 'Running') {
+      if (session.status === 'Running' && !preserveStreaming) {
         this.startProgressStreaming(sessionId);
       }
     });
@@ -1362,6 +1409,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.isStartingAnalysis = false;
         this.selectedSession = session;
         this.selectedSessionId = session.sessionId;
+        localStorage.setItem('lograg_selected_session', session.sessionId);
         this.isAnalysisRunning = true;
         this.loadErrorSessions();
         this.startProgressStreaming(session.sessionId);
@@ -1371,6 +1419,31 @@ export class AppComponent implements OnInit, OnDestroy {
         alert('Failed to start error analysis session: ' + (err.error?.message || err.message));
       }
     );
+  }
+
+  calculateSessionPercent(session: ErrorAnalysisSession | null): number {
+    if (this.activeProgress && typeof this.activeProgress.percentComplete === 'number' && this.activeProgress.percentComplete > 0) {
+      return this.activeProgress.percentComplete;
+    }
+    if (!session) return 0;
+    if (session.status === 'Completed' || session.status === 'Stopped' || session.status === 'Failed') {
+      return 100;
+    }
+    if (session.percentComplete && session.percentComplete > 0) {
+      return session.percentComplete;
+    }
+    switch (session.progressStage) {
+      case 'Initializing': return 5;
+      case 'Scanning': return 15;
+      case 'Correlating': return 35;
+      case 'Vectorizing': return 50;
+      case 'Analyzing': {
+        const total = session.correlatedTracesCount || session.traces?.length || 1;
+        return Math.min(98, 60 + Math.round((38 * (session.rcaCompletedCount || 0)) / Math.max(1, total)));
+      }
+      case 'Completed': return 100;
+      default: return 10;
+    }
   }
 
   startProgressStreaming(sessionId: string): void {
@@ -1389,11 +1462,12 @@ export class AppComponent implements OnInit, OnDestroy {
             this.selectedSession.correlatedTracesCount = event.correlatedTracesCount;
             this.selectedSession.vectorsUpserted = event.vectorsUpserted;
             this.selectedSession.rcaCompletedCount = event.rcaCompletedCount;
+            this.selectedSession.percentComplete = event.percentComplete;
 
             if (event.stage === 'Completed') {
               this.selectedSession.status = 'Completed';
               this.isAnalysisRunning = false;
-              this.loadSessionDetails(sessionId); // reload complete trace results
+              this.loadSessionDetails(sessionId, true); // reload complete trace results
               this.loadErrorSessions();
             } else if (event.stage === 'Stopped') {
               this.selectedSession.status = 'Stopped';
@@ -1412,7 +1486,7 @@ export class AppComponent implements OnInit, OnDestroy {
         },
         complete: () => {
           if (this.selectedSession && this.selectedSession.status === 'Running') {
-            this.loadSessionDetails(sessionId);
+            this.loadSessionDetails(sessionId, true);
           }
         },
       });

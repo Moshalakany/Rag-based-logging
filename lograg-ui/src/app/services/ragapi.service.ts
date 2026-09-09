@@ -170,7 +170,20 @@ export class RagApiService {
                 continue;
               }
 
-              const parsed = JSON.parse(payload) as import('../models/error-analysis.model').ErrorAnalysisProgressEvent;
+              const raw = JSON.parse(payload);
+              const parsed: import('../models/error-analysis.model').ErrorAnalysisProgressEvent = {
+                sessionId: raw.sessionId ?? raw.SessionId ?? '',
+                stage: raw.stage ?? raw.Stage ?? '',
+                message: raw.message ?? raw.Message ?? '',
+                totalRawScanned: raw.totalRawScanned ?? raw.TotalRawScanned ?? 0,
+                errorsFound: raw.errorsFound ?? raw.ErrorsFound ?? 0,
+                correlatedTracesCount: raw.correlatedTracesCount ?? raw.CorrelatedTracesCount ?? 0,
+                vectorsUpserted: raw.vectorsUpserted ?? raw.VectorsUpserted ?? 0,
+                rcaCompletedCount: raw.rcaCompletedCount ?? raw.RcaCompletedCount ?? 0,
+                rcaTotalCount: raw.rcaTotalCount ?? raw.RcaTotalCount ?? 0,
+                percentComplete: raw.percentComplete ?? raw.PercentComplete ?? 0,
+                timestampUtc: raw.timestampUtc ?? raw.TimestampUtc ?? new Date().toISOString(),
+              };
               observer.next(parsed);
             }
           }

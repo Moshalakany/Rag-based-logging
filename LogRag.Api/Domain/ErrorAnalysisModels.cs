@@ -58,6 +58,7 @@ public sealed class ErrorAnalysisSession
     public string Status { get; set; } = ErrorAnalysisSessionStatus.Running;
     public string ProgressStage { get; set; } = ErrorAnalysisProgressStage.Initializing;
     public string ProgressMessage { get; set; } = "";
+    public int PercentComplete { get; set; }
     public string CollectionName { get; set; } = "";
     public DateTimeOffset CreatedAtUtc { get; set; } = DateTimeOffset.UtcNow;
     public DateTimeOffset? CompletedAtUtc { get; set; }
@@ -81,7 +82,8 @@ public sealed record ErrorAnalysisSessionSummary(
     DateTimeOffset? CompletedAtUtc,
     int ErrorsFound,
     int CorrelatedTracesCount,
-    int RcaCompletedCount);
+    int RcaCompletedCount,
+    int PercentComplete = 0);
 
 public sealed record CreateErrorAnalysisRequest(
     string? Name,

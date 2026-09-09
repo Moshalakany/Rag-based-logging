@@ -44,6 +44,7 @@ export interface ErrorAnalysisSession {
   correlatedTracesCount: number;
   vectorsUpserted: number;
   rcaCompletedCount: number;
+  percentComplete?: number;
   errorMessage?: string | null;
   traces: ErrorCorrelationTrace[];
 }
@@ -60,6 +61,7 @@ export interface ErrorAnalysisSessionSummary {
   errorsFound: number;
   correlatedTracesCount: number;
   rcaCompletedCount: number;
+  percentComplete?: number;
 }
 
 export interface CreateErrorAnalysisRequest {

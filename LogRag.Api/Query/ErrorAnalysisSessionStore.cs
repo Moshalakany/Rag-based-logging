@@ -98,7 +98,8 @@ public sealed class JsonErrorAnalysisSessionStore : IErrorAnalysisSessionStore
                         session.CompletedAtUtc,
                         session.ErrorsFound,
                         session.CorrelatedTracesCount,
-                        session.RcaCompletedCount));
+                        session.RcaCompletedCount,
+                        session.PercentComplete));
                 }
             }
             catch (Exception ex)
