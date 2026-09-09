@@ -47,7 +47,15 @@ builder.Services.AddSingleton<ILogChunker, SlidingWindowLogChunker>();
 builder.Services.AddSingleton<ILogEntryFilter, RegexLogEntryFilter>();
 builder.Services.AddSingleton<IPiiRedactor, PiiRedactor>();
 builder.Services.AddSingleton<IIngestionOrchestrator, IngestionOrchestrator>();
-builder.Services.AddSingleton<IErrorAnalysisSessionStore, JsonErrorAnalysisSessionStore>();
+var errorStoreType = builder.Configuration.GetValue<string>("ErrorAnalysis:StoreType") ?? "MongoDb";
+if (string.Equals(errorStoreType, "JsonFile", StringComparison.OrdinalIgnoreCase))
+{
+    builder.Services.AddSingleton<IErrorAnalysisSessionStore, JsonErrorAnalysisSessionStore>();
+}
+else
+{
+    builder.Services.AddSingleton<IErrorAnalysisSessionStore, MongoErrorAnalysisSessionStore>();
+}
 builder.Services.AddSingleton<IErrorAnalysisEngine, ErrorAnalysisEngine>();
 builder.Services.AddHostedService<IngestionHostedService>();
 builder.Services.AddHostedService<MetricsConsoleReporter>();

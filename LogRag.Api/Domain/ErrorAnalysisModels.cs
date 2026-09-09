@@ -1,3 +1,5 @@
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace LogRag.Api.Domain;
 
 public static class ErrorAnalysisSessionStatus
@@ -38,6 +40,7 @@ public sealed record TraceRcaResult(
     string SuggestedFix,
     DateTimeOffset CompletedAtUtc);
 
+[BsonIgnoreExtraElements]
 public sealed class ErrorCorrelationTrace
 {
     public string CorrelationId { get; set; } = "";
@@ -49,8 +52,10 @@ public sealed class ErrorCorrelationTrace
     public TraceRcaResult? RcaResult { get; set; }
 }
 
+[BsonIgnoreExtraElements]
 public sealed class ErrorAnalysisSession
 {
+    [BsonId]
     public string SessionId { get; set; } = "";
     public string Name { get; set; } = "";
     public DateTimeOffset? FromUtc { get; set; }

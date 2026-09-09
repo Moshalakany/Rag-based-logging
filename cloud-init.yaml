@@ -27,11 +27,18 @@ packages:
 
 # ── Write files ─────────────────────────────────────────────────────────────
 write_files:
-  # Docker Compose for Qdrant + Ollama
+  # Docker Compose for MongoDB + Qdrant + Ollama
   - path: /opt/lograg/docker-compose.yml
     content: |
       version: "3.8"
       services:
+        mongodb:
+          image: mongo:latest
+          restart: unless-stopped
+          ports:
+            - "27017:27017"
+          volumes:
+            - mongodb_data:/data/db
         qdrant:
           image: qdrant/qdrant
           restart: unless-stopped
@@ -52,6 +59,7 @@ write_files:
               reservations:
                 memory: 12G
       volumes:
+        mongodb_data:
         qdrant_storage:
         ollama_data:
 

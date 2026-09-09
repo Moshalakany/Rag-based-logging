@@ -62,7 +62,7 @@ echo "Opening firewall ports..."
 az vm open-port \
     --resource-group "${RESOURCE_GROUP}" \
     --name "${VM_NAME}" \
-    --port 5000,4200,11434,6333 \
+    --port 5000,4200,11434,6333,27017 \
     --priority 1000 \
     --output none
 

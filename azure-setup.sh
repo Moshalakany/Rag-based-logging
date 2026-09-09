@@ -37,18 +37,19 @@ OLLAMA_MODELS="nomic-embed-text,llama3.2"
 API_PORT=5000
 QDRANT_PORT=6333
 OLLAMA_PORT=11434
+MONGO_PORT=27017
 
 # ── Logging ─────────────────────────────────────────────────────────────────
 exec > >(tee -a "${LOG_FILE}") 2>&1
 echo "=== LogRag Azure VM Setup — $(date -u +%Y-%m-%dT%H:%M:%SZ) ==="
 
 # ── System updates ──────────────────────────────────────────────────────────
-echo "[1/8] Updating system packages..."
+echo "[1/9] Updating system packages..."
 apt-get update -y
 apt-get upgrade -y
 
 # ── Install Docker ──────────────────────────────────────────────────────────
-echo "[2/8] Installing Docker..."
+echo "[2/9] Installing Docker..."
 if ! command -v docker &>/dev/null; then
     curl -fsSL https://get.docker.com | sh
     usermod -aG docker azureuser || usermod -aG docker "${USER}"
@@ -58,7 +59,7 @@ fi
 docker --version
 
 # ── Install .NET 8 SDK ──────────────────────────────────────────────────────
-echo "[3/8] Installing .NET 8 SDK..."
+echo "[3/9] Installing .NET 8 SDK..."
 if ! command -v dotnet &>/dev/null; then
     wget -q https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O /tmp/packages-microsoft-prod.deb
     dpkg -i /tmp/packages-microsoft-prod.deb
@@ -69,7 +70,7 @@ fi
 dotnet --version
 
 # ── Install Node.js ─────────────────────────────────────────────────────────
-echo "[4/8] Installing Node.js 22..."
+echo "[4/9] Installing Node.js 22..."
 if ! command -v node &>/dev/null; then
     curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
     apt-get install -y nodejs
@@ -77,8 +78,17 @@ fi
 node --version
 npm --version
 
+# ── Start MongoDB (Docker) ──────────────────────────────────────────────────
+echo "[5/9] Starting MongoDB..."
+docker rm -f mongodb 2>/dev/null || true
+docker run -d --restart unless-stopped \
+    --name mongodb \
+    -p ${MONGO_PORT}:27017 \
+    -v mongodb_data:/data/db \
+    mongo:latest
+
 # ── Start Qdrant (Docker) ──────────────────────────────────────────────────
-echo "[5/8] Starting Qdrant..."
+echo "[6/9] Starting Qdrant..."
 docker rm -f qdrant 2>/dev/null || true
 docker run -d --restart unless-stopped \
     --name qdrant \
@@ -88,7 +98,7 @@ docker run -d --restart unless-stopped \
     qdrant/qdrant
 
 # ── Start Ollama (Docker) ───────────────────────────────────────────────────
-echo "[6/8] Starting Ollama and pulling models..."
+echo "[7/9] Starting Ollama and pulling models..."
 docker rm -f ollama 2>/dev/null || true
 docker run -d --restart unless-stopped \
     --name ollama \
@@ -116,7 +126,7 @@ echo "  Models installed:"
 docker exec ollama ollama list
 
 # ── Clone project ───────────────────────────────────────────────────────────
-echo "[7/8] Cloning project from GitHub..."
+echo "[8/9] Cloning project from GitHub..."
 if [ -n "${GITHUB_PAT}" ]; then
     # Private repo via Personal Access Token
     CLONE_URL=$(echo "${GITHUB_REPO}" | sed "s|https://|https://${GITHUB_PAT}@|")
@@ -154,7 +164,7 @@ cd "${UI_DIR}"
 npm ci --omit=dev 2>/dev/null || npm install
 
 # ── Create systemd services ─────────────────────────────────────────────────
-echo "[8/8] Creating systemd services for auto-start..."
+echo "[9/9] Creating systemd services for auto-start..."
 
 # API service
 cat > /etc/systemd/system/lograg-api.service << 'SERVICE_EOF'

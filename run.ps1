@@ -115,8 +115,25 @@ else {
     }
 }
 
-# 3. Start Frontend & Backend
-Write-Host "`n=== [Step 3: Launching Applications] ===" -ForegroundColor DarkCyan
+# 3. Manage MongoDB Dependency
+$mongoPort = 27017
+Write-Host "`n=== [Step 3: Check MongoDB Server] ===" -ForegroundColor DarkCyan
+if (Test-PortOpen $mongoPort) {
+    Write-Host "[SUCCESS] MongoDB is already running on port $mongoPort." -ForegroundColor Green
+}
+else {
+    Write-Host "[WARNING] MongoDB is not running on port $mongoPort." -ForegroundColor Yellow
+    if (Test-DockerRunning) {
+        Ensure-DockerContainer -ContainerName "mongodb" -ImageName "mongo:latest" -PortMapping @("-p", "27017:27017") -ExtraArgs @("-v", "mongodb_data:/data/db")
+        Wait-PortReady $mongoPort
+    }
+    else {
+        Write-Host "[ERROR] Docker is not running. Please start Docker Desktop to enable MongoDB." -ForegroundColor Red
+    }
+}
+
+# 4. Start Frontend & Backend
+Write-Host "`n=== [Step 4: Launching Applications] ===" -ForegroundColor DarkCyan
 
 Write-Host "Starting LogRag.Api..." -ForegroundColor Green
 Write-Host "Location: $apiPath"
